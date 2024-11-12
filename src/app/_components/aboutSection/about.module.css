@@ -113,7 +113,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 100%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.45) 100%);
     pointer-events: none;
     z-index: 1;
 }
@@ -133,7 +133,6 @@
 }
 
 .highlight .box img {
-    background-color: gray;
     width: 10rem;
     height: 10rem;
     object-fit: cover;
@@ -188,7 +187,7 @@
     text-align: center;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: column;
     gap: 1rem;
     background-color: #fff;
@@ -202,9 +201,13 @@
     color: #000;
 }
 
+.whoContent .box p {
+    height: 10rem;
+}
+
 .whoContent .box img {
     width: 100%;
-    height: 100%;
+    height: fit-content;
     object-fit: contain;
     border-radius: 1rem;
 }
@@ -219,6 +222,12 @@
     object-fit: contain;
 }
 
+@media(width<=1280px) {
+    .whoContent .box p {
+        height: 15rem;
+    }
+}
+
 @media(width<=1024px) {
     .title h1 {
         font-size: 1.5rem;
@@ -231,7 +240,6 @@
         height: 40rem;
         object-fit: contain;
     }
-
 
     .design {
         top: -1.5rem;
@@ -270,6 +278,10 @@
 
     .whoContent {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .whoContent .box p {
+        height: 8rem;
     }
 }
 
@@ -326,6 +338,14 @@
 
     .whoContent {
         grid-template-columns: repeat(1, 1fr);
+    }
+
+    .highlight .box {
+        flex-direction: column;
+    }
+
+    .whoContent .box p {
+        height: fit-content;
     }
 }
 

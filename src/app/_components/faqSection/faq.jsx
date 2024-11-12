@@ -11,28 +11,28 @@ import l7 from '@/../../public/l7.svg'
 
 const questions = [
     {
-        question: 'What is the return policy?',
-        answer: 'Our return policy allows you to return products within 30 days of purchase. Items must be unused, in their original packaging, and include the receipt for a full refund or exchange.',
+        question: 'What is the purpose of the business conclave?',
+        answer: 'The business conclave aims to provide a platform for entrepreneurs, investors, business students, and enthusiasts to share insights, learn from industry leaders, and network with like-minded professionals.',
     },
     {
-        question: 'How can I track my order?',
-        answer: 'Once your order ships, we\'ll send you a tracking number to monitor your package’s progress. You can use this number on the carrier\'s website to get real-time updates on your shipment.',
+        question: 'Who can attend the business conclave?',
+        answer: ' The event is open to entrepreneurs, investors, business professionals, students, and anyone interested in the business ecosystem.',
     },
     {
-        question: 'What payment methods do you accept?',
-        answer: 'We accept all major credit and debit cards, PayPal, and bank transfers.',
+        question: 'What types of sessions or activities can participants expect?',
+        answer: 'Participants can expect keynote speeches, panel discussions, workshops, pitch competitions, networking sessions, and showcases of new-age technologies and solutions.',
     },
     {
-        question: 'Can I change my order after it has been placed?',
-        answer: 'Once an order is placed, it cannot be modified. However, you can contact customer service if you need assistance.',
+        question: 'How can startups benefit from participating in the conclave?',
+        answer: 'Startups can gain valuable mentorship, present their ideas to potential investors, receive feedback, and build connections that could lead to funding and collaborations.',
     },
     {
-        question: 'Do you offer international shipping?',
-        answer: 'Yes, we offer international shipping to various countries. Shipping fees and delivery times will vary based on location.',
+        question: 'Is there a registration fee for attending the conclave?',
+        answer: 'There is no registration fee for general attendants. The Platinum membership fee is five thousand rupees. Kindly refer to the platinum section to know more details.',
     },
     {
-        question: 'How do I contact customer support?',
-        answer: 'You can reach customer support through our contact page or by emailing support@example.com.',
+        question: 'Will there be opportunities to network with investors and industry leaders?',
+        answer: 'Yes, the conclave is designed to foster networking, providing ample opportunities to connect with investors, mentors, and other key industry players.',
     }
 ];
 

@@ -3,55 +3,9 @@ import Image from 'next/image'
 import design from '@/../../public/l6.svg'
 import group from '@/../../public/group-1.svg'
 import l1 from '@/../../public/l1.svg'
-import s1 from '@/../../public/s1.png'
-import s2 from '@/../../public/s2.png'
-import s3 from '@/../../public/s3.png'
 
-const Highlight = [
-    {
-        img: s1,
-        title: 'Lorem ipsum',
-        desc: "Lorem ipsum dolor sit amet consectetur. Nulla fermentum ipsum mattis quisque platea id. Amet gravida placerat nulla tristique placerat risus risus."
-    },
-    {
-        img: s2,
-        title: 'Lorem ipsum',
-        desc: "Lorem ipsum dolor sit amet consectetur. Nulla fermentum ipsum mattis quisque platea id. Amet gravida placerat nulla tristique placerat risus risus."
-    },
-    {
-        img: s3,
-        title: 'Lorem ipsum',
-        desc: "Lorem ipsum dolor sit amet consectetur. Nulla fermentum ipsum mattis quisque platea id. Amet gravida placerat nulla tristique placerat risus risus."
-    },
-    {
-        img: s1,
-        title: 'Lorem ipsum',
-        desc: "Lorem ipsum dolor sit amet consectetur. Nulla fermentum ipsum mattis quisque platea id. Amet gravida placerat nulla tristique placerat risus risus."
-    },
-]
-
-const Scale = [
-    {
-        img: s1,
-        title: 'Lorem ipsum',
-        desc: "Lorem ipsum dolor sit amet consectetur. Nulla fermentum ipsum mattis quisque platea id. Amet gravida placerat nulla tristique placerat risus risus."
-    },
-    {
-        img: s2,
-        title: 'Lorem ipsum',
-        desc: "Lorem ipsum dolor sit amet consectetur. Nulla fermentum ipsum mattis quisque platea id. Amet gravida placerat nulla tristique placerat risus risus."
-    },
-    {
-        img: s3,
-        title: 'Lorem ipsum',
-        desc: "Lorem ipsum dolor sit amet consectetur. Nulla fermentum ipsum mattis quisque platea id. Amet gravida placerat nulla tristique placerat risus risus."
-    },
-    {
-        img: s1,
-        title: 'Lorem ipsum',
-        desc: "Lorem ipsum dolor sit amet consectetur. Nulla fermentum ipsum mattis quisque platea id. Amet gravida placerat nulla tristique placerat risus risus."
-    },
-]
+import { Highlight } from './data'
+import { Scale } from './data'
 
 export default function About() {
     return (
@@ -79,14 +33,14 @@ export default function About() {
                 <div className={styles.aboutContent}>
                     <h2>About</h2>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur. Nulla fermentum ipsum mattis quisque platea id.
-                        Amet gravida placerat nulla tristique placerat risus risus. Turpis nunc cras eu mi
-                        quam nisl faucibus. Sem scelerisque arcu interdum ultrices faucibus eu quam nunc.
-                        Rhoncus sagittis molestie scelerisque vitae eget vestibulum bibendum. Tortor lacus
-                        hendrerit leo interdum integer egestas mattis id.
+                        <b>ScaleUp Business Conclave 2025</b> is the second business conclave organized by ScaleUp Village,
+                        offering a vibrant platform for entrepreneurs, investors, business students, and enthusiasts.
+                        This two-day event fosters business acumen, professionalism, and knowledge-sharing. It provides
+                        opportunities for startup investments, refining ideas, and expanding professional networks.
                         <br /> <br />
-                        Lorem ipsum dolor sit amet consectetur. Nulla fermentum ipsum mattis quisque
-                        platea id. Amet gravida placerat nulla tristique placerat risus risus.
+                        <b>ScaleUp Village</b> is a first-of-its-kind dedicated hub focused on Direct-to-Consumer (D2C)
+                        innovation in India. This unique space is designed to revolutionize the entrepreneurial
+                        landscape by offering startups and businesses an environment optimized for success.
                     </p>
                     <span>
                         <Image
