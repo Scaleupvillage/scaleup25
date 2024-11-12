@@ -20,7 +20,6 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    z-index: -2;
 }
 
 .l4 {
@@ -29,7 +28,7 @@
     height: fit-content;
     bottom: -12rem;
     left: -5rem;
-    z-index: -1;
+    z-index: 1;
 }
 
 .l7 {
@@ -77,6 +76,7 @@
 }
 
 .faqItem {
+    z-index: 999;
     border-radius: 1rem;
     padding: 2rem;
     background-color: #fff;

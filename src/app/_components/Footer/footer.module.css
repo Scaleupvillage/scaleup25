@@ -18,6 +18,8 @@
 }
 
 .content {
+    position: relative;
+    z-index: 99;
     padding: 2rem;
     background-color: #fff;
     border-radius: 1rem;
