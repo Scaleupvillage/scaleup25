@@ -92,6 +92,7 @@
 
 .faqSummary strong {
     font-size: 1.25rem;
+    width: 80%;
 }
 
 .faqIcon {
@@ -134,7 +135,6 @@
 @media(width<=1024px) {
     .faqSummary strong {
         font-size: 1.1rem;
-        width: 80%;
     }
 }
 
