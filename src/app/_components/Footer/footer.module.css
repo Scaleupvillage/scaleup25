@@ -32,8 +32,7 @@
 
 .blocks {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    /* 3-column layout */
+    grid-template-columns: repeat(2, 1fr);
     gap: 4rem;
     width: 100%;
 }
@@ -77,6 +76,7 @@
     width: 3rem;
     height: 3rem;
     font-size: 1.3rem;
+    color: #000;
     border: 1px solid #000;
     border-radius: 50%;
     display: flex;
@@ -84,6 +84,13 @@
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+}
+
+.icon .con:hover {
+    background-color: var(--violet);
+    border: 1px solid var(--violet);
+    color: #fff;
+    scale: 1.125;
 }
 
 .contact .text {
