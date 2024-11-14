@@ -32,7 +32,7 @@ export default function Speaker() {
                             <div className={styles.cardHead}>
                                 <span>
                                     <h1>{speaker.name}</h1>
-                                    <h3>{speaker.position}</h3>
+                                    <p>{speaker.position}</p>
                                 </span>
                                 <Image
                                     src={design}

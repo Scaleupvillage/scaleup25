@@ -61,8 +61,9 @@
     font-weight: 800;
 }
 
-.cardHead h3 {
+.cardHead p {
     color: var(--violet);
+    font-weight: 700;
 }
 
 .cardHead img {
@@ -105,7 +106,7 @@
     background-image: url('../../../../public/techTalk-2.svg');
 }
 
-.card:nth-child(even) .cardHead h3 {
+.card:nth-child(even) .cardHead p {
     color: var(--red);
 }
 

@@ -27,11 +27,11 @@ export default function Footer() {
                             <div>
                                 <p>Get in touch to join the ScaleUp <br /> Business Conclave 2025!</p>
                                 <div className={styles.icon}>
-                                    <Link href='https://www.facebook.com/people/ScaleUp-Conclave/61554188141132/' target='_blank' className={styles.con}><FaFacebookF /></Link>
-                                    <Link href='https://x.com/Scaleup2024' target='_blank' className={styles.con}><FaTwitter /></Link>
-                                    <Link href='https://www.linkedin.com/company/scaleupvillage/posts/?feedView=all' target='_blank' className={styles.con}><FaLinkedin /></Link>
-                                    <Link href='https://www.threads.net/@scaleup_village' target='_blank' className={styles.con}><FaThreads /></Link>
-                                    <Link href='https://www.instagram.com/scaleup_village' target='_blank' className={styles.con}><AiFillInstagram /></Link>
+                                    <Link href='https://www.facebook.com/people/ScaleUp-Conclave/61554188141132/' target='_blank' aria-label='facebook' className={styles.con}><FaFacebookF /></Link>
+                                    <Link href='https://x.com/Scaleup2024' target='_blank' aria-label='twitter' className={styles.con}><FaTwitter /></Link>
+                                    <Link href='https://www.linkedin.com/company/scaleupvillage/posts/?feedView=all' aria-label='linkedin' target='_blank' className={styles.con}><FaLinkedin /></Link>
+                                    <Link href='https://www.threads.net/@scaleup_village' target='_blank' aria-label='threads' className={styles.con}><FaThreads /></Link>
+                                    <Link href='https://www.instagram.com/scaleup_village' target='_blank' aria-label='instagram' className={styles.con}><AiFillInstagram /></Link>
                                 </div>
                             </div>
                         </div>
@@ -48,6 +48,7 @@ export default function Footer() {
                             width="600"
                             height="450"
                             loading="lazy"
+                            title='map'
                         />
                     </div>
                 </div>
