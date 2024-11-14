@@ -15,7 +15,7 @@ export default function Footer() {
             <div className={styles.content}>
                 <div className={styles.blocks}>
                     <div className={styles.contact}>
-                        <h1>Contact Us.</h1>
+                        <h1>Contact Us</h1>
                         <div className={styles.divide}>
                             <Image
                                 src={design}

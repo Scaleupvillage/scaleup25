@@ -1,0 +1,198 @@
+.speaker {
+    padding: 4rem;
+}
+
+.head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.head h1 {
+    font-size: 4.5rem;
+    line-height: 1.1;
+}
+
+.head img {
+    width: 8rem;
+    height: 4rem;
+    object-fit: contain;
+}
+
+.list {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.l2 {
+    position: absolute;
+    top: 3rem;
+    left: -6rem;
+    width: fit-content;
+    height: 100%;
+    object-fit: contain;
+}
+
+.card {
+    position: relative;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.cardHead {
+    padding: 2rem 2rem 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.cardHead h1 {
+    letter-spacing: -1px;
+    font-weight: 800;
+}
+
+.cardHead h3 {
+    color: var(--violet);
+}
+
+.cardHead img {
+    position: relative;
+    top: .75rem;
+    width: 5rem;
+    height: fit-content;
+    object-fit: contain;
+}
+
+.card .wave {
+    position: absolute;
+    top: .5rem;
+    rotate: -2deg;
+    right: -.2rem;
+    width: 100%;
+    object-fit: contain;
+}
+
+.cardBody {
+    width: 100%;
+    height: 15rem;
+    position: relative;
+}
+
+.cardBody span {
+    position: absolute;
+    width: 6rem;
+    height: 6rem;
+    top: -3rem;
+    left: 3rem;
+    border-radius: 50%;
+    background-image: url('../../../../public/techTalk-1.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.card:nth-child(even) .cardBody span {
+    background-image: url('../../../../public/techTalk-2.svg');
+}
+
+.card:nth-child(even) .cardHead h3 {
+    color: var(--red);
+}
+
+.speakerPic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardBody .arrow {
+    z-index: 1;
+    position: absolute;
+    width: 4rem;
+    height: 4rem;
+    bottom: 1rem;
+    right: 1rem;
+}
+
+.cardBody .v1 {
+    width: 8rem;
+    height: fit-content;
+    position: absolute;
+    z-index: 1;
+    top: -3.3rem;
+    right: 2.5rem;
+}
+
+@media(width<=1280px) {
+    .cardBody span {
+        width: 5rem;
+        height: 5rem;
+        top: -2.5rem;
+        left: 1.5rem;
+    }
+
+    .cardBody .v1 {
+        width: 5rem;
+        top: -2rem;
+        right: 1.5rem;
+    }
+
+    .cardBody .arrow {
+        width: 3rem;
+        height: 3rem;
+    }
+}
+
+@media(width<=1024px) {
+    .card {
+        gap: 4rem;
+    }
+
+    .cardHead {
+        padding: 1.25rem 1.25rem 0;
+    }
+}
+
+@media(width<=920px) {
+    .list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(width<=600px) {
+    .speaker {
+        padding: 2rem 1rem;
+    }
+
+    .head {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 1rem
+    }
+
+    .head h1 {
+        font-size: 4rem;
+    }
+
+    .card .wave {
+        top: -1.5rem;
+    }
+
+    .list {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .l2 {
+        display: none;
+    }
+}

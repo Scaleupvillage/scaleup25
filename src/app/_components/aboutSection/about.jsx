@@ -3,7 +3,7 @@ import Image from 'next/image'
 import design from '@/../../public/l6.svg'
 import group from '@/../../public/group-1.svg'
 import l1 from '@/../../public/l1.svg'
-
+import l4 from '@/../../public/l4.svg'
 import { Highlight } from './data'
 import { Scale } from './data'
 
@@ -11,7 +11,7 @@ export default function About() {
     return (
         <div className={styles.about}>
             <div className={styles.title}>
-                <h1>The Start to something amazing on! <span>Feb 1st,2nd 2025</span></h1>
+                <h1>The Start to something amazing on! <span>Feb 8th,9th 2025</span></h1>
                 <Image
                     src={design}
                     alt="design"
@@ -108,6 +108,13 @@ export default function About() {
                         })
                     }
                 </div>
+                <Image
+                    src={l4}
+                    alt="group"
+                    className={styles.l4}
+                    width={400}
+                    height={400}
+                />
             </div>
         </div>
     )

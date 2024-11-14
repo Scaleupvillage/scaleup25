@@ -153,7 +153,8 @@
 
 .who {
     background-color: #F9F9FF;
-    padding: 2rem;
+    padding: 4rem 2rem 6rem;
+    position: relative;
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
@@ -181,6 +182,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
+    z-index: 2;
 }
 
 .whoContent .box {
@@ -220,6 +222,15 @@
     width: 55rem;
     height: 55rem;
     object-fit: contain;
+}
+
+.l4 {
+    position: absolute;
+    width: 10rem;
+    height: fit-content;
+    bottom: -6rem;
+    right: 5rem;
+    z-index: 1;
 }
 
 @media(width<=1280px) {
@@ -298,6 +309,16 @@
         width: 3rem;
         height: 3rem;
     }
+
+    .whoContent .box p {
+        height: 12rem;
+    }
+
+    .l4 {
+        width: 7rem;
+        bottom: -4rem;
+        right: 3rem;
+    }
 }
 
 @media(width<=678px) {
@@ -346,6 +367,12 @@
 
     .whoContent .box p {
         height: fit-content;
+    }
+
+    .l4 {
+        width: 5rem;
+        bottom: -3rem;
+        right: 2rem;
     }
 }
 

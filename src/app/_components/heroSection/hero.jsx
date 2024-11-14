@@ -47,7 +47,7 @@ export default function Hero() {
             <h1>
                 India's First Fusion Business
                 {isWideScreen && <br />}
-                Conclave Season II
+                Conclave Season 2
             </h1>
             <div className={styles.imgContainer}>
                 <Image
