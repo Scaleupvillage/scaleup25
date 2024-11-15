@@ -1,6 +1,6 @@
-import s1 from "@/../../public/s1.png";
-import s2 from "@/../../public/s2.png";
-import s3 from "@/../../public/s3.png";
+import s1 from "@/../../public/s1.svg";
+import s2 from "@/../../public/s2.svg";
+import s3 from "@/../../public/s3.svg";
 
 export const Highlight = [
   {

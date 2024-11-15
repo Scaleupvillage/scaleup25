@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import styles from './hero.module.css'
-import hero from '@/../../public/hero.png'
+import hero from '@/../../public/hero.webp'
 import design from '@/../../public/l5.svg'
 import Image from 'next/image'
 import Countdown from 'react-countdown';

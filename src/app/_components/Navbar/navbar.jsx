@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import styles from './navbar.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
-import white from '@/../public/logo.webp';
+import white from '@/../public/logo.svg';
 import { BsSearch } from "react-icons/bs";
 import { usePathname } from 'next/navigation';
 

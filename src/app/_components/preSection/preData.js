@@ -1,6 +1,6 @@
-import e1 from "@/../../public/s1.png";
-import e2 from "@/../../public/s2.png";
-import e3 from "@/../../public/s3.png";
+import e1 from "@/../../public/s1.svg";
+import e2 from "@/../../public/s2.svg";
+import e3 from "@/../../public/s3.svg";
 
 export const events = [
   {
