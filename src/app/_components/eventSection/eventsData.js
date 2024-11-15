@@ -22,7 +22,7 @@ export const events = {
     {
       img: dummy,
       title: "Fireside Chat: The Future of Sustainable Startups",
-      desc: " Insights on sustainable business practices from successful entrepreneurs. Speakers: Mr. Aronin P (SASTRA)  and Mr. Anees Poovathi (Aifer Education).",
+      desc: "Insights on sustainable business practices from successful entrepreneurs. Speakers: Mr. Aronin P (SASTRA)  and Mr. Anees Poovathi (Aifer Education).",
       vector: e3,
       link: "",
     },
@@ -60,9 +60,8 @@ export const events = {
     },
     {
       img: dummy,
-      title:
-        "Creative Workshop: From Idea to Impact - Prototyping with 3D Printing",
-      desc: " Learn the fundamentals of rapid prototyping using 3D printing technology.",
+      title:"Creative Workshop: From Idea to Impact - Prototyping with 3D Printing",
+      desc: "Learn the fundamentals of rapid prototyping using 3D printing technology.",
       vector: e2,
       link: "",
     },

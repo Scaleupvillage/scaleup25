@@ -109,7 +109,7 @@
 }
 
 .navbar .links .linkBlocks .link:hover {
-    color: var(--orange);
+    color: var(--violet);
 }
 
 .navbar.scrolled {

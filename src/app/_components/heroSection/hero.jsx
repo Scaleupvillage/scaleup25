@@ -43,7 +43,7 @@ export default function Hero() {
     };
 
     return (
-        <div className={styles.hero}>
+        <div className={styles.hero} id='hero'>
             <h1>
                 India's First Fusion Business
                 {isWideScreen && <br />}
@@ -67,7 +67,7 @@ export default function Hero() {
                 {isClient && (
                     <div className={styles.clock}>
                         <Countdown
-                            date={new Date("2025-02-10T00:00:00")}
+                            date={new Date("2025-02-08T00:00:00")}
                             renderer={renderer}
                         />
                     </div>

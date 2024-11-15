@@ -98,8 +98,8 @@ export default function Schedule() {
                                             <p>{event.desc}</p>
                                         </div>
                                         <div className={styles.reg}>
-                                            <span>Feb 1st, 10:00 AM</span>
-                                            <Link href={event.link}>Register</Link>
+                                            <span>{event.time}</span>
+                                            {/* <Link href={event.link}>Register</Link> */}
                                         </div>
                                     </div>
                                 </div>

@@ -94,13 +94,14 @@ export default function About() {
                         Scale.map((item, index) => {
                             return (
                                 <div className={styles.box} key={index}>
-                                    <Image
-                                        src={item.img}
-                                        alt="highlight"
-                                        className={styles.highlightImage}
-                                        width={400}
-                                        height={400}
-                                    />
+                                    <div className={styles.highlightImg}>
+                                        <Image
+                                            src={item.img}
+                                            alt="highlight"
+                                            width={400}
+                                            height={400}
+                                        />
+                                    </div>
                                     <h3>{item.title}</h3>
                                     <p>{item.desc}</p>
                                 </div>

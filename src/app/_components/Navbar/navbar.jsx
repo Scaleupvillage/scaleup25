@@ -75,14 +75,14 @@ export default function Navbar() {
                     </Link>
 
                     <div className={styles.linkBlocks}>
-                        <Link href="/" className={styles.link}>Home</Link>
-                        <Link href="#" className={styles.link}>Speakers</Link>
-                        <Link href="#" className={styles.link}>Events</Link>
+                        <Link href="#hero" className={styles.link}>Home</Link>
+                        <Link href="#speakers" className={styles.link}>Speakers</Link>
+                        <Link href="#events" className={styles.link}>Events</Link>
                         <Link href="#" className={styles.link}>News</Link>
                         <Link href="#" className={styles.link}>Contact</Link>
                         <span>
                             <Link href="https://www.scaleupconclave.com/" target='_blank' className={styles.contact}>Conclave 2024</Link>
-                            <Link href="/contact" className={styles.reg}>Register now</Link>
+                            <Link href="#" className={styles.reg}>Register now</Link>
                             <BsSearch size={20} />
                         </span>
                     </div>

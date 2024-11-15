@@ -132,6 +132,11 @@
     border-radius: 1rem;
 }
 
+.highlightImg {
+    padding: 1.5rem;
+    padding-bottom: 0;
+}
+
 .highlight .box img {
     width: 10rem;
     height: 10rem;

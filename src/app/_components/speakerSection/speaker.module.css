@@ -54,6 +54,7 @@
     align-items: flex-start;
     justify-content: space-between;
     gap: 1rem;
+    height: 7rem;
 }
 
 .cardHead h1 {
@@ -161,6 +162,11 @@
 
     .cardHead {
         padding: 1.25rem 1.25rem 0;
+        height: 9rem;
+    }
+
+    .cardHead h1 {
+        font-size: 1.8rem;
     }
 }
 
@@ -170,7 +176,7 @@
     }
 }
 
-@media(width<=600px) {
+@media(width<=678px) {
     .speaker {
         padding: 2rem 1rem;
     }
@@ -191,6 +197,10 @@
 
     .list {
         grid-template-columns: repeat(1, 1fr);
+    }
+
+    .cardHead {
+        height: fit-content;
     }
 
     .l2 {

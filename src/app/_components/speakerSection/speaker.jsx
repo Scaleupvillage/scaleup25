@@ -8,7 +8,7 @@ import { speakers } from './speakersData'
 
 export default function Speaker() {
     return (
-        <div className={styles.speaker}>
+        <div className={styles.speaker} id='speakers'>
             <div className={styles.head}>
                 <h1>Scaleup <br /> Speakers?</h1>
                 <Image

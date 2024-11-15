@@ -15,7 +15,7 @@ export default function Events() {
     const currentEvents = events[activeTab]
 
     return (
-        <div className={styles.events}>
+        <div className={styles.events} id='events'>
             <div className={styles.head}>
                 <h1>Scaleup Event <br /> Roster</h1>
             </div>
