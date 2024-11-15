@@ -34,6 +34,10 @@ export default function Navbar() {
         setIsMobileMenuOpen(!isMobileMenuOpen);
     };
 
+    const handleLinkClick = () => {
+        setIsMobileMenuOpen(false);
+    };
+
     return (
         <nav className={styles.nav}>
             <div className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''} ${isMobileMenuOpen ? styles.open : ''}`}>
@@ -75,14 +79,14 @@ export default function Navbar() {
                     </Link>
 
                     <div className={styles.linkBlocks}>
-                        <Link href="#hero" className={styles.link}>Home</Link>
-                        <Link href="#speakers" className={styles.link}>Speakers</Link>
-                        <Link href="#events" className={styles.link}>Events</Link>
-                        <Link href="#" className={styles.link}>News</Link>
-                        <Link href="#" className={styles.link}>Contact</Link>
+                        <Link href="#hero" className={styles.link} onClick={handleLinkClick}>Home</Link>
+                        <Link href="#speakers" className={styles.link} onClick={handleLinkClick}>Speakers</Link>
+                        <Link href="#events" className={styles.link} onClick={handleLinkClick}>Events</Link>
+                        <Link href="#" className={styles.link} onClick={handleLinkClick}>News</Link>
+                        <Link href="#" className={styles.link} onClick={handleLinkClick}>Contact</Link>
                         <span>
-                            <Link href="https://www.scaleupconclave.com/" target='_blank' className={styles.contact}>Conclave 2024</Link>
-                            <Link href="#" className={styles.reg}>Register now</Link>
+                            <Link href="https://www.scaleupconclave.com/" target='_blank' className={styles.contact} onClick={handleLinkClick}>Conclave 2024</Link>
+                            <Link href="#" className={styles.reg} onClick={handleLinkClick}>Register now</Link>
                             <BsSearch size={20} />
                         </span>
                     </div>
