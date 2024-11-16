@@ -113,7 +113,7 @@ export const Scale = [
   {
     img: s3,
     title: "SMEs",
-    desc: "Enhance your scalability and visibility through tailored workshops designed to elevate your business. Experience events showcasing cutting-edge technologies and solutions, with opportunities for networking and connecting with investors.",
+    desc: "Enhance scalability through tailored workshops designed to elevate your business. Experience events showcasing cutting-edge technologies and opportunities for connecting with investors.",
   },
   {
     img: s4,

@@ -248,7 +248,7 @@
 
 @media(width<=1280px) {
     .whoContent .box p {
-        height: 15rem;
+        height: 12rem;
     }
 }
 
@@ -306,7 +306,7 @@
     }
 
     .whoContent .box p {
-        height: 8rem;
+        height: 7rem;
     }
 }
 
