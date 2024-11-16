@@ -27,7 +27,7 @@ export default function Schedule() {
         <div className={styles.events}>
             <div className={styles.content}>
                 <span className={styles.fade}></span>
-                <h1 className={styles.head}>Scaleup Schedule</h1>
+                <h1 className={styles.head}>ScaleUp Schedule</h1>
 
                 <Image
                     src={l3}

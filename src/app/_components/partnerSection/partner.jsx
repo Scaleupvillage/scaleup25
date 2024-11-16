@@ -15,7 +15,7 @@ export default function Partner() {
                 className={styles.l2}
             />
             <div className={styles.head}>
-                <h1>Scaleup Partners</h1>
+                <h1>ScaleUp Partners</h1>
                 <Image
                     src={design}
                     alt="design"

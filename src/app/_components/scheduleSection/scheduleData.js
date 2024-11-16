@@ -66,7 +66,7 @@ export const events = {
         link: "",
       },
     ],
-    "Parallel Track Stage": [
+    "Parallel Track": [
       {
         img: dummy,
         time: "11:45 AM - 1:00 PM",
@@ -84,7 +84,7 @@ export const events = {
         link: "",
       },
     ],
-    "Workshop Stage": [
+    "Workshop": [
       {
         img: dummy,
         time: "10:30 AM - 12:00 PM",
@@ -103,7 +103,7 @@ export const events = {
         link: "",
       },
     ],
-    "Off-Track Stage": [
+    "Off-Track": [
       {
         img: dummy,
         time: "3:00 PM - 4:30 PM",
@@ -157,7 +157,7 @@ export const events = {
         link: "",
       },
     ],
-    "Parallel Track Stage": [
+    "Parallel Track": [
       {
         img: dummy,
         time: "11:45 PM - 1:00 PM",
@@ -175,7 +175,7 @@ export const events = {
         link: "",
       },
     ],
-    "Off-Track Stage": [
+    "Off-Track": [
       {
         img: dummy,
         time: "8:00 AM - 10:00 AM",

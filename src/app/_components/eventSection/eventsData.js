@@ -4,7 +4,7 @@ import e3 from "@/../../public/e3.svg";
 import dummy from "@/../../public/dummy-2.png";
 
 export const events = {
-  "Main Event Stage": [
+  "Main Stage": [
     {
       img: dummy,
       title: "Opening Ceremony",
@@ -34,7 +34,7 @@ export const events = {
       link: "",
     },
   ],
-  "Parallel Track Stage": [
+  "Parallel Track": [
     {
       img: dummy,
       title: "Session: Empowering Women Entrepreneurs",
@@ -50,7 +50,7 @@ export const events = {
       link: "",
     },
   ],
-  "Workshop Stage": [
+  "Workshop": [
     {
       img: dummy,
       title: "Masterclass: IoT & Robotics Innovations ",
@@ -66,7 +66,7 @@ export const events = {
       link: "",
     },
   ],
-  "Off-Track Stage": [
+  "Off-Track": [
     {
       img: dummy,
       title: "Live Pitch Battle: The Ultimate Startup Showdown",

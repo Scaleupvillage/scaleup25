@@ -10,7 +10,7 @@ export default function Speaker() {
     return (
         <div className={styles.speaker} id='speakers'>
             <div className={styles.head}>
-                <h1>Scaleup <br /> Speakers?</h1>
+                <h1>ScaleUp <br /> Speakers</h1>
                 <Image
                     src={design}
                     alt="design"
@@ -49,7 +49,7 @@ export default function Speaker() {
                                 className={styles.wave}
                             />
                             <div className={styles.cardBody}>
-                                <span></span>
+                                {/* <span></span> */}
                                 <Image
                                     src={speaker.img}
                                     alt="design"

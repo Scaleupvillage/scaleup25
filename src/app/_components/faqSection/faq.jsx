@@ -69,7 +69,7 @@ export default function Faq() {
                     className={styles.l7}
                 />
                 <div className={styles.head}>
-                    <h1>Scaleup FAQs</h1>
+                    <h1>ScaleUp FAQs</h1>
                     <Image
                         src={design}
                         alt="design"

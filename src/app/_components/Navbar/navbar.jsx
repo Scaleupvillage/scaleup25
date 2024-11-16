@@ -86,7 +86,7 @@ export default function Navbar() {
                         <Link href="#" className={styles.link} onClick={handleLinkClick}>Contact</Link>
                         <span>
                             <Link href="https://www.scaleupconclave.com/" target='_blank' className={styles.contact} onClick={handleLinkClick}>Conclave 2024</Link>
-                            <Link href="#" className={styles.reg} onClick={handleLinkClick}>Register now</Link>
+                            <Link href="#" className={styles.reg} onClick={handleLinkClick}>Register Now</Link>
                             <BsSearch size={20} />
                         </span>
                     </div>

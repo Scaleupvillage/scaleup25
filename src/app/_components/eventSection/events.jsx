@@ -17,7 +17,7 @@ export default function Events() {
     return (
         <div className={styles.events} id='events'>
             <div className={styles.head}>
-                <h1>Scaleup Event <br /> Roster</h1>
+                <h1>ScaleUp Event <br /> Roster</h1>
             </div>
 
             <Image

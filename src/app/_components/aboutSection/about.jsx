@@ -11,7 +11,7 @@ export default function About() {
     return (
         <div className={styles.about}>
             <div className={styles.title}>
-                <h1>The Start to something amazing on! <span>Feb 8th,9th 2025</span></h1>
+                <h1>The Start To Something Amazing On! <span>Feb 8th,9th 2025</span></h1>
                 <Image
                     src={design}
                     alt="design"
@@ -31,7 +31,7 @@ export default function About() {
 
             <div className={styles.content}>
                 <div className={styles.aboutContent}>
-                    <h2>About</h2>
+                    <h2>About Us</h2>
                     <p>
                         <b>ScaleUp Business Conclave 2025</b> is the second business conclave organized by ScaleUp Village,
                         offering a vibrant platform for entrepreneurs, investors, business students, and enthusiasts.
@@ -54,7 +54,7 @@ export default function About() {
                     </span>
                 </div>
                 <div className={styles.highlight}>
-                    <h2>2024 - highlights</h2>
+                    <h2>2024 - Highlights</h2>
                     <div className={styles.scroll}>
                         {
                             Highlight.map((item, index) => {
@@ -81,7 +81,7 @@ export default function About() {
 
             <div className={styles.who}>
                 <div className={styles.head}>
-                    <h2>Scaleup for who?</h2>
+                    <h2>ScaleUp for Who?</h2>
                     <Image
                         src={group}
                         alt="group"

@@ -8,7 +8,7 @@ export default function Pre() {
     return (
         <div className={styles.pre}>
             <div className={styles.head}>
-                <h1>Scaleup Pre-Events</h1>
+                <h1>ScaleUp Pre-Events</h1>
                 <Image
                     src={design}
                     alt="design"
