@@ -1,6 +1,7 @@
 import s1 from "@/../../public/s1.svg";
 import s2 from "@/../../public/s2.svg";
 import s3 from "@/../../public/s3.svg";
+import s4 from "@/../../public/s4.svg";
 
 export const Highlight = [
   {
@@ -19,7 +20,7 @@ export const Highlight = [
     desc: "Keynote speeches were delivered by eminent personalities such as P. Rajeev, P.K. Kunhalikutty, Najeeb Kanthapuram, Azad Moopen, and Santhosh George Kulangara, among others.",
   },
   {
-    img: s1,
+    img: s4,
     title: "Investor Connect",
     desc: "More than 20 investors participated in the event, offering mentorship, guidance, investment opportunities, and more.",
   },
@@ -39,7 +40,7 @@ export const Highlight = [
     desc: "A startup competition for Direct-to-Consumers (D2C) foods. Off-Track Events: Events that ignite enthusiasm, such as Drone Racing, the VR Experience Zone, Live Idea Pitching, Expo Stalls, Robo Soccer and more.",
   },
   {
-    img: s2,
+    img: s4,
     title: "Award and Honors",
     desc: "Honoring and recognizing entrepreneurs from diverse walks of life for their excellence.",
   },
@@ -62,7 +63,7 @@ export const Scale = [
     desc: "Enhance your scalability and visibility through tailored workshops designed to elevate your business. Experience events showcasing cutting-edge technologies and solutions, with opportunities for networking and connecting with investors.",
   },
   {
-    img: s1,
+    img: s4,
     title: "Students",
     desc: "Gain valuable insights and lessons from established business leaders. Learn and grow through engaging workshops and events, with opportunities to showcase and refine your skills and business acumen.",
   },

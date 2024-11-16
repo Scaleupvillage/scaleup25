@@ -11,7 +11,7 @@ export default function About() {
     return (
         <div className={styles.about}>
             <div className={styles.title}>
-                <h1>The Start To Something Amazing On! <span>Feb 8th,9th 2025</span></h1>
+                <h1>The Start To Something Amazing On! <span>Feb 8th, 9th 2025</span></h1>
                 <Image
                     src={design}
                     alt="design"
