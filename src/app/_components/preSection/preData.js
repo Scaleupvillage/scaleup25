@@ -1,6 +1,7 @@
 import e1 from "@/../../public/s1.svg";
 import e2 from "@/../../public/s2.svg";
 import e3 from "@/../../public/s3.svg";
+import e4 from "@/../../public/s4.svg";
 
 export const events = [
   {
@@ -22,7 +23,7 @@ export const events = [
     link: "",
   },
   {
-    img: e1,
+    img: e4,
     title: "Business Breakfast Meet",
     desc: "The meet is dedicated to business professionals, offering a platform for sharing ideas and lessons. It fosters an ecosystem where participants can collaborate, grow, and uphold their corporate social responsibilities.",
     link: "",
