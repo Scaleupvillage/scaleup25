@@ -361,7 +361,7 @@
     }
 
     .who {
-        padding: 2rem 1.5rem;
+        padding: 2rem 1rem;
     }
 
     .who .head {
@@ -374,7 +374,8 @@
     }
 
     .highlight,
-    .highlight .box {
+    .highlight .box,
+    .whoContent .box {
         padding: 1.5rem 1.25rem;
     }
 

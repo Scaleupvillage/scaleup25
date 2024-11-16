@@ -155,6 +155,7 @@
 
     .card {
         gap: 1rem;
+        padding: 1rem;
     }
 
     .l3 {
@@ -191,10 +192,6 @@
 }
 
 @media(width<=400px) {
-    .card {
-        gap: 0;
-    }
-
     .cardContent .reg span,
     .cardContent .reg a {
         font-size: .7rem;
