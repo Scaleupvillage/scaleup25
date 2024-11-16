@@ -72,6 +72,7 @@ export default function About() {
                             })
                         }
                     </div>
+                    <div className={styles.fade}></div>
                 </div>
             </div>
 

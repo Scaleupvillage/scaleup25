@@ -43,9 +43,9 @@ import o3 from "@/../../public/Highlights/o3.webp";
 
 export const Highlight = [
   {
-    img: [p1, p2, p3],
-    title: "Panel Discussions",
-    desc: "Speakers from diverse business sectors, including bureaucrats and social activists, participated to enlighten attendees. Discussions covered topics such as D2C, digital marketing, export business, and more.",
+    img: [k1, k2, k3, k4],
+    title: "Keynote Speeches",
+    desc: "Keynote speeches were delivered by eminent personalities such as P. Rajeev, P.K. Kunhalikutty, Najeeb Kanthapuram, Azad Moopen, and Santhosh George Kulangara, among others.",
   },
   {
     img: [f1, f2, f3, f4],
@@ -53,9 +53,9 @@ export const Highlight = [
     desc: "Entrepreneurs, social activists, and investors participated, sharing diverse ideas and insights. Discussed and debated on topics such as the startup ecosystem, the future of education, and more.",
   },
   {
-    img: [k1, k2, k3, k4],
-    title: "Keynote Speeches",
-    desc: "Keynote speeches were delivered by eminent personalities such as P. Rajeev, P.K. Kunhalikutty, Najeeb Kanthapuram, Azad Moopen, and Santhosh George Kulangara, among others.",
+    img: [p1, p2, p3],
+    title: "Panel Discussions",
+    desc: "Speakers from diverse business sectors, including bureaucrats and social activists, participated to enlighten attendees. Discussions covered topics such as D2C, digital marketing, export business, and more.",
   },
   // {
   //   img: s4,
