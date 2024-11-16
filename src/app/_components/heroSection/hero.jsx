@@ -55,6 +55,7 @@ export default function Hero() {
                     alt="heroImage"
                     width={1000}
                     height={1000}
+                    loading='eager'
                     className={styles.heroImage}
                 />
                 <Image

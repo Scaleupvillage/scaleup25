@@ -1,7 +1,7 @@
-import e1 from "@/../../public/s1.svg";
-import e2 from "@/../../public/s2.svg";
-import e3 from "@/../../public/s3.svg";
-import e4 from "@/../../public/s4.svg";
+import e1 from "@/../../public/pre-events/pr1.webp";
+import e2 from "@/../../public/pre-events/pr2.webp";
+import e3 from "@/../../public/pre-events/pr3.webp";
+import e4 from "@/../../public/pre-events/pr4.webp";
 
 export const events = [
   {

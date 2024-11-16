@@ -133,9 +133,10 @@
     border-radius: 1rem;
 }
 
-.highlightImg {
-    padding: 1.5rem;
-    padding-bottom: 0;
+.sliderContainer {
+    position: relative;
+    width: 10rem;
+    height: 10rem;
 }
 
 .highlight .box img {
@@ -204,6 +205,19 @@
     color: #3E3E3E;
 }
 
+.highlightImg {
+    height: 10rem;
+    width: 100%;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.highlightImg img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .whoContent .box h3 {
     font-size: 2rem;
     color: #000;
@@ -211,13 +225,6 @@
 
 .whoContent .box p {
     height: 10rem;
-}
-
-.whoContent .box img {
-    width: 100%;
-    height: fit-content;
-    object-fit: contain;
-    border-radius: 1rem;
 }
 
 .l1 {
@@ -280,6 +287,7 @@
         gap: .25rem;
     }
 
+    .sliderContainer,
     .highlight .box img {
         width: 7rem;
         height: 7rem;
@@ -290,7 +298,7 @@
     }
 
     .highlight .box span p {
-        font-size: .75rem;
+        font-size: .8rem;
     }
 
     .whoContent {
@@ -367,8 +375,23 @@
         grid-template-columns: repeat(1, 1fr);
     }
 
+    .highlight,
+    .highlight .box {
+        padding: 1.5rem 1.25rem;
+    }
+
     .highlight .box {
         flex-direction: column;
+    }
+
+    .sliderContainer,
+    .highlight .box img {
+        height: 9rem;
+        width: 100%;
+    }
+
+    .highlight .box span h3 {
+        line-height: 1.2;
     }
 
     .whoContent .box p {

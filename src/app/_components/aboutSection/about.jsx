@@ -7,6 +7,8 @@ import l4 from '@/../../public/l4.svg'
 import { Highlight } from './data'
 import { Scale } from './data'
 
+import Slider from './slider'
+
 export default function About() {
     return (
         <div className={styles.about}>
@@ -60,13 +62,7 @@ export default function About() {
                             Highlight.map((item, index) => {
                                 return (
                                     <div className={styles.box} key={index}>
-                                        <Image
-                                            src={item.img}
-                                            alt="highlight"
-                                            className={styles.highlightImage}
-                                            width={400}
-                                            height={400}
-                                        />
+                                        <Slider img={item.img} />
                                         <span>
                                             <h3>{item.title}</h3>
                                             <p>{item.desc}</p>
