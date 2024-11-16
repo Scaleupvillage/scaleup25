@@ -90,7 +90,8 @@
     overflow-y: scroll;
     gap: 1rem;
     scroll-behavior: smooth;
-    scrollbar-width: none;
+    scrollbar-width: thin;
+    scrollbar-color: var(--violet) #e4e4e4;
     position: relative;
 }
 

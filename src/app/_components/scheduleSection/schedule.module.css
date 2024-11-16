@@ -114,7 +114,8 @@
     min-height: 10rem;
     max-height: 40rem;
     padding-bottom: 1rem;
-    scrollbar-width: none;
+    scrollbar-width: thin;
+    scrollbar-color: var(--violet) #e4e4e4;
 }
 
 .list {

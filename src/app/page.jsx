@@ -1,5 +1,3 @@
-import Navbar from "./_components/Navbar/navbar";
-import Footer from "./_components/Footer/footer";
 import Hero from "./_components/heroSection/hero";
 import About from "./_components/aboutSection/about";
 import Faq from "./_components/faqSection/faq";
@@ -12,7 +10,6 @@ import Partner from "./_components/partnerSection/partner";
 export default function Home() {
   return (
     <>
-      <Navbar />
       <Hero />
       <About />
       <Speaker />
@@ -21,7 +18,6 @@ export default function Home() {
       <Schedule />
       <Partner />
       <Faq />
-      <Footer />
     </>
   );
 }
