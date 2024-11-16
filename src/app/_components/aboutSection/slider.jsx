@@ -39,6 +39,7 @@ export default function Slider({ img }) {
                                     className={styles.highlightImage}
                                     width={400}
                                     height={400}
+                                    loading='eager'
                                 />
                             </PhotoView>
                         </SwiperSlide>

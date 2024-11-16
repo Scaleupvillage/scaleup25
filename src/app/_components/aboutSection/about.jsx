@@ -97,6 +97,7 @@ export default function About() {
                                             alt="highlight"
                                             width={400}
                                             height={400}
+                                            loading='eager'
                                         />
                                     </div>
                                     <h3>{item.title}</h3>
