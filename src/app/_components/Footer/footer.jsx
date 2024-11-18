@@ -11,7 +11,7 @@ const map = 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15667.23275724
 
 export default function Footer() {
     return (
-        <footer className={styles.footer}>
+        <footer className={styles.footer} id='contact'>
             <div className={styles.content}>
                 <div className={styles.blocks}>
                     <div className={styles.contact}>
@@ -42,7 +42,7 @@ export default function Footer() {
                         <Link href='https://www.instagram.com/scaleup_village' target='_blank' style={{ color: '#000', textDecoration: 'none' }}><b>Visit Us Now</b></Link>
                     </div>
                     <div className={styles.contact}>
-                        <b className={styles.text}>Location: Shifa Convention Center, Perintalmana</b>
+                        <b className={styles.text}>Location: Shifa Convention Center, Perinthalmanna</b>
                         <iframe
                             src={map}
                             width="600"

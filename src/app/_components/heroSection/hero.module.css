@@ -141,3 +141,13 @@
         font-size: 1.75rem;
     }
 }
+
+@media(width<=400px) {
+    .clock {
+        bottom: -2.5rem;
+    }
+
+    .counter div span {
+        font-size: 1.5rem;
+    }
+}

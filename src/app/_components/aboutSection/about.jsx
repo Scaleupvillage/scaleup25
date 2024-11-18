@@ -1,5 +1,9 @@
+'use client'
+
+import { useEffect, useRef, useState } from 'react';
 import styles from './about.module.css'
 import Image from 'next/image'
+import Link from 'next/link'
 import design from '@/../../public/l6.svg'
 import group from '@/../../public/group-1.svg'
 import l1 from '@/../../public/l1.svg'
@@ -36,7 +40,7 @@ export default function About() {
                     <h2>About Us</h2>
                     <p>
                         <b>ScaleUp Business Conclave 2025</b> is the second business conclave organized by ScaleUp Village,
-                        offering a vibrant platform for entrepreneurs, investors, business students, and enthusiasts.
+                        offering a vibrant platform for entrepreneurs, investors, business enthusiasts, and students.
                         This two-day event fosters business acumen, professionalism, and knowledge-sharing. It provides
                         opportunities for startup investments, refining ideas, and expanding professional networks.
                         <br /> <br />
@@ -52,7 +56,7 @@ export default function About() {
                             width={400}
                             height={400}
                         />
-                        <button>Register now</button>
+                        <Link href="#">Register now</Link>
                     </span>
                 </div>
                 <div className={styles.highlight}>

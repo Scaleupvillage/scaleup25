@@ -37,7 +37,7 @@ const questions = [
 ];
 
 export default function Faq() {
-    const [openIndex, setOpenIndex] = useState(0);
+    const [openIndex, setOpenIndex] = useState(null);
 
     const handleToggle = (index) => {
         setOpenIndex(prevIndex => prevIndex === index ? null : index);

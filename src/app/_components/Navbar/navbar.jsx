@@ -5,7 +5,6 @@ import styles from './navbar.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
 import white from '@/../public/logo.svg';
-import { BsSearch } from "react-icons/bs";
 import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
@@ -82,12 +81,10 @@ export default function Navbar() {
                         <Link href="#hero" className={styles.link} onClick={handleLinkClick}>Home</Link>
                         <Link href="#speakers" className={styles.link} onClick={handleLinkClick}>Speakers</Link>
                         <Link href="#events" className={styles.link} onClick={handleLinkClick}>Events</Link>
-                        <Link href="#" className={styles.link} onClick={handleLinkClick}>News</Link>
-                        <Link href="#" className={styles.link} onClick={handleLinkClick}>Contact</Link>
+                        <Link href="#contact" className={styles.link} onClick={handleLinkClick}>Contact Us</Link>
                         <span>
                             <Link href="https://www.scaleupconclave.com/" target='_blank' className={styles.contact} onClick={handleLinkClick}>Conclave 2024</Link>
                             <Link href="#" className={styles.reg} onClick={handleLinkClick}>Register Now</Link>
-                            <BsSearch size={20} />
                         </span>
                     </div>
                 </div>

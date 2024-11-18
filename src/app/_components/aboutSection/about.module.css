@@ -49,6 +49,8 @@
     gap: 1rem;
     font-size: 1.3rem;
     line-height: 1.5;
+    padding-bottom: .5rem;
+    border-radius: 1rem;
     background-color: #fff;
 }
 
@@ -74,7 +76,8 @@
     object-fit: contain;
 }
 
-.aboutContent button {
+.aboutContent a {
+    text-decoration: none;
     background-color: var(--red);
     padding: .9rem 2.5rem;
     border: none;
@@ -82,6 +85,13 @@
     color: #fff;
     font-size: 1.1rem;
     text-transform: uppercase;
+    box-shadow: 0 0 10px rgba(199, 0, 56, 0.35);
+    transition: all 0.3s ease-in-out;
+}
+
+.aboutContent a:hover {
+    background-color: #ffffff;
+    color: var(--red);
 }
 
 .scroll {
@@ -204,13 +214,13 @@
 }
 
 .highlightImg {
-    height: 10rem;
+    height: fit-content;
     width: 100%;
     border-radius: 1rem;
     overflow: hidden;
 }
 
-.highlightImg img{
+.highlightImg img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -313,6 +323,10 @@
         grid-template-columns: 1fr;
     }
 
+    .highlight .fade {
+        display: none;
+    }
+
     .title h1 {
         font-size: 1.35rem;
     }
@@ -330,6 +344,38 @@
         width: 7rem;
         bottom: -4rem;
         right: 3rem;
+    }
+
+    .scroll {
+        flex-direction: row;
+        overflow-x: scroll;
+        width: 100%;
+        height: fit-content;
+    }
+
+    .highlight .box {
+        height: fit-content;
+        padding: 1.5rem 1.25rem;
+    }
+
+    .highlight h2 {
+        padding: 1rem 1rem 0;
+    }
+
+    .highlight {
+        padding: 1.25rem .5rem;
+        height: fit-content;
+    }
+
+    .highlight .box {
+        width: 18rem;
+        flex-direction: column;
+    }
+
+    .sliderContainer,
+    .highlight .box img {
+        height: 9rem;
+        width: 100%;
     }
 }
 
@@ -355,9 +401,13 @@
         height: 2rem;
     }
 
-    .aboutContent button {
+    .aboutContent a {
         padding: .9rem 2.5rem;
         font-size: .9rem;
+    }
+
+    .highlight .box {
+        padding: 1rem;
     }
 
     .who {
@@ -373,20 +423,8 @@
         grid-template-columns: repeat(1, 1fr);
     }
 
-    .highlight,
-    .highlight .box,
     .whoContent .box {
         padding: 1.5rem 1.25rem;
-    }
-
-    .highlight .box {
-        flex-direction: column;
-    }
-
-    .sliderContainer,
-    .highlight .box img {
-        height: 9rem;
-        width: 100%;
     }
 
     .highlight .box span h3 {
@@ -409,5 +447,24 @@
         top: 45rem;
         width: 30rem;
         height: 30rem;
+    }
+
+    .highlight .box {
+        width: 15rem;
+    }
+
+    .highlight .box span h3 {
+        font-size: 1.3rem;
+    }
+}
+
+@media(width<=380px) {
+    .aboutContent .group {
+        height: 1.5rem;
+    }
+
+    .aboutContent a {
+        padding: .9rem 1.5rem;
+        font-size: .8rem;
     }
 }

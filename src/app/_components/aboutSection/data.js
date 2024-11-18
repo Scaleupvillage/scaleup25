@@ -1,7 +1,7 @@
-import s1 from "@/../../public/scalewho/sw1.webp";
-import s2 from "@/../../public/scalewho/sw2.webp";
-import s3 from "@/../../public/scalewho/sw3.webp";
-import s4 from "@/../../public/scalewho/sw4.webp";
+import s1 from "@/../../public/s1.svg";
+import s2 from "@/../../public/s2.svg";
+import s3 from "@/../../public/s3.svg";
+import s4 from "@/../../public/s4.svg";
 
 import p1 from "@/../../public/Highlights/p1.webp";
 import p2 from "@/../../public/Highlights/p2.webp";
@@ -107,7 +107,7 @@ export const Scale = [
   },
   {
     img: s2,
-    title: "Start Ups",
+    title: "Start-ups",
     desc: "Fast-track your growth journey with valuable expert insights, global expansion opportunities, and strategic investor connections. Amplify your startup’s visibility through competitive pitch events.",
   },
   {

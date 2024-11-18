@@ -2,6 +2,7 @@ import styles from './pre.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
 import design from '@/../../public/group-1.svg';
+import Slider from './slider'
 import { events } from './preData'
 
 export default function Pre() {
@@ -21,22 +22,14 @@ export default function Pre() {
                 <div className={styles.list}>
                     {events.map((event, index) => (
                         <div className={styles.card} key={index}>
-                            <div className={styles.cardBody}>
-                                <Image
-                                    src={event.img}
-                                    alt="event image"
-                                    width={1000}
-                                    height={1000}
-                                    className={styles.eventPic}
-                                />
-                            </div>
+                            <Slider img={event.img} />
                             <div className={styles.cardContent}>
                                 <div className={styles.desc}>
                                     <h1>{event.title}</h1>
                                     <p>{event.desc}</p>
                                 </div>
                                 <div className={styles.reg}>
-                                    <span>Feb 8th</span>
+                                    <span>Updating soon</span>
                                     <Link href={event.link}>Register</Link>
                                 </div>
                             </div>
