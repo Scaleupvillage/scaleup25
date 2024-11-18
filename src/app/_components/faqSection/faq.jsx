@@ -12,11 +12,11 @@ import l7 from '@/../../public/l7.svg'
 const questions = [
     {
         question: 'What is the purpose of the business conclave?',
-        answer: 'The business conclave aims to provide a platform for entrepreneurs, investors, business students, and enthusiasts to share insights, learn from industry leaders, and network with like-minded professionals.',
+        answer: 'The business conclave aims to provide a platform for entrepreneurs, investors, business enthusiasts, and studentsto share insights, learn from industry leaders, and network with like-minded professionals.',
     },
     {
         question: 'Who can attend the business conclave?',
-        answer: ' The event is open to entrepreneurs, investors, business professionals, students, and anyone interested in the business ecosystem.',
+        answer: 'The event is open to entrepreneurs, investors, business professionals, students, and anyone interested in the business ecosystem.',
     },
     {
         question: 'What types of sessions or activities can participants expect?',
