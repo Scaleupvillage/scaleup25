@@ -30,7 +30,7 @@ export default function Pre() {
                                 </div>
                                 <div className={styles.reg}>
                                     <span>Updating soon</span>
-                                    <Link href={event.link}>Register</Link>
+                                    <Link href={event.link}>Register Opening Soon</Link>
                                 </div>
                             </div>
                         </div>

@@ -103,21 +103,21 @@ export const Scale = [
   {
     img: s1,
     title: "Investors",
-    desc: "An unparalleled opportunity to be part of new-age startups and inspire the next generation of entrepreneurs. Contribute to making India one of the most sought-after hubs for startups and entrepreneurship.",
+    desc: "Be part of the journey with promising startups and help shape the future of entrepreneurship. This is your chance to support innovative ideas, guide the next generation of entrepreneurs, and play a key role in making India a thriving hub for startups.",
   },
   {
     img: s2,
     title: "Start-ups",
-    desc: "Fast-track your growth journey with valuable expert insights, global expansion opportunities, and strategic investor connections. Amplify your startup’s visibility through competitive pitch events.",
+    desc: "Take your startup to the next level with expert guidance, opportunities to connect with investors, and a chance to explore global markets. Boost your visibility and showcase your ideas through exciting pitch events.",
   },
   {
     img: s3,
     title: "SMEs",
-    desc: "Enhance scalability through tailored workshops designed to elevate your business. Experience events showcasing cutting-edge technologies and opportunities for connecting with investors.",
+    desc: "Unlock growth potential with workshops tailored to your business needs. Discover the latest technologies and build valuable connections with investors to scale your business effectively.",
   },
   {
     img: s4,
     title: "Students",
-    desc: "Gain valuable insights and lessons from established business leaders. Learn and grow through engaging workshops and events, with opportunities to showcase and refine your skills and business acumen.",
+    desc: "Learn directly from experienced business leaders and sharpen your skills through interactive workshops and events. Discover opportunities to showcase your talent and turn your ideas into reality.",
   },
 ];

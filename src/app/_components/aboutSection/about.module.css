@@ -72,18 +72,18 @@
 
 .aboutContent .group {
     width: fit-content;
-    height: 2.5rem;
+    height: 2rem;
     object-fit: contain;
 }
 
 .aboutContent a {
     text-decoration: none;
     background-color: var(--red);
-    padding: .9rem 2.5rem;
+    padding: .7rem 2rem;
     border: none;
     border-radius: 5rem;
     color: #fff;
-    font-size: 1.1rem;
+    font-size: .9rem;
     text-transform: uppercase;
     box-shadow: 0 0 10px rgba(199, 0, 56, 0.35);
     transition: all 0.3s ease-in-out;
@@ -232,7 +232,7 @@
 }
 
 .whoContent .box p {
-    height: 10rem;
+    height: 11rem;
 }
 
 .l1 {
@@ -256,7 +256,7 @@
 
 @media(width<=1280px) {
     .whoContent .box p {
-        height: 12rem;
+        height: 14rem;
     }
 }
 
@@ -402,8 +402,8 @@
     }
 
     .aboutContent a {
-        padding: .9rem 2.5rem;
-        font-size: .9rem;
+        padding: .7rem 1.25rem;
+        font-size: .8rem;
     }
 
     .highlight .box {
@@ -464,7 +464,7 @@
     }
 
     .aboutContent a {
-        padding: .9rem 1.5rem;
-        font-size: .8rem;
+        padding: .65rem 1.25rem;
+        font-size: .7rem;
     }
 }

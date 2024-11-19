@@ -103,10 +103,10 @@
     background-color: #3E3B3C;
     border: 1px solid #000;
     color: #fff;
-    padding: .5rem 2.25rem;
+    padding: .5rem 1.25rem;
     border-radius: 2rem;
     text-align: center;
-    font-size: .9rem;
+    font-size: .5rem;
     font-weight: 800;
     text-transform: uppercase;
     text-decoration: none;
@@ -186,16 +186,25 @@
         font-size: .8rem;
     }
 
+    .cardContent .reg a {
+        font-size: .5rem;
+    }
+
     .cardContent .desc h1 {
         font-size: 1.75rem;
     }
 }
 
 @media(width<=400px) {
+
     .cardContent .reg span,
     .cardContent .reg a {
         font-size: .7rem;
         padding: .5rem 1.2rem;
+    }
+
+    .cardContent .reg a {
+        font-size: .5rem;
     }
 
     .cardContent .desc h1 {

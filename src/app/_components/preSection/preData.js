@@ -18,25 +18,25 @@ export const events = [
   {
     img: [i1, i2, i3],
     title: "Investors Connect",
-    desc: "A platform connecting investors with startups and vice versa. Startups present their ideas and objectives, with investors making offers based on performance. Additionally, startups receive mentorship and valuable insights from investors.",
+    desc: "A dynamic platform that bridges the gap between investors and startups. Startups pitch their ideas and goals, while investors provide feedback, mentorship, and even potential funding opportunities based on performance. It’s where ideas meet investment.",
     link: "",
   },
   {
     img: [q1, q2, q3],
     title: "Business Quiz",
-    desc: "A quiz competition for students and general participants focused on the business ecosystem. An opportunity to showcase your knowledge and enhance your business expertise. Winners will receive prizes.",
+    desc: "Test your knowledge of the business world in this exciting quiz competition open to students and enthusiasts. It’s a chance to learn, showcase your expertise, and win exciting prizes along the way. ",
     link: "",
   },
   {
     img: [m1, m2, m3],
     title: "Marathon",
-    desc: "A marathon event open to the public, aimed at raising awareness on health and wellness. It also seeks to enhance social capital and provide networking opportunities.",
+    desc: "Join this public marathon to promote health, wellness, and community spirit. It’s not just about fitness—it’s a chance to connect, network, and contribute to building a healthier, more connected society.",
     link: "",
   },
   {
     img: [b1, b2, b3],
     title: "Business Breakfast Meet",
-    desc: "The meet is dedicated to business professionals, offering a platform for sharing ideas and lessons. It fosters an ecosystem where participants can collaborate, grow, and uphold their corporate social responsibilities.",
+    desc: "A gathering for business professionals to exchange ideas, share experiences, and collaborate. This event fosters growth, networking, and a platform to explore opportunities while emphasizing corporate social responsibility",
     link: "",
   },
 ];

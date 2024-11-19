@@ -45,9 +45,9 @@ export default function Hero() {
     return (
         <div className={styles.hero} id='hero'>
             <h1>
-                India's First Fusion Business
+                ScaleUp Business Conclave
                 {isWideScreen && <br />}
-                Conclave Season 2
+                2nd Edition
             </h1>
             <div className={styles.imgContainer}>
                 <Image

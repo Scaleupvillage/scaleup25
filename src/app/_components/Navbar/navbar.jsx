@@ -83,7 +83,7 @@ export default function Navbar() {
                         <Link href="#events" className={styles.link} onClick={handleLinkClick}>Events</Link>
                         <Link href="#contact" className={styles.link} onClick={handleLinkClick}>Contact Us</Link>
                         <span>
-                            <Link href="https://www.scaleupconclave.com/" target='_blank' className={styles.contact} onClick={handleLinkClick}>Conclave 2024</Link>
+                            <Link href="https://www.scaleupconclave.com/" target='_blank' className={styles.contact} onClick={handleLinkClick}>Pervious Edition</Link>
                             <Link href="#" className={styles.reg} onClick={handleLinkClick}>Register Now</Link>
                         </span>
                     </div>

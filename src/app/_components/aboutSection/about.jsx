@@ -41,15 +41,16 @@ export default function About({ content }) {
                         ))
                     } */}
                     <p>
-                        <b>ScaleUp Business Conclave 2.0</b>  is the second business conclave organized by ScaleUp Village,
-                        offering a vibrant platform for entrepreneurs, investors, business enthusiasts, and students.
-                        This two-day event fosters business acumen, professionalism, and knowledge-sharing. It provides
-                        opportunities for startup investments, refining ideas, and expanding professional networks.
+                        <b>ScaleUp Business Conclave 2.0</b> is the second edition of the business conclave hosted by <b>ScaleUp Village</b>.
+                        This two-day event brings together entrepreneurs, investors, aspiring business leaders, and students
+                        on a shared platform. It's designed to spark meaningful conversations, nurture fresh ideas, and
+                        create real opportunities for growth. With a focus on startup investments, idea development, and
+                        professional connections, the conclave is all about inspiring action, building relationships, and
+                        helping people take their business ambitions to the next level.
                     </p>
                     <p>
-                        <b>ScaleUp Village</b> is a first-of-its-kind dedicated hub focused on Direct-to-Consumer
-                        (D2C) innovation in India. This unique space is designed to revolutionize the entrepreneurial
-                        landscape by offering startups and businesses an environment optimized for success.
+                        <b>ScaleUp Village</b> is a unique hub in India supporting startups and businesses. As an incubator and accelerator, it offers
+                        tools, guidance, and connections to help entrepreneurs grow and succeed.
                     </p>
                     <span>
                         <Image
@@ -59,7 +60,7 @@ export default function About({ content }) {
                             width={400}
                             height={400}
                         />
-                        <Link href='#'>Register now</Link>
+                        <Link href='#'>Download Brochure</Link>
                     </span>
                 </div>
                 <div className={styles.highlight}>
