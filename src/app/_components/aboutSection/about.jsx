@@ -10,7 +10,7 @@ import { Scale } from './data'
 
 import Slider from './slider'
 
-export default function About({ content }) {
+export default function About() {
     return (
         <div className={styles.about}>
             <div className={styles.title}>
@@ -34,12 +34,7 @@ export default function About({ content }) {
 
             <div className={styles.content}>
                 <div className={styles.aboutContent}>
-                    <h2>About Us</h2>
-                    {/* {
-                        content.map((item, index) => (
-                            <p key={index}>{item.Content}</p> 
-                        ))
-                    } */}
+                    <h2>About ScaleUp</h2>
                     <p>
                         <b>ScaleUp Business Conclave 2.0</b> is the second edition of the business conclave hosted by <b>ScaleUp Village</b>.
                         This two-day event brings together entrepreneurs, investors, aspiring business leaders, and students
@@ -64,7 +59,7 @@ export default function About({ content }) {
                     </span>
                 </div>
                 <div className={styles.highlight}>
-                    <h2>2024 - Highlights</h2>
+                    <h2>Last Edition 2024</h2>
                     <div className={styles.scroll}>
                         {
                             Highlight.map((item, index) => {

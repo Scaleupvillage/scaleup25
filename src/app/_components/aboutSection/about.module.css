@@ -55,7 +55,7 @@
 }
 
 .aboutContent h2 {
-    font-size: 3rem;
+    font-size: 2.5rem;
 }
 
 .aboutContent p {
@@ -359,7 +359,7 @@
     }
 
     .highlight h2 {
-        padding: 1rem 1rem 0;
+        padding: 1rem .5rem 0;
     }
 
     .highlight {
@@ -419,6 +419,14 @@
         align-items: flex-start;
     }
 
+    .who .head img {
+        height: 2rem;
+    }
+
+    .who .head h2 {
+        font-size: 2.5rem;
+    }
+
     .whoContent {
         grid-template-columns: repeat(1, 1fr);
     }
@@ -456,6 +464,14 @@
     .highlight .box span h3 {
         font-size: 1.3rem;
     }
+
+    .who .head img {
+        height: 1.75rem;
+    }
+
+    .who .head h2 {
+        font-size: 2.25rem;
+    }
 }
 
 @media(width<=380px) {
@@ -466,5 +482,9 @@
     .aboutContent a {
         padding: .65rem 1.25rem;
         font-size: .7rem;
+    }
+
+    .who .head h2 {
+        font-size: 2.15rem;
     }
 }
