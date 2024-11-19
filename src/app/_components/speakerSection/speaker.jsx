@@ -64,13 +64,13 @@ export default function Speaker() {
                                     height={400}
                                     className={styles.arrow}
                                 />
-                                <Image
+                                {/* <Image
                                     src={speaker.vector}
                                     alt="design"
                                     width={400}
                                     height={400}
                                     className={styles.v1}
-                                />
+                                /> */}
                             </div>
                         </div>
                     ))

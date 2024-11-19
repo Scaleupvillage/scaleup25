@@ -1,4 +1,0 @@
-User-Agent: *
-Allow: /
-
-Sitemap: https://scaleupconclave2025.netlify.app/sitemap.xml

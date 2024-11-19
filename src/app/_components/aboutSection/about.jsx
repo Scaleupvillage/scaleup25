@@ -1,6 +1,3 @@
-'use client'
-
-import { useEffect, useRef, useState } from 'react';
 import styles from './about.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -13,7 +10,7 @@ import { Scale } from './data'
 
 import Slider from './slider'
 
-export default function About() {
+export default function About({ content }) {
     return (
         <div className={styles.about}>
             <div className={styles.title}>
@@ -38,14 +35,20 @@ export default function About() {
             <div className={styles.content}>
                 <div className={styles.aboutContent}>
                     <h2>About Us</h2>
+                    {/* {
+                        content.map((item, index) => (
+                            <p key={index}>{item.Content}</p> 
+                        ))
+                    } */}
                     <p>
-                        <b>ScaleUp Business Conclave 2025</b> is the second business conclave organized by ScaleUp Village,
+                        <b>ScaleUp Business Conclave 2.0</b>  is the second business conclave organized by ScaleUp Village,
                         offering a vibrant platform for entrepreneurs, investors, business enthusiasts, and students.
                         This two-day event fosters business acumen, professionalism, and knowledge-sharing. It provides
                         opportunities for startup investments, refining ideas, and expanding professional networks.
-                        <br /> <br />
-                        <b>ScaleUp Village</b> is a first-of-its-kind dedicated hub focused on Direct-to-Consumer (D2C)
-                        innovation in India. This unique space is designed to revolutionize the entrepreneurial
+                    </p>
+                    <p>
+                        <b>ScaleUp Village</b> is a first-of-its-kind dedicated hub focused on Direct-to-Consumer
+                        (D2C) innovation in India. This unique space is designed to revolutionize the entrepreneurial
                         landscape by offering startups and businesses an environment optimized for success.
                     </p>
                     <span>
@@ -56,7 +59,7 @@ export default function About() {
                             width={400}
                             height={400}
                         />
-                        <Link href="#">Register now</Link>
+                        <Link href='#'>Register now</Link>
                     </span>
                 </div>
                 <div className={styles.highlight}>
