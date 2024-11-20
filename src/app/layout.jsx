@@ -9,7 +9,7 @@ const nunito = Nunito({
 });
 
 export const metadata = {
-  title: "ScaleUpConclave",
+  title: "ScaleUp Conclave",
   description: "ScaleUp Business Conclave 2025 is the second business conclave organized by ScaleUp Village",
 };
 

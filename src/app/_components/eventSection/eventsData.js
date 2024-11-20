@@ -3,6 +3,16 @@ import e2 from "@/../../public/e2.svg";
 import e3 from "@/../../public/e3.svg";
 import dummy from "@/../../public/dummy-2.png";
 
+import u1 from "@/../../public/upcoming/u1.webp";
+import u2 from "@/../../public/upcoming/u2.webp";
+import u3 from "@/../../public/upcoming/u3.webp";
+import u4 from "@/../../public/upcoming/u4.webp";
+import u5 from "@/../../public/upcoming/u5.webp";
+import u6 from "@/../../public/upcoming/u6.webp";
+import u7 from "@/../../public/upcoming/u7.webp";
+import u8 from "@/../../public/upcoming/u8.webp";
+import u9 from "@/../../public/upcoming/u9.webp";
+
 export const events = {
   "Main Stage": [
     {
@@ -50,7 +60,7 @@ export const events = {
       link: "",
     },
   ],
-  "Workshop": [
+  Workshop: [
     {
       img: dummy,
       title: "Masterclass: IoT & Robotics Innovations ",
@@ -60,7 +70,8 @@ export const events = {
     },
     {
       img: dummy,
-      title:"Creative Workshop: From Idea to Impact - Prototyping with 3D Printing",
+      title:
+        "Creative Workshop: From Idea to Impact - Prototyping with 3D Printing",
       desc: "Learn the fundamentals of rapid prototyping using 3D printing technology.",
       vector: e2,
       link: "",
@@ -83,3 +94,60 @@ export const events = {
     },
   ],
 };
+
+export const upcoming = [
+  {
+    img: u1,
+    title: "Discussions",
+    desc: "Engage in panel discussions with experts sharing insights, tackling challenges, and offering actionable ideas to drive growth and innovation.",
+    vector: e1,
+  },
+  {
+    img: u2,
+    title: "Dialogues",
+    desc: "Participate in fireside chats and one-on-one conversations, exchanging real stories, candid advice, and ideas to spark meaningful connections.",
+    vector: e2,
+  },
+  {
+    img: u3,
+    title: "Expert Talks",
+    desc: "Hear from industry leaders sharing practical advice, experiences, and strategies to empower you with knowledge for personal and professional growth.",
+    vector: e3,
+  },
+  {
+    img: u4,
+    title: "Workshops",
+    desc: "Join 50+ workshops covering technical skills, creativity, business strategies, and personal development, offering hands-on learning and expert guidance.",
+    vector: e2,
+  },
+  {
+    img: u5,
+    title: "Hackathons",
+    desc: "Innovate through Medical, Business, and Tech Hackathons, solving real challenges with impactful, creative solutions under tight deadlines.",
+    vector: e1,
+  },
+  {
+    img: u6,
+    title: "Bootcamps",
+    desc: "Attend focused sessions with experts offering practical learning, tools, and techniques to master business, entrepreneurship, and more.",
+    vector: e2,
+  },
+  {
+    img: u7,
+    title: "Exhbitions",
+    desc: "Explore 50+ stalls showcasing innovations, services, and products. Discover opportunities and connect with industry leaders shaping the future.",
+    vector: e3,
+  },
+  {
+    img: u8,
+    title: "Competitions",
+    desc: "Compete in Business Challenges, Live Pitch Battles, Drone Racing, and Stand-Up Comedy, showcasing creativity and talent for recognition and rewards.",
+    vector: e2,
+  },
+  {
+    img: u9,
+    title: "Culturals",
+    desc: "Enjoy soulful Ghazal Nights, vibrant Art Displays, and live performances celebrating creativity, art, and music",
+    vector: e1,
+  },
+];

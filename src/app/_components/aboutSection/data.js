@@ -43,60 +43,59 @@ import o3 from "@/../../public/Highlights/o3.webp";
 
 export const Highlight = [
   {
+    link: "https://youtu.be/9lIbzmBYFGA?si=XCNl6ylx90LdQ-wj",
     img: [k1, k2, k3, k4],
     title: "Keynote Speeches",
-    desc: "Keynote speeches were delivered by eminent personalities such as P. Rajeev, P.K. Kunhalikutty, Najeeb Kanthapuram, Azad Moopen, and Santhosh George Kulangara, among others.",
+    desc: "Inspiring keynote addresses were delivered by renowned personalities, including P. Rajeev, P.K. Kunhalikutty, Najeeb Kanthapuram, Mohammed Kutty Nechikatte, and Santhosh George Kulangara. Their insights and experiences left a lasting impact on the audience.",
   },
   {
+    link: "https://youtu.be/tfhXExtlEI4?si=fw3BxE3orI-pN5Wq",
     img: [f1, f2, f3, f4],
     title: "Fireside Chats",
-    desc: "Entrepreneurs, social activists, and investors participated, sharing diverse ideas and insights. Discussed and debated on topics such as the startup ecosystem, the future of education, and more.",
+    desc: "Entrepreneurs, social activists, and investors came together for intimate and thought-provoking conversations. They explored topics like the evolving startup ecosystem, the future of education, and other transformative ideas, sparking meaningful debates and fresh perspectives.",
   },
   {
+    link: "https://youtu.be/SxUMhsk4c5c?si=iJcw6ukAlwfIpeuV",
     img: [p1, p2, p3],
     title: "Panel Discussions",
-    desc: "Speakers from diverse business sectors, including bureaucrats and social activists, participated to enlighten attendees. Discussions covered topics such as D2C, digital marketing, export business, and more.",
+    desc: "Leaders from diverse industries, along with influential bureaucrats and social activists, shared their expertise to inspire and educate. The discussions covered essential topics like modern marketing strategies, expanding into global markets, and other impactful business trends.",
   },
-  // {
-  //   img: s4,
-  //   title: "Investor Connect",
-  //   desc: "More than 20 investors participated in the event, offering mentorship, guidance, investment opportunities, and more.",
-  // },
   {
+    link: "https://youtu.be/PWdEzBgGMtQ?si=_CQC6Zrp8Ca3aqbt",
     img: [w1, w2, w3],
     title: "Workshops",
-    desc: "Highly engaging workshops on 3D printing, robotics, IoT, resin art, and more.",
-  },
-  {
-    img: [b1, b2, b3],
-    title: "Bootcamp",
-    desc: "A two-day rigorous training program by Faisal P. Seyd, A.R. Ranjith, CA Praveen, and others for business professionals, focusing on marketing, scaling, work culture, and more.",
-  },
-  {
-    img: [h1, h2, h3],
-    title: "Hackathon",
-    desc: "A two-day hackathon event open to all, focused on solving challenges specific to the medical field",
+    desc: "Hands-on workshops brought ideas to life with sessions on 3D printing, robotics, IoT, resin art, and more. These interactive experiences offered participants a chance to learn, create, and innovate.",
   },
   // {
-  //   img: s1,
-  //   title: "Cookathon",
-  //   desc: "A startup competition for Direct-to-Consumers (D2C) foods.",
+  //   link: "",
+  //   img: [b1, b2, b3],
+  //   title: "Bootcamp",
+  //   desc: "A two-day rigorous training program by Faisal P. Seyd, A.R. Ranjith, CA Praveen, and others for business professionals, focusing on marketing, scaling, work culture, and more.",
   // },
-  {
-    img: [o1, o2, o3],
-    title: "Off-Track Events",
-    desc: "Events that ignite enthusiasm, such as Drone Racing, the VR Experience Zone, Live Idea Pitching, Expo Stalls, Robo Soccer and more.",
-  },
-  {
-    img: [c1, c2, c3],
-    title: "Cultural Events",
-    desc: "Exciting cultural events, featuring performances by Mathu, Kallu, and Dana Razik, entertained audiences of all ages.",
-  },
-  {
-    img: [a1, a2, a3],
-    title: "Award and Honors",
-    desc: "Honoring and recognizing entrepreneurs from diverse walks of life for their excellence.",
-  },
+  // {
+  //   link: "",
+  //   img: [h1, h2, h3],
+  //   title: "Hackathon",
+  //   desc: "A two-day hackathon event open to all, focused on solving challenges specific to the medical field",
+  // },
+  // {
+  //   link: "",
+  //   img: [o1, o2, o3],
+  //   title: "Off-Track Events",
+  //   desc: "Events that ignite enthusiasm, such as Drone Racing, the VR Experience Zone, Live Idea Pitching, Expo Stalls, Robo Soccer and more.",
+  // },
+  // {
+  //   link: "",
+  //   img: [c1, c2, c3],
+  //   title: "Cultural Events",
+  //   desc: "Exciting cultural events, featuring performances by Mathu, Kallu, and Dana Razik, entertained audiences of all ages.",
+  // },
+  // {
+  //   link: "",
+  //   img: [a1, a2, a3],
+  //   title: "Award and Honors",
+  //   desc: "Honoring and recognizing entrepreneurs from diverse walks of life for their excellence.",
+  // },
 ];
 
 export const Scale = [

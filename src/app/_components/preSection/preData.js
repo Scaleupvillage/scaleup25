@@ -17,26 +17,30 @@ import q3 from "@/../../public/pre-events/q3.webp";
 export const events = [
   {
     img: [i1, i2, i3],
+    date: "Jan 18, 2025",
     title: "Investors Connect",
     desc: "A dynamic platform that bridges the gap between investors and startups. Startups pitch their ideas and goals, while investors provide feedback, mentorship, and even potential funding opportunities based on performance. It’s where ideas meet investment.",
-    link: "",
+    link: "https://makemypass.com/scaleup-2025",
   },
   {
     img: [q1, q2, q3],
+    date: "Jan 4, 2025",
     title: "Business Quiz",
     desc: "Test your knowledge of the business world in this exciting quiz competition open to students and enthusiasts. It’s a chance to learn, showcase your expertise, and win exciting prizes along the way. ",
-    link: "",
+    link: "https://makemypass.com/scaleup-2025",
   },
   {
     img: [m1, m2, m3],
+    date: "Jan 23, 2025",
     title: "Marathon",
     desc: "Join this public marathon to promote health, wellness, and community spirit. It’s not just about fitness—it’s a chance to connect, network, and contribute to building a healthier, more connected society.",
-    link: "",
+    link: "https://makemypass.com/scaleup-2025",
   },
   {
     img: [b1, b2, b3],
+    date: "Jan 1, 2025",
     title: "Business Breakfast Meet",
     desc: "A gathering for business professionals to exchange ideas, share experiences, and collaborate. This event fosters growth, networking, and a platform to explore opportunities while emphasizing corporate social responsibility",
-    link: "",
+    link: "https://makemypass.com/scaleup-2025",
   },
 ];

@@ -7,6 +7,8 @@ import l1 from '@/../../public/l1.svg'
 import l4 from '@/../../public/l4.svg'
 import { Highlight } from './data'
 import { Scale } from './data'
+import { IoLocationOutline } from "react-icons/io5";
+import { YouTubeEmbed } from '@next/third-parties/google'
 
 import Slider from './slider'
 
@@ -14,7 +16,16 @@ export default function About() {
     return (
         <div className={styles.about}>
             <div className={styles.title}>
-                <h1>The Start To Something Amazing On! <span>Feb 8th, 9th 2025</span></h1>
+                <div className={styles.headLocation}>
+                    <div className={styles.location}>
+                        <span>
+                            <IoLocationOutline />
+                            <p>Shifa Convention Center, <br /> Perinthalmanna , Malappuram</p>
+                        </span>
+                    </div>
+                    <h1>The Start To Something Amazing On! <span>Feb 8th, 9th 2025</span></h1>
+                </div>
+
                 <Image
                     src={design}
                     alt="design"
@@ -36,16 +47,16 @@ export default function About() {
                 <div className={styles.aboutContent}>
                     <h2>About ScaleUp</h2>
                     <p>
-                        <b>ScaleUp Business Conclave 2.0</b> is the second edition of the business conclave hosted by <b>ScaleUp Village</b>.
-                        This two-day event brings together entrepreneurs, investors, aspiring business leaders, and students
-                        on a shared platform. It's designed to spark meaningful conversations, nurture fresh ideas, and
-                        create real opportunities for growth. With a focus on startup investments, idea development, and
-                        professional connections, the conclave is all about inspiring action, building relationships, and
-                        helping people take their business ambitions to the next level.
+                        <b>ScaleUp Conclave 2nd Edition</b> hosted by <b>ScaleUp Village</b>, that brings together entrepreneurs,
+                        investors, aspiring business leaders, and students on a shared platform. It's designed to
+                        spark meaningful conversations, nurture fresh ideas, and create real opportunities for growth.
+                        With a focus on startup investments, idea development, and professional connections, the
+                        conclave is all about inspiring action, building relationships, and helping people take
+                        their business ambitions to the next level.
                     </p>
                     <p>
-                        <b>ScaleUp Village</b> is a unique hub in India supporting startups and businesses. As an incubator and accelerator, it offers
-                        tools, guidance, and connections to help entrepreneurs grow and succeed.
+                        <b>ScaleUp Village</b> is a unique hub in India supporting startups and businesses. As an incubator
+                        and accelerator, it offers tools, guidance, and connections to help entrepreneurs grow and succeed.
                     </p>
                     <span>
                         <Image
@@ -65,7 +76,9 @@ export default function About() {
                             Highlight.map((item, index) => {
                                 return (
                                     <div className={styles.box} key={index}>
-                                        <Slider img={item.img} />
+                                        <Link href={item.link}>
+                                            <Slider img={item.img} />
+                                        </Link>
                                         <span>
                                             <h3>{item.title}</h3>
                                             <p>{item.desc}</p>

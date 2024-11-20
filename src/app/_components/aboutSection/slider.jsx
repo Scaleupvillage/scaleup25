@@ -18,34 +18,34 @@ export default function Slider({ img }) {
 
     return (
         <div className={styles.sliderContainer}>
-            <PhotoProvider>
-                <Swiper
-                    spaceBetween={30}
-                    effect="fade"
-                    fadeEffect={{ crossFade: true }} 
-                    loop={true}
-                    autoplay={{
-                        delay: 3000,
-                        disableOnInteraction: false,
-                    }}
-                    modules={[Autoplay, EffectFade]}
-                >
-                    {images.map((image, index) => (
-                        <SwiperSlide key={index}>
-                            <PhotoView src={typeof image === 'object' ? image.src : image}>
-                                <Image
-                                    src={image}
-                                    alt={`highlight-${index}`}
-                                    className={styles.highlightImage}
-                                    width={400}
-                                    height={400}
-                                    loading='eager'
-                                />
-                            </PhotoView>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-            </PhotoProvider>
+            {/* <PhotoProvider> */}
+            <Swiper
+                spaceBetween={30}
+                effect="fade"
+                fadeEffect={{ crossFade: true }}
+                loop={true}
+                autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: false,
+                }}
+                modules={[Autoplay, EffectFade]}
+            >
+                {images.map((image, index) => (
+                    <SwiperSlide key={index}>
+                        {/* <PhotoView src={typeof image === 'object' ? image.src : image}> */}
+                        <Image
+                            src={image}
+                            alt={`highlight-${index}`}
+                            className={styles.highlightImage}
+                            width={400}
+                            height={400}
+                            loading='eager'
+                        />
+                        {/* </PhotoView> */}
+                    </SwiperSlide>
+                ))}
+            </Swiper>
+            {/* </PhotoProvider> */}
         </div>
     );
 }

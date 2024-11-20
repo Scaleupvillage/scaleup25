@@ -3,9 +3,11 @@
 import { useEffect, useState } from 'react'
 import styles from './hero.module.css'
 import hero from '@/../../public/hero.webp'
+import heroMobile from '@/../../public/hero-mobile.webp'
 import design from '@/../../public/l5.svg'
 import Image from 'next/image'
 import Countdown from 'react-countdown';
+import { IoLocationOutline } from "react-icons/io5";
 
 export default function Hero() {
     const [isClient, setIsClient] = useState(false);
@@ -15,7 +17,7 @@ export default function Hero() {
         setIsClient(true);
 
         const handleResize = () => {
-            setIsWideScreen(window.innerWidth > 820);
+            setIsWideScreen(window.innerWidth > 678);
         };
 
         handleResize();
@@ -44,27 +46,47 @@ export default function Hero() {
 
     return (
         <div className={styles.hero} id='hero'>
-            <h1>
-                ScaleUp Business Conclave
-                {isWideScreen && <br />}
-                2nd Edition
-            </h1>
+            <div className={styles.head}>
+                <h1>
+                    ScaleUp Conclave <br />
+                    2nd Edition
+                </h1>
+                <div className={styles.location}>
+                    <span>
+                        <IoLocationOutline />
+                        <p>Shifa Convention Center, <br /> Perinthalmanna , Malappuram</p>
+                    </span>
+                </div>
+            </div>
             <div className={styles.imgContainer}>
-                <Image
-                    src={hero}
-                    alt="heroImage"
-                    width={1000}
-                    height={1000}
-                    loading='eager'
-                    className={styles.heroImage}
-                />
-                <Image
+                {
+                    isWideScreen ? (
+                        <Image
+                            src={hero}
+                            alt="heroImage"
+                            width={3000}
+                            height={3000}
+                            loading='eager'
+                            className={styles.heroImage}
+                        />
+                    ) : (
+                        <Image
+                            src={heroMobile}
+                            alt="heroImage"
+                            width={3000}
+                            height={3000}
+                            loading='eager'
+                            className={styles.heroImage}
+                        />
+                    )
+                }
+                {/* <Image
                     src={design}
                     alt="design"
                     width={1000}
                     height={1000}
                     className={styles.design}
-                />
+                /> */}
                 {isClient && (
                     <div className={styles.clock}>
                         <Countdown

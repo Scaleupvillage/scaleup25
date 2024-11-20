@@ -84,7 +84,7 @@ export default function Navbar() {
                         <Link href="#contact" className={styles.link} onClick={handleLinkClick}>Contact Us</Link>
                         <span>
                             <Link href="https://www.scaleupconclave.com/" target='_blank' className={styles.contact} onClick={handleLinkClick}>Pervious Edition</Link>
-                            <Link href="#" className={styles.reg} onClick={handleLinkClick}>Register Now</Link>
+                            <Link href="https://makemypass.com/scaleup-2025" className={styles.reg} onClick={handleLinkClick}>Register Now</Link>
                         </span>
                     </div>
                 </div>

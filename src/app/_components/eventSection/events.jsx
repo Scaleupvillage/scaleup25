@@ -5,7 +5,7 @@ import styles from './events.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
 import l3 from '@/../../public/l3.svg'
-import { events } from './eventsData'
+import { events, upcoming } from './eventsData'
 
 export default function Events() {
 
@@ -29,7 +29,7 @@ export default function Events() {
             />
 
             <div className={styles.eventList}>
-                <div className={styles.eventName}>
+                {/* <div className={styles.eventName}>
                     {tabNames.map((tab, index) => (
                         <h1
                             key={index}
@@ -39,10 +39,11 @@ export default function Events() {
                             {tab}
                         </h1>
                     ))}
-                </div>
+                </div> */}
 
                 <div className={styles.list}>
-                    {currentEvents.map((event, index) => (
+                    {/* {currentEvents.map((event, index) => ( */}
+                    {upcoming.map((event, index) => (
                         <div className={styles.card} key={index}>
                             <div className={styles.cardHead}>
                                 <span>
@@ -66,7 +67,7 @@ export default function Events() {
                                     height={400}
                                     className={styles.v1}
                                 />
-                                <Link href={event.link} target='_blank'>Know More</Link>
+                                {/* <Link href='#' target='_blank'>Know More</Link> */}
                             </div>
                         </div>
                     ))}
