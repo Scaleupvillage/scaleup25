@@ -56,8 +56,10 @@ export default function Events() {
                                 <Image
                                     src={event.img}
                                     alt="event image"
-                                    width={1000}
-                                    height={1000}
+                                    width={800}
+                                    height={800}
+                                    priority
+                                    loading='eager'
                                     className={styles.eventPic}
                                 />
                                 {/* <Image

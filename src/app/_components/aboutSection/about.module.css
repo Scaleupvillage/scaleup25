@@ -149,7 +149,7 @@
 }
 
 .aboutContent .group {
-    width: fit-content;
+    width: 8rem;
     height: 2rem;
     object-fit: contain;
 }

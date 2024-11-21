@@ -9,20 +9,9 @@ import { HiOutlineLocationMarker } from "react-icons/hi";
 
 export default function Hero() {
     const [isClient, setIsClient] = useState(false);
-    const [isWideScreen, setIsWideScreen] = useState(true);
 
     useEffect(() => {
         setIsClient(true);
-
-        const handleResize = () => {
-            setIsWideScreen(window.innerWidth > 678);
-        };
-
-        handleResize();
-
-        window.addEventListener('resize', handleResize);
-
-        return () => window.removeEventListener('resize', handleResize);
     }, []);
 
     const renderer = ({ days, hours, minutes, seconds }) => {
@@ -67,15 +56,6 @@ export default function Hero() {
                 />
             </div>
             <div className={styles.imgContainer}>
-                {/* <Image
-                    src={isWideScreen ? hero : heroMobile}
-                    alt="heroImage"
-                    width={1500}
-                    height={1500}
-                    loading='eager'
-                    className={`${styles.heroImage} ${isWideScreen ? styles.wide : styles.mobile}`}
-                    priority
-                /> */}
                 <div className={styles.heroImage}></div>
                 {isClient && (
                     <div className={styles.clock}>

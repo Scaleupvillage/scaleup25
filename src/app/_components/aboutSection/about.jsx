@@ -5,6 +5,7 @@ import styles from './about.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
 import group from '@/../../public/group-1.svg'
+import group2 from '@/../../public/group-2.svg'
 import l1 from '@/../../public/l1.svg'
 import l4 from '@/../../public/l4.svg'
 import { IoIosCloseCircleOutline } from "react-icons/io";
@@ -75,7 +76,7 @@ export default function About() {
                     </p>
                     <span>
                         <Image
-                            src={group}
+                            src={group2}
                             alt="group"
                             className={styles.group}
                             width={400}
