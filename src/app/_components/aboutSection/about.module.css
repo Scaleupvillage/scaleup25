@@ -2,73 +2,110 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 4rem;
-    padding: 4rem 4rem;
+    gap: 2rem;
+    padding: 2rem 4rem 4rem;
 }
 
-.title {
-    text-align: center;
-    position: relative;
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 1000;
 }
 
-.headLocation {
-    margin-top: 1.15rem;
-    display: flex;
-    gap: .35rem;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+.popupContent {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px);
 }
 
-.headLocation h1 {
-    font-weight: 500;
-}
-
-.headLocation h1 span {
-    font-weight: 700;
+.closeButton {
     color: #fff;
-    background-color: var(--violet);
-    padding: .5rem .75rem;
-    border-radius: .5rem;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
 }
 
 .location {
     display: none;
     align-items: center;
-    justify-content: center;
-    background-color: var(--red);
-    padding: 1rem .5rem;
-    border-radius: .5rem;
-    border-top-left-radius: 1.5rem;
-    color: #fff;
-    gap: .5rem;
-    font-size: 1.25rem;
-    width: 100%;
-    text-align: left;
-    position: relative;
+    justify-content: space-between;
+    gap: .75rem;
+    font-weight: 700;
+    line-height: 1.1;
 }
 
-.location span {
+.days {
     display: flex;
-    gap: .25rem;
+    align-items: baseline;
+    color: #fff;
 }
 
-.location span p {
+.days div {
+    padding: .25rem 1.5rem;
+    border-radius: 1rem;
+    background-color: var(--red);
+    font-size: var(--subHeading);
+    font-weight: 800;
     position: relative;
-    top: -.25rem;
+    rotate: 5deg;
 }
 
-.design {
+.days div:first-child {
+    left: .75rem;
+}
+
+.days div:last-child {
+    right: 1.1rem;
+    rotate: -7.5deg;
+    background: linear-gradient(-180deg, #716CF3 0%, #504dad 100%);
+}
+
+.days div span {
     position: absolute;
-    left: 0;
-    top: -3.5rem;
-    z-index: -1;
-    width: 7rem;
-    height: 7rem;
+    top: .65rem;
+    right: .65rem;
+    font-size: 1rem;
+}
+
+.days p {
+    z-index: 1;
+    font-size: 2rem;
+    position: relative;
+    top: .6rem;
+}
+
+.date>p {
+    color: var(--red);
+    font-weight: 700;
+    text-align: center;
+    font-size: var(--subHeading);
+}
+
+.location>span {
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(-180deg, #716CF3 0%, #504dad 100%);
+    padding: .5rem 1rem;
+    border-radius: .75rem;
+    color: #fff;
+    gap: .25rem;
+    font-size: var(--textlg);
+}
+
+.location .icon {
+    position: relative;
+    top: .15rem;
 }
 
 .content {
@@ -90,8 +127,13 @@
     backdrop-filter: blur(10px);
 }
 
+.aboutContent .design {
+    width: 10rem;
+    height: fit-content;
+}
+
 .aboutContent h2 {
-    font-size: 2.5rem;
+    font-size: var(--heading)
 }
 
 .aboutContent p {
@@ -164,13 +206,13 @@
 }
 
 .highlight h2 {
-    font-size: 1.75rem;
+    font-size: var(--subHeading);
     margin-bottom: 1rem;
 }
 
 .highlight .box {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 1.25rem;
     padding: 2rem;
     background-color: #fff;
@@ -178,6 +220,7 @@
 }
 
 .youtube {
+    width: 100%;
     height: 100%;
 }
 
@@ -191,13 +234,15 @@
     width: 10rem;
     height: 10rem;
     object-fit: cover;
+    object-position: 50% 20%;
     border-radius: 1rem;
+    cursor: pointer;
 }
 
 .highlight .box span {
     display: flex;
     flex-direction: column;
-    gap: .5rem;
+    gap: .25rem;
     color: #3E3E3E;
 }
 
@@ -305,10 +350,6 @@
 }
 
 @media(width<=1024px) {
-    .title h1 {
-        font-size: 1.5rem;
-    }
-
     .l1 {
         bottom: 0;
         top: 37rem;
@@ -317,22 +358,27 @@
         object-fit: contain;
     }
 
-    .design {
-        top: -1.5rem;
-        width: 5rem;
-        height: 5rem;
-    }
-
     .aboutContent {
         font-size: 1.2rem;
     }
 
+    .aboutContent h2 {
+        font-size: var(--subHeading);
+    }
+
     .highlight {
-        padding: 1.5rem
+        padding: 1.5rem;
+        height: 45rem;
+    }
+
+    .highlight h2 {
+        font-size: 1.75rem;
     }
 
     .highlight .box {
         padding: 1.5rem;
+        gap: .5rem;
+        flex-direction: column;
     }
 
     .highlight .box span {
@@ -341,16 +387,16 @@
 
     .sliderContainer,
     .highlight .box img {
-        width: 7rem;
+        width: 100%;
         height: 7rem;
     }
 
     .highlight .box span h3 {
-        font-size: 1.5rem;
+        font-size: var(--textmd);
     }
 
     .highlight .box span p {
-        font-size: .8rem;
+        font-size: var(--textsm)
     }
 
     .whoContent {
@@ -363,21 +409,24 @@
 }
 
 @media(width<=820px) {
+    .about {
+        padding: 4rem 2rem;
+    }
+
+    .aboutContent .design {
+        display: none;
+    }
+
+    .location {
+        display: flex;
+    }
+
     .content {
         grid-template-columns: 1fr;
     }
 
     .highlight .fade {
         display: none;
-    }
-
-    .title h1 {
-        font-size: 1.35rem;
-    }
-
-    .design {
-        width: 3rem;
-        height: 3rem;
     }
 
     .whoContent .box p {
@@ -397,52 +446,75 @@
         height: fit-content;
     }
 
-    .highlight .box {
-        height: fit-content;
-        padding: 1.5rem 1.25rem;
-    }
-
-    .highlight h2 {
-        padding: 1rem .5rem 0;
-    }
-
     .highlight {
         padding: 1.25rem .5rem;
         height: fit-content;
     }
 
     .highlight .box {
+        height: fit-content;
+        padding: 1.5rem 1.25rem;
         width: 18rem;
-        flex-direction: column;
+    }
+
+    .highlight h2 {
+        padding: 1rem .5rem 0;
     }
 
     .sliderContainer,
     .highlight .box img {
         height: 9rem;
-        width: 100%;
+        width: 14rem;
     }
 }
 
 @media(width<=678px) {
     .about {
-        gap: 2rem;
-        padding: 1rem 1rem 4rem;
+        padding: 2rem 1rem 4rem;
     }
 
-    .location {
-        display: flex;
+    .days div {
+        padding: .5rem 1rem;
+        border-radius: .75rem;
+        font-size: 1.75rem;
+    }
+
+    .days div:first-child {
+        left: .5rem;
+    }
+
+    .days div:last-child {
+        right: .5rem;
+    }
+
+    .days div span {
+        top: .5rem;
+        right: .5rem;
+        font-size: .5rem;
+    }
+
+    .days p {
+        font-size: 1rem;
+    }
+
+    .date>p {
+        color: var(--red);
+        font-weight: 700;
+        text-align: center;
+        font-size: 1.25rem;
+    }
+
+    .location>span {
+        border-radius: .5rem;
+        font-size: var(--textsm);
     }
 
     .l1 {
         top: 42rem;
     }
 
-    .title h1 {
-        line-height: 2.5;
-    }
-
-    .design {
-        top: -3rem;
+    .aboutContent {
+        padding: .75rem 0.25rem;
     }
 
     .aboutContent .group {
@@ -503,16 +575,42 @@
 }
 
 @media(width<=400px) {
-    .headLocation {
-        gap: .5rem;
+    .about {
+        padding: 1rem 1rem 4rem;
     }
 
-    .headLocation h1 {
-        font-size: 1.15rem;
+    .days div {
+        font-size: 1.2rem;
     }
 
-    .headLocation h1 span {
+    .days div:first-child {
+        left: .5rem;
+    }
+
+    .days div:last-child {
+        right: .5rem;
+    }
+
+    .days div span {
+        top: .5rem;
+        right: .5rem;
+        font-size: .5rem;
+    }
+
+    .days p {
+        font-size: .8rem;
+        top: .5rem;
+    }
+
+    .date>p {
+        color: var(--red);
+        font-weight: 700;
+        text-align: center;
         font-size: 1.25rem;
+    }
+
+    .location>span {
+        font-size: .75rem;
     }
 
     .l1 {
