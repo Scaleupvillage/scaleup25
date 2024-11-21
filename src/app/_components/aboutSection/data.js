@@ -3,99 +3,64 @@ import s2 from "@/../../public/s2.svg";
 import s3 from "@/../../public/s3.svg";
 import s4 from "@/../../public/s4.svg";
 
-import p1 from "@/../../public/Highlights/p1.webp";
-import p2 from "@/../../public/Highlights/p2.webp";
-import p3 from "@/../../public/Highlights/p3.webp";
-
-import a1 from "@/../../public/Highlights/a1.webp";
-import a2 from "@/../../public/Highlights/a2.webp";
-import a3 from "@/../../public/Highlights/a3.webp";
-
-import b1 from "@/../../public/Highlights/b1.webp";
-import b2 from "@/../../public/Highlights/b2.webp";
-import b3 from "@/../../public/Highlights/b3.webp";
-
-import c1 from "@/../../public/Highlights/c1.webp";
-import c2 from "@/../../public/Highlights/c2.webp";
-import c3 from "@/../../public/Highlights/c3.webp";
-
-import f1 from "@/../../public/Highlights/f1.webp";
-import f2 from "@/../../public/Highlights/f2.webp";
-import f3 from "@/../../public/Highlights/f3.webp";
-import f4 from "@/../../public/Highlights/f4.webp";
-
-import h1 from "@/../../public/Highlights/h1.webp";
-import h2 from "@/../../public/Highlights/h2.webp";
-import h3 from "@/../../public/Highlights/h3.webp";
-
-import k1 from "@/../../public/Highlights/k1.webp";
-import k2 from "@/../../public/Highlights/k2.webp";
-import k3 from "@/../../public/Highlights/k3.webp";
-import k4 from "@/../../public/Highlights/k4.webp";
-
-import w1 from "@/../../public/Highlights/w1.webp";
-import w2 from "@/../../public/Highlights/w2.webp";
-import w3 from "@/../../public/Highlights/w3.webp";
-
-import o1 from "@/../../public/Highlights/o1.webp";
-import o2 from "@/../../public/Highlights/o2.webp";
-import o3 from "@/../../public/Highlights/o3.webp";
+import h1 from "@/../../public/Highlights/1.webp";
+import h2 from "@/../../public/Highlights/2.webp";
+import h3 from "@/../../public/Highlights/3.webp";
+import h4 from "@/../../public/Highlights/4.webp";
+import h5 from "@/../../public/Highlights/5.webp";
+import h6 from "@/../../public/Highlights/6.webp";
+import h7 from "@/../../public/Highlights/7.webp";
+import h8 from "@/../../public/Highlights/8.webp";
 
 export const Highlight = [
   {
-    link: "https://youtu.be/9lIbzmBYFGA?si=XCNl6ylx90LdQ-wj",
-    img: [k1, k2, k3, k4],
-    title: "Keynote Speeches",
-    desc: "Inspiring keynote addresses were delivered by renowned personalities, including P. Rajeev, P.K. Kunhalikutty, Najeeb Kanthapuram, Mohammed Kutty Nechikatte, and Santhosh George Kulangara. Their insights and experiences left a lasting impact on the audience.",
+    link: "g2wyZXFM2V4",
+    img: h1,
+    title: "Meet The Unicorns",
+    desc: "An exclusive opportunity to interact with founders and leaders of billion-dollar companies. Gain valuable insights into their journey, strategies, and what it takes to build a unicorn.",
   },
   {
-    link: "https://youtu.be/tfhXExtlEI4?si=fw3BxE3orI-pN5Wq",
-    img: [f1, f2, f3, f4],
-    title: "Fireside Chats",
-    desc: "Entrepreneurs, social activists, and investors came together for intimate and thought-provoking conversations. They explored topics like the evolving startup ecosystem, the future of education, and other transformative ideas, sparking meaningful debates and fresh perspectives.",
-  },
-  {
-    link: "https://youtu.be/SxUMhsk4c5c?si=iJcw6ukAlwfIpeuV",
-    img: [p1, p2, p3],
+    link: "SxUMhsk4c5c",
+    img: h2,
     title: "Panel Discussions",
     desc: "Leaders from diverse industries, along with influential bureaucrats and social activists, shared their expertise to inspire and educate. The discussions covered essential topics like modern marketing strategies, expanding into global markets, and other impactful business trends.",
   },
   {
-    link: "https://youtu.be/PWdEzBgGMtQ?si=_CQC6Zrp8Ca3aqbt",
-    img: [w1, w2, w3],
+    link: "tfhXExtlEI4",
+    img: h3,
+    title: "Fireside Chats",
+    desc: "Entrepreneurs, social activists, and investors came together for intimate and thought-provoking conversations. They explored topics like the evolving startup ecosystem, the future of education, and other transformative ideas, sparking meaningful debates and fresh perspectives.",
+  },
+  {
+    link: "9lIbzmBYFGA",
+    img: h4,
+    title: "Keynote Speeches",
+    desc: "Inspiring keynote addresses were delivered by renowned personalities, including P. Rajeev, P.K. Kunhalikutty, Najeeb Kanthapuram, Mohammed Kutty Nechikatte, and Santhosh George Kulangara. Their insights and experiences left a lasting impact on the audience.",
+  },
+  {
+    link: "PWdEzBgGMtQ",
+    img: h5,
     title: "Workshops",
     desc: "Hands-on workshops brought ideas to life with sessions on 3D printing, robotics, IoT, resin art, and more. These interactive experiences offered participants a chance to learn, create, and innovate.",
   },
-  // {
-  //   link: "",
-  //   img: [b1, b2, b3],
-  //   title: "Bootcamp",
-  //   desc: "A two-day rigorous training program by Faisal P. Seyd, A.R. Ranjith, CA Praveen, and others for business professionals, focusing on marketing, scaling, work culture, and more.",
-  // },
-  // {
-  //   link: "",
-  //   img: [h1, h2, h3],
-  //   title: "Hackathon",
-  //   desc: "A two-day hackathon event open to all, focused on solving challenges specific to the medical field",
-  // },
-  // {
-  //   link: "",
-  //   img: [o1, o2, o3],
-  //   title: "Off-Track Events",
-  //   desc: "Events that ignite enthusiasm, such as Drone Racing, the VR Experience Zone, Live Idea Pitching, Expo Stalls, Robo Soccer and more.",
-  // },
-  // {
-  //   link: "",
-  //   img: [c1, c2, c3],
-  //   title: "Cultural Events",
-  //   desc: "Exciting cultural events, featuring performances by Mathu, Kallu, and Dana Razik, entertained audiences of all ages.",
-  // },
-  // {
-  //   link: "",
-  //   img: [a1, a2, a3],
-  //   title: "Award and Honors",
-  //   desc: "Honoring and recognizing entrepreneurs from diverse walks of life for their excellence.",
-  // },
+  {
+    link: "Gc6K9PhwRpM",
+    img: h6,
+    title: "Marathon",
+    desc: "A high-energy event that brought participants together to celebrate fitness, perseverance, and community spirit, setting the tone for scaling new heights.",
+  },
+  {
+    link: "oTS1_OwYCNg",
+    img: h7,
+    title: "ScaleUp Stories",
+    desc: "Real-life success stories took center stage as inspiring entrepreneurs shared their journeys—challenges, breakthroughs, and milestones—motivating others to dream big and take action.",
+  },
+  {
+    link: "jmPsscPicrQ",
+    img: h8,
+    title: "Women Entrepreneurships",
+    desc: "Empowering sessions that celebrated the achievements of women entrepreneurs, highlighting their impact on industries and communities while encouraging more women to step into leadership roles.",
+  },
 ];
 
 export const Scale = [

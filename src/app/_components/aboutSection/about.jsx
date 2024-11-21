@@ -16,23 +16,9 @@ export default function About() {
     return (
         <div className={styles.about}>
             <div className={styles.title}>
-                <div className={styles.headLocation}>
-                    <div className={styles.location}>
-                        <span>
-                            <IoLocationOutline />
-                            <p>Shifa Convention Center, <br /> Perinthalmanna , Malappuram</p>
-                        </span>
-                    </div>
-                    <h1>The Start To Something Amazing On! <span>Feb 8th, 9th 2025</span></h1>
-                </div>
+                
 
-                <Image
-                    src={design}
-                    alt="design"
-                    className={styles.design}
-                    width={400}
-                    height={400}
-                />
+                
             </div>
 
             <Image
@@ -76,9 +62,13 @@ export default function About() {
                             Highlight.map((item, index) => {
                                 return (
                                     <div className={styles.box} key={index}>
-                                        <Link href={item.link}>
-                                            <Slider img={item.img} />
-                                        </Link>
+                                        <div className={styles.youtube}>
+                                            <YouTubeEmbed
+                                                videoid={item.link}
+                                                width={170}
+                                                height={170}
+                                            />
+                                        </div>
                                         <span>
                                             <h3>{item.title}</h3>
                                             <p>{item.desc}</p>

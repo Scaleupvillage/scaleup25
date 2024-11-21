@@ -4,6 +4,12 @@
 
   --violet: #635efd;
   --red: #EB0041;
+
+  --heading: 3.75rem; /* 60px */
+  --subHeading: 2.5rem; /* 40px */
+  --textlg: 1.375rem; /* 22px */
+  --textmd: 1rem; /* 16px */
+  --textsm: 0.875rem; /* 14px */
 }
 
 html,

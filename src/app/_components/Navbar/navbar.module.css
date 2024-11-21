@@ -41,7 +41,7 @@
 .bar {
     width: 25px;
     height: 3px;
-    background-color: var(--violet);
+    background-color: #000;
     border-radius: 1rem;
     margin: 6px 0;
     transition: 0.4s;
@@ -168,7 +168,7 @@
     }
 }
 
-@media (width<=821px) {
+@media (width<=912px) {
     .menuIcon {
         display: block;
     }
@@ -184,19 +184,12 @@
         height: 5.6rem;
         background-color: #fff;
         box-shadow: 0 1px 15px rgba(0, 0, 0, 0.1);
+        padding: 1.5rem;
     }
 
     .navbar.open {
         box-shadow: none;
         background-color: #fff;
-    }
-
-    .navbar.scrolled .bar {
-        background-color: var(--violet);
-    }
-
-    .navbar.open .bar {
-        background-color: var(--violet);
     }
 
     .white .logo,
@@ -214,7 +207,7 @@
     }
 
     .navbar.scrolled .color_logo {
-        width: 4.5rem;
+        width: 5rem;
     }
 
     .navbar.scrolled .logo_Mobile,
@@ -289,6 +282,20 @@
 
     .navbar .linkBlocks .contact {
         margin-top: 1.5rem;
+    }
+}
+
+@media (width<=678px) {
+
+    .white .logo,
+    .color_logo,
+    .navbar.scrolled .color_logo {
+        width: 4.25rem;
+    }
+
+    .navbar,
+    .navbar.scrolled {
+        padding: 1rem;
     }
 }
 

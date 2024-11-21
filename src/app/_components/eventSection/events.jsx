@@ -52,7 +52,7 @@ export default function Events() {
                                 </span>
                             </div>
                             <div className={styles.cardBody}>
-                                <span></span>
+                                {/* <span></span> */}
                                 <Image
                                     src={event.img}
                                     alt="event image"
@@ -60,13 +60,13 @@ export default function Events() {
                                     height={1000}
                                     className={styles.eventPic}
                                 />
-                                <Image
+                                {/* <Image
                                     src={event.vector}
                                     alt="vector design"
                                     width={400}
                                     height={400}
                                     className={styles.v1}
-                                />
+                                /> */}
                                 {/* <Link href='#' target='_blank'>Know More</Link> */}
                             </div>
                         </div>

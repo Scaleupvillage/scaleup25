@@ -84,9 +84,10 @@
     gap: 1rem;
     font-size: 1.3rem;
     line-height: 1.5;
-    padding-bottom: .5rem;
+    padding: .75rem;
     border-radius: 1rem;
-    background-color: #fff;
+    background-color: rgb(255, 255, 255, .5);
+    backdrop-filter: blur(10px);
 }
 
 .aboutContent h2 {
@@ -176,6 +177,10 @@
     border-radius: 1rem;
 }
 
+.youtube {
+    height: 100%;
+}
+
 .sliderContainer {
     position: relative;
     width: 10rem;
@@ -194,6 +199,10 @@
     flex-direction: column;
     gap: .5rem;
     color: #3E3E3E;
+}
+
+.highlight .box a {
+    text-decoration: none;
 }
 
 .highlight .box span h3 {
@@ -438,6 +447,10 @@
 
     .aboutContent .group {
         height: 2rem;
+    }
+
+    .aboutContent h2 {
+        font-size: 2rem;
     }
 
     .aboutContent a {

@@ -2,12 +2,10 @@
 
 import { useEffect, useState } from 'react'
 import styles from './hero.module.css'
-import hero from '@/../../public/hero.webp'
-import heroMobile from '@/../../public/hero-mobile.webp'
-import design from '@/../../public/l5.svg'
+import design from '@/../../public/group-1.svg'
 import Image from 'next/image'
 import Countdown from 'react-countdown';
-import { IoLocationOutline } from "react-icons/io5";
+import { HiOutlineLocationMarker } from "react-icons/hi";
 
 export default function Hero() {
     const [isClient, setIsClient] = useState(false);
@@ -28,15 +26,10 @@ export default function Hero() {
     }, []);
 
     const renderer = ({ days, hours, minutes, seconds }) => {
-        const weeks = Math.floor(days / 7);
-        const remainingDays = days % 7;
-
         const formatNumber = (num) => String(num).padStart(2, '0');
-
         return (
             <div className={styles.counter}>
-                <div><span>{formatNumber(weeks)}</span> weeks</div>
-                <div><span>{formatNumber(remainingDays)}</span> days</div>
+                <div><span>{formatNumber(days)}</span> days</div>
                 <div><span>{formatNumber(hours)}</span> hours</div>
                 <div><span>{formatNumber(minutes)}</span> minutes</div>
                 <div><span>{formatNumber(seconds)}</span> seconds</div>
@@ -48,45 +41,42 @@ export default function Hero() {
         <div className={styles.hero} id='hero'>
             <div className={styles.head}>
                 <h1>
-                    ScaleUp Conclave <br />
-                    2nd Edition
+                    ScaleUp Conclave 2025<br />
+                    <span>Second Edition</span>
                 </h1>
                 <div className={styles.location}>
+                    <div className={styles.date}>
+                        <div className={styles.days}>
+                            <div>8 <span>th</span></div>
+                            <p>&</p>
+                            <div>9 <span>th</span></div>
+                        </div>
+                        <p>February</p>
+                    </div>
                     <span>
-                        <IoLocationOutline />
+                        <HiOutlineLocationMarker className={styles.icon} />
                         <p>Shifa Convention Center, <br /> Perinthalmanna , Malappuram</p>
                     </span>
                 </div>
-            </div>
-            <div className={styles.imgContainer}>
-                {
-                    isWideScreen ? (
-                        <Image
-                            src={hero}
-                            alt="heroImage"
-                            width={3000}
-                            height={3000}
-                            loading='eager'
-                            className={styles.heroImage}
-                        />
-                    ) : (
-                        <Image
-                            src={heroMobile}
-                            alt="heroImage"
-                            width={3000}
-                            height={3000}
-                            loading='eager'
-                            className={styles.heroImage}
-                        />
-                    )
-                }
-                {/* <Image
+                <Image
                     src={design}
                     alt="design"
-                    width={1000}
-                    height={1000}
+                    width={400}
+                    height={400}
                     className={styles.design}
+                />
+            </div>
+            <div className={styles.imgContainer}>
+                {/* <Image
+                    src={isWideScreen ? hero : heroMobile}
+                    alt="heroImage"
+                    width={1500}
+                    height={1500}
+                    loading='eager'
+                    className={`${styles.heroImage} ${isWideScreen ? styles.wide : styles.mobile}`}
+                    priority
                 /> */}
+                <div className={styles.heroImage}></div>
                 {isClient && (
                     <div className={styles.clock}>
                         <Countdown
