@@ -30,15 +30,15 @@ export default function Hero() {
         <div className={styles.hero} id='hero'>
             <div className={styles.head}>
                 <h1>
-                    ScaleUp Conclave 2025<br />
-                    <span>Second Edition</span>
+                    ScaleUp <br />Conclave 2025
+                    {/* <span>Second Edition</span> */}
                 </h1>
                 <div className={styles.location}>
                     <div className={styles.date}>
                         <div className={styles.days}>
-                            <div>8 <span>th</span></div>
+                            <div>15 <span>th</span></div>
                             <p>&</p>
-                            <div>9 <span>th</span></div>
+                            <div>16 <span>th</span></div>
                         </div>
                         <p>February</p>
                     </div>

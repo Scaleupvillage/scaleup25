@@ -1,0 +1,43 @@
+import h1 from "@/../../public/Highlights/1.webp";
+import h2 from "@/../../public/Highlights/2.webp";
+import h3 from "@/../../public/Highlights/3.webp";
+import h4 from "@/../../public/Highlights/4.webp";
+import h5 from "@/../../public/Highlights/5.webp";
+import h6 from "@/../../public/Highlights/6.webp";
+import h7 from "@/../../public/Highlights/7.webp";
+import h8 from "@/../../public/Highlights/8.webp";
+import u1 from "@/../../public/upcoming/u1.webp";
+import u2 from "@/../../public/upcoming/u2.webp";
+import u3 from "@/../../public/upcoming/u3.webp";
+import u4 from "@/../../public/upcoming/u4.webp";
+import u5 from "@/../../public/upcoming/u5.webp";
+import u6 from "@/../../public/upcoming/u6.webp";
+import u7 from "@/../../public/upcoming/u7.webp";
+import u8 from "@/../../public/upcoming/u8.webp";
+import u9 from "@/../../public/upcoming/u9.webp";
+import g1 from "@/../../public/gallery/g1.png";
+import g2 from "@/../../public/gallery/g2.png";
+import g3 from "@/../../public/gallery/g3.png";
+
+export const img = [
+  { img: g1 },
+  { img: g2 },
+  { img: g3 },
+  { img: h1 },
+  { img: h2 },
+  { img: h3 },
+  { img: h4 },
+  { img: h5 },
+  { img: h6 },
+  { img: h7 },
+  { img: h8 },
+  { img: u1 },
+  { img: u2 },
+  { img: u3 },
+  { img: u4 },
+  { img: u5 },
+  { img: u6 },
+  { img: u7 },
+  { img: u8 },
+  { img: u9 },
+];

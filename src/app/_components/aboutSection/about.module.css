@@ -123,7 +123,7 @@
     line-height: 1.5;
     padding: .75rem;
     border-radius: 1rem;
-    background-color: rgb(255, 255, 255, .5);
+    background-color: rgb(255, 255, 255, .85);
     backdrop-filter: blur(10px);
 }
 
@@ -154,6 +154,7 @@
     object-fit: contain;
 }
 
+.gallery a,
 .aboutContent a {
     text-decoration: none;
     background-color: var(--red);
@@ -167,6 +168,7 @@
     transition: all 0.3s ease-in-out;
 }
 
+.gallery a:hover,
 .aboutContent a:hover {
     background-color: #ffffff;
     color: var(--red);
@@ -183,6 +185,51 @@
     position: relative;
 }
 
+.thumbnailContainer {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 20rem;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.thumbnailContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.thumbnailContainer .icon {
+    position: absolute;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: .5rem;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.thumbnailContainer .icon:hover {
+    scale: 1.2;
+    box-shadow: 0 0 1px 20px rgba(255, 255, 255, 0.25);
+}
+
+.video {
+    width: 100%;
+    height: 20rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.video[poster] {
+    object-fit: cover;
+}
+
+.gallery,
 .highlight {
     overflow: hidden;
     height: 35rem;
@@ -225,14 +272,29 @@
     overflow: hidden;
     position: relative;
     border-radius: 1rem;
+    display: grid;
+    place-items: center;
+}
+
+.youtube:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, .35);
 }
 
 .youtube .icon {
     position: absolute;
-    bottom: .5rem;
-    right: .5rem;
-    font-size: 1.5rem;
-    color: red;
+    width: 3rem;
+    height: 3rem;
+    padding: .5rem;
+    border-radius: 50%;
+    font-size: 1rem;
+    background-color: #fff;
+    z-index: 1;
 }
 
 .highlight .box img {
@@ -263,6 +325,22 @@
 .highlight .box span h3 {
     font-size: 1.75rem;
     color: #000;
+}
+
+.gallery {
+    height: fit-content;
+}
+
+.galleryLink {
+    margin-top: .5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gallery .design {
+    width: 10rem;
+    height: 2.5rem;
 }
 
 .who {
@@ -305,7 +383,6 @@
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
-    gap: 1rem;
     background-color: #fff;
     border-radius: 1rem;
     padding: 1.5rem;
@@ -326,6 +403,7 @@
 }
 
 .whoContent .box h3 {
+    margin-bottom: .5rem;
     font-size: var(--subHeading);
     color: #000;
 }
@@ -338,7 +416,7 @@
     position: absolute;
     z-index: -1;
     left: -2rem;
-    bottom: 10rem;
+    top: 10%;
     width: 55rem;
     height: 55rem;
     object-fit: contain;
@@ -354,15 +432,27 @@
 }
 
 @media(width<=1280px) {
+
+    .thumbnailContainer,
+    .video {
+        height: 15rem;
+    }
+
+    .highlight {
+        height: 42rem;
+    }
+
     .whoContent .box p {
         height: 14rem;
+    }
+
+    .content {
+        gap: 2rem;
     }
 }
 
 @media(width<=1024px) {
     .l1 {
-        bottom: 0;
-        top: 37rem;
         width: 40rem;
         height: 40rem;
         object-fit: contain;
@@ -372,13 +462,25 @@
         font-size: 1.2rem;
     }
 
+    .thumbnailContainer,
+    .video {
+        height: 11.5rem;
+    }
+
+    .gallery {
+        padding: 1.25rem;
+    }
+
+    .galleryLink .design {
+        width: 8rem;
+    }
+
     .aboutContent h2 {
         font-size: var(--subHeading);
     }
 
     .highlight {
         padding: 1.5rem;
-        height: 45rem;
     }
 
     .highlight h2 {
@@ -421,6 +523,11 @@
 @media(width<=820px) {
     .about {
         padding: 4rem 2rem;
+    }
+
+    .thumbnailContainer,
+    .video {
+        height: 16rem;
     }
 
     .aboutContent .design {
@@ -519,10 +626,6 @@
         font-size: var(--textsm);
     }
 
-    .l1 {
-        top: 42rem;
-    }
-
     .aboutContent {
         padding: .75rem 0.25rem;
     }
@@ -544,6 +647,14 @@
         padding: 1rem;
     }
 
+    .gallery {
+        padding: 1.25rem 1rem;
+    }
+
+    .galleryLink .design {
+        width: 6rem;
+    }
+
     .who {
         padding: 2rem 1rem;
     }
@@ -554,7 +665,8 @@
     }
 
     .who .head img {
-        height: 2rem;
+        height: 1.75rem;
+        width: 6rem;
     }
 
     .who .head h2 {
@@ -624,7 +736,6 @@
     }
 
     .l1 {
-        top: 45rem;
         width: 30rem;
         height: 30rem;
     }
@@ -645,6 +756,7 @@
 @media(width<=380px) {
     .aboutContent .group {
         height: 1.5rem;
+        width: 6.5rem;
     }
 
     .aboutContent a {

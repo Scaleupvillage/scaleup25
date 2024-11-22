@@ -8,16 +8,27 @@ import group from '@/../../public/group-1.svg'
 import group2 from '@/../../public/group-2.svg'
 import l1 from '@/../../public/l1.svg'
 import l4 from '@/../../public/l4.svg'
-import { IoLogoYoutube } from "react-icons/io5";
+import videoThumbnail from '@/../../public/thumbnail.webp'
+import { FaPlay } from "react-icons/fa6";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { Highlight } from './data'
 import { Scale } from './data'
 import { YouTubeEmbed } from '@next/third-parties/google'
 
+import ImageGallery from './gallery';
+
 export default function About() {
     const [popup, setPopup] = useState(false);
     const [currentVideo, setCurrentVideo] = useState('');
+
+    const [isPlaying, setIsPlaying] = useState(false);
+    const videoRef = React.createRef();
+
+    const handlePlayClick = () => {
+        setIsPlaying(true);
+        videoRef.current.play();
+    };
 
     const openPopup = (videoId) => {
         setCurrentVideo(videoId);
@@ -101,7 +112,7 @@ export default function About() {
                                                 height={400}
                                                 onClick={() => openPopup(item.link)}
                                             />
-                                            <IoLogoYoutube className={styles.icon} />
+                                            <FaPlay className={styles.icon} />
                                         </div>
                                         <span>
                                             <h3>{item.title}</h3>
@@ -133,11 +144,58 @@ export default function About() {
                 </div>
             )}
 
+            <div className={styles.content}>
+                <div className={styles.aboutContent}>
+                    <h2>About ScaleUp</h2>
+                    {!isPlaying && (
+                        <div className={styles.thumbnailContainer} onClick={handlePlayClick}>
+                            <Image
+                                src={videoThumbnail}
+                                alt="Video Thumbnail"
+                                fill
+                            />
+                            <FaPlay className={styles.icon} />
+                        </div>
+                    )}
+                    <video
+                        ref={videoRef}
+                        src='https://www.youtube.com/watch?v=zYaQg8zxQpg'
+                        poster='./thumbnail.webp'
+                        controls
+                        className={styles.video}
+                        style={{ display: isPlaying ? 'block' : 'none' }}
+                    >
+                        Your browser does not support the video tag.
+                    </video>
+                    <p>
+                        ScaleUp Village is a unique hub in India supporting startups and businesses.
+                        As an incubatorand accelerator, it offers tools, guidance, and connections
+                        to help entrepreneurs grow and succeed.
+                    </p>
+                    <p>
+                        As an incubatorand accelerator, it offers tools, guidance.
+                    </p>
+                </div>
+                <div className={styles.gallery}>
+                    <ImageGallery />
+                    <div className={styles.galleryLink}>
+                        <Image
+                            src={group}
+                            alt="group"
+                            className={styles.design}
+                            width={400}
+                            height={400}
+                        />
+                        <Link href='#'>View All</Link>
+                    </div>
+                </div>
+            </div>
+
             <div className={styles.who}>
                 <div className={styles.head}>
                     <h2>ScaleUp for Who?</h2>
                     <Image
-                        src={group}
+                        src={group2}
                         alt="group"
                         width={400}
                         height={400}
@@ -164,13 +222,13 @@ export default function About() {
                         })
                     }
                 </div>
-                <Image
+                {/* <Image
                     src={l4}
                     alt="group"
                     className={styles.l4}
                     width={400}
                     height={400}
-                />
+                /> */}
             </div>
         </div>
     )
