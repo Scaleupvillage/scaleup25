@@ -8,6 +8,7 @@ import group from '@/../../public/group-1.svg'
 import group2 from '@/../../public/group-2.svg'
 import l1 from '@/../../public/l1.svg'
 import l4 from '@/../../public/l4.svg'
+import { IoLogoYoutube } from "react-icons/io5";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { Highlight } from './data'
@@ -100,6 +101,7 @@ export default function About() {
                                                 height={400}
                                                 onClick={() => openPopup(item.link)}
                                             />
+                                            <IoLogoYoutube className={styles.icon} />
                                         </div>
                                         <span>
                                             <h3>{item.title}</h3>

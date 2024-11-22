@@ -1,0 +1,45 @@
+.whatsapp {
+    position: fixed;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    background-color: #25D366;
+    color: #fff;
+    padding: 1rem;
+    border-radius: 50%;
+    z-index: 9999;
+    width: 4rem;
+    height: 4rem;
+    display: grid;
+    place-items: center;
+    animation: float 2s ease-in-out infinite;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 0, 0, .25);
+}
+
+.whatsapp .icon {
+    font-size: 2rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.whatsapp:hover .icon {
+    scale: 1.2;
+}
+
+@keyframes float {
+    50% {
+        transform: translateY(-1rem);
+    }
+}
+
+@media(width<=500px) {
+    .whatsapp {
+        width: 3.75rem;
+        height: 3.75rem;
+        bottom: .75rem;
+        right: .75rem;
+    }
+
+    .whatsapp .icon {
+        font-size: 1.75rem;
+    }
+}

@@ -11,7 +11,7 @@
 }
 
 .head h1 {
-    font-size: 4rem;
+    font-size: var(--heading);
     line-height: 1.2;
 }
 
@@ -88,10 +88,9 @@
 
 .cardHead h1 {
     letter-spacing: -1px;
-    font-weight: 800;
     line-height: 1.2;
     margin-bottom: .75rem;
-    font-size: 1.8rem;
+    font-size: var(--subHeading);
 }
 
 .cardBody {
@@ -170,6 +169,18 @@
     }
 }
 
+@media(width<=820px) {
+    .events {
+        padding: 4rem 2rem;
+    }
+
+    .l3 {
+        width: 15rem;
+        height: 15rem;
+        top: 4rem;
+    }
+}
+
 @media(width<=678px) {
     .events {
         padding: 4rem 1rem;
@@ -182,7 +193,7 @@
     }
 
     .head h1 {
-        font-size: 3rem;
+        font-size: 3.25rem;
     }
 
     .list {
@@ -191,6 +202,10 @@
 
     .cardHead {
         padding: 1rem .85rem 0;
+    }
+
+    .cardHead h1 {
+        font-size: 2rem;
     }
 
     .eventList {
@@ -209,6 +224,10 @@
 }
 
 @media(width<=400px) {
+    .head h1 {
+        font-size: 3rem;
+    }
+
     .eventName h1 {
         font-size: .65rem;
         padding: 1.25rem .8rem;

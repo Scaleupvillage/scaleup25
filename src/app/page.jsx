@@ -6,12 +6,14 @@ import Events from "./_components/eventSection/events";
 import Schedule from "./_components/scheduleSection/schedule";
 import Pre from "./_components/preSection/pre";
 import Partner from "./_components/partnerSection/partner";
+import Whatsapp from "./_components/whatsapp/whatsapp";
 
 export default async function Home() {
   return (
     <>
       <Hero />
-      <About/>
+      <About />
+      <Whatsapp />
       {/* <Speaker /> */}
       <Events />
       <Pre />
