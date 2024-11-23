@@ -25,7 +25,7 @@ export default function Footer() {
                                 className={styles.design}
                             />
                             <div>
-                                <p>Get in touch to join the ScaleUp <br /> Business Conclave 2025!</p>
+                                <p>Get in touch to join the <br />ScaleUp Conclave 2025!</p>
                                 <div className={styles.icon}>
                                     <Link href='https://www.facebook.com/people/ScaleUp-Conclave/61554188141132/' target='_blank' aria-label='facebook' className={styles.con}><FaFacebookF /></Link>
                                     <Link href='https://x.com/Scaleup2024' target='_blank' aria-label='twitter' className={styles.con}><FaTwitter /></Link>

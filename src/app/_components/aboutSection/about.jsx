@@ -172,12 +172,10 @@ export default function About() {
                         Your browser does not support the video tag.
                     </video>
                     <p>
-                        ScaleUp Village is a unique hub in India supporting startups and businesses.
-                        As an incubatorand accelerator, it offers tools, guidance, and connections
-                        to help entrepreneurs grow and succeed.
-                    </p>
-                    <p>
-                        As an incubatorand accelerator, it offers tools, guidance.
+                        The ScaleUp Conclave 2024 was successful, with over 7,000 participants, 300 local business leaders,
+                        150 educational institutions, 100 keynote speakers, and 20 investors. The conclave included a
+                        variety of events such as discussions, expert talks, investor networking, exhibitions, workshops,
+                        and cultural programs, and was crucial in promoting a business friendly ecosystem.
                     </p>
                 </div>
                 <div className={styles.gallery}>
@@ -197,7 +195,7 @@ export default function About() {
 
             <div className={styles.who}>
                 <div className={styles.head}>
-                    <h2>ScaleUp for Who?</h2>
+                    <h2>ScaleUp for Whom?</h2>
                     <Image
                         src={group2}
                         alt="group"

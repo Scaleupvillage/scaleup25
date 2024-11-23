@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import styles from './navbar.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
-import white from '@/../public/logo.svg';
+import white from '@/../public/logo.webp';
 import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
