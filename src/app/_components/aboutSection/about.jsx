@@ -150,7 +150,7 @@ export default function About() {
 
             <div className={styles.content}>
                 <div className={styles.aboutContent}>
-                    <h2>About ScaleUp</h2>
+                    <h2 className={styles.about2}>ScaleUp Conclave 2024</h2>
                     {!isPlaying && (
                         <div className={styles.thumbnailContainer} onClick={handlePlayClick}>
                             <Image

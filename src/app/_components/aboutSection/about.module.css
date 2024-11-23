@@ -428,6 +428,10 @@
     z-index: 1;
 }
 
+.aboutContent .about2 {
+    font-size: var(--subHeading);
+}
+
 @media(width<=1280px) {
 
     .thumbnailContainer,
@@ -514,6 +518,10 @@
 
     .whoContent .box p {
         height: 7rem;
+    }
+
+    .aboutContent .about2 {
+        font-size: 2.25rem;
     }
 }
 
@@ -692,6 +700,10 @@
         width: 5rem;
         bottom: -3rem;
         right: 2rem;
+    }
+
+    .aboutContent .about2 {
+        font-size: 2rem;
     }
 }
 
