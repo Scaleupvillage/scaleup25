@@ -1,7 +1,7 @@
-import sa1 from "@/../../public/s1.svg";
-import sa2 from "@/../../public/s2.svg";
-import sa3 from "@/../../public/s3.svg";
-import sa4 from "@/../../public/s4.svg";
+import sa1 from "@/../../public/s1.webp";
+import sa2 from "@/../../public/s2.webp";
+import sa3 from "@/../../public/s3.webp";
+import sa4 from "@/../../public/s4.webp";
 
 import m1 from "@/../../public/Highlights/m1.webp";
 import m2 from "@/../../public/Highlights/m2.webp";

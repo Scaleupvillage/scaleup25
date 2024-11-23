@@ -216,7 +216,7 @@ export default function About() {
                                             alt="highlight"
                                             width={400}
                                             height={400}
-                                            loading='eager'
+                                            loading='lazy'
                                         />
                                     </div>
                                     <h3>{item.title}</h3>
