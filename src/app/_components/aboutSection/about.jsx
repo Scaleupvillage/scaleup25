@@ -46,9 +46,9 @@ export default function About() {
             <div className={styles.location}>
                 <div className={styles.date}>
                     <div className={styles.days}>
-                        <div>8 <span>th</span></div>
+                        <div>15 <span>th</span></div>
                         <p>&</p>
-                        <div>9 <span>th</span></div>
+                        <div>16 <span>th</span></div>
                     </div>
                     <p>February</p>
                 </div>

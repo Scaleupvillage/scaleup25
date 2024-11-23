@@ -590,7 +590,7 @@
     }
 
     .days div {
-        padding: .5rem 1rem;
+        padding: .25rem .8rem;
         border-radius: .75rem;
         font-size: 1.75rem;
     }
@@ -604,8 +604,8 @@
     }
 
     .days div span {
-        top: .5rem;
-        right: .5rem;
+        top: .2rem;
+        right: .25rem;
         font-size: .5rem;
     }
 
@@ -622,7 +622,7 @@
 
     .location>span {
         border-radius: .5rem;
-        font-size: var(--textsm);
+        font-size: .8rem;
     }
 
     .aboutContent {
@@ -701,11 +701,12 @@
     }
 
     .days div {
+        padding: .5rem .8rem;
         font-size: 1.2rem;
     }
 
     .days div:first-child {
-        left: .5rem;
+        left: .25rem;
     }
 
     .days div:last-child {
@@ -713,8 +714,6 @@
     }
 
     .days div span {
-        top: .5rem;
-        right: .5rem;
         font-size: .5rem;
     }
 
@@ -760,6 +759,10 @@
 
     .aboutContent a {
         padding: .65rem 1.25rem;
+        font-size: .7rem;
+    }
+
+    .location>span {
         font-size: .7rem;
     }
 }

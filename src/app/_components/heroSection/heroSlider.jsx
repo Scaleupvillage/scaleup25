@@ -30,9 +30,7 @@ export default function LaptopSlider({ img }) {
                         src={imageObj.img}
                         alt={`highlight-${index}`}
                         className={styles.heroImage}
-                        width={1800}
-                        height={1800}
-                        loading="eager"
+                        fill
                     />
                 </SwiperSlide>
             ))}
