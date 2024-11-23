@@ -24,11 +24,9 @@ export default function About() {
     const [currentVideo, setCurrentVideo] = useState('');
 
     const [isPlaying, setIsPlaying] = useState(false);
-    const videoRef = React.createRef();
 
     const handlePlayClick = () => {
         setIsPlaying(true);
-        videoRef.current.play();
     };
 
     const openPopup = (videoId) => {
@@ -109,12 +107,6 @@ export default function About() {
                                             className={styles.youtube}
                                             onClick={() => openPopup(item.link)}
                                         >
-                                            {/* <Image
-                                                src={item.img}
-                                                alt='highlight'
-                                                width={400}
-                                                height={400}
-                                            /> */}
                                             <Slider img={item.img} />
                                             <FaPlay className={styles.icon} />
                                         </div>
@@ -151,26 +143,30 @@ export default function About() {
             <div className={styles.content}>
                 <div className={styles.aboutContent}>
                     <h2 className={styles.about2}>ScaleUp Conclave 2024</h2>
-                    {!isPlaying && (
-                        <div className={styles.thumbnailContainer} onClick={handlePlayClick}>
+                    {!isPlaying ? (
+                        <div
+                            className={styles.thumbnailContainer}
+                            onClick={handlePlayClick} 
+                        >
                             <Image
                                 src={videoThumbnail}
                                 alt="Video Thumbnail"
                                 fill
+                                className={styles.thumbnailImage}
                             />
                             <FaPlay className={styles.icon} />
                         </div>
+                    ) : (
+                        <iframe
+                            className={styles.video}
+                            width="560"
+                            height="315"
+                            src="https://www.youtube.com/embed/QSHgrlUUye8?autoplay=1"
+                            title="YouTube video player"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                        />
                     )}
-                    <video
-                        ref={videoRef}
-                        src='https://www.youtube.com/watch?v=zYaQg8zxQpg'
-                        poster='./thumbnail.webp'
-                        controls
-                        className={styles.video}
-                        style={{ display: isPlaying ? 'block' : 'none' }}
-                    >
-                        Your browser does not support the video tag.
-                    </video>
                     <p>
                         The ScaleUp Conclave 2024 was successful, with over 7,000 participants, 300 local business leaders,
                         150 educational institutions, 100 keynote speakers, and 20 investors. The conclave included a
