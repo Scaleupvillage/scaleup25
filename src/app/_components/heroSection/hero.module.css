@@ -303,6 +303,10 @@
     .counter div span {
         font-size: 1.75rem;
     }
+
+    .mobile {
+        height: 18rem;
+    }
 }
 
 @media(width<=380px) {
