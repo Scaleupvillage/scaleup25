@@ -108,10 +108,11 @@
 
 .imgContainer {
     position: relative;
+    height: fit-content;
 }
 
 .laptop {
-    height: 75vh;
+    height: 72vh;
 }
 
 .mobile {
