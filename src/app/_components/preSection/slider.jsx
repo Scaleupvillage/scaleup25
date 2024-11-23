@@ -39,7 +39,7 @@ export default function Slider({ img }) {
                                     className={styles.eventPic}
                                     width={400}
                                     height={400}
-                                    loading='eager'
+                                    loading='lazy'
                                 />
                             </PhotoView>
                         </SwiperSlide>

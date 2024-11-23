@@ -31,6 +31,7 @@ export default function LaptopSlider({ img }) {
                         alt={`highlight-${index}`}
                         className={styles.heroImage}
                         fill
+                        loading='eager'
                     />
                 </SwiperSlide>
             ))}
