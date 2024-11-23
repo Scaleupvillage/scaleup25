@@ -110,16 +110,16 @@
     position: relative;
 }
 
-.heroImage {
+.laptop {
     height: 75vh;
-    background-image: url('../../../../public/hero.webp');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 1rem;
+}
+
+.mobile {
+    display: none;
 }
 
 .clock {
+    z-index: 1;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -156,7 +156,7 @@
 }
 
 @media(width<=1440px) {
-    .heroImage {
+    .laptop {
         height: 55vh;
     }
 }
@@ -232,9 +232,13 @@
         top: -.75rem;
     }
 
-    .heroImage {
+    .laptop {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
         height: 30rem;
-        background-image: url('../../../../public/hero-mobile.webp');
     }
 
     .clock {
@@ -267,7 +271,7 @@
         width: 6rem;
     }
 
-    .heroImage {
+    .mobile {
         height: 20rem;
     }
 

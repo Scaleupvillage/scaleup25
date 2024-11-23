@@ -17,6 +17,7 @@ import { Scale } from './data'
 import { YouTubeEmbed } from '@next/third-parties/google'
 
 import ImageGallery from './gallery';
+import Slider from './slider';
 
 export default function About() {
     const [popup, setPopup] = useState(false);
@@ -104,14 +105,17 @@ export default function About() {
                             Highlight.map((item, index) => {
                                 return (
                                     <div className={styles.box} key={index}>
-                                        <div className={styles.youtube}>
-                                            <Image
+                                        <div
+                                            className={styles.youtube}
+                                            onClick={() => openPopup(item.link)}
+                                        >
+                                            {/* <Image
                                                 src={item.img}
                                                 alt='highlight'
                                                 width={400}
                                                 height={400}
-                                                onClick={() => openPopup(item.link)}
-                                            />
+                                            /> */}
+                                            <Slider img={item.img} />
                                             <FaPlay className={styles.icon} />
                                         </div>
                                         <span>

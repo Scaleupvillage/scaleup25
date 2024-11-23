@@ -7,6 +7,9 @@ import Image from 'next/image'
 import Countdown from 'react-countdown';
 import { HiOutlineLocationMarker } from "react-icons/hi";
 
+import { laptop, mobile } from './imgData'
+import LaptopSlider from './heroSlider';
+
 export default function Hero() {
     const [isClient, setIsClient] = useState(false);
 
@@ -56,7 +59,12 @@ export default function Hero() {
                 />
             </div>
             <div className={styles.imgContainer}>
-                <div className={styles.heroImage}></div>
+                <div className={styles.laptop}>
+                    <LaptopSlider img={laptop} />
+                </div>
+                <div className={styles.mobile}>
+                    <LaptopSlider img={mobile} />
+                </div>
                 {isClient && (
                     <div className={styles.clock}>
                         <Countdown

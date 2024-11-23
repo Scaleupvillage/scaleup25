@@ -127,13 +127,13 @@ export const upcoming = [
     vector: e1,
   },
   {
-    img: u6,
+    img: u7,
     title: "Bootcamps",
     desc: "Attend focused sessions with experts offering practical learning, tools, and techniques to master business, entrepreneurship, and more.",
     vector: e2,
   },
   {
-    img: u7,
+    img: u6,
     title: "Exhbitions",
     desc: "Explore 50+ stalls showcasing innovations, services, and products. Discover opportunities and connect with industry leaders shaping the future.",
     vector: e3,

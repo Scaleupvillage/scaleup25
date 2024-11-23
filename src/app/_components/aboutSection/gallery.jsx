@@ -53,6 +53,7 @@ const ImageGallery = () => {
                         src={item.img}
                         alt={`Image ${index + 1}`}
                         fill
+                        loading='eager'
                         style={{ objectFit: 'cover' }}
                     />
                 </div>
