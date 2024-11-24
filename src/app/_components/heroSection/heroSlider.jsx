@@ -18,7 +18,7 @@ export default function LaptopSlider({ img }) {
             fadeEffect={{ crossFade: true }}
             loop={true}
             autoplay={{
-                delay: 3000,
+                delay: 5000,
                 disableOnInteraction: false,
             }}
             modules={[Autoplay, EffectFade]}
