@@ -176,7 +176,7 @@ export default function About() {
                             width={400}
                             height={400}
                         />
-                        <Link href='#'>View All</Link>
+                        <Link href='#'>View All Photos</Link>
                     </div>
                 </div>
             </div>

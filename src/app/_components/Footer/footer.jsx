@@ -39,7 +39,7 @@ export default function Footer() {
                     <div className={styles.contact}>
                         <h2>Instagram</h2>
                         <Gallery />
-                        <Link href='https://www.instagram.com/scaleup_village' target='_blank' style={{ color: '#000', textDecoration: 'none' }}><b>Visit Us Now</b></Link>
+                        <Link className={styles.followInsta} href='https://www.instagram.com/scaleup_village' target='_blank' style={{ color: '#000', textDecoration: 'none' }}><b>Follow ScaleUp Village on Instagram</b></Link>
                     </div>
                     <div className={styles.contact}>
                         <b className={styles.text}>Location: Shifa Convention Center, Perinthalmanna</b>

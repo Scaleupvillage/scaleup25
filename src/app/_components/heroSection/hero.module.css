@@ -27,7 +27,14 @@
     line-height: 1.1;
 }
 
+.date {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
 .days {
+    width: fit-content;
     display: flex;
     align-items: baseline;
     color: #fff;

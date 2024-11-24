@@ -132,9 +132,9 @@
     flex-direction: column;
     overflow-y: scroll;
     gap: 1rem;
-    scroll-behavior: smooth;
     scrollbar-width: thin;
     scrollbar-color: var(--violet) #e4e4e4;
+    -webkit-overflow-scrolling: touch;
     position: relative;
 }
 
@@ -399,6 +399,11 @@
 
     .content {
         gap: 2rem;
+    }
+
+    .scroll {
+        scrollbar-width: thin;
+        overflow-y: scroll;
     }
 }
 
