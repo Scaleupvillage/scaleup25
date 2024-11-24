@@ -7,5 +7,6 @@
 .heroImage {
     width: 100% !important;
     height: 100% !important;
-    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: top;
 }

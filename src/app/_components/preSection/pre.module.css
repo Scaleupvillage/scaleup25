@@ -148,6 +148,12 @@
     }
 }
 
+@media(width<=820px) {
+    .pre {
+        padding: 4rem 2rem;
+    }
+}
+
 @media(width<=678px) {
     .pre {
         padding: 4rem 1rem;
