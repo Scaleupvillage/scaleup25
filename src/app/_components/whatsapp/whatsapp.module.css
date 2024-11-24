@@ -10,12 +10,15 @@
 }
 
 .reg {
+    height: 3.5rem;
+    display: grid;
+    place-items: center;
     text-decoration: none;
     cursor: pointer;
     color: #fff;
     background-color: var(--violet);
     border: .5px solid var(--violet);
-    padding: .7rem 1.25rem;
+    padding: .7rem 1.5rem;
     border-radius: 5rem;
     transition: all .3s ease-in-out;
 }
@@ -28,10 +31,9 @@
 .whatsapp {
     background-color: #25D366;
     color: #fff;
-    padding: 1rem;
     border-radius: 50%;
-    width: 4rem;
-    height: 4rem;
+    width: 3.5rem;
+    height: 3.5rem;
     display: grid;
     place-items: center;
     cursor: pointer;

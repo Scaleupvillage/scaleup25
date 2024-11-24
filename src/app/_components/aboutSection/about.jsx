@@ -44,9 +44,9 @@ export default function About() {
             <div className={styles.location}>
                 <div className={styles.date}>
                     <div className={styles.days}>
-                        <div>15 <span>th</span></div>
+                        <div><p>15</p> <span>th</span></div>
                         <p>&</p>
-                        <div>16 <span>th</span></div>
+                        <div><p>16</p> <span>th</span></div>
                     </div>
                     <p>February</p>
                 </div>
@@ -55,14 +55,6 @@ export default function About() {
                     <p>Shifa Convention Center, <br /> Perinthalmanna , Malappuram</p>
                 </span>
             </div>
-
-            <Image
-                src={l1}
-                alt="group"
-                className={styles.l1}
-                width={400}
-                height={400}
-            />
 
             <div className={styles.content}>
                 <div className={styles.aboutContent}>
@@ -108,7 +100,7 @@ export default function About() {
                                             onClick={() => openPopup(item.link)}
                                         >
                                             <Slider img={item.img} />
-                                            <FaPlay className={styles.icon} />
+                                            <div className={styles.icon} ><FaPlay /></div>
                                         </div>
                                         <span>
                                             <h3>{item.title}</h3>
@@ -146,7 +138,7 @@ export default function About() {
                     {!isPlaying ? (
                         <div
                             className={styles.thumbnailContainer}
-                            onClick={handlePlayClick} 
+                            onClick={handlePlayClick}
                         >
                             <Image
                                 src={videoThumbnail}
@@ -154,7 +146,7 @@ export default function About() {
                                 fill
                                 className={styles.thumbnailImage}
                             />
-                            <FaPlay className={styles.icon} />
+                            <div className={styles.icon} ><FaPlay /></div>
                         </div>
                     ) : (
                         <iframe

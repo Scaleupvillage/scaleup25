@@ -2,14 +2,19 @@
   --background: #ffffff;
   --foreground: #171717;
 
-  --violet: #635efd;
-  --red: #EB0041;
+  --violet: #7570FD;
+  --red: #E72462;
 
-  --heading: 3.75rem; /* 60px */
-  --subHeading: 2.5rem; /* 40px */
-  --textlg: 1.375rem; /* 22px */
-  --textmd: 1rem; /* 16px */
-  --textsm: 0.875rem; /* 14px */
+  --heading: 3.75rem;
+  /* 60px */
+  --subHeading: 2.5rem;
+  /* 40px */
+  --textlg: 1.375rem;
+  /* 22px */
+  --textmd: 1rem;
+  /* 16px */
+  --textsm: 0.875rem;
+  /* 14px */
 }
 
 html,

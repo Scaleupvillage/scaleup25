@@ -11,7 +11,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1.5rem 4rem 0rem;
+    padding: 1rem 4rem 0rem;
     transition: all 0.3s ease-in-out;
     background-color: #fff;
 }
@@ -59,7 +59,7 @@
 .navbar .logo,
 .navbar .logo_Mobile,
 .color_logo {
-    width: 7rem;
+    width: 5.5rem;
     height: fit-content;
     object-fit: contain;
 }
@@ -79,6 +79,7 @@
     width: 5rem;
 }
 
+.spaceFixer,
 .navbar .links .linkBlocks {
     display: flex;
     align-items: center;

@@ -45,53 +45,6 @@
     line-height: 1.1;
 }
 
-.days {
-    display: flex;
-    align-items: baseline;
-    color: #fff;
-}
-
-.days div {
-    padding: .25rem 1.5rem;
-    border-radius: 1rem;
-    background-color: var(--red);
-    font-size: var(--subHeading);
-    font-weight: 800;
-    position: relative;
-    rotate: 5deg;
-}
-
-.days div:first-child {
-    left: .75rem;
-}
-
-.days div:last-child {
-    right: 1.1rem;
-    rotate: -7.5deg;
-    background: linear-gradient(-180deg, #716CF3 0%, #504dad 100%);
-}
-
-.days div span {
-    position: absolute;
-    top: .65rem;
-    right: .65rem;
-    font-size: 1rem;
-}
-
-.days p {
-    z-index: 1;
-    font-size: 2rem;
-    position: relative;
-    top: .6rem;
-}
-
-.date>p {
-    color: var(--red);
-    font-weight: 700;
-    text-align: center;
-    font-size: var(--subHeading);
-}
-
 .location>span {
     display: flex;
     justify-content: center;
@@ -204,16 +157,19 @@
 
 .thumbnailContainer .icon {
     position: absolute;
-    width: 2.5rem;
-    height: 2.5rem;
-    padding: .5rem;
+    width: 3rem;
+    height: 3rem;
+    display: grid;
+    place-content: center;
     border-radius: 50%;
-    background-color: #fff;
-    cursor: pointer;
+    font-size: 1.2rem;
+    background-color: rgb(255, 255, 255, .8);
+    z-index: 1;
     transition: all 0.3s ease-in-out;
 }
 
 .thumbnailContainer .icon:hover {
+    background-color: #fff;
     scale: 1.2;
     box-shadow: 0 0 1px 20px rgba(255, 255, 255, 0.25);
 }
@@ -281,15 +237,17 @@
     position: absolute;
     width: 3rem;
     height: 3rem;
-    padding: .5rem;
+    display: grid;
+    place-content: center;
     border-radius: 50%;
-    font-size: 1rem;
-    background-color: #fff;
+    font-size: 1.2rem;
+    background-color: rgb(255, 255, 255, .8);
     z-index: 1;
     transition: all 0.3s ease-in-out;
 }
 
 .youtube:hover .icon {
+    background-color: #fff;
     scale: 1.1;
     box-shadow: 0 0 1px 12px rgba(255, 255, 255, 0.25);
 }
@@ -375,10 +333,10 @@
 }
 
 .whoContent .box {
+    height: 100%;
     text-align: center;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     flex-direction: column;
     background-color: #fff;
     border-radius: 1rem;
@@ -403,10 +361,6 @@
     margin-bottom: .5rem;
     font-size: var(--subHeading);
     color: #000;
-}
-
-.whoContent .box p {
-    height: 11rem;
 }
 
 .l1 {
@@ -441,10 +395,6 @@
 
     .highlight {
         height: 42rem;
-    }
-
-    .whoContent .box p {
-        height: 14rem;
     }
 
     .content {
@@ -516,10 +466,6 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .whoContent .box p {
-        height: 7rem;
-    }
-
     .aboutContent .about2 {
         font-size: 2.25rem;
     }
@@ -547,14 +493,6 @@
         grid-template-columns: 1fr;
     }
 
-    .highlight .fade {
-        display: none;
-    }
-
-    .whoContent .box p {
-        height: 12rem;
-    }
-
     .l4 {
         width: 7rem;
         bottom: -4rem;
@@ -566,6 +504,14 @@
         overflow-x: scroll;
         width: 100%;
         height: fit-content;
+        scrollbar-width: none;
+    }
+
+    .highlight .fade {
+        width: 30%;
+        height: 100%;
+        left: 80%;
+        background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255) 100%);
     }
 
     .highlight {
@@ -574,7 +520,6 @@
     }
 
     .highlight .box {
-        height: fit-content;
         padding: 1.5rem 1.25rem;
         width: 18rem;
     }
@@ -597,35 +542,68 @@
         padding: 2rem 1rem 4rem;
     }
 
+    .days {
+        display: flex;
+        align-items: baseline;
+        color: #fff;
+    }
+
     .days div {
-        padding: .25rem .8rem;
+        width: 3.75rem;
+        height: 3rem;
         border-radius: .75rem;
-        font-size: 1.75rem;
+        background-color: var(--red);
+        font-size: 1.5rem;
+        position: relative;
+        rotate: 5deg;
+        display: grid;
+        place-items: center;
     }
 
     .days div:first-child {
-        left: .5rem;
+        left: .75rem;
     }
 
     .days div:last-child {
-        right: .5rem;
+        right: .8rem;
+        rotate: -7.5deg;
+        background: linear-gradient(-180deg, #716CF3 0%, #504dad 100%);
+    }
+
+    .days div p {
+        position: absolute;
+    }
+
+    .days div:first-child p {
+        right: 1.25rem;
+    }
+
+    .days div:last-child p {
+        right: 1.2rem;
     }
 
     .days div span {
-        top: .2rem;
-        right: .25rem;
-        font-size: .5rem;
+        position: absolute;
+        top: .8rem;
+        right: .5rem;
+        font-size: .75rem;
     }
 
-    .days p {
-        font-size: 1rem;
+    .days div:last-child span {
+        right: .35rem;
+    }
+
+    .days>p {
+        z-index: 1;
+        font-size: 1.5rem;
+        position: relative;
     }
 
     .date>p {
         color: var(--red);
         font-weight: 700;
         text-align: center;
-        font-size: 1.25rem;
+        font-size: 1.5rem;
     }
 
     .location>span {
@@ -652,6 +630,11 @@
 
     .highlight .box {
         padding: 1rem;
+        gap: .75rem;
+    }
+
+    .highlight .box span {
+        gap: .25rem;
     }
 
     .gallery {
@@ -713,31 +696,43 @@
     }
 
     .days div {
-        padding: .5rem .8rem;
-        font-size: 1.2rem;
+        width: 3rem;
+        height: 2.75rem;
+        border-radius: .5rem;
+        font-size: 1rem;
     }
 
     .days div:first-child {
-        left: .25rem;
+        left: .75rem;
     }
 
     .days div:last-child {
         right: .5rem;
     }
 
-    .days div span {
-        font-size: .5rem;
+    .days div:first-child p {
+        right: 1.25rem;
     }
 
-    .days p {
-        font-size: .8rem;
-        top: .5rem;
+    .days div:last-child p {
+        right: 1.2rem;
+    }
+
+    .days div span {
+        top: .9rem;
+        right: .6rem;
+        font-size: .6rem;
+    }
+
+    .days div:last-child span {
+        right: .5rem;
+    }
+
+    .days>p {
+        font-size: 1.25rem;
     }
 
     .date>p {
-        color: var(--red);
-        font-weight: 700;
-        text-align: center;
         font-size: 1.25rem;
     }
 

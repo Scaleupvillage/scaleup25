@@ -78,10 +78,12 @@ export default function Navbar() {
                     </Link>
 
                     <div className={styles.linkBlocks}>
-                        <Link href="#hero" className={styles.link} onClick={handleLinkClick}>Home</Link>
-                        <Link href="#speakers" className={styles.link} onClick={handleLinkClick}>Speakers</Link>
-                        <Link href="#events" className={styles.link} onClick={handleLinkClick}>Events</Link>
-                        <Link href="#contact" className={styles.link} onClick={handleLinkClick}>Contact Us</Link>
+                        <div className={styles.spaceFixer}>
+                            <Link href="#hero" className={styles.link} onClick={handleLinkClick}>Home</Link>
+                            <Link href="#speakers" className={styles.link} onClick={handleLinkClick}>Speakers</Link>
+                            <Link href="#events" className={styles.link} onClick={handleLinkClick}>Events</Link>
+                            <Link href="#contact" className={styles.link} onClick={handleLinkClick}>Contact Us</Link>
+                        </div>
                         <span>
                             <Link href="https://www.scaleupconclave.com/" target='_blank' className={styles.contact} onClick={handleLinkClick}>Pervious Edition</Link>
                             <Link href="https://makemypass.com/scaleup-2025" className={styles.reg} onClick={handleLinkClick}>Register Now</Link>

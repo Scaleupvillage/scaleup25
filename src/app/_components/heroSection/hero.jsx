@@ -18,9 +18,9 @@ export default function Hero() {
                 <div className={styles.location}>
                     <div className={styles.date}>
                         <div className={styles.days}>
-                            <div>15 <span>th</span></div>
+                            <div><p>15</p> <span>th</span></div>
                             <p>&</p>
-                            <div>16 <span>th</span></div>
+                            <div><p>16</p> <span>th</span></div>
                         </div>
                         <p>February</p>
                     </div>
