@@ -175,12 +175,6 @@
     color: #fff;
 }
 
-@media(width<=1440px) {
-    .laptop {
-        height: 55vh;
-    }
-}
-
 @media(width<=1024px) {
     .days {
         position: relative;
