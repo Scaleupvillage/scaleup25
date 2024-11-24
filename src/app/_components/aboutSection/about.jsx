@@ -6,7 +6,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import group from '@/../../public/group-1.svg'
 import group2 from '@/../../public/group-2.svg'
-import l1 from '@/../../public/l1.svg'
 import l4 from '@/../../public/l4.svg'
 import videoThumbnail from '@/../../public/thumbnail.webp'
 import { FaPlay } from "react-icons/fa6";
@@ -18,6 +17,8 @@ import { YouTubeEmbed } from '@next/third-parties/google'
 
 import ImageGallery from './gallery';
 import Slider from './slider';
+
+const galleryViewLink = 'https://photos.app.goo.gl/8RujHJkP2RPgAqj68'
 
 export default function About() {
     const [popup, setPopup] = useState(false);
@@ -176,7 +177,7 @@ export default function About() {
                             width={400}
                             height={400}
                         />
-                        <Link href='#'>View All Photos</Link>
+                        <Link href={galleryViewLink}>View All Photos</Link>
                     </div>
                 </div>
             </div>
