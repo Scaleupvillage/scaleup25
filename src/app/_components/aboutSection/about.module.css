@@ -608,7 +608,7 @@
         color: var(--red);
         font-weight: 700;
         text-align: center;
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
 
     .location>span {
@@ -738,7 +738,7 @@
     }
 
     .date>p {
-        font-size: 1.25rem;
+        font-size: .8rem;
     }
 
     .location>span {

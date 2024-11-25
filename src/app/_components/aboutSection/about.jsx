@@ -49,7 +49,7 @@ export default function About() {
                         <p>&</p>
                         <div><p>16</p> <span>th</span></div>
                     </div>
-                    <p>February</p>
+                    <p>February 2025</p>
                 </div>
                 <span>
                     <HiOutlineLocationMarker className={styles.icon} />
