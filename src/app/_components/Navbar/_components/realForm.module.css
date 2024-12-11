@@ -1,0 +1,86 @@
+.head {
+    margin-bottom: 1rem;
+}
+
+.head p {
+    padding: .25rem 0;
+}
+
+.form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: .7rem;
+}
+
+.form>div {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+}
+
+.form>div span {
+    color: var(--red);
+}
+
+.form>div input {
+    width: 100%;
+}
+
+.form>div input,
+.form>div select {
+    padding: .75rem;
+    background-color: #F9F9F9;
+    border-radius: .25rem;
+    border: none;
+    color: #8D9396;
+}
+
+.form>div select option {
+    color: #000;
+}
+
+.form>div select {
+    padding-right: 2.5rem;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24'%3E%3Cpath fill='%23000000' d='M7 10l5 5 5-5H7z'/%3E%3C/svg%3E") no-repeat right 1rem center;
+    background-color: #F9F9F9;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.submit button {
+    position: absolute;
+    bottom: -2.75rem;
+    right: 0;
+    background-color: var(--violet);
+    color: #fff;
+    text-transform: uppercase;
+    padding: .9rem 2.5rem;
+    border-radius: 25rem;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+@media(width<=1024px) {
+    .realForm {
+        height: fit-content;
+        overflow-y: scroll;
+        margin-bottom: 2rem;
+    }
+}
+
+@media(width<=900px) {
+    .realForm {
+        overflow-y: visible;
+        margin-bottom: 0rem;
+    }
+}
+
+@media(width<=400px) {
+    .realForm {
+        overflow-y: 80vh;
+        overflow-y: scroll;
+        margin-bottom: 2rem;
+    }
+}

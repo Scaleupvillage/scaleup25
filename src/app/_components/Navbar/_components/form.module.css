@@ -1,0 +1,271 @@
+.formContainer {
+    z-index: 9998;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.closeButton {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: var(--red);
+}
+
+.content {
+    position: relative;
+    padding: 3rem 4rem;
+    background-color: #fff;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.design {
+    position: absolute;
+    top: -4rem;
+    right: 2rem;
+    width: 10rem;
+    height: fit-content;
+}
+
+.group {
+    position: absolute;
+    width: 10rem;
+    height: 2rem;
+    bottom: 1.5rem;
+    left: 3.5rem;
+}
+
+.head h1 {
+    font-size: 2.5rem;
+}
+
+.list {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4rem;
+}
+
+.card {
+    color: #000;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    height: 22rem;
+    font-size: .9rem;
+    background-color: #fff;
+    border: 1px solid #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+    border: .5px solid var(--red);
+}
+
+.card img {
+    width: 100%;
+    height: fit-content;
+    margin-top: 1rem;
+    object-fit: cover;
+}
+
+.cardContent {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.cardContent h1 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: .25rem;
+}
+
+.card .reg {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card .reg span {
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+}
+
+.card .reg input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid gray;
+    background-color: white;
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.card .reg input[type="radio"]::after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: gray;
+}
+
+.card:hover .reg input[type="radio"]::after {
+    background-color: var(--red);
+}
+
+.card:hover .reg input[type="radio"] {
+    border-color: var(--red);
+}
+
+.card .reg p {
+    font-size: 1.2rem;
+}
+
+@media(width<=1280px) {
+    .content {
+        width: 70%;
+    }
+}
+
+@media(width<=1024px) {
+    .list {
+        margin-top: 2rem;
+    }
+
+    .card {
+        height: 20rem;
+    }
+
+    .content {
+        padding: 3rem 2.5rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .design {
+        width: 8rem;
+    }
+
+    .group {
+        left: 2.5rem;
+        width: 6rem;
+    }
+
+    .card .reg input[type="radio"] {
+        width: 15px;
+        height: 15px;
+    }
+
+    .card .reg input[type="radio"]::after {
+        top: 3px;
+        left: 3px;
+        width: 6px;
+        height: 6px;
+    }
+
+    .card .reg p {
+        font-size: 1rem;
+    }
+
+    .cardContent h1 {
+        font-size: 1.2rem;
+    }
+}
+
+@media(width<=920px) {
+    .list {
+        flex-direction: column;
+    }
+}
+
+@media(width<=678px) {
+    .content {
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 2rem 1rem;
+    }
+
+    .list {
+        height: 70vh;
+        overflow-y: scroll;
+        justify-content: flex-start;
+    }
+
+    .group {
+        left: 1rem;
+    }
+
+    .card {
+        width: 100%;
+        height: fit-content;
+    }
+
+    .card img {
+        margin-top: 0;
+        height: 8rem;
+        object-fit: contain;
+    }
+
+    .cardContent h1 {
+        font-size: 1.5rem;
+    }
+}
+
+@media(width<=400px) {
+    .content{
+        padding: 4rem 1rem;
+    }
+
+    .design {
+        width: 7rem;
+    }
+
+    .group {
+        width: 6rem;
+        bottom: 1rem;
+    }
+
+    .head h1 {
+        font-size: 2rem;
+    }
+
+    .list {
+        margin-top: 1rem;
+    }
+
+    .card img {
+        height: 6rem;
+    }
+}
