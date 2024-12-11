@@ -2,11 +2,10 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import ticket from '@/../../public/ticket.png';
 import l4 from '@/../../public/l4.svg';
 import group from '@/../../public/group-2.svg';
-import { AiOutlineClose } from 'react-icons/ai';
+import { AiOutlineClose, AiOutlineArrowLeft } from 'react-icons/ai';
 import styles from './form.module.css';
 import RealForm from './realForm';
 
@@ -34,11 +33,22 @@ export default function Form({ onClose }) {
         setSelectedTicket(ticketType);
     };
 
+    const handleBack = () => {
+        setSelectedTicket(null);
+    };
+
     return (
         <div className={styles.formContainer}>
             <div className={styles.content} ref={formRef}>
-                <button className={styles.closeButton} onClick={onClose}>
-                    <AiOutlineClose size={24} />
+                <button
+                    className={styles.closeButton}
+                    onClick={selectedTicket ? handleBack : onClose}
+                >
+                    {selectedTicket ? (
+                        <AiOutlineArrowLeft size={24} />
+                    ) : (
+                        <AiOutlineClose size={24} />
+                    )}
                 </button>
                 <Image
                     src={l4}
@@ -58,7 +68,6 @@ export default function Form({ onClose }) {
                     <div className={styles.box}>
                         <div className={styles.head}>
                             <h1>Select Tickets</h1>
-                            {/* <p>Select the ticket you would like to access</p> */}
                         </div>
                         <div className={styles.list}>
                             <div
@@ -74,15 +83,16 @@ export default function Form({ onClose }) {
                                 />
                                 <div className={styles.cardContent}>
                                     <div className={styles.desc}>
-                                        <h1>General Pass</h1>
-                                        <p>This is a Free pass it has access to the following:</p>
+                                        <h1>General Ticket</h1>
+                                        <ul>
+                                            <li>Access to mainstage</li>
+                                            <li>Access to exhibitions</li>
+                                            <li>Access to workshops</li>
+                                            <li>Networking opportunities</li>
+                                        </ul>
                                     </div>
                                     <div className={styles.reg}>
-                                        <span>
-                                            <input type="radio" name="ticket" id="" />
-                                            <label htmlFor="ticket">Select</label>
-                                        </span>
-                                        <p>Price: Free</p>
+                                        <p><span>Price:</span> Free</p>
                                     </div>
                                 </div>
                             </div>
@@ -100,15 +110,17 @@ export default function Form({ onClose }) {
                                 />
                                 <div className={styles.cardContent}>
                                     <div className={styles.desc}>
-                                        <h1>Premium Ticket</h1>
-                                        <p>This is a Free pass it has access to the following:</p>
+                                        <h1>VIP Ticket</h1>
+                                        <ul>
+                                            <li>Reserved seat</li>
+                                            <li>Car parking slot</li>
+                                            <li>ScaleUp souvenir kit</li>
+                                            <li>Family pass for culturals</li>
+                                            <li>VIP Lunch</li>
+                                        </ul>
                                     </div>
                                     <div className={styles.reg}>
-                                        <span>
-                                            <input type="radio" name="ticket" id="" />
-                                            <label htmlFor="ticket">Select</label>
-                                        </span>
-                                        <p>Price: 1500</p>
+                                        <p><span>Price:</span> ₹9999</p>
                                     </div>
                                 </div>
                             </div>
@@ -126,23 +138,23 @@ export default function Form({ onClose }) {
                                 />
                                 <div className={styles.cardContent}>
                                     <div className={styles.desc}>
-                                        <h1>Book Stall</h1>
-                                        <p>This is a Free pass it has access to the following:</p>
+                                        <h1>Stalls</h1>
+                                        <ul>
+                                            <li>Air conditioned stalls</li>
+                                            <li>Available for 2 days</li>
+                                            <li>10,000 visitors</li>
+                                            <li>One VIP ticket</li>
+                                        </ul>
                                     </div>
                                     <div className={styles.reg}>
-                                        <span>
-                                            <input type="radio" name="ticket" id="" />
-                                            <label htmlFor="ticket">Select</label>
-                                        </span>
+                                        <p><span>Starting from:</span> ₹60,000</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 ) : (
-                    <div className={styles.content}>
-                        <RealForm selectedTicket={selectedTicket.selectedTicket}/>
-                    </div>
+                    <RealForm selectedTicket={selectedTicket} />
                 )}
             </div>
         </div>

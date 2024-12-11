@@ -33,7 +33,6 @@
     background-color: #F9F9F9;
     border-radius: .25rem;
     border: none;
-    color: #8D9396;
 }
 
 .form>div select option {
@@ -62,6 +61,31 @@
     cursor: pointer;
 }
 
+.thankYou {
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.thankYou h2 {
+    font-size: 3rem;
+}
+
+.thankYou button {
+    background-color: var(--violet);
+    color: #fff;
+    text-transform: uppercase;
+    padding: .9rem 2.5rem;
+    border-radius: 25rem;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+}
+
 @media(width<=1024px) {
     .realForm {
         height: fit-content;
@@ -74,12 +98,20 @@
     .realForm {
         overflow-y: visible;
         margin-bottom: 0rem;
+        padding: 1rem;
+    }
+}
+
+@media(width<=600px) {
+    .realForm {
+        height: 80vh;
+        overflow: hidden;
     }
 }
 
 @media(width<=400px) {
     .realForm {
-        overflow-y: 80vh;
+        height: 90vh;
         overflow-y: scroll;
         margin-bottom: 2rem;
     }

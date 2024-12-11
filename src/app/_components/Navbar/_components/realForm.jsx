@@ -206,15 +206,20 @@ const ScaleupForm = ({ selectedTicket }) => {
 
     return (
         <div className={styles.realForm}>
-            <div className={styles.head}>
-                <h1>Register Now!</h1>
-                <p>
-                    Fill the form details and get yopur entry to the much
-                    awaited event and we shall add here upto 2 line text if
-                    needed
-                </p>
-            </div>
             {!isSubmitted ? (
+                <div className={styles.head}>
+                    <h1>Register Now!</h1>
+                    <p>
+                        Fill the form details and get your entry to the much
+                        awaited event. We shall add here up to 2 line text if
+                        needed.
+                    </p>
+                </div>
+            ) : (
+                <ThankYou ticket={ticketDetails} />
+            )}
+
+            {!isSubmitted && (
                 <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
                     {/* Name Field */}
                     <div>
@@ -409,8 +414,6 @@ const ScaleupForm = ({ selectedTicket }) => {
                         <button type="submit">Submit</button>
                     </div>
                 </form>
-            ) : (
-                <ThankYou ticket={ticketDetails} />
             )}
         </div>
     );
