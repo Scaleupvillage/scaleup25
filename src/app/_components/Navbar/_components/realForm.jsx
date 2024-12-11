@@ -22,7 +22,7 @@ const ThankYou = ({ ticket }) => (
     </div>
 );
 
-const ScaleupForm = () => {
+const ScaleupForm = (selectedTicket) => {
     const {
         register,
         handleSubmit,
@@ -49,6 +49,11 @@ const ScaleupForm = () => {
                     count: 1,
                     my_ticket: true,
                 },
+                {
+                    ticket_id: "0eb4c20a-2de2-42dc-b792-c609e8eb63c6",
+                    count: 1,
+                    my_ticket: true,
+                },
             ],
             utm: {
                 source: null,
@@ -70,13 +75,27 @@ const ScaleupForm = () => {
             "did_you_attend_the_previous_scaleup_conclave_2024",
             data.attendedPrevious
         );
-        payload.tickets.forEach((ticket) => {
-            payloadFormData.append("tickets[]", JSON.stringify(ticket));
-        });
+
+        if (selectedTicket === "General Pass") {
+            payloadFormData.append(
+                "tickets[]",
+                JSON.stringify(payload.tickets[0])
+            );
+        } else {
+            payloadFormData.append(
+                "tickets[]",
+                JSON.stringify(payload.tickets[1])
+            );
+        }
+
         payloadFormData.append("utm", JSON.stringify(payload.utm));
 
-        try {
-            const response = await axios.post(
+        const script = document.createElement("script");
+        script.src = "https://checkout.razorpay.com/v1/checkout.js";
+        document.body.appendChild(script);
+
+        axios
+            .post(
                 "https://api.buildnship.in/makemypass/public-form/95585c57-9c47-4808-a57b-b2867b89c1f4/submit/",
                 payloadFormData,
                 {
@@ -84,30 +103,75 @@ const ScaleupForm = () => {
                         "Content-Type": "multipart/form-data",
                     },
                 }
-            );
+            )
+            .then((response) => {
+                if (response.status === 200) {
+                    if (response.data.response.gateway_type) {
+                        const paymentId = response.data.response.id;
+                        const paymentAmount = response.data.response.amount;
 
-            if (response.status === 200) {
-                setTicketDetails(response.data.response); // Store the ticket details
-                setIsSubmitted(true); // Show the ThankYou component
-            } else {
-                alert("Something went wrong. Please try again.");
-            }
-        } catch (error) {
-            if (error.response && error.response.data) {
-                const apiErrors = error.response.data.message;
+                        const options = {
+                            key_id: response.data.response.gateway_key,
+                            amount: paymentAmount,
+                            currency: response.data.response.currency,
+                            name: "MakeMyPass",
+                            description: `MMP - scaleup-2025`,
+                            image: "/pwa/maskable.webp",
+                            order_id: paymentId,
+                            handler: function (response) {
+                                axios
+                                    .post(
+                                        "https://api.buildnship.in/makemypass/public-form/validate-payment/",
+                                        {
+                                            order_id:
+                                                response.razorpay_order_id,
+                                            payment_id:
+                                                response.razorpay_payment_id,
+                                        }
+                                    )
+                                    .then((response) => {
+                                        setTicketDetails(
+                                            response.data.response
+                                        ); // Store the ticket details
+                                        setIsSubmitted(true); // Show the ThankYou component
+                                    })
+                                    .catch((error) => {
+                                        alert(
+                                            "Something went wrong. Please try again."
+                                        );
+                                    });
+                            },
+                            theme: {
+                                color: "#00FF82",
+                            },
+                        };
 
-                // Map the API errors to the form state
-                Object.keys(apiErrors).forEach((field) => {
-                    setError(field, {
-                        type: "api",
-                        message: apiErrors[field].join(", "),
+                        const rzp1 = new window.Razorpay(options);
+                        rzp1.open();
+                    } else {
+                        setTicketDetails(response.data.response); // Store the ticket details
+                        setIsSubmitted(true); // Show the ThankYou component
+                    }
+                } else {
+                    alert("Something went wrong. Please try again.");
+                }
+            })
+            .catch((error) => {
+                if (error.response && error.response.data) {
+                    const apiErrors = error.response.data.message;
+
+                    // Map the API errors to the form state
+                    Object.keys(apiErrors).forEach((field) => {
+                        setError(field, {
+                            type: "api",
+                            message: apiErrors[field].join(", "),
+                        });
                     });
-                });
-            } else {
-                console.error("Submission error:", error);
-                alert("An unexpected error occurred. Please try again.");
-            }
-        }
+                } else {
+                    console.error("Submission error:", error);
+                    alert("An unexpected error occurred. Please try again.");
+                }
+            });
     };
 
     const districtsInKerala = [
