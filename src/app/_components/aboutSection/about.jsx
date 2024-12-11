@@ -86,7 +86,7 @@ export default function About() {
                             width={400}
                             height={400}
                         />
-                        <Link href='#'>Download Brochure</Link>
+                        <Link href='https://online.fliphtml5.com/jqxey/xqca/#p=1'>View Brochure</Link>
                     </span>
                 </div>
                 <div className={styles.highlight}>
