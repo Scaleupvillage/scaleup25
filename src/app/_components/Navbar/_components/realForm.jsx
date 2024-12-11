@@ -4,21 +4,33 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import styles from "./realForm.module.css";
 import axios from "axios";
+import toast from "react-hot-toast";
+import { BeatLoader } from "react-spinners";
+import phoneCountryCodes from "./phoneCountryCodes.json";
 
-const ThankYou = ({ ticket }) => (
+const ThankYou = ({ ticket, selectedTicket }) => (
     <div className={styles.thankYou}>
         <h2>Thank You for Registering!</h2>
-        <p>Your ticket details:</p>
-        <button
-            onClick={() =>
-                window.open(
-                    `https://makemypass.com/scaleup-2025/view-ticket/${ticket?.event_register_id}`,
-                    "_blank"
-                )
-            }
-        >
-            View Ticket
-        </button>
+        {selectedTicket === "Book Stall" ? (
+            <p>
+                Your registration of interest is successful. Our team will
+                contact you shortly.
+            </p>
+        ) : (
+            <>
+                <p>Kindly, click the below button to view your ticket.</p>
+                <button
+                    onClick={() =>
+                        window.open(
+                            `https://makemypass.com/scaleup-2025/view-ticket/${ticket?.event_register_id}`,
+                            "_blank"
+                        )
+                    }
+                >
+                    View Ticket
+                </button>
+            </>
+        )}
     </div>
 );
 
@@ -31,6 +43,7 @@ const ScaleupForm = ({ selectedTicket }) => {
     } = useForm();
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [ticketDetails, setTicketDetails] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
 
     let eventId;
     if (
@@ -64,6 +77,11 @@ const ScaleupForm = ({ selectedTicket }) => {
                     count: 1,
                     my_ticket: true,
                 },
+                {
+                    ticket_id: "f3acf45a-f23e-41c8-9e1a-26417da55fdf",
+                    count: 1,
+                    my_ticket: true,
+                },
             ],
             utm: {
                 source: null,
@@ -91,15 +109,23 @@ const ScaleupForm = ({ selectedTicket }) => {
                 "tickets[]",
                 JSON.stringify(payload.tickets[0])
             );
-        } else {
+        } else if (selectedTicket === "Premium Pass") {
             payloadFormData.append(
                 "tickets[]",
                 JSON.stringify(payload.tickets[1])
             );
+        } else if (selectedTicket === "Book Stall") {
+            payloadFormData.append(
+                "tickets[]",
+                JSON.stringify(payload.tickets[2])
+            );
         }
 
         payloadFormData.append("utm", JSON.stringify(payload.utm));
-
+        setIsLoading(true);
+        const script = document.createElement("script");
+        script.src = "https://checkout.razorpay.com/v1/checkout.js";
+        document.body.appendChild(script);
         axios
             .post(
                 `https://api.buildnship.in/makemypass/public-form/${eventId}/submit/`,
@@ -113,11 +139,6 @@ const ScaleupForm = ({ selectedTicket }) => {
             .then((response) => {
                 if (response.status === 200) {
                     if (response.data.response.gateway_type) {
-                        const script = document.createElement("script");
-                        script.src =
-                            "https://checkout.razorpay.com/v1/checkout.js";
-                        document.body.appendChild(script);
-
                         const paymentId = response.data.response.id;
                         const paymentAmount = response.data.response.amount;
 
@@ -147,8 +168,8 @@ const ScaleupForm = ({ selectedTicket }) => {
                                         setIsSubmitted(true); // Show the ThankYou component
                                     })
                                     .catch((error) => {
-                                        alert(
-                                            "Something went wrong. Please try again."
+                                        toast.error(
+                                            "Payment failed. Please try again."
                                         );
                                     });
                             },
@@ -164,7 +185,7 @@ const ScaleupForm = ({ selectedTicket }) => {
                         setIsSubmitted(true); // Show the ThankYou component
                     }
                 } else {
-                    alert("Something went wrong. Please try again.");
+                    toast.error("Submission failed. Please try again.");
                 }
             })
             .catch((error) => {
@@ -179,9 +200,11 @@ const ScaleupForm = ({ selectedTicket }) => {
                         });
                     });
                 } else {
-                    console.error("Submission error:", error);
-                    alert("An unexpected error occurred. Please try again.");
+                    toast.error("Submission failed. Please try again.");
                 }
+            })
+            .finally(() => {
+                setIsLoading(false);
             });
     };
 
@@ -216,9 +239,12 @@ const ScaleupForm = ({ selectedTicket }) => {
                     </p>
                 </div>
             ) : (
-                <ThankYou ticket={ticketDetails} />
+                <ThankYou
+                    ticket={ticketDetails}
+                    selectedTicket={selectedTicket}
+                />
             )}
-            
+
             {!isSubmitted && (
                 <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
                     {/* Name Field */}
@@ -234,7 +260,7 @@ const ScaleupForm = ({ selectedTicket }) => {
                             placeholder="Enter your name"
                         />
                         {errors.name && (
-                            <p style={{ color: "red" }}>
+                            <p style={{ color: "red", fontSize: "0.9rem" }}>
                                 {errors.name.message}
                             </p>
                         )}
@@ -247,15 +273,19 @@ const ScaleupForm = ({ selectedTicket }) => {
                         </label>
                         <div style={{ display: "flex", gap: "5px" }}>
                             <select
+                                defaultValue={"+91"}
                                 {...register("countryCode", {
                                     required: "Country code is required",
                                 })}
                             >
-                                <option value="+91">+91</option>
-                                <option value="+1">+1</option>
-                                <option value="+44">+44</option>
-                                <option value="+61">+61</option>
-                                {/* Add more country codes here */}
+                                {phoneCountryCodes.map((countryCode) => (
+                                    <option
+                                        key={countryCode.code}
+                                        value={countryCode.dial_code}
+                                    >
+                                        {countryCode.dial_code}
+                                    </option>
+                                ))}
                             </select>
                             <input
                                 type="tel"
@@ -270,7 +300,7 @@ const ScaleupForm = ({ selectedTicket }) => {
                             />
                         </div>
                         {errors.phone && (
-                            <p style={{ color: "red" }}>
+                            <p style={{ color: "red", fontSize: "0.9rem" }}>
                                 {errors.phone.message}
                             </p>
                         )}
@@ -293,7 +323,7 @@ const ScaleupForm = ({ selectedTicket }) => {
                             placeholder="Enter your email"
                         />
                         {errors.email && (
-                            <p style={{ color: "red" }}>
+                            <p style={{ color: "red", fontSize: "0.9rem" }}>
                                 {errors.email.message}
                             </p>
                         )}
@@ -316,7 +346,7 @@ const ScaleupForm = ({ selectedTicket }) => {
                             ))}
                         </select>
                         {errors.district && (
-                            <p style={{ color: "red" }}>
+                            <p style={{ color: "red", fontSize: "0.9rem" }}>
                                 {errors.district.message}
                             </p>
                         )}
@@ -339,7 +369,7 @@ const ScaleupForm = ({ selectedTicket }) => {
                             ))}
                         </select>
                         {errors.category && (
-                            <p style={{ color: "red" }}>
+                            <p style={{ color: "red", fontSize: "0.9rem" }}>
                                 {errors.category.message}
                             </p>
                         )}
@@ -357,7 +387,7 @@ const ScaleupForm = ({ selectedTicket }) => {
                             placeholder="Enter your institution name"
                         />
                         {errors.institution && (
-                            <p style={{ color: "red" }}>
+                            <p style={{ color: "red", fontSize: "0.9rem" }}>
                                 {errors.institution.message}
                             </p>
                         )}
@@ -403,7 +433,7 @@ const ScaleupForm = ({ selectedTicket }) => {
                             </label>
                         </div>
                         {errors.attendedPrevious && (
-                            <p style={{ color: "red" }}>
+                            <p style={{ color: "red", fontSize: "0.9rem" }}>
                                 {errors.attendedPrevious.message}
                             </p>
                         )}
@@ -411,7 +441,13 @@ const ScaleupForm = ({ selectedTicket }) => {
 
                     {/* Submit Button */}
                     <div className={styles.submit}>
-                        <button type="submit">Submit</button>
+                        <button type="submit">
+                            {isLoading ? (
+                                <BeatLoader size={8} color="white" />
+                            ) : (
+                                "Submit"
+                            )}
+                        </button>
                     </div>
                 </form>
             )}

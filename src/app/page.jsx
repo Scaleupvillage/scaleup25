@@ -9,17 +9,17 @@ import Partner from "./_components/partnerSection/partner";
 import Whatsapp from "./_components/whatsapp/whatsapp";
 
 export default async function Home() {
-  return (
-    <>
-      <Hero />
-      <About />
-      <Whatsapp />
-      {/* <Speaker /> */}
-      <Events />
-      <Pre />
-      {/* <Schedule /> */}
-      {/* <Partner /> */}
-      <Faq />
-    </>
-  );
+    return (
+        <>
+            <Hero />
+            <About />
+            <Whatsapp />
+            {/* <Speaker /> */}
+            <Events />
+            <Pre />
+            {/* <Schedule /> */}
+            {/* <Partner /> */}
+            <Faq />
+        </>
+    );
 }

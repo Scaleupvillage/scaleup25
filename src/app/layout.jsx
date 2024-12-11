@@ -2,6 +2,7 @@ import { Nunito } from "next/font/google"
 import "./globals.css";
 import Navbar from "./_components/Navbar/navbar";
 import Footer from "./_components/Footer/footer";
+import { Toaster } from "react-hot-toast";
 
 const nunito = Nunito({
   subsets: ["latin"],
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
         <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body className={nunito.className}>
+        <Toaster position="bottom-center" />
         <Navbar />
         {children}
         <Footer />

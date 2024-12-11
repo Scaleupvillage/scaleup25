@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { useState, useEffect, useRef } from 'react';
-import Image from 'next/image';
-import ticket from '@/../../public/ticket.png';
-import l4 from '@/../../public/l4.svg';
-import group from '@/../../public/group-2.svg';
-import { AiOutlineClose, AiOutlineArrowLeft } from 'react-icons/ai';
-import styles from './form.module.css';
-import RealForm from './realForm';
+import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
+import ticket from "@/../../public/ticket.png";
+import l4 from "@/../../public/l4.svg";
+import group from "@/../../public/group-2.svg";
+import { AiOutlineClose, AiOutlineArrowLeft } from "react-icons/ai";
+import styles from "./form.module.css";
+import RealForm from "./realForm";
 
 export default function Form({ onClose }) {
     const [selectedTicket, setSelectedTicket] = useState(null);
@@ -20,10 +20,10 @@ export default function Form({ onClose }) {
             }
         };
 
-        document.addEventListener('mousedown', handleClickOutside);
+        document.addEventListener("mousedown", handleClickOutside);
 
         return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
+            document.removeEventListener("mousedown", handleClickOutside);
         };
     }, [onClose]);
 
@@ -57,13 +57,33 @@ export default function Form({ onClose }) {
                     height={400}
                     className={styles.design}
                 />
-                <Image
-                    src={group}
-                    alt="design"
-                    width={400}
-                    height={400}
+
+                <div
                     className={styles.group}
-                />
+                    style={{
+                        bottom: !selectedTicket ? "1.5rem" : "-1.5rem",
+                    }}
+                >
+                    <Image
+                        src={group}
+                        alt="design"
+                        width={400}
+                        height={400}
+                        className={styles.groupImage}
+                    />
+
+                    <p className={styles.poweredBy}>
+                        Form Powered by{" "}
+                        <a
+                            href="https://makemypass.com"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            MakeMyPass
+                        </a>
+                    </p>
+                </div>
+
                 {!selectedTicket ? (
                     <div className={styles.box}>
                         <div className={styles.head}>
@@ -72,7 +92,7 @@ export default function Form({ onClose }) {
                         <div className={styles.list}>
                             <div
                                 className={styles.card}
-                                onClick={() => handleCardSelect('General Pass')}
+                                onClick={() => handleCardSelect("General Pass")}
                             >
                                 <Image
                                     src={ticket}
@@ -92,14 +112,16 @@ export default function Form({ onClose }) {
                                         </ul>
                                     </div>
                                     <div className={styles.reg}>
-                                        <p><span>Price:</span> Free</p>
+                                        <p>
+                                            <span>Price:</span> Free
+                                        </p>
                                     </div>
                                 </div>
                             </div>
 
                             <div
                                 className={styles.card}
-                                onClick={() => handleCardSelect('Premium Pass')}
+                                onClick={() => handleCardSelect("Premium Pass")}
                             >
                                 <Image
                                     src={ticket}
@@ -120,14 +142,16 @@ export default function Form({ onClose }) {
                                         </ul>
                                     </div>
                                     <div className={styles.reg}>
-                                        <p><span>Price:</span> ₹9999</p>
+                                        <p>
+                                            <span>Price:</span> ₹10,000
+                                        </p>
                                     </div>
                                 </div>
                             </div>
 
                             <div
                                 className={styles.card}
-                                onClick={() => handleCardSelect('Book Stall')}
+                                onClick={() => handleCardSelect("Book Stall")}
                             >
                                 <Image
                                     src={ticket}
@@ -147,7 +171,9 @@ export default function Form({ onClose }) {
                                         </ul>
                                     </div>
                                     <div className={styles.reg}>
-                                        <p><span>Starting from:</span> ₹60,000</p>
+                                        <p>
+                                            <span>Starting from:</span> ₹60,000
+                                        </p>
                                     </div>
                                 </div>
                             </div>
