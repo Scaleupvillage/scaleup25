@@ -141,7 +141,7 @@ export default function Form({ onClose }) {
                     </div>
                 ) : (
                     <div className={styles.content}>
-                        <RealForm selectedTicket={selectedTicket}/>
+                        <RealForm selectedTicket={selectedTicket.selectedTicket}/>
                     </div>
                 )}
             </div>

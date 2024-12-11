@@ -22,7 +22,7 @@ const ThankYou = ({ ticket }) => (
     </div>
 );
 
-const ScaleupForm = (selectedTicket) => {
+const ScaleupForm = ({ selectedTicket }) => {
     const {
         register,
         handleSubmit,
@@ -31,6 +31,16 @@ const ScaleupForm = (selectedTicket) => {
     } = useForm();
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [ticketDetails, setTicketDetails] = useState(null);
+
+    let eventId;
+    if (
+        selectedTicket === "General Pass" ||
+        selectedTicket === "Premium Pass"
+    ) {
+        eventId = "95585c57-9c47-4808-a57b-b2867b89c1f4";
+    } else if (selectedTicket === "Book Stall") {
+        eventId = "d959821a-d64a-4962-a17e-ebf34f22d755";
+    }
 
     const onSubmit = async (data) => {
         // Map form data to the API's expected structure
@@ -90,13 +100,9 @@ const ScaleupForm = (selectedTicket) => {
 
         payloadFormData.append("utm", JSON.stringify(payload.utm));
 
-        const script = document.createElement("script");
-        script.src = "https://checkout.razorpay.com/v1/checkout.js";
-        document.body.appendChild(script);
-
         axios
             .post(
-                "https://api.buildnship.in/makemypass/public-form/95585c57-9c47-4808-a57b-b2867b89c1f4/submit/",
+                `https://api.buildnship.in/makemypass/public-form/${eventId}/submit/`,
                 payloadFormData,
                 {
                     headers: {
@@ -107,6 +113,11 @@ const ScaleupForm = (selectedTicket) => {
             .then((response) => {
                 if (response.status === 200) {
                     if (response.data.response.gateway_type) {
+                        const script = document.createElement("script");
+                        script.src =
+                            "https://checkout.razorpay.com/v1/checkout.js";
+                        document.body.appendChild(script);
+
                         const paymentId = response.data.response.id;
                         const paymentAmount = response.data.response.amount;
 
