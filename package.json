@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@next/third-parties": "^15.0.3",
+    "axios": "^1.7.9",
     "gsap": "^3.12.5",
     "next": "^15.0.3",
     "react": "^18",
