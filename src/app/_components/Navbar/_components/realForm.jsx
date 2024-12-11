@@ -18,6 +18,7 @@ const ScaleupForm = () => {
         register,
         handleSubmit,
         formState: { errors },
+        setError,
     } = useForm();
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [ticketDetails, setTicketDetails] = useState(null);
@@ -65,8 +66,8 @@ const ScaleupForm = () => {
         });
         payloadFormData.append("utm", JSON.stringify(payload.utm));
 
-        axios
-            .post(
+        try {
+            const response = await axios.post(
                 "https://api.buildnship.in/makemypass/public-form/95585c57-9c47-4808-a57b-b2867b89c1f4/submit/",
                 payloadFormData,
                 {
@@ -74,19 +75,30 @@ const ScaleupForm = () => {
                         "Content-Type": "multipart/form-data",
                     },
                 }
-            )
-            .then((response) => {
-                if (response.status === 200) {
-                    setTicketDetails(payload.tickets[0]); // Store the ticket details
-                    setIsSubmitted(true); // Show the ThankYou component
-                } else {
-                    alert("Something went wrong. Please try again.");
-                }
-            })
-            .catch((error) => {
+            );
+
+            if (response.status === 200) {
+                setTicketDetails(payload.tickets[0]); // Store the ticket details
+                setIsSubmitted(true); // Show the ThankYou component
+            } else {
+                alert("Something went wrong. Please try again.");
+            }
+        } catch (error) {
+            if (error.response && error.response.data) {
+                const apiErrors = error.response.data.message;
+
+                // Map the API errors to the form state
+                Object.keys(apiErrors).forEach((field) => {
+                    setError(field, {
+                        type: "api",
+                        message: apiErrors[field].join(", "),
+                    });
+                });
+            } else {
                 console.error("Submission error:", error);
-                alert("An error occurred. Please try again.");
-            });
+                alert("An unexpected error occurred. Please try again.");
+            }
+        }
     };
 
     const districtsInKerala = [
