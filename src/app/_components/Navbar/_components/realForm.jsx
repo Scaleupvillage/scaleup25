@@ -218,7 +218,7 @@ const ScaleupForm = ({ selectedTicket }) => {
             ) : (
                 <ThankYou ticket={ticketDetails} />
             )}
-
+            
             {!isSubmitted && (
                 <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
                     {/* Name Field */}

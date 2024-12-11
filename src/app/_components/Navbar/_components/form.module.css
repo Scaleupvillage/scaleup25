@@ -181,6 +181,7 @@
     }
 
     .list {
+        margin-top: 2rem;
         height: 70vh;
         padding: 1rem;
     }
