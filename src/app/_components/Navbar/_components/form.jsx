@@ -92,7 +92,7 @@ export default function Form({ onClose }) {
                         <div className={styles.list}>
                             <div
                                 className={styles.card}
-                                onClick={() => handleCardSelect("General Pass")}
+                                onClick={() => handleCardSelect("General Ticket")}
                             >
                                 <Image
                                     src={ticket}
@@ -121,7 +121,7 @@ export default function Form({ onClose }) {
 
                             <div
                                 className={styles.card}
-                                onClick={() => handleCardSelect("Premium Pass")}
+                                onClick={() => handleCardSelect("VIP Ticket")}
                             >
                                 <Image
                                     src={ticket}
@@ -151,7 +151,7 @@ export default function Form({ onClose }) {
 
                             <div
                                 className={styles.card}
-                                onClick={() => handleCardSelect("Book Stall")}
+                                onClick={() => handleCardSelect("Stalls")}
                             >
                                 <Image
                                     src={ticket}

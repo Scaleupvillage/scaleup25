@@ -11,7 +11,7 @@ import phoneCountryCodes from "./phoneCountryCodes.json";
 const ThankYou = ({ ticket, selectedTicket }) => (
     <div className={styles.thankYou}>
         <h2>Thank You for Registering!</h2>
-        {selectedTicket === "Book Stall" ? (
+        {selectedTicket === "Stalls" ? (
             <p>
                 Your registration of interest is successful. Our team will
                 contact you shortly.
@@ -47,11 +47,11 @@ const ScaleupForm = ({ selectedTicket }) => {
 
     let eventId;
     if (
-        selectedTicket === "General Pass" ||
-        selectedTicket === "Premium Pass"
+        selectedTicket === "General Ticket" ||
+        selectedTicket === "VIP Ticket"
     ) {
         eventId = "95585c57-9c47-4808-a57b-b2867b89c1f4";
-    } else if (selectedTicket === "Book Stall") {
+    } else if (selectedTicket === "Stalls") {
         eventId = "d959821a-d64a-4962-a17e-ebf34f22d755";
     }
 
@@ -104,17 +104,17 @@ const ScaleupForm = ({ selectedTicket }) => {
             data.attendedPrevious
         );
 
-        if (selectedTicket === "General Pass") {
+        if (selectedTicket === "General Ticket") {
             payloadFormData.append(
                 "tickets[]",
                 JSON.stringify(payload.tickets[0])
             );
-        } else if (selectedTicket === "Premium Pass") {
+        } else if (selectedTicket === "VIP Ticket") {
             payloadFormData.append(
                 "tickets[]",
                 JSON.stringify(payload.tickets[1])
             );
-        } else if (selectedTicket === "Book Stall") {
+        } else if (selectedTicket === "Stalls") {
             payloadFormData.append(
                 "tickets[]",
                 JSON.stringify(payload.tickets[2])
@@ -231,7 +231,7 @@ const ScaleupForm = ({ selectedTicket }) => {
         <div className={styles.realForm}>
             {!isSubmitted ? (
                 <div className={styles.head}>
-                    <h1>Register Now!</h1>
+                    <h1>Register {selectedTicket}!</h1>
                     <p>
                         Fill the form details and get your entry to the much
                         awaited event. We shall add here up to 2 line text if
