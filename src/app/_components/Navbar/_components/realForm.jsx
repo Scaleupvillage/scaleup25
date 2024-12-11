@@ -9,7 +9,16 @@ const ThankYou = ({ ticket }) => (
     <div className={styles.thankYou}>
         <h2>Thank You for Registering!</h2>
         <p>Your ticket details:</p>
-        <pre>{JSON.stringify(ticket, null, 2)}</pre>
+        <button
+            onClick={() =>
+                window.open(
+                    `https://makemypass.com/scaleup-2025/view-ticket/${ticket?.event_register_id}`,
+                    "_blank"
+                )
+            }
+        >
+            View Ticket
+        </button>
     </div>
 );
 
@@ -78,7 +87,7 @@ const ScaleupForm = () => {
             );
 
             if (response.status === 200) {
-                setTicketDetails(payload.tickets[0]); // Store the ticket details
+                setTicketDetails(response.data.response); // Store the ticket details
                 setIsSubmitted(true); // Show the ThankYou component
             } else {
                 alert("Something went wrong. Please try again.");
