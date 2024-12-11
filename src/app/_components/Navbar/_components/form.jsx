@@ -28,6 +28,8 @@ export default function Form({ onClose }) {
         };
     }, [onClose]);
 
+    console.log(selectedTicket);
+
     const handleCardSelect = (ticketType) => {
         setSelectedTicket(ticketType);
     };
@@ -55,8 +57,8 @@ export default function Form({ onClose }) {
                 {!selectedTicket ? (
                     <div className={styles.box}>
                         <div className={styles.head}>
-                            <h1>Select Ticket</h1>
-                            <p>Select the ticket you would like to access</p>
+                            <h1>Select Tickets</h1>
+                            {/* <p>Select the ticket you would like to access</p> */}
                         </div>
                         <div className={styles.list}>
                             <div
@@ -85,9 +87,9 @@ export default function Form({ onClose }) {
                                 </div>
                             </div>
 
-                            <Link
+                            <div
                                 className={styles.card}
-                                href="https://makemypass.com/scaleup-2025"
+                                onClick={() => handleCardSelect('Premium Pass')}
                             >
                                 <Image
                                     src={ticket}
@@ -109,7 +111,7 @@ export default function Form({ onClose }) {
                                         <p>Price: 1500</p>
                                     </div>
                                 </div>
-                            </Link>
+                            </div>
 
                             <div
                                 className={styles.card}
@@ -139,7 +141,7 @@ export default function Form({ onClose }) {
                     </div>
                 ) : (
                     <div className={styles.content}>
-                        <RealForm />
+                        <RealForm selectedTicket={selectedTicket.selectedTicket}/>
                     </div>
                 )}
             </div>

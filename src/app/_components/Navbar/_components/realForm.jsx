@@ -1,25 +1,46 @@
-'use client'
+"use client";
 
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import styles from "./realForm.module.css";
+import axios from "axios";
 
 const ThankYou = ({ ticket }) => (
     <div className={styles.thankYou}>
         <h2>Thank You for Registering!</h2>
         <p>Your ticket details:</p>
-        <pre>{JSON.stringify(ticket, null, 2)}</pre>
+        <button
+            onClick={() =>
+                window.open(
+                    `https://makemypass.com/scaleup-2025/view-ticket/${ticket?.event_register_id}`,
+                    "_blank"
+                )
+            }
+        >
+            View Ticket
+        </button>
     </div>
 );
 
-const ScaleupForm = () => {
+const ScaleupForm = ({ selectedTicket }) => {
     const {
         register,
         handleSubmit,
         formState: { errors },
+        setError,
     } = useForm();
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [ticketDetails, setTicketDetails] = useState(null);
+
+    let eventId;
+    if (
+        selectedTicket === "General Pass" ||
+        selectedTicket === "Premium Pass"
+    ) {
+        eventId = "95585c57-9c47-4808-a57b-b2867b89c1f4";
+    } else if (selectedTicket === "Book Stall") {
+        eventId = "d959821a-d64a-4962-a17e-ebf34f22d755";
+    }
 
     const onSubmit = async (data) => {
         // Map form data to the API's expected structure
@@ -30,10 +51,16 @@ const ScaleupForm = () => {
             district: data.district,
             organization: data.institution,
             category: data.category,
-            did_you_attend_the_previous_scaleup_conclave_2024: data.attendedPrevious,
+            did_you_attend_the_previous_scaleup_conclave_2024:
+                data.attendedPrevious,
             tickets: [
                 {
                     ticket_id: "3b7e4d8d-4462-47ac-8d1e-4a7f0592f085",
+                    count: 1,
+                    my_ticket: true,
+                },
+                {
+                    ticket_id: "0eb4c20a-2de2-42dc-b792-c609e8eb63c6",
                     count: 1,
                     my_ticket: true,
                 },
@@ -47,29 +74,115 @@ const ScaleupForm = () => {
             },
         };
 
-        try {
-            const response = await fetch(
-                "https://api.buildnship.in/makemypass/public-form/95585c57-9c47-4808-a57b-b2867b89c1f4/submit/",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(payload),
-                }
-            );
+        const payloadFormData = new FormData();
+        payloadFormData.append("name", data.name);
+        payloadFormData.append("phone", `${data.countryCode}${data.phone}`);
+        payloadFormData.append("email", data.email);
+        payloadFormData.append("district", data.district);
+        payloadFormData.append("organization", data.institution);
+        payloadFormData.append("category", data.category);
+        payloadFormData.append(
+            "did_you_attend_the_previous_scaleup_conclave_2024",
+            data.attendedPrevious
+        );
 
-            if (response.ok) {
-                const result = await response.json();
-                setTicketDetails(payload.tickets[0]); // Store the ticket details
-                setIsSubmitted(true); // Show the ThankYou component
-            } else {
-                alert("Something went wrong. Please try again.");
-            }
-        } catch (error) {
-            console.error("Submission error:", error);
-            alert("An error occurred. Please try again.");
+        if (selectedTicket === "General Pass") {
+            payloadFormData.append(
+                "tickets[]",
+                JSON.stringify(payload.tickets[0])
+            );
+        } else {
+            payloadFormData.append(
+                "tickets[]",
+                JSON.stringify(payload.tickets[1])
+            );
         }
+
+        payloadFormData.append("utm", JSON.stringify(payload.utm));
+
+        axios
+            .post(
+                `https://api.buildnship.in/makemypass/public-form/${eventId}/submit/`,
+                payloadFormData,
+                {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                    },
+                }
+            )
+            .then((response) => {
+                if (response.status === 200) {
+                    if (response.data.response.gateway_type) {
+                        const script = document.createElement("script");
+                        script.src =
+                            "https://checkout.razorpay.com/v1/checkout.js";
+                        document.body.appendChild(script);
+
+                        const paymentId = response.data.response.id;
+                        const paymentAmount = response.data.response.amount;
+
+                        const options = {
+                            key_id: response.data.response.gateway_key,
+                            amount: paymentAmount,
+                            currency: response.data.response.currency,
+                            name: "MakeMyPass",
+                            description: `MMP - scaleup-2025`,
+                            image: "/pwa/maskable.webp",
+                            order_id: paymentId,
+                            handler: function (response) {
+                                axios
+                                    .post(
+                                        "https://api.buildnship.in/makemypass/public-form/validate-payment/",
+                                        {
+                                            order_id:
+                                                response.razorpay_order_id,
+                                            payment_id:
+                                                response.razorpay_payment_id,
+                                        }
+                                    )
+                                    .then((response) => {
+                                        setTicketDetails(
+                                            response.data.response
+                                        ); // Store the ticket details
+                                        setIsSubmitted(true); // Show the ThankYou component
+                                    })
+                                    .catch((error) => {
+                                        alert(
+                                            "Something went wrong. Please try again."
+                                        );
+                                    });
+                            },
+                            theme: {
+                                color: "#00FF82",
+                            },
+                        };
+
+                        const rzp1 = new window.Razorpay(options);
+                        rzp1.open();
+                    } else {
+                        setTicketDetails(response.data.response); // Store the ticket details
+                        setIsSubmitted(true); // Show the ThankYou component
+                    }
+                } else {
+                    alert("Something went wrong. Please try again.");
+                }
+            })
+            .catch((error) => {
+                if (error.response && error.response.data) {
+                    const apiErrors = error.response.data.message;
+
+                    // Map the API errors to the form state
+                    Object.keys(apiErrors).forEach((field) => {
+                        setError(field, {
+                            type: "api",
+                            message: apiErrors[field].join(", "),
+                        });
+                    });
+                } else {
+                    console.error("Submission error:", error);
+                    alert("An unexpected error occurred. Please try again.");
+                }
+            });
     };
 
     const districtsInKerala = [
@@ -89,18 +202,17 @@ const ScaleupForm = () => {
         "Kasaragod",
     ];
 
-    const categories = [
-        "Student",
-        "Professional",
-        "Entrepreneur",
-        "Other",
-    ];
+    const categories = ["Student", "Professional", "Entrepreneur", "Other"];
 
     return (
         <div className={styles.realForm}>
             <div className={styles.head}>
                 <h1>Register Now!</h1>
-                <p>Fill the form details and get yopur entry to the much awaited event and we shall add here upto 2 line text if needed</p>
+                <p>
+                    Fill the form details and get yopur entry to the much
+                    awaited event and we shall add here upto 2 line text if
+                    needed
+                </p>
             </div>
             {!isSubmitted ? (
                 <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
@@ -111,10 +223,16 @@ const ScaleupForm = () => {
                         </label>
                         <input
                             type="text"
-                            {...register("name", { required: "Name is required" })}
+                            {...register("name", {
+                                required: "Name is required",
+                            })}
                             placeholder="Enter your name"
                         />
-                        {errors.name && <p style={{ color: "red" }}>{errors.name.message}</p>}
+                        {errors.name && (
+                            <p style={{ color: "red" }}>
+                                {errors.name.message}
+                            </p>
+                        )}
                     </div>
 
                     {/* Phone Field */}
@@ -147,13 +265,17 @@ const ScaleupForm = () => {
                             />
                         </div>
                         {errors.phone && (
-                            <p style={{ color: "red" }}>{errors.phone.message}</p>
+                            <p style={{ color: "red" }}>
+                                {errors.phone.message}
+                            </p>
                         )}
                     </div>
 
                     {/* Email Field */}
                     <div>
-                        <label>Email<span>*</span></label>
+                        <label>
+                            Email<span>*</span>
+                        </label>
                         <input
                             type="email"
                             {...register("email", {
@@ -165,12 +287,22 @@ const ScaleupForm = () => {
                             })}
                             placeholder="Enter your email"
                         />
-                        {errors.email && <p style={{ color: "red" }}>{errors.email.message}</p>}
+                        {errors.email && (
+                            <p style={{ color: "red" }}>
+                                {errors.email.message}
+                            </p>
+                        )}
                     </div>
 
                     <div>
-                        <label>District<span>*</span></label>
-                        <select {...register("district", { required: "District is required" })}>
+                        <label>
+                            District<span>*</span>
+                        </label>
+                        <select
+                            {...register("district", {
+                                required: "District is required",
+                            })}
+                        >
                             <option value="">Select your district</option>
                             {districtsInKerala.map((district) => (
                                 <option key={district} value={district}>
@@ -179,13 +311,21 @@ const ScaleupForm = () => {
                             ))}
                         </select>
                         {errors.district && (
-                            <p style={{ color: "red" }}>{errors.district.message}</p>
+                            <p style={{ color: "red" }}>
+                                {errors.district.message}
+                            </p>
                         )}
                     </div>
 
                     <div>
-                        <label>Category<span>*</span></label>
-                        <select {...register("category", { required: "Category is required" })}>
+                        <label>
+                            Category<span>*</span>
+                        </label>
+                        <select
+                            {...register("category", {
+                                required: "Category is required",
+                            })}
+                        >
                             <option value="">Select a category</option>
                             {categories.map((category) => (
                                 <option key={category} value={category}>
@@ -194,12 +334,16 @@ const ScaleupForm = () => {
                             ))}
                         </select>
                         {errors.category && (
-                            <p style={{ color: "red" }}>{errors.category.message}</p>
+                            <p style={{ color: "red" }}>
+                                {errors.category.message}
+                            </p>
                         )}
                     </div>
 
                     <div>
-                        <label>Institution Name<span>*</span></label>
+                        <label>
+                            Institution Name<span>*</span>
+                        </label>
                         <input
                             type="text"
                             {...register("institution", {
@@ -208,18 +352,23 @@ const ScaleupForm = () => {
                             placeholder="Enter your institution name"
                         />
                         {errors.institution && (
-                            <p style={{ color: "red" }}>{errors.institution.message}</p>
+                            <p style={{ color: "red" }}>
+                                {errors.institution.message}
+                            </p>
                         )}
                     </div>
 
                     <div>
-                        <label>Did you attend the previous Scaleup Conclave?<span>*</span></label>
+                        <label>
+                            Did you attend the previous Scaleup Conclave?
+                            <span>*</span>
+                        </label>
                         <div style={{ display: "flex", gap: "10px" }}>
                             <label
                                 style={{
                                     display: "flex",
                                     gap: ".25rem",
-                                    alignItems: "center"
+                                    alignItems: "center",
                                 }}
                             >
                                 <input
@@ -235,7 +384,7 @@ const ScaleupForm = () => {
                                 style={{
                                     display: "flex",
                                     gap: ".25rem",
-                                    alignItems: "center"
+                                    alignItems: "center",
                                 }}
                             >
                                 <input
@@ -249,7 +398,9 @@ const ScaleupForm = () => {
                             </label>
                         </div>
                         {errors.attendedPrevious && (
-                            <p style={{ color: "red" }}>{errors.attendedPrevious.message}</p>
+                            <p style={{ color: "red" }}>
+                                {errors.attendedPrevious.message}
+                            </p>
                         )}
                     </div>
 
