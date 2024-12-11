@@ -1,67 +1,51 @@
-// 'use client';
+'use client';
 
-// import { useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { FaWhatsapp } from 'react-icons/fa';
-// import { gsap } from 'gsap';
 import styles from './whatsapp.module.css';
+import Form from '../Navbar/_components/form';
 
-const regLink = 'https://makemypass.com/scaleup-2025';
 const whatsappLink = 'https://wa.me/919999999999';
 
 export default function Whatsapp() {
-    // const regButtonRef = useRef(null);
+    const [isFormOpen, setIsFormOpen] = useState(false);
 
-    // useEffect(() => {
-    //     const regButton = regButtonRef.current;
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (formRef.current && !formRef.current.contains(event.target)) {
+                setIsFormOpen(false);
+            }
+        };
 
-    //     const handleScroll = () => {
-    //         const scrollY = window.scrollY;
+        if (isFormOpen) {
+            document.addEventListener('mousedown', handleClickOutside);
+        }
 
-    //         if (scrollY > 250) {
-    //             gsap.to(regButton, {
-    //                 opacity: 1,
-    //                 y: 0,
-    //                 duration: 0.5,
-    //                 ease: 'power2.out',
-    //                 onStart: () => {
-    //                     regButton.style.pointerEvents = 'auto';
-    //                 }
-    //             });
-    //         } else {
-    //             gsap.to(regButton, {
-    //                 opacity: 0,
-    //                 y: -20,
-    //                 duration: 0.5,
-    //                 ease: 'power2.out',
-    //                 onComplete: () => {
-    //                     regButton.style.pointerEvents = 'none';
-    //                 }
-    //             });
-    //         }
-    //     };
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isFormOpen]);
 
-    //     window.addEventListener('scroll', handleScroll);
-
-    //     return () => {
-    //         window.removeEventListener('scroll', handleScroll);
-    //     };
-    // }, []);
+    const handleButtonClick = () => {
+        setIsFormOpen(true);
+    };
 
     return (
-        <div className={styles.pop}>
-            <Link
-                href={regLink}
-                className={styles.reg}
-                // ref={regButtonRef}
-                aria-label="register"
-            // style={{ opacity: 0, transform: 'translateY(-20px)' }}
-            >
-                Register Now
-            </Link>
-            <Link href="#" className={styles.whatsapp} aria-label="whatsapp">
-                <FaWhatsapp className={styles.icon} />
-            </Link>
-        </div>
+        <>
+            <div className={styles.pop}>
+                <button
+                    onClick={handleButtonClick}
+                    className={styles.reg}
+                    aria-label="register"
+                >
+                    Register Now
+                </button>
+                <Link href={whatsappLink} className={styles.whatsapp} aria-label="whatsapp">
+                    <FaWhatsapp className={styles.icon} />
+                </Link>
+            </div>
+            {isFormOpen ? <Form onClose={() => setIsFormOpen(false)} /> : null}
+        </>
     );
 }

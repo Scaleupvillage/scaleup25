@@ -69,7 +69,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    height: 21rem;
+    height: 23rem;
     font-size: .9rem;
     background-color: #fff;
     border: 1px solid #fff;
@@ -162,9 +162,14 @@
 @media(width<=920px) {
     .list {
         flex-direction: column;
-        height: 80vh;
+        height: 85vh;
         overflow-y: scroll;
         justify-content: flex-start;
+        padding: 1rem;
+    }
+
+    .card {
+        height: fit-content;
     }
 }
 
@@ -182,7 +187,6 @@
 
     .list {
         height: 70vh;
-        padding: 1rem;
     }
 
     .group {
@@ -209,7 +213,7 @@
     }
 }
 
-@media(width<=400px) {
+@media(width<390px) {
     .content {
         padding: 4rem 0;
     }
@@ -229,9 +233,5 @@
 
     .list {
         margin-top: 1rem;
-    }
-
-    .card img {
-        height: 6rem;
     }
 }
