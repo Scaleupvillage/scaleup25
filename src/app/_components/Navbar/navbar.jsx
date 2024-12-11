@@ -6,7 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import white from '@/../public/logo.webp';
 import { usePathname } from 'next/navigation';
-import Form from './_components/Form';
+import Form from './_components/form';
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
