@@ -1,5 +1,11 @@
 .realForm {
     height: fit-content;
+    transition: height 0.3s ease, overflow-y 0.3s ease;
+}
+
+.realForm.incomplete {
+    height: 80vh;
+    overflow-y: scroll;
 }
 
 .head {
@@ -27,16 +33,16 @@
     color: var(--red);
 }
 
-.form>div input {
-    width: 100%;
-}
-
 .form>div input,
 .form>div select {
     padding: 0.75rem;
     background-color: #f9f9f9;
     border-radius: 0.25rem;
     border: none;
+}
+
+.form>div input[type="tel"] {
+    width: 100%;
 }
 
 .form>div select option {
@@ -49,6 +55,13 @@
     background-color: #f9f9f9;
     appearance: none;
     -webkit-appearance: none;
+}
+
+.radio {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    width: 3rem;
 }
 
 .submit button {
@@ -104,8 +117,8 @@
 
 @media(width<=400px) {
     .realForm {
-        height: 80vh;
-        height: 80dvh;
+        height: 82vh;
+        height: 82dvh;
         overflow-y: scroll;
     }
 }
