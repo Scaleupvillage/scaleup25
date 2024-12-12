@@ -234,8 +234,7 @@ const ScaleupForm = ({ selectedTicket }) => {
                     <h1>Register {selectedTicket}!</h1>
                     <p>
                         Fill the form details and get your entry to the much
-                        awaited event. We shall add here up to 2 line text if
-                        needed.
+                        awaited event.
                     </p>
                 </div>
             ) : (
