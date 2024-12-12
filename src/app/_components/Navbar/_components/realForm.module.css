@@ -1,3 +1,7 @@
+.realForm {
+    height: fit-content;
+}
+
 .head {
     margin-bottom: 1rem;
 }
@@ -92,35 +96,16 @@
     cursor: pointer;
 }
 
-@media (width<=1024px) {
+@media (width<=678px) {
     .realForm {
-        height: fit-content;
-        overflow-y: scroll;
-        margin-bottom: 2rem;
-    }
-}
-
-@media (width<=900px) {
-    .realForm {
-        overflow-y: visible;
-        margin-bottom: 0rem;
         padding: 1rem;
     }
 }
 
-@media (width<=600px) {
+@media(width<=400px) {
     .realForm {
         height: 80vh;
         height: 80dvh;
-        overflow: hidden;
-    }
-}
-
-@media (width<=400px) {
-    .realForm {
-        height: 90vh;
-        height: 90dvh;
         overflow-y: scroll;
-        margin-bottom: 2rem;
     }
 }
