@@ -110,14 +110,14 @@
 
 @media (width<=600px) {
     .realForm {
-        height: 80vh;
+        height: 80dvh;
         overflow: hidden;
     }
 }
 
 @media (width<=400px) {
     .realForm {
-        height: 90vh;
+        height: 90dvh;
         overflow-y: scroll;
         margin-bottom: 2rem;
     }
