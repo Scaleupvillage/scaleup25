@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import ticket from "@/../../public/ticket.png";
+import vipticket from "@/../../public/vipticket.png"
 import l4 from "@/../../public/l4.svg";
 import group from "@/../../public/group-2.svg";
 import { AiOutlineClose, AiOutlineArrowLeft } from "react-icons/ai";
@@ -119,10 +120,10 @@ export default function Form({ onClose }) {
                                 onClick={() => handleCardSelect("VIP Ticket")}
                             >
                                 <Image
-                                    src={ticket}
+                                    src={vipticket}
                                     alt="design"
-                                    width={1000}
-                                    height={1000}
+                                    width={600}
+                                    height={600}
                                     className={styles.ticket}
                                 />
                                 <div className={styles.cardContent}>
