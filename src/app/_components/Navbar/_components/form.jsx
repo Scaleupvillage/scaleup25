@@ -58,12 +58,7 @@ export default function Form({ onClose }) {
                     className={styles.design}
                 />
 
-                <div
-                    className={styles.group}
-                    style={{
-                        bottom: !selectedTicket ? "1.5rem" : "-1.5rem",
-                    }}
-                >
+                <div className={styles.group}>
                     <Image
                         src={group}
                         alt="design"

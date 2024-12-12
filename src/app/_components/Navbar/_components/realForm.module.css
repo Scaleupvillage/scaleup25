@@ -13,36 +13,35 @@
     gap: 0.7rem;
 }
 
-.form > div {
+.form>div {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
 }
 
-.form > div span {
+.form>div span {
     color: var(--red);
 }
 
-.form > div input {
+.form>div input {
     width: 100%;
 }
 
-.form > div input,
-.form > div select {
+.form>div input,
+.form>div select {
     padding: 0.75rem;
     background-color: #f9f9f9;
     border-radius: 0.25rem;
     border: none;
 }
 
-.form > div select option {
+.form>div select option {
     color: #000;
 }
 
-.form > div select {
+.form>div select {
     padding-right: 2.5rem;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24'%3E%3Cpath fill='%23000000' d='M7 10l5 5 5-5H7z'/%3E%3C/svg%3E")
-        no-repeat right 1rem center;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24'%3E%3Cpath fill='%23000000' d='M7 10l5 5 5-5H7z'/%3E%3C/svg%3E") no-repeat right 1rem center;
     background-color: #f9f9f9;
     appearance: none;
     -webkit-appearance: none;
@@ -68,13 +67,14 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90%;
-    height: 90%;
+    height: 85%;
     text-align: center;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     align-items: center;
     justify-content: center;
+    background-color: #fff;
 }
 
 .thankYou h2 {
@@ -122,4 +122,3 @@
         margin-bottom: 2rem;
     }
 }
-
