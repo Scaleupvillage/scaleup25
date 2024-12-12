@@ -251,10 +251,11 @@ const ScaleupForm = ({ selectedTicket }) => {
         >
             {!isSubmitted ? (
                 <div className={styles.head}>
-                    <h1>Register {selectedTicket}!</h1>
+                    <h1>{selectedTicket === "Stalls" ? "Book" : "Register"} {selectedTicket}!</h1>
                     <p>
-                        Fill the form details and get your entry to the much
-                        awaited event.
+                       {
+                        selectedTicket === "Stalls" ? "Fill the form details and get your stall to the much awaited event." : " Fill the form details and get your entry to the much awaited event."
+                       }
                     </p>
                 </div>
             ) : (
@@ -264,203 +265,265 @@ const ScaleupForm = ({ selectedTicket }) => {
                 />
             )}
 
-            {
-                !isSubmitted && (
-                    <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-                        {/* Name Field */}
-                        <div>
-                            <label>
-                                Name<span>*</span>
-                            </label>
-                            <input
-                                type="text"
-                                {...register("name", {
-                                    required: "Name is required",
-                                })}
-                                placeholder="Enter your name"
-                            />
-                            {errors.name && (
-                                <p style={{ color: "red", fontSize: "0.9rem" }}>
-                                    {errors.name.message}
-                                </p>
-                            )}
-                        </div>
+            {!isSubmitted && (
+                <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+                    {/* Name Field */}
+                    <div>
+                        <label>
+                            {selectedTicket === "Stalls"
+                                ? "Company Name"
+                                : "Name"}
+                            <span>*</span>
+                        </label>
+                        <input
+                            type="text"
+                            {...register("name", {
+                                required: "Name is required",
+                            })}
+                            placeholder="Enter your name"
+                        />
+                        {errors.name && (
+                            <p style={{ color: "red", fontSize: "0.9rem" }}>
+                                {errors.name.message}
+                            </p>
+                        )}
+                    </div>
 
-                        {/* Phone Field */}
-                        <div>
-                            <label>
-                                Phone Number<span>*</span>
-                            </label>
-                            <div style={{ display: "flex", gap: "5px" }}>
+                    {/* Phone Field */}
+                    <div>
+                        <label>
+                            Phone Number<span>*</span>
+                        </label>
+                        <div style={{ display: "flex", gap: "5px" }}>
+                            <select
+                                defaultValue={"+91"}
+                                {...register("countryCode", {
+                                    required: "Country code is required",
+                                })}
+                            >
+                                {phoneCountryCodes.map((countryCode) => (
+                                    <option
+                                        key={countryCode.code}
+                                        value={countryCode.dial_code}
+                                    >
+                                        {countryCode.dial_code}
+                                    </option>
+                                ))}
+                            </select>
+                            <input
+                                type="tel"
+                                {...register("phone", {
+                                    required: "Phone number is required",
+                                    pattern: {
+                                        value: /^[0-9]{10}$/,
+                                        message: "Invalid phone number",
+                                    },
+                                })}
+                                placeholder="Enter your phone number"
+                            />
+                        </div>
+                        {errors.phone && (
+                            <p style={{ color: "red", fontSize: "0.9rem" }}>
+                                {errors.phone.message}
+                            </p>
+                        )}
+                    </div>
+
+                    {/* Email Field */}
+                    <div>
+                        <label>
+                            Email<span>*</span>
+                        </label>
+                        <input
+                            type="email"
+                            {...register("email", {
+                                required: "Email is required",
+                                pattern: {
+                                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                                    message: "Invalid email address",
+                                },
+                            })}
+                            placeholder="Enter your email"
+                        />
+                        {errors.email && (
+                            <p style={{ color: "red", fontSize: "0.9rem" }}>
+                                {errors.email.message}
+                            </p>
+                        )}
+                    </div>
+
+                    {selectedTicket !== "Stalls" ? (
+                        <>
+                            <div>
+                                <label>
+                                    District<span>*</span>
+                                </label>
                                 <select
-                                    defaultValue={"+91"}
-                                    {...register("countryCode", {
-                                        required: "Country code is required",
+                                    {...register("district", {
+                                        required: "District is required",
                                     })}
                                 >
-                                    {phoneCountryCodes.map((countryCode) => (
-                                        <option
-                                            key={countryCode.code}
-                                            value={countryCode.dial_code}
-                                        >
-                                            {countryCode.dial_code}
+                                    <option value="">
+                                        Select your district
+                                    </option>
+                                    {districtsInKerala.map((district) => (
+                                        <option key={district} value={district}>
+                                            {district}
                                         </option>
                                     ))}
                                 </select>
-                                <input
-                                    type="tel"
-                                    {...register("phone", {
-                                        required: "Phone number is required",
-                                        pattern: {
-                                            value: /^[0-9]{10}$/,
-                                            message: "Invalid phone number",
-                                        },
-                                    })}
-                                    placeholder="Enter your phone number"
-                                />
-                            </div>
-                            {errors.phone && (
-                                <p style={{ color: "red", fontSize: "0.9rem" }}>
-                                    {errors.phone.message}
-                                </p>
-                            )}
-                        </div>
-
-                        {/* Email Field */}
-                        <div>
-                            <label>
-                                Email<span>*</span>
-                            </label>
-                            <input
-                                type="email"
-                                {...register("email", {
-                                    required: "Email is required",
-                                    pattern: {
-                                        value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                                        message: "Invalid email address",
-                                    },
-                                })}
-                                placeholder="Enter your email"
-                            />
-                            {errors.email && (
-                                <p style={{ color: "red", fontSize: "0.9rem" }}>
-                                    {errors.email.message}
-                                </p>
-                            )}
-                        </div>
-
-                        <div>
-                            <label>
-                                District<span>*</span>
-                            </label>
-                            <select
-                                {...register("district", {
-                                    required: "District is required",
-                                })}
-                            >
-                                <option value="">Select your district</option>
-                                {districtsInKerala.map((district) => (
-                                    <option key={district} value={district}>
-                                        {district}
-                                    </option>
-                                ))}
-                            </select>
-                            {errors.district && (
-                                <p style={{ color: "red", fontSize: "0.9rem" }}>
-                                    {errors.district.message}
-                                </p>
-                            )}
-                        </div>
-
-                        <div>
-                            <label>
-                                Category<span>*</span>
-                            </label>
-                            <select
-                                {...register("category", {
-                                    required: "Category is required",
-                                })}
-                            >
-                                <option value="">Select a category</option>
-                                {categories.map((category) => (
-                                    <option key={category} value={category}>
-                                        {category}
-                                    </option>
-                                ))}
-                            </select>
-                            {errors.category && (
-                                <p style={{ color: "red", fontSize: "0.9rem" }}>
-                                    {errors.category.message}
-                                </p>
-                            )}
-                        </div>
-
-                        <div>
-                            <label>
-                                Institution Name<span>*</span>
-                            </label>
-                            <input
-                                type="text"
-                                {...register("institution", {
-                                    required: "Institution name is required",
-                                })}
-                                placeholder="Enter your institution name"
-                            />
-                            {errors.institution && (
-                                <p style={{ color: "red", fontSize: "0.9rem" }}>
-                                    {errors.institution.message}
-                                </p>
-                            )}
-                        </div>
-
-                        <div>
-                            <label>
-                                Did you attend the previous Scaleup Conclave?
-                                <span>*</span>
-                            </label>
-                            <div style={{ display: "flex", gap: "10px" }}>
-                                <label className={styles.radio}>
-                                    <input
-                                        type="radio"
-                                        value="Yes"
-                                        {...register("attendedPrevious", {
-                                            required: "This field is required",
-                                        })}
-                                    />
-                                    Yes
-                                </label>
-                                <label className={styles.radio}>
-                                    <input
-                                        type="radio"
-                                        value="No"
-                                        {...register("attendedPrevious", {
-                                            required: "This field is required",
-                                        })}
-                                    />
-                                    No
-                                </label>
-                            </div>
-                            {errors.attendedPrevious && (
-                                <p style={{ color: "red", fontSize: "0.9rem" }}>
-                                    {errors.attendedPrevious.message}
-                                </p>
-                            )}
-                        </div>
-
-                        {/* Submit Button */}
-                        <div className={styles.submit}>
-                            <button type="submit">
-                                {isLoading ? (
-                                    <BeatLoader size={8} color="white" />
-                                ) : (
-                                    "Submit"
+                                {errors.district && (
+                                    <p
+                                        style={{
+                                            color: "red",
+                                            fontSize: "0.9rem",
+                                        }}
+                                    >
+                                        {errors.district.message}
+                                    </p>
                                 )}
-                            </button>
-                        </div>
-                    </form>
-                )
-            }
-        </div >
+                            </div>
+
+                            <div>
+                                <label>
+                                    Category<span>*</span>
+                                </label>
+                                <select
+                                    {...register("category", {
+                                        required: "Category is required",
+                                    })}
+                                >
+                                    <option value="">Select a category</option>
+                                    {categories.map((category) => (
+                                        <option key={category} value={category}>
+                                            {category}
+                                        </option>
+                                    ))}
+                                </select>
+                                {errors.category && (
+                                    <p
+                                        style={{
+                                            color: "red",
+                                            fontSize: "0.9rem",
+                                        }}
+                                    >
+                                        {errors.category.message}
+                                    </p>
+                                )}
+                            </div>
+
+                            <div>
+                                <label>
+                                    Institution Name<span>*</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    {...register("institution", {
+                                        required:
+                                            "Institution name is required",
+                                    })}
+                                    placeholder="Enter your institution name"
+                                />
+                                {errors.institution && (
+                                    <p
+                                        style={{
+                                            color: "red",
+                                            fontSize: "0.9rem",
+                                        }}
+                                    >
+                                        {errors.institution.message}
+                                    </p>
+                                )}
+                            </div>
+
+                            <div>
+                                <label>
+                                    Did you attend the previous Scaleup
+                                    Conclave?
+                                    <span>*</span>
+                                </label>
+                                <div style={{ display: "flex", gap: "10px" }}>
+                                    <label className={styles.radio}>
+                                        <input
+                                            type="radio"
+                                            value="Yes"
+                                            {...register("attendedPrevious", {
+                                                required:
+                                                    "This field is required",
+                                            })}
+                                        />
+                                        Yes
+                                    </label>
+                                    <label className={styles.radio}>
+                                        <input
+                                            type="radio"
+                                            value="No"
+                                            {...register("attendedPrevious", {
+                                                required:
+                                                    "This field is required",
+                                            })}
+                                        />
+                                        No
+                                    </label>
+                                </div>
+                                {errors.attendedPrevious && (
+                                    <p
+                                        style={{
+                                            color: "red",
+                                            fontSize: "0.9rem",
+                                        }}
+                                    >
+                                        {errors.attendedPrevious.message}
+                                    </p>
+                                )}
+                            </div>
+                        </>
+                    ) : (
+                        <>
+                            <div>
+                                <label>
+                                    Stall Type<span>*</span>
+                                </label>
+                                <select
+                                    {...register("category", {
+                                        required: "Category is required",
+                                    })}
+                                >
+                                    <option value="">Select a Stall Type</option>
+                                    <option value="Premium (1 Lack)">
+                                        Premium (₹1,00,000)
+                                    </option>
+                                    <option value="Normal (60K)">
+                                        Normal (₹60,000)
+                                    </option>
+                                </select>
+                                {errors.category && (
+                                    <p
+                                        style={{
+                                            color: "red",
+                                            fontSize: "0.9rem",
+                                        }}
+                                    >
+                                        {errors.category.message}
+                                    </p>
+                                )}
+                            </div>
+                        </>
+                    )}
+
+                    {/* Submit Button */}
+                    <div className={styles.submit}>
+                        <button type="submit">
+                            {isLoading ? (
+                                <BeatLoader size={8} color="white" />
+                            ) : (
+                                "Submit"
+                            )}
+                        </button>
+                    </div>
+                </form>
+            )}
+        </div>
     );
 };
 
