@@ -3,7 +3,8 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import ticket from "@/../../public/ticket.png";
-import vipticket from "@/../../public/vipticket.png"
+import vipticket from "@/../../public/vipticket.png";
+import stall from "@/../../public/stall.jpg";
 import l4 from "@/../../public/l4.svg";
 import group from "@/../../public/group-2.svg";
 import { AiOutlineClose, AiOutlineArrowLeft } from "react-icons/ai";
@@ -88,15 +89,19 @@ export default function Form({ onClose }) {
                         <div className={styles.list}>
                             <div
                                 className={styles.card}
-                                onClick={() => handleCardSelect("General Ticket")}
+                                onClick={() =>
+                                    handleCardSelect("General Ticket")
+                                }
                             >
-                                <Image
-                                    src={ticket}
-                                    alt="design"
-                                    width={1000}
-                                    height={1000}
-                                    className={styles.ticket}
-                                />
+                                <div className={styles.imageContainer}>
+                                    <Image
+                                        src={ticket}
+                                        alt="design"
+                                        width={1000}
+                                        height={1000}
+                                        className={styles.ticket}
+                                    />
+                                </div>
                                 <div className={styles.cardContent}>
                                     <div className={styles.desc}>
                                         <h1>General Ticket</h1>
@@ -119,13 +124,15 @@ export default function Form({ onClose }) {
                                 className={styles.card}
                                 onClick={() => handleCardSelect("VIP Ticket")}
                             >
-                                <Image
-                                    src={vipticket}
-                                    alt="design"
-                                    width={600}
-                                    height={600}
-                                    className={styles.ticket}
-                                />
+                                <div className={styles.imageContainer}>
+                                    <Image
+                                        src={vipticket}
+                                        alt="design"
+                                        width={600}
+                                        height={600}
+                                        className={styles.ticket}
+                                    />
+                                </div>
                                 <div className={styles.cardContent}>
                                     <div className={styles.desc}>
                                         <h1>VIP Ticket</h1>
@@ -150,15 +157,15 @@ export default function Form({ onClose }) {
                                 onClick={() => handleCardSelect("Stalls")}
                             >
                                 <Image
-                                    src={ticket}
+                                    src={stall}
                                     alt="design"
-                                    width={1000}
-                                    height={1000}
+                                    width={600}
+                                    height={600}
                                     className={styles.ticket}
                                 />
                                 <div className={styles.cardContent}>
                                     <div className={styles.desc}>
-                                        <h1>Stalls</h1>
+                                        <h1>Book Your Stall</h1>
                                         <ul>
                                             <li>Air conditioned stalls</li>
                                             <li>Available for 2 days</li>

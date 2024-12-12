@@ -113,6 +113,12 @@
     margin-bottom: 0.25rem;
 }
 
+@media (min-width: 924px) {
+    .imageContainer {
+        height: 16rem;
+    }
+}
+
 .cardContent ul {
     color: #3e3e3e;
     padding-left: 1.5rem;
@@ -171,7 +177,7 @@
 
     .group {
         left: 2rem;
-        bottom: .75rem;
+        bottom: 0.75rem;
     }
 
     .groupImage {
@@ -258,7 +264,7 @@
     }
 
     .group {
-        bottom: .75rem;
+        bottom: 0.75rem;
     }
 
     .head h1 {
