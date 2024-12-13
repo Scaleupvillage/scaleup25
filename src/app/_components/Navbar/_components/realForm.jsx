@@ -230,12 +230,11 @@ const ScaleupForm = ({ selectedTicket }) => {
         "Startups",
         "Working Professionals",
         "Students",
-        "Business Owners",
-        "NRI/ Gulf Returnees",
+        "Bussiness Owners",
+        "NRI / Gulf Retunees",
         "Government Officials",
-        "Educators/ Teachers",
-        "Media",
-        "Others"
+        "Educators / Teachers",
+        "Others",
     ];
 
     // Watch all form fields
@@ -261,11 +260,14 @@ const ScaleupForm = ({ selectedTicket }) => {
         >
             {!isSubmitted ? (
                 <div className={styles.head}>
-                    <h1>{selectedTicket === "Stalls" ? "Book" : "Register"} {selectedTicket}!</h1>
+                    <h1>
+                        {selectedTicket === "Stalls" ? "Book" : "Register"}{" "}
+                        {selectedTicket}!
+                    </h1>
                     <p>
-                       {
-                        selectedTicket === "Stalls" ? "Fill the form details and get your stall to the much awaited event." : " Fill the form details and get your entry to the much awaited event."
-                       }
+                        {selectedTicket === "Stalls"
+                            ? "Fill the form details and get your stall to the much awaited event."
+                            : " Fill the form details and get your entry to the much awaited event."}
                     </p>
                 </div>
             ) : (
@@ -499,7 +501,9 @@ const ScaleupForm = ({ selectedTicket }) => {
                                         required: "Category is required",
                                     })}
                                 >
-                                    <option value="">Select a Stall Type</option>
+                                    <option value="">
+                                        Select a Stall Type
+                                    </option>
                                     <option value="Premium (1 Lack)">
                                         Premium (₹1,00,000)
                                     </option>
