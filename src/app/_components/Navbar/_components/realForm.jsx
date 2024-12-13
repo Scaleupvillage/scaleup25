@@ -226,7 +226,17 @@ const ScaleupForm = ({ selectedTicket }) => {
         "Kasaragod",
     ];
 
-    const categories = ["Student", "Professional", "Entrepreneur", "Other"];
+    const categories = [
+        "Startups",
+        "Working Professionals",
+        "Students",
+        "Business Owners",
+        "NRI/ Gulf Returnees",
+        "Government Officials",
+        "Educators/ Teachers",
+        "Media",
+        "Others"
+    ];
 
     // Watch all form fields
     const watchedFields = watch();

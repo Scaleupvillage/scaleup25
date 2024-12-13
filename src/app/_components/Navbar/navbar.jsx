@@ -56,11 +56,6 @@ export default function Navbar() {
         setIsMobileMenuOpen(false);
     };
 
-    const handleRegisterClick = (e) => {
-        e.preventDefault();
-        setIsFormOpen(true);
-    };
-
     return (
         <>
             <nav className={styles.nav}>
@@ -124,7 +119,9 @@ export default function Navbar() {
                                 >
                                     Previous Edition
                                 </Link>
-                                <a href="#" className={styles.reg} onClick={handleRegisterClick}>
+                                <a href="#" className={styles.reg} onClick={()=>{
+                                     setIsFormOpen(true);
+                                }}>
                                     Register Now
                                 </a>
                             </span>
