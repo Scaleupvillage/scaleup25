@@ -287,6 +287,30 @@ const ScaleupForm = ({ selectedTicket }) => {
                 <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
                     <div className={styles.innerBox}>
                         {/* Name Field */}
+                        {selectedTicket === "Stalls" && (
+                            <div>
+                                <label>
+                                    Company Name<span>*</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    {...register("organization", {
+                                        required: "Company Name is required",
+                                    })}
+                                    placeholder="Enter Company Name"
+                                />
+                                {errors.organization && (
+                                    <p
+                                        style={{
+                                            color: "red",
+                                            fontSize: "0.9rem",
+                                        }}
+                                    >
+                                        {errors.organization.message}
+                                    </p>
+                                )}
+                            </div>
+                        )}
                         <div>
                             <label>
                                 Name of Person
@@ -305,6 +329,31 @@ const ScaleupForm = ({ selectedTicket }) => {
                                 </p>
                             )}
                         </div>
+
+                        {selectedTicket === "Stalls" && (
+                            <div>
+                                <label>
+                                    Designation<span>*</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    {...register("designation", {
+                                        required: "Designation is required",
+                                    })}
+                                    placeholder="Enter designation"
+                                />
+                                {errors.designation && (
+                                    <p
+                                        style={{
+                                            color: "red",
+                                            fontSize: "0.9rem",
+                                        }}
+                                    >
+                                        {errors.designation.message}
+                                    </p>
+                                )}
+                            </div>
+                        )}
 
                         {/* Phone Field */}
                         <div>
@@ -410,7 +459,12 @@ const ScaleupForm = ({ selectedTicket }) => {
                                     placeholder="Enter your state"
                                 />
                                 {errors.other_state && (
-                                    <p style={{ color: "red", fontSize: "0.9rem" }}>
+                                    <p
+                                        style={{
+                                            color: "red",
+                                            fontSize: "0.9rem",
+                                        }}
+                                    >
                                         {errors.other_state.message}
                                     </p>
                                 )}
@@ -428,9 +482,14 @@ const ScaleupForm = ({ selectedTicket }) => {
                                             required: "Category is required",
                                         })}
                                     >
-                                        <option value="">Select a category</option>
+                                        <option value="">
+                                            Select a category
+                                        </option>
                                         {categories.map((category) => (
-                                            <option key={category} value={category}>
+                                            <option
+                                                key={category}
+                                                value={category}
+                                            >
                                                 {category}
                                             </option>
                                         ))}
@@ -450,17 +509,24 @@ const ScaleupForm = ({ selectedTicket }) => {
                                 {watch("category") === "Others" && (
                                     <div>
                                         <label>
-                                            Please specify Category<span>*</span>
+                                            Please specify Category
+                                            <span>*</span>
                                         </label>
                                         <input
                                             type="text"
                                             {...register("other_category", {
-                                                required: "This field is required",
+                                                required:
+                                                    "This field is required",
                                             })}
                                             placeholder="Enter your category"
                                         />
                                         {errors.other_category && (
-                                            <p style={{ color: "red", fontSize: "0.9rem" }}>
+                                            <p
+                                                style={{
+                                                    color: "red",
+                                                    fontSize: "0.9rem",
+                                                }}
+                                            >
                                                 {errors.other_category.message}
                                             </p>
                                         )}
@@ -497,15 +563,20 @@ const ScaleupForm = ({ selectedTicket }) => {
                                         Conclave?
                                         <span>*</span>
                                     </label>
-                                    <div style={{ display: "flex", gap: "10px" }}>
+                                    <div
+                                        style={{ display: "flex", gap: "10px" }}
+                                    >
                                         <label className={styles.radio}>
                                             <input
                                                 type="radio"
                                                 value="Yes"
-                                                {...register("attendedPrevious", {
-                                                    required:
-                                                        "This field is required",
-                                                })}
+                                                {...register(
+                                                    "attendedPrevious",
+                                                    {
+                                                        required:
+                                                            "This field is required",
+                                                    }
+                                                )}
                                             />
                                             Yes
                                         </label>
@@ -513,10 +584,13 @@ const ScaleupForm = ({ selectedTicket }) => {
                                             <input
                                                 type="radio"
                                                 value="No"
-                                                {...register("attendedPrevious", {
-                                                    required:
-                                                        "This field is required",
-                                                })}
+                                                {...register(
+                                                    "attendedPrevious",
+                                                    {
+                                                        required:
+                                                            "This field is required",
+                                                    }
+                                                )}
                                             />
                                             No
                                         </label>
@@ -562,50 +636,6 @@ const ScaleupForm = ({ selectedTicket }) => {
                                             }}
                                         >
                                             {errors.category.message}
-                                        </p>
-                                    )}
-                                </div>
-                                <div>
-                                    <label>
-                                        Designation<span>*</span>
-                                    </label>
-                                    <input
-                                        type="text"
-                                        {...register("designation", {
-                                            required: "Designation is required",
-                                        })}
-                                        placeholder="Enter designation"
-                                    />
-                                    {errors.designation && (
-                                        <p
-                                            style={{
-                                                color: "red",
-                                                fontSize: "0.9rem",
-                                            }}
-                                        >
-                                            {errors.designation.message}
-                                        </p>
-                                    )}
-                                </div>
-                                <div>
-                                    <label>
-                                        Company Name<span>*</span>
-                                    </label>
-                                    <input
-                                        type="text"
-                                        {...register("organization", {
-                                            required: "Company Name is required",
-                                        })}
-                                        placeholder="Enter Company Name"
-                                    />
-                                    {errors.organization && (
-                                        <p
-                                            style={{
-                                                color: "red",
-                                                fontSize: "0.9rem",
-                                            }}
-                                        >
-                                            {errors.organization.message}
                                         </p>
                                     )}
                                 </div>
