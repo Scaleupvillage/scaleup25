@@ -274,4 +274,11 @@
     .list {
         margin-top: 1rem;
     }
+
+    .poweredBy {
+        position: relative;
+        bottom: .25rem;
+        line-height: 1.1;
+        font-size: 0.65rem;
+    }
 }

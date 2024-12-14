@@ -12,8 +12,26 @@ import styles from "./form.module.css";
 import RealForm from "./realForm";
 
 export default function Form({ onClose }) {
+    const [isSmallScreen, setIsSmallScreen] = useState(false);
     const [selectedTicket, setSelectedTicket] = useState(null);
     const formRef = useRef(null);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsSmallScreen(window.innerWidth < 400);
+        };
+
+        // Initial check
+        handleResize();
+
+        // Add event listener for resize
+        window.addEventListener("resize", handleResize);
+
+        // Cleanup on unmount
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -70,12 +88,9 @@ export default function Form({ onClose }) {
                     />
 
                     <p className={styles.poweredBy}>
-                        Form Powered by{" "}
-                        <a
-                            href="https://makemypass.com"
-                            target="_blank"
-                            rel="noreferrer"
-                        >
+                        Form Powered
+                        {isSmallScreen && <br />} by{" "}
+                        <a href="https://makemypass.com" target="_blank" rel="noreferrer">
                             MakeMyPass
                         </a>
                     </p>

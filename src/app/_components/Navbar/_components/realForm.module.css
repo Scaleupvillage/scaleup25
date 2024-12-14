@@ -1,11 +1,5 @@
 .realForm {
-    height: fit-content;
-    transition: height 0.3s ease, overflow-y 0.3s ease;
-}
-
-.realForm.incomplete {
-    height: 80vh;
-    overflow-y: scroll;
+    width: 100%;
 }
 
 .head {
@@ -18,38 +12,62 @@
 
 .form {
     position: relative;
+    width: 100%;
+}
+
+.innerBox {
+    height: 68vh;
+    overflow-y: scroll;
     display: flex;
     flex-direction: column;
     gap: 0.7rem;
 }
 
-.form>div {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
+.innerBox::-webkit-scrollbar {
+    width: 0.4rem;
+    border-radius: 0.25rem;
+    display: none;
 }
 
-.form>div span {
+.innerBox::-webkit-scrollbar-track {
+    background-color: #ffffff;
+}
+
+.innerBox::-webkit-scrollbar-thumb {
+    background-color: var(--violet);
+}
+
+.innerBox:hover::-webkit-scrollbar {
+    display: block;
+}
+
+.innerBox>div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.innerBox>div span {
     color: var(--red);
 }
 
-.form>div input,
-.form>div select {
+.innerBox>div input,
+.innerBox>div select {
     padding: 0.75rem;
     background-color: #f9f9f9;
     border-radius: 0.25rem;
     border: none;
 }
 
-.form>div input[type="tel"] {
+.innerBox>div input[type="tel"] {
     width: 100%;
 }
 
-.form>div select option {
+.innerBox>div select option {
     color: #000;
 }
 
-.form>div select {
+.innerBox>div select {
     padding-right: 2.5rem;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24'%3E%3Cpath fill='%23000000' d='M7 10l5 5 5-5H7z'/%3E%3C/svg%3E") no-repeat right 1rem center;
     background-color: #f9f9f9;
@@ -66,7 +84,7 @@
 
 .submit button {
     position: absolute;
-    bottom: -2.75rem;
+    bottom: -5rem;
     right: 0;
     background-color: var(--violet);
     color: #fff;
@@ -109,16 +127,48 @@
     cursor: pointer;
 }
 
+@media (width<=1280px) {
+    .submit button {
+        bottom: -6rem;
+    }
+}
+
+@media (width<=1024px) {
+    .submit button {
+        bottom: -2.5rem;
+        padding: 0.8rem 2rem;
+        font-size: .8rem;
+    }
+}
+
 @media (width<=678px) {
     .realForm {
         padding: 1rem;
     }
+
+    .innerBox {
+        height: 62vh;
+    }
 }
 
 @media(width<=400px) {
-    .realForm {
-        height: 82vh;
-        height: 82dvh;
-        overflow-y: scroll;
+    .innerBox {
+        height: 60vh;
+    }
+
+    .submit button {
+        bottom: -5rem;
+    }
+}
+
+@media(width<=380px) {
+    .submit button {
+        bottom: -3rem;
+    }
+}
+
+@media(width<=370px) {
+    .submit button {
+        bottom: -3.8rem;
     }
 }
