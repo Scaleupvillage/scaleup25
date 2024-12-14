@@ -48,12 +48,31 @@
 
 .divide .design {
     width: 3rem;
-    height: 10rem;
+    height: 12rem;
+}
+
+.divide>div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.divide span a {
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+    padding-bottom: .25rem;
+    color: #000;
+    transition: all 0.3s ease-in-out;
+}
+
+.divide span a:hover {
+    color: var(--violet);
+    transform: translateX(5px);
 }
 
 .divide p {
     font-size: 1.3rem;
-    margin-bottom: 1rem;
 }
 
 .icon {

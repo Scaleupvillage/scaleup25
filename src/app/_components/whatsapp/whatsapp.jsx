@@ -6,7 +6,7 @@ import { FaWhatsapp } from 'react-icons/fa';
 import styles from './whatsapp.module.css';
 import Form from '../Navbar/_components/form';
 
-const whatsappLink = 'https://wa.me/919999999999';
+const whatsappLink = 'https://wa.me/919048170077';
 
 export default function Whatsapp() {
     const [isFormOpen, setIsFormOpen] = useState(false);
