@@ -291,6 +291,30 @@ const ScaleupForm = ({ selectedTicket }) => {
             {!isSubmitted && (
                 <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
                     {/* Name Field */}
+                    {selectedTicket === "Stalls" && (
+                        <div>
+                            <label>
+                                Company Name<span>*</span>
+                            </label>
+                            <input
+                                type="text"
+                                {...register("organization", {
+                                    required: "Company Name is required",
+                                })}
+                                placeholder="Enter Company Name"
+                            />
+                            {errors.organization && (
+                                <p
+                                    style={{
+                                        color: "red",
+                                        fontSize: "0.9rem",
+                                    }}
+                                >
+                                    {errors.organization.message}
+                                </p>
+                            )}
+                        </div>
+                    )}
                     <div>
                         <label>
                             Name of Person
@@ -309,6 +333,31 @@ const ScaleupForm = ({ selectedTicket }) => {
                             </p>
                         )}
                     </div>
+
+                    {selectedTicket === "Stalls" && (
+                        <div>
+                            <label>
+                                Designation<span>*</span>
+                            </label>
+                            <input
+                                type="text"
+                                {...register("designation", {
+                                    required: "Designation is required",
+                                })}
+                                placeholder="Enter designation"
+                            />
+                            {errors.designation && (
+                                <p
+                                    style={{
+                                        color: "red",
+                                        fontSize: "0.9rem",
+                                    }}
+                                >
+                                    {errors.designation.message}
+                                </p>
+                            )}
+                        </div>
+                    )}
 
                     {/* Phone Field */}
                     <div>
@@ -404,7 +453,7 @@ const ScaleupForm = ({ selectedTicket }) => {
                     {watch("district") === "Outside Kerala" && (
                         <div>
                             <label>
-                               Enter Your State<span>*</span>
+                                Enter Your State<span>*</span>
                             </label>
                             <input
                                 type="text"
@@ -464,7 +513,12 @@ const ScaleupForm = ({ selectedTicket }) => {
                                         placeholder="Enter your category"
                                     />
                                     {errors.other_category && (
-                                        <p style={{ color: "red", fontSize: "0.9rem" }}>
+                                        <p
+                                            style={{
+                                                color: "red",
+                                                fontSize: "0.9rem",
+                                            }}
+                                        >
                                             {errors.other_category.message}
                                         </p>
                                     )}
@@ -566,50 +620,6 @@ const ScaleupForm = ({ selectedTicket }) => {
                                         }}
                                     >
                                         {errors.category.message}
-                                    </p>
-                                )}
-                            </div>
-                            <div>
-                                <label>
-                                    Designation<span>*</span>
-                                </label>
-                                <input
-                                    type="text"
-                                    {...register("designation", {
-                                        required: "Designation is required",
-                                    })}
-                                    placeholder="Enter designation"
-                                />
-                                {errors.designation && (
-                                    <p
-                                        style={{
-                                            color: "red",
-                                            fontSize: "0.9rem",
-                                        }}
-                                    >
-                                        {errors.designation.message}
-                                    </p>
-                                )}
-                            </div>
-                            <div>
-                                <label>
-                                    Company Name<span>*</span>
-                                </label>
-                                <input
-                                    type="text"
-                                    {...register("organization", {
-                                        required: "Company Name is required",
-                                    })}
-                                    placeholder="Enter Company Name"
-                                />
-                                {errors.organization && (
-                                    <p
-                                        style={{
-                                            color: "red",
-                                            fontSize: "0.9rem",
-                                        }}
-                                    >
-                                        {errors.organization.message}
                                     </p>
                                 )}
                             </div>
