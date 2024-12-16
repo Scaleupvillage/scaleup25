@@ -86,15 +86,19 @@ export default function Form({ onClose }) {
                         height={400}
                         className={styles.groupImage}
                     />
-
-                    <p className={styles.poweredBy}>
-                        Form Powered
-                        {isSmallScreen && <br />} by{" "}
-                        <a href="https://makemypass.com" target="_blank" rel="noreferrer">
-                            MakeMyPass
-                        </a>
-                    </p>
                 </div>
+
+                <p className={styles.poweredBy}>
+                    Form Powered
+                    {isSmallScreen && <br />} by{" "}
+                    <a
+                        href="https://makemypass.com"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        MakeMyPass
+                    </a>
+                </p>
 
                 {!selectedTicket ? (
                     <div className={styles.box}>
@@ -196,6 +200,10 @@ export default function Form({ onClose }) {
                                 </div>
                             </div>
                         </div>
+
+                        <p className={styles.helperText}>
+                            Select any one of the above tickets.
+                        </p>
                     </div>
                 ) : (
                     <RealForm selectedTicket={selectedTicket} />
