@@ -101,7 +101,7 @@ export default function About() {
                             height={400}
                         />
                         <a
-                            href="https://online.fliphtml5.com/jqxey/xqca/#p=1"
+                            href="https://online.fliphtml5.com/egsqr/esog/"
                             target="_blank"
                             rel="noreferrer noopener"
                         >
