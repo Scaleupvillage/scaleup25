@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import ticket from "@/../../public/ticket.png";
 import vipticket from "@/../../public/vipticket.png";
-import stall from "@/../../public/stall.jpg";
+import stall from "@/../../public/stall.png";
 import l4 from "@/../../public/l4.svg";
 import group from "@/../../public/group-2.svg";
 import { AiOutlineClose, AiOutlineArrowLeft } from "react-icons/ai";
