@@ -1,17 +1,18 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, useState } from 'react';
-import styles from './navbar.module.css';
-import Link from 'next/link';
-import Image from 'next/image';
-import white from '@/../public/logo.webp';
-import { usePathname } from 'next/navigation';
-import Form from './_components/form';
+import { useEffect, useRef, useState } from "react";
+import styles from "./navbar.module.css";
+import Link from "next/link";
+import Image from "next/image";
+import white from "@/../public/logo.webp";
+import { usePathname } from "next/navigation";
+import Form from "./_components/form";
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isFormOpen, setIsFormOpen] = useState(false);
+
     const pathname = usePathname();
     const formRef = useRef(null);
 
@@ -21,10 +22,10 @@ export default function Navbar() {
             setIsScrolled(scrolled);
         };
 
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener("scroll", handleScroll);
 
         return () => {
-            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener("scroll", handleScroll);
         };
     }, []);
 
@@ -40,11 +41,11 @@ export default function Navbar() {
         };
 
         if (isFormOpen) {
-            document.addEventListener('mousedown', handleClickOutside);
+            document.addEventListener("mousedown", handleClickOutside);
         }
 
         return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
+            document.removeEventListener("mousedown", handleClickOutside);
         };
     }, [isFormOpen]);
 
@@ -59,8 +60,17 @@ export default function Navbar() {
     return (
         <>
             <nav className={styles.nav}>
-                <div className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''} ${isMobileMenuOpen ? styles.open : ''}`}>
-                    <div className={`${styles.menuIcon} ${isMobileMenuOpen ? styles.open : ''}`} onClick={handleMobileMenuToggle}>
+                <div
+                    className={`${styles.navbar} ${
+                        isScrolled ? styles.scrolled : ""
+                    } ${isMobileMenuOpen ? styles.open : ""}`}
+                >
+                    <div
+                        className={`${styles.menuIcon} ${
+                            isMobileMenuOpen ? styles.open : ""
+                        }`}
+                        onClick={handleMobileMenuToggle}
+                    >
                         <div className={styles.bar} />
                         <div className={styles.bar} />
                         <div className={styles.bar} />
@@ -86,7 +96,11 @@ export default function Navbar() {
                         />
                     </Link>
 
-                    <div className={`${styles.links} ${isMobileMenuOpen ? styles.open : ''} ${isScrolled ? styles.scrolled : ''}`}>
+                    <div
+                        className={`${styles.links} ${
+                            isMobileMenuOpen ? styles.open : ""
+                        } ${isScrolled ? styles.scrolled : ""}`}
+                    >
                         <Link href="/" aria-label="logo">
                             <Image
                                 className={styles.logo_Mobile}
@@ -98,16 +112,28 @@ export default function Navbar() {
                         </Link>
 
                         <div className={styles.linkBlocks}>
-                            <Link href="#hero" className={styles.link} onClick={handleLinkClick}>
+                            <Link
+                                href="#hero"
+                                className={styles.link}
+                                onClick={handleLinkClick}
+                            >
                                 Home
                             </Link>
                             {/* <Link href="#speakers" className={styles.link} onClick={handleLinkClick}>
                                 Speakers
                             </Link> */}
-                            <Link href="#events" className={styles.link} onClick={handleLinkClick}>
+                            <Link
+                                href="#events"
+                                className={styles.link}
+                                onClick={handleLinkClick}
+                            >
                                 Events
                             </Link>
-                            <Link href="#contact" className={styles.link} onClick={handleLinkClick}>
+                            <Link
+                                href="#contact"
+                                className={styles.link}
+                                onClick={handleLinkClick}
+                            >
                                 Contact Us
                             </Link>
                             <span>
@@ -119,9 +145,22 @@ export default function Navbar() {
                                 >
                                     Previous Edition
                                 </Link>
-                                <a href="#" className={styles.reg} onClick={()=>{
-                                     setIsFormOpen(true);
-                                }}>
+                                <a
+                                    href="#"
+                                    className={styles.reg}
+                                    onClick={() => {
+                                        setIsFormOpen(true);
+                                    }}
+                                >
+                                    Book Stalls
+                                </a>
+                                <a
+                                    href="#"
+                                    className={styles.reg}
+                                    onClick={() => {
+                                        setIsFormOpen(true);
+                                    }}
+                                >
                                     Register Now
                                 </a>
                             </span>
