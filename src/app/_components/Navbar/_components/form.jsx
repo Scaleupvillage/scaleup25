@@ -175,13 +175,15 @@ export default function Form({ onClose }) {
                                 className={styles.card}
                                 onClick={() => handleCardSelect("Stalls")}
                             >
-                                <Image
-                                    src={stall}
-                                    alt="design"
-                                    width={600}
-                                    height={600}
-                                    className={styles.ticket}
-                                />
+                                <div className={styles.imageContainer}>
+                                    <Image
+                                        src={stall}
+                                        alt="design"
+                                        width={600}
+                                        height={600}
+                                        className={styles.ticket}
+                                    />
+                                </div>
                                 <div className={styles.cardContent}>
                                     <div className={styles.desc}>
                                         <h1>Book Your Stall</h1>

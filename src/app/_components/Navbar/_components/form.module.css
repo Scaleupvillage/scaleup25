@@ -70,6 +70,7 @@
     align-items: center;
     justify-content: center;
     margin-top: 4rem;
+    padding-bottom: 1rem;
 }
 
 .card {
@@ -81,7 +82,7 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    height: 23rem;
+    height: 24rem;
     font-size: 0.9rem;
     background-color: #fff;
     border: 1px solid #fff;
@@ -92,17 +93,23 @@
     border: 0.5px solid var(--red);
 }
 
+.card .imageContainer {
+    height: 14rem;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+}
+
 .card img {
     width: 100%;
     height: fit-content;
-    margin-top: 1rem;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .cardContent {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
     justify-content: space-between;
     height: 100%;
 }
@@ -111,12 +118,6 @@
     text-align: left;
     font-size: 1.5rem;
     margin-bottom: 0.25rem;
-}
-
-@media (min-width: 924px) {
-    .imageContainer {
-        height: 16rem;
-    }
 }
 
 .cardContent ul {
@@ -149,7 +150,7 @@
     bottom: 1.5rem;
 }
 
-.helperText{
+.helperText {
     font-size: 0.85rem;
     color: #666;
     margin-top: 1.2np5rem;
@@ -175,8 +176,12 @@
         margin-top: 2rem;
     }
 
+    .card .imageContainer {
+        height: 12rem;
+    }
+
     .card {
-        height: 20rem;
+        height: 21rem;
     }
 
     .content {
@@ -217,7 +222,13 @@
         padding: 1rem;
     }
 
-    .card {
+    .helperText {
+        display: none;
+    }
+
+    .card,
+    .card .imageContainer,
+    .cardContent {
         height: fit-content;
     }
 }
@@ -251,12 +262,6 @@
     .card {
         width: 100%;
         height: fit-content;
-    }
-
-    .card img {
-        margin-top: 0;
-        height: 8rem;
-        object-fit: contain;
     }
 
     .cardContent h1 {
