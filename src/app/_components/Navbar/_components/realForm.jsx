@@ -609,9 +609,9 @@ const ScaleupForm = ({ selectedTicket }) => {
                                         <option value="Premium (1 Lack)">
                                             Premium (₹1,00,000)
                                         </option>
-                                        <option value="Normal (60 K)">
+                                        {/* <option value="Normal (60 K)">
                                             Normal (₹60,000)
-                                        </option>
+                                        </option> */}
                                     </select>
                                     {errors.category && (
                                         <p
