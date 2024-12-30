@@ -56,7 +56,7 @@ const ThankYou = ({ ticket, selectedTicket, ticketInfomration, ticketLoading }) 
                             >
                                 makemypass.com
                             </a>
-                            .Kindly, Log in with same email to view it.
+                            .Kindly, Log in with same registered email address to view it.
                         </p>
                     </div>
                 )}
