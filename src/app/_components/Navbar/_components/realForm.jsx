@@ -48,7 +48,7 @@ const ThankYou = ({ ticket, selectedTicket, ticketInfomration, ticketLoading }) 
                         </button>
 
                         <p className={styles.noteText}>
-                            Your ticket is available at{" "}
+                            Your ticket is always available at{" "}
                             <a
                                 href="http://makemypass.com"
                                 target="_blank"
