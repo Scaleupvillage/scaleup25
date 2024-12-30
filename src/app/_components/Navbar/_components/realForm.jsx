@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import styles from "./realForm.module.css";
 import axios from "axios";
@@ -8,24 +8,57 @@ import toast from "react-hot-toast";
 import { BeatLoader } from "react-spinners";
 import phoneCountryCodes from "./phoneCountryCodes.json";
 
-const ThankYou = ({ ticket, selectedTicket }) => (
+const ThankYou = ({ ticket, selectedTicket, ticketInfomration, ticketLoading }) => (
     <div className={styles.thankYou}>
         <h2>Thank You for Registering!</h2>
         {selectedTicket === "Stalls" ? (
             <p>Your registration of interest is successful. Our team will contact you shortly.</p>
         ) : (
             <>
-                <p>Kindly, click the below button to view your ticket.</p>
-                <button
-                    onClick={() =>
-                        window.open(
-                            `https://makemypass.com/scaleup-2025/view-ticket/${ticket?.event_register_id}`,
-                            "_blank"
-                        )
-                    }
-                >
-                    View Ticket
-                </button>
+                <p>Your registration is successful. Your ticket is ready to download.</p>
+                {ticketInfomration.image && !ticketLoading && (
+                    <div className={styles.ticket}>
+                        <img
+                            src={ticketInfomration.image}
+                            className={styles.ticketImage}
+                            alt="Ticket"
+                        />
+
+                        <button
+                            onClick={async () => {
+                                try {
+                                    const response = await fetch(ticketInfomration.image);
+                                    const blob = await response.blob();
+
+                                    const link = document.createElement("a");
+                                    link.href = URL.createObjectURL(blob);
+                                    link.setAttribute("download", "ticket.png");
+
+                                    document.body.appendChild(link);
+                                    link.click();
+                                    document.body.removeChild(link);
+
+                                    URL.revokeObjectURL(link.href);
+                                } catch (error) {
+                                    toast.error("Failed to download ticket");
+                                }
+                            }}
+                        >
+                            Download Ticket
+                        </button>
+                    </div>
+                )}
+
+                <div className={styles.loaderContainer}>
+                    {ticketLoading && (
+                        <>
+                            <BeatLoader size={15} color="#7570fd" />
+                            <p className={styles.ticketFetchingHelperText}>
+                                Getting your ticket ready. Please wait...
+                            </p>
+                        </>
+                    )}
+                </div>
             </>
         )}
     </div>
@@ -42,6 +75,11 @@ const ScaleupForm = ({ selectedTicket }) => {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [ticketDetails, setTicketDetails] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
+    const [ticketInformation, setTicketInformation] = useState({
+        image: "",
+        ticket_code: "",
+    });
+    const [ticketLoading, setTicketLoading] = useState(false);
 
     let eventId;
     if (selectedTicket === "General Ticket" || selectedTicket === "VIP Ticket") {
@@ -49,6 +87,26 @@ const ScaleupForm = ({ selectedTicket }) => {
     } else if (selectedTicket === "Stalls") {
         eventId = "d959821a-d64a-4962-a17e-ebf34f22d755";
     }
+
+    useEffect(() => {
+        if (isSubmitted) {
+            setTicketLoading(true);
+            axios
+                .get(
+                    `https://api.buildnship.in/makemypass/manage-guest/${eventId}/guest/${ticketDetails?.event_register_id}/download-ticket/`
+                )
+                .then((response) => {
+                    console.log(response.data.response);
+                    setTicketInformation(response.data.response);
+                })
+                .catch((error) => {
+                    toast.error("Failed to fetch ticket information. Please try again.");
+                })
+                .finally(() => {
+                    setTicketLoading(false);
+                });
+        }
+    }, [isSubmitted]);
 
     const onSubmit = async (data) => {
         // Map form data to the API's expected structure
@@ -235,7 +293,12 @@ const ScaleupForm = ({ selectedTicket }) => {
                     </p>
                 </div>
             ) : (
-                <ThankYou ticket={ticketDetails} selectedTicket={selectedTicket} />
+                <ThankYou
+                    ticket={ticketDetails}
+                    selectedTicket={selectedTicket}
+                    ticketInfomration={ticketInformation}
+                    ticketLoading={ticketLoading}
+                />
             )}
 
             {!isSubmitted && (

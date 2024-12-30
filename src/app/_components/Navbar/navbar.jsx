@@ -146,6 +146,7 @@ export default function Navbar() {
                                     className={styles.reg}
                                     onClick={() => {
                                         setIsFormOpen(true);
+                                        setSelectedTicket(null);
                                     }}
                                 >
                                     Register Now
