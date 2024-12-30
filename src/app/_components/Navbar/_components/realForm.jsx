@@ -54,7 +54,7 @@ const ThankYou = ({ ticket, selectedTicket, ticketInfomration, ticketLoading }) 
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                makemypass.com
+                                makemypass.com{" "}
                             </a>
                             .Kindly, Log in with same registered email address to view it.
                         </p>
