@@ -207,7 +207,6 @@
     gap: 1rem;
     padding: 1rem;
     border-radius: 0.25rem;
-    background-color: #f9f9f9;
 }
 
 .loaderContainer {
@@ -217,4 +216,12 @@
 .ticketFetchingHelperText {
     font-size: 0.95rem;
     color: var(--violet);
+}
+
+.noteText {
+    font-size: 0.9rem;
+    color: black;
+    text-align: center;
+    margin: auto;
+    max-width: 30rem;
 }

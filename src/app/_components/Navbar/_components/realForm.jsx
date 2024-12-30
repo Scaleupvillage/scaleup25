@@ -46,6 +46,18 @@ const ThankYou = ({ ticket, selectedTicket, ticketInfomration, ticketLoading }) 
                         >
                             Download Ticket
                         </button>
+
+                        <p className={styles.noteText}>
+                            Your ticket is available at{" "}
+                            <a
+                                href="http://makemypass.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                makemypass.com
+                            </a>
+                            .Kindly, Log in with same email to view it.
+                        </p>
                     </div>
                 )}
 
