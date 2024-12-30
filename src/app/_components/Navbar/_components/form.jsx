@@ -196,7 +196,7 @@ export default function Form({ onClose }) {
                                     </div>
                                     <div className={styles.reg}>
                                         <p>
-                                            <span>Starting from:</span> ₹60,000
+                                            <span>Starting from:</span> ₹1,00,000
                                         </p>
                                     </div>
                                 </div>

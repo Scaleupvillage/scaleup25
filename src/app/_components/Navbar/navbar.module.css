@@ -298,6 +298,12 @@
     .navbar.scrolled {
         padding: 1rem;
     }
+
+    .navbar .linkBlocks .contact,
+    .navbar .linkBlocks .reg {
+        font-size: .8rem;
+        padding: .5rem 1rem;
+    }
 }
 
 @media (width<=380px) {
@@ -315,5 +321,11 @@
 
     .links.open {
         top: 4rem;
+    }
+
+    .navbar .linkBlocks .contact,
+    .navbar .linkBlocks .reg {
+        font-size: .75rem;
+        padding: .75rem;
     }
 }
