@@ -12,7 +12,7 @@ export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isFormOpen, setIsFormOpen] = useState(false);
-
+    const [selectedTicket, setSelectedTicket] = useState(null);
     const pathname = usePathname();
     const formRef = useRef(null);
 
@@ -61,14 +61,12 @@ export default function Navbar() {
         <>
             <nav className={styles.nav}>
                 <div
-                    className={`${styles.navbar} ${
-                        isScrolled ? styles.scrolled : ""
-                    } ${isMobileMenuOpen ? styles.open : ""}`}
+                    className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""} ${
+                        isMobileMenuOpen ? styles.open : ""
+                    }`}
                 >
                     <div
-                        className={`${styles.menuIcon} ${
-                            isMobileMenuOpen ? styles.open : ""
-                        }`}
+                        className={`${styles.menuIcon} ${isMobileMenuOpen ? styles.open : ""}`}
                         onClick={handleMobileMenuToggle}
                     >
                         <div className={styles.bar} />
@@ -97,9 +95,9 @@ export default function Navbar() {
                     </Link>
 
                     <div
-                        className={`${styles.links} ${
-                            isMobileMenuOpen ? styles.open : ""
-                        } ${isScrolled ? styles.scrolled : ""}`}
+                        className={`${styles.links} ${isMobileMenuOpen ? styles.open : ""} ${
+                            isScrolled ? styles.scrolled : ""
+                        }`}
                     >
                         <Link href="/" aria-label="logo">
                             <Image
@@ -112,28 +110,16 @@ export default function Navbar() {
                         </Link>
 
                         <div className={styles.linkBlocks}>
-                            <Link
-                                href="#hero"
-                                className={styles.link}
-                                onClick={handleLinkClick}
-                            >
+                            <Link href="#hero" className={styles.link} onClick={handleLinkClick}>
                                 Home
                             </Link>
                             {/* <Link href="#speakers" className={styles.link} onClick={handleLinkClick}>
                                 Speakers
                             </Link> */}
-                            <Link
-                                href="#events"
-                                className={styles.link}
-                                onClick={handleLinkClick}
-                            >
+                            <Link href="#events" className={styles.link} onClick={handleLinkClick}>
                                 Events
                             </Link>
-                            <Link
-                                href="#contact"
-                                className={styles.link}
-                                onClick={handleLinkClick}
-                            >
+                            <Link href="#contact" className={styles.link} onClick={handleLinkClick}>
                                 Contact Us
                             </Link>
                             <span>
@@ -150,6 +136,7 @@ export default function Navbar() {
                                     className={styles.reg}
                                     onClick={() => {
                                         setIsFormOpen(true);
+                                        setSelectedTicket("Stalls");
                                     }}
                                 >
                                     Book Stalls
@@ -168,7 +155,13 @@ export default function Navbar() {
                     </div>
                 </div>
             </nav>
-            {isFormOpen ? <Form onClose={() => setIsFormOpen(false)} /> : null}
+            {isFormOpen ? (
+                <Form
+                    onClose={() => setIsFormOpen(false)}
+                    selectedTicket={selectedTicket}
+                    setSelectedTicket={setSelectedTicket}
+                />
+            ) : null}
         </>
     );
 }

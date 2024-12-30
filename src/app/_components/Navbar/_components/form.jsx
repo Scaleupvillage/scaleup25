@@ -11,9 +11,9 @@ import { AiOutlineClose, AiOutlineArrowLeft } from "react-icons/ai";
 import styles from "./form.module.css";
 import RealForm from "./realForm";
 
-export default function Form({ onClose }) {
+export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
     const [isSmallScreen, setIsSmallScreen] = useState(false);
-    const [selectedTicket, setSelectedTicket] = useState(null);
+
     const formRef = useRef(null);
 
     useEffect(() => {
@@ -70,13 +70,7 @@ export default function Form({ onClose }) {
                         <AiOutlineClose size={24} />
                     )}
                 </button>
-                <Image
-                    src={l4}
-                    alt="design"
-                    width={400}
-                    height={400}
-                    className={styles.design}
-                />
+                <Image src={l4} alt="design" width={400} height={400} className={styles.design} />
 
                 <div className={styles.group}>
                     <Image
@@ -91,11 +85,7 @@ export default function Form({ onClose }) {
                 <p className={styles.poweredBy}>
                     Form Powered
                     {isSmallScreen && <br />} by{" "}
-                    <a
-                        href="https://makemypass.com"
-                        target="_blank"
-                        rel="noreferrer"
-                    >
+                    <a href="https://makemypass.com" target="_blank" rel="noreferrer">
                         MakeMyPass
                     </a>
                 </p>
@@ -108,9 +98,7 @@ export default function Form({ onClose }) {
                         <div className={styles.list}>
                             <div
                                 className={styles.card}
-                                onClick={() =>
-                                    handleCardSelect("General Ticket")
-                                }
+                                onClick={() => handleCardSelect("General Ticket")}
                             >
                                 <div className={styles.imageContainer}>
                                     <Image
@@ -171,10 +159,7 @@ export default function Form({ onClose }) {
                                 </div>
                             </div>
 
-                            <div
-                                className={styles.card}
-                                onClick={() => handleCardSelect("Stalls")}
-                            >
+                            <div className={styles.card} onClick={() => handleCardSelect("Stalls")}>
                                 <div className={styles.imageContainer}>
                                     <Image
                                         src={stall}
@@ -203,9 +188,7 @@ export default function Form({ onClose }) {
                             </div>
                         </div>
 
-                        <p className={styles.helperText}>
-                            Select any one of the above tickets.
-                        </p>
+                        <p className={styles.helperText}>Select any one of the above tickets.</p>
                     </div>
                 ) : (
                     <RealForm selectedTicket={selectedTicket} />
