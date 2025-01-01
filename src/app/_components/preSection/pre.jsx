@@ -67,6 +67,9 @@ export default function Pre() {
                                         </a>
                                     )}
                                 </div>
+                                {event.completed === "TRUE" && (
+                                    <span className={styles.completedBadge}>Completed</span>
+                                )}
                             </div>
                         </div>
                     ))}
