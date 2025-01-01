@@ -107,7 +107,7 @@ export default function Footer() {
                     </div>
                 </div>
                 <p className={styles.copy}>
-                    Copyright ©2025 Hoomans Project Private Limited All rights reserved{" "}
+                    Copyright © 2025 Hoomans Project Private Limited All rights reserved{" "}
                 </p>
             </div>
         </footer>

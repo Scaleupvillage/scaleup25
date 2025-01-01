@@ -1,15 +1,16 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { FaWhatsapp } from 'react-icons/fa';
-import styles from './whatsapp.module.css';
-import Form from '../Navbar/_components/form';
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { FaWhatsapp } from "react-icons/fa";
+import styles from "./whatsapp.module.css";
+import Form from "../Navbar/_components/form";
 
-const whatsappLink = 'https://wa.me/919048170077';
+const whatsappLink = "https://wa.me/919048170077";
 
 export default function Whatsapp() {
     const [isFormOpen, setIsFormOpen] = useState(false);
+    const [selectedTicket, setSelectedTicket] = useState(null);
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -19,33 +20,36 @@ export default function Whatsapp() {
         };
 
         if (isFormOpen) {
-            document.addEventListener('mousedown', handleClickOutside);
+            document.addEventListener("mousedown", handleClickOutside);
         }
 
         return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
+            document.removeEventListener("mousedown", handleClickOutside);
         };
     }, [isFormOpen]);
 
     const handleButtonClick = () => {
         setIsFormOpen(true);
+        setSelectedTicket(null);
     };
 
     return (
         <>
             <div className={styles.pop}>
-                <button
-                    onClick={handleButtonClick}
-                    className={styles.reg}
-                    aria-label="register"
-                >
+                <button onClick={handleButtonClick} className={styles.reg} aria-label="register">
                     Register Now
                 </button>
                 <Link href={whatsappLink} className={styles.whatsapp} aria-label="whatsapp">
                     <FaWhatsapp className={styles.icon} />
                 </Link>
             </div>
-            {isFormOpen ? <Form onClose={() => setIsFormOpen(false)} /> : null}
+            {isFormOpen ? (
+                <Form
+                    onClose={() => setIsFormOpen(false)}
+                    selectedTicket={selectedTicket}
+                    setSelectedTicket={setSelectedTicket}
+                />
+            ) : null}
         </>
     );
 }
