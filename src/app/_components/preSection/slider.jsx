@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import styles from './pre.module.css';
-import Image from 'next/image';
+import styles from "./pre.module.css";
+import Image from "next/image";
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, EffectFade } from 'swiper/modules';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, EffectFade } from "swiper/modules";
 
-import 'swiper/css';
-import 'swiper/css/autoplay';
-import 'swiper/css/effect-fade';
+import "swiper/css";
+import "swiper/css/autoplay";
+import "swiper/css/effect-fade";
 
-import { PhotoProvider, PhotoView } from 'react-photo-view';
-import 'react-photo-view/dist/react-photo-view.css';
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 
 export default function Slider({ img }) {
     const images = Array.isArray(img) ? img : [img];
@@ -32,14 +32,14 @@ export default function Slider({ img }) {
                 >
                     {images.map((image, index) => (
                         <SwiperSlide key={index}>
-                            <PhotoView src={typeof image === 'object' ? image.src : image}>
+                            <PhotoView src={typeof image === "object" ? image.src : image}>
                                 <Image
                                     src={image}
                                     alt={`highlight-${index}`}
                                     className={styles.eventPic}
                                     width={400}
                                     height={400}
-                                    loading='lazy'
+                                    loading="lazy"
                                 />
                             </PhotoView>
                         </SwiperSlide>
