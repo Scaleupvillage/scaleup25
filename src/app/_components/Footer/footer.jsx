@@ -4,7 +4,7 @@ import Link from "next/link";
 import design from "@/../../public/group-3.svg";
 import { FaFacebookF, FaTwitter } from "react-icons/fa";
 import { FaLinkedin, FaThreads } from "react-icons/fa6";
-import { AiFillInstagram } from "react-icons/ai";
+import { AiFillInstagram, AiFillYoutube } from "react-icons/ai";
 import Gallery from "./gallery";
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
@@ -66,12 +66,12 @@ export default function Footer() {
                                         <FaThreads />
                                     </Link>
                                     <Link
-                                        href="https://www.instagram.com/scaleup_village"
+                                        href="https://www.youtube.com/@scaleup_village"
                                         target="_blank"
                                         aria-label="instagram"
                                         className={styles.con}
                                     >
-                                        <AiFillInstagram />
+                                        <AiFillYoutube />
                                     </Link>
                                 </div>
                                 <span>

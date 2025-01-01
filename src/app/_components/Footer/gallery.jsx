@@ -1,16 +1,16 @@
-'use client';
+"use client";
 
-import { PhotoProvider, PhotoView } from 'react-photo-view';
-import 'react-photo-view/dist/react-photo-view.css';
-import styles from './footer.module.css';
-import Image from 'next/image';
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
+import styles from "./footer.module.css";
+import Image from "next/image";
 
-import f1 from '@/../../public/f1.jpg';
-import f2 from '@/../../public/f2.jpg';
-import f3 from '@/../../public/f3.jpg';
-import f4 from '@/../../public/f4.jpg';
-import f5 from '@/../../public/f5.jpg';
-import f6 from '@/../../public/f6.webp';
+import f1 from "@/../../public/f1.jpg";
+import f2 from "@/../../public/f2.jpg";
+import f3 from "@/../../public/f3.jpg";
+import f4 from "@/../../public/f4.jpg";
+import f5 from "@/../../public/f5.jpg";
+import f6 from "@/../../public/f6.webp";
 
 // Gallery images array
 const gallery = [
@@ -28,14 +28,14 @@ export default function Gallery() {
         <div className={styles.imgGallery}>
             <PhotoProvider>
                 {gallery.slice(0, visiblePhotos).map((photo, index) => (
-                    <PhotoView src={photo.img.src} key={index}>
-                        <Image
-                            src={photo.img}
-                            alt='design'
-                            width={400}
-                            height={400}
-                        />
-                    </PhotoView>
+                    <a
+                        href="https://www.instagram.com/scaleup_village"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={index}
+                    >
+                        <Image src={photo.img} alt={photo.alt} width={400} height={400} />
+                    </a>
                 ))}
             </PhotoProvider>
         </div>
