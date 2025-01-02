@@ -12,26 +12,6 @@ import styles from "./form.module.css";
 import RealForm from "./realForm";
 
 export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
-    const [isSmallScreen, setIsSmallScreen] = useState(false);
-
-    const formRef = useRef(null);
-
-    useEffect(() => {
-        const handleResize = () => {
-            setIsSmallScreen(window.innerWidth < 400);
-        };
-
-        // Initial check
-        handleResize();
-
-        // Add event listener for resize
-        window.addEventListener("resize", handleResize);
-
-        // Cleanup on unmount
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
-    }, []);
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -47,7 +27,7 @@ export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
         };
     }, [onClose]);
 
-    console.log(selectedTicket);
+    // console.log(selectedTicket);
 
     const handleCardSelect = (ticketType) => {
         setSelectedTicket(ticketType);
@@ -72,7 +52,7 @@ export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
                 </button>
                 <Image src={l4} alt="design" width={400} height={400} className={styles.design} />
 
-                <div className={styles.group}>
+                <div className={styles.formFooter}>
                     <Image
                         src={group}
                         alt="design"
@@ -80,15 +60,14 @@ export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
                         height={400}
                         className={styles.groupImage}
                     />
-                </div>
 
-                <p className={styles.poweredBy}>
-                    Form Powered
-                    {isSmallScreen && <br />} by{" "}
-                    <a href="https://makemypass.com" target="_blank" rel="noreferrer">
-                        MakeMyPass
-                    </a>
-                </p>
+                    <p className={styles.poweredBy}>
+                        Form Powered
+                        <a href="https://makemypass.com" target="_blank" rel="noreferrer">
+                            MakeMyPass
+                        </a>
+                    </p>
+                </div>
 
                 {!selectedTicket ? (
                     <div className={styles.box}>

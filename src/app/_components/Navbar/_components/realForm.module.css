@@ -84,7 +84,7 @@
 
 .submit button {
     position: absolute;
-    bottom: -5rem;
+    bottom: 0;
     right: 0;
     background-color: var(--violet);
     color: #fff;
@@ -133,7 +133,7 @@
 
 @media (width<=1280px) {
     .submit button {
-        bottom: -6rem;
+        bottom: -2.5rem;
     }
 
     .thankYou h2 {
@@ -147,9 +147,12 @@
 
 @media (width<=1024px) {
     .submit button {
-        bottom: -2.5rem;
         padding: 0.8rem 2rem;
         font-size: 0.8rem;
+    }
+
+    .innerBox {
+        height: 55vh;
     }
 
     .thankYou h2 {
@@ -165,6 +168,10 @@
     .innerBox {
         height: 62vh;
     }
+
+    .submit button {
+        bottom: -3rem;
+    }
 }
 
 @media (width<=400px) {
@@ -174,22 +181,6 @@
 
     .innerBox {
         height: 60vh;
-    }
-
-    .submit button {
-        bottom: -6.5rem;
-    }
-}
-
-@media (width<=380px) {
-    .submit button {
-        bottom: -4.5rem;
-    }
-}
-
-@media (width<=370px) {
-    .submit button {
-        bottom: -5.25rem;
     }
 }
 
