@@ -558,14 +558,15 @@ const ScaleupForm = ({ selectedTicket }) => {
 
                                 <div>
                                     <label>
-                                        Institution Name<span>*</span>
+                                        Company / Institution Name
+                                        {/* <span>*</span> */}
                                     </label>
                                     <input
                                         type="text"
                                         {...register("institution", {
-                                            required: "Institution name is required",
+                                            // required: "Institution name is required",
                                         })}
-                                        placeholder="Enter your institution name"
+                                        placeholder="Enter your Company / Institution name"
                                     />
                                     {errors.institution && (
                                         <p
@@ -581,7 +582,7 @@ const ScaleupForm = ({ selectedTicket }) => {
 
                                 <div>
                                     <label>
-                                        Did you attend the previous Scaleup Conclave?
+                                        Did you attend the previous Scaleup Conclave (Feb 2024)?
                                         <span>*</span>
                                     </label>
                                     <div style={{ display: "flex", gap: "10px" }}>

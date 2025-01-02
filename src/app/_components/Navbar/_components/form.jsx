@@ -119,11 +119,14 @@ export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
                                             <li>Networking opportunities</li>
                                         </ul>
                                     </div>
-                                    <div className={styles.reg}>
+                                </div>
+                                <div className={styles.reg}>
+                                    <div>
                                         <p>
                                             <span>Price:</span> Free
                                         </p>
                                     </div>
+                                    <input type="radio" className={styles.radioBtn} />
                                 </div>
                             </div>
 
@@ -151,11 +154,15 @@ export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
                                             <li>VIP Lunch</li>
                                         </ul>
                                     </div>
-                                    <div className={styles.reg}>
+                                </div>
+                                <div className={styles.reg}>
+                                    <div>
                                         <p>
                                             <span>Price:</span> ₹10,000
                                         </p>
+                                        <b>(inc GST)</b>
                                     </div>
+                                    <input type="radio" className={styles.radioBtn} />
                                 </div>
                             </div>
 
@@ -179,13 +186,49 @@ export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
                                             <li>One VIP ticket</li>
                                         </ul>
                                     </div>
-                                    <div className={styles.reg}>
+                                </div>
+                                <div className={styles.reg}>
+                                    <div>
                                         <p>
                                             <span>Starting from:</span> ₹1,00,000
                                         </p>
+                                        <b>(inc GST)</b>
                                     </div>
+                                    <input type="radio" className={styles.radioBtn} />
                                 </div>
                             </div>
+
+                            <div className={styles.card} onClick={() => handleCardSelect("Stalls")}>
+                                <div className={styles.imageContainer}>
+                                    <Image
+                                        src={stall}
+                                        alt="design"
+                                        width={600}
+                                        height={600}
+                                        className={styles.ticket}
+                                    />
+                                </div>
+                                <div className={styles.cardContent}>
+                                    <div className={styles.desc}>
+                                        <h1>Product + Stall</h1>
+                                        <ul>
+                                            <li>5 minutes presentation on main stage</li>
+                                            <li>Air conditioned stall for 2 days</li>
+                                            <li>Media coverage of presentation</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div className={styles.reg}>
+                                    <div>
+                                        <p>
+                                            <span>Starting from:</span> ₹3,50,000
+                                        </p>
+                                        <b>(inc GST)</b>
+                                    </div>
+                                    <input type="radio" className={styles.radioBtn} />
+                                </div>
+                            </div>
+
                         </div>
 
                         <p className={styles.helperText}>Select any one of the above tickets.</p>
