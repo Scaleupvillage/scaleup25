@@ -13,6 +13,8 @@ import RealForm from "./realForm";
 
 export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
 
+    const formRef = useRef(null);
+
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (formRef.current && !formRef.current.contains(event.target)) {
