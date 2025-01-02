@@ -194,7 +194,7 @@ export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
                                 </div>
                                 <div className={styles.cardContent}>
                                     <div className={styles.desc}>
-                                        <h1>Product + Stall</h1>
+                                        <h1>Product Demo + Stall</h1>
                                         <ul>
                                             <li>5 minutes presentation on main stage</li>
                                             <li>Air conditioned stall for 2 days</li>
