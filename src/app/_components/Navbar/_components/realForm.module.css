@@ -84,7 +84,7 @@
 
 .submit button {
     position: absolute;
-    bottom: 0;
+    bottom: -2.5rem;
     right: 0;
     background-color: var(--violet);
     color: #fff;
@@ -132,10 +132,6 @@
 }
 
 @media (width<=1280px) {
-    .submit button {
-        bottom: -2.5rem;
-    }
-
     .thankYou h2 {
         font-size: 2rem;
     }
