@@ -126,7 +126,8 @@ export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
                                             <span>Price:</span> Free
                                         </p>
                                     </div>
-                                    <input type="radio" className={styles.radioBtn} />
+                                    {/* <input type="radio" className={styles.radioBtn} /> */}
+                                    <button>Select</button>
                                 </div>
                             </div>
 
@@ -162,7 +163,8 @@ export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
                                         </p>
                                         <b>(inc GST)</b>
                                     </div>
-                                    <input type="radio" className={styles.radioBtn} />
+                                    {/* <input type="radio" className={styles.radioBtn} /> */}
+                                    <button>Select</button>
                                 </div>
                             </div>
 
@@ -194,7 +196,8 @@ export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
                                         </p>
                                         <b>(inc GST)</b>
                                     </div>
-                                    <input type="radio" className={styles.radioBtn} />
+                                    {/* <input type="radio" className={styles.radioBtn} /> */}
+                                    <button>Select</button>
                                 </div>
                             </div>
 
@@ -225,7 +228,8 @@ export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
                                         </p>
                                         <b>(inc GST)</b>
                                     </div>
-                                    <input type="radio" className={styles.radioBtn} />
+                                    {/* <input type="radio" className={styles.radioBtn} /> */}
+                                    <button>Select</button>
                                 </div>
                             </div>
 
