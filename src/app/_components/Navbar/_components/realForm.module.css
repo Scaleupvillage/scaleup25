@@ -149,6 +149,7 @@
 
     .innerBox {
         height: 55vh;
+        height: 55dvh;
     }
 
     .thankYou h2 {
@@ -163,6 +164,7 @@
 
     .innerBox {
         height: 62vh;
+        height: 62dvh;
     }
 
     .submit button {
@@ -177,6 +179,7 @@
 
     .innerBox {
         height: 60vh;
+        height: 60dvh;
     }
 }
 
