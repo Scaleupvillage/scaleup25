@@ -12,12 +12,22 @@ import "swiper/css/effect-fade";
 
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
+import complete from "@/../../public/completed.png";
 
-export default function Slider({ img }) {
+export default function Slider({ img, completed }) {
     const images = Array.isArray(img) ? img : [img];
 
     return (
         <div className={styles.cardBody}>
+            {completed === "TRUE" && (
+                <Image
+                    src={complete}
+                    alt="completed"
+                    width={1000}
+                    height={1000}
+                    className={styles.completed}
+                />
+            )}
             <PhotoProvider>
                 <Swiper
                     spaceBetween={30}

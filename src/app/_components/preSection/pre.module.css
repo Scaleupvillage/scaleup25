@@ -46,19 +46,28 @@
     height: fit-content;
 }
 
-.card:hover .eventPic {
-    scale: 1.05;
-}
-
 .cardBody {
-    overflow: hidden;
     width: 30%;
     height: 15rem;
-    border-radius: 1rem;
     position: relative;
+    border-radius: 1rem;
+}
+
+.completed {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 5rem;
+    top: .75rem;
+    right: .75rem;
+    width: 4rem;
+    height: 4rem;
+    object-fit: contain;
+    z-index: 99;
 }
 
 .eventPic {
+    cursor: pointer;
+    border-radius: 1rem;
     width: 100%;
     height: 15rem;
     object-fit: cover;
@@ -234,10 +243,11 @@
         font-size: 2.15rem;
     }
 }
+
 .completedBadge {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
+    /* position: absolute; */
+    /* top: 1rem; */
+    /* right: 1rem; */
     background-color: #00d68f;
     color: #fff;
     padding: 0.5rem 1rem;

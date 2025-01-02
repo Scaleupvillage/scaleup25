@@ -49,13 +49,16 @@ export default function Pre() {
                 <div className={styles.list}>
                     {preEvents.map((event, index) => (
                         <div className={styles.card} key={index}>
-                            <Slider img={event.image} />
+                            <Slider img={event.image} completed={event.completed} />
                             <div className={styles.cardContent}>
                                 <div className={styles.desc}>
                                     <h1>{event.title}</h1>
                                     <p>{event.description}</p>
                                 </div>
                                 <div className={styles.reg}>
+                                    {event.completed === "TRUE" && (
+                                        <p className={styles.completedBadge}>Completed</p>
+                                    )}
                                     <span>{event.date}</span>
                                     {event.link && event.link.length > 0 && (
                                         <a
@@ -67,9 +70,6 @@ export default function Pre() {
                                         </a>
                                     )}
                                 </div>
-                                {event.completed === "TRUE" && (
-                                    <span className={styles.completedBadge}>Completed</span>
-                                )}
                             </div>
                         </div>
                     ))}
