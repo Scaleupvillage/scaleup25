@@ -182,7 +182,7 @@ export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
                                 </div>
                             </div>
 
-                            <div className={styles.card} onClick={() => handleCardSelect("Stalls")}>
+                            <div className={styles.card} onClick={() => handleCardSelect("Product Demo")}>
                                 <div className={styles.imageContainer}>
                                     <Image
                                         src={stall}

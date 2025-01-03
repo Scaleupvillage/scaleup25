@@ -8,14 +8,25 @@ import toast from "react-hot-toast";
 import { BeatLoader } from "react-spinners";
 import phoneCountryCodes from "./phoneCountryCodes.json";
 
-const ThankYou = ({ ticket, selectedTicket, ticketInfomration, ticketLoading }) => (
+const ThankYou = ({
+    ticket,
+    selectedTicket,
+    ticketInfomration,
+    ticketLoading,
+}) => (
     <div className={styles.thankYou}>
         <h2>Thank You for Registering!</h2>
-        {selectedTicket === "Stalls" ? (
-            <p>Your registration of interest is successful. Our team will contact you shortly.</p>
+        {selectedTicket === "Stalls" || selectedTicket === "Product Demo" ? (
+            <p>
+                Your registration of interest is successful. Our team will
+                contact you shortly.
+            </p>
         ) : (
             <>
-                <p>Your registration is successful. Your ticket is ready to download.</p>
+                <p>
+                    Your registration is successful. Your ticket is ready to
+                    download.
+                </p>
                 {ticketInfomration.image && !ticketLoading && (
                     <div className={styles.ticket}>
                         <img
@@ -27,7 +38,9 @@ const ThankYou = ({ ticket, selectedTicket, ticketInfomration, ticketLoading }) 
                         <button
                             onClick={async () => {
                                 try {
-                                    const response = await fetch(ticketInfomration.image);
+                                    const response = await fetch(
+                                        ticketInfomration.image
+                                    );
                                     const blob = await response.blob();
 
                                     const link = document.createElement("a");
@@ -56,7 +69,8 @@ const ThankYou = ({ ticket, selectedTicket, ticketInfomration, ticketLoading }) 
                             >
                                 makemypass.com{" "}
                             </a>
-                            .Kindly, Log in with same registered email address to view it.
+                            .Kindly, Log in with same registered email address
+                            to view it.
                         </p>
                     </div>
                 )}
@@ -94,14 +108,24 @@ const ScaleupForm = ({ selectedTicket }) => {
     const [ticketLoading, setTicketLoading] = useState(false);
 
     let eventId;
-    if (selectedTicket === "General Ticket" || selectedTicket === "VIP Ticket") {
+    if (
+        selectedTicket === "General Ticket" ||
+        selectedTicket === "VIP Ticket"
+    ) {
         eventId = "95585c57-9c47-4808-a57b-b2867b89c1f4";
-    } else if (selectedTicket === "Stalls") {
+    } else if (
+        selectedTicket === "Stalls" ||
+        selectedTicket === "Product Demo"
+    ) {
         eventId = "d959821a-d64a-4962-a17e-ebf34f22d755";
     }
 
     useEffect(() => {
-        if (isSubmitted) {
+        if (
+            isSubmitted &&
+            (selectedTicket === "General Ticket" ||
+                selectedTicket === "VIP Ticket")
+        ) {
             setTicketLoading(true);
             axios
                 .get(
@@ -112,7 +136,9 @@ const ScaleupForm = ({ selectedTicket }) => {
                     setTicketInformation(response.data.response);
                 })
                 .catch((error) => {
-                    toast.error("Failed to fetch ticket information. Please try again.");
+                    toast.error(
+                        "Failed to fetch ticket information. Please try again."
+                    );
                 })
                 .finally(() => {
                     setTicketLoading(false);
@@ -129,7 +155,8 @@ const ScaleupForm = ({ selectedTicket }) => {
             district: data.district,
             organization: data.institution,
             category: data.category,
-            did_you_attend_the_previous_scaleup_conclave_2024: data.attendedPrevious,
+            did_you_attend_the_previous_scaleup_conclave_2024:
+                data.attendedPrevious,
             tickets: [
                 {
                     ticket_id: "3b7e4d8d-4462-47ac-8d1e-4a7f0592f085",
@@ -143,6 +170,11 @@ const ScaleupForm = ({ selectedTicket }) => {
                 },
                 {
                     ticket_id: "f3acf45a-f23e-41c8-9e1a-26417da55fdf",
+                    count: 1,
+                    my_ticket: true,
+                },
+                {
+                    ticket_id: "062fbabb-6242-4adc-84c4-e6e20f9434c5",
                     count: 1,
                     my_ticket: true,
                 },
@@ -162,23 +194,42 @@ const ScaleupForm = ({ selectedTicket }) => {
             payloadFormData.append("phone", `${data.countryCode}${data.phone}`);
         if (data.email) payloadFormData.append("email", data.email);
         if (data.district) payloadFormData.append("district", data.district);
-        if (data.institution) payloadFormData.append("organization", data.institution);
+        if (data.institution)
+            payloadFormData.append("organization", data.institution);
         if (data.category) payloadFormData.append("category", data.category);
-        if (data.designation) payloadFormData.append("designation", data.designation);
-        if (data.organization) payloadFormData.append("organization", data.organization);
-        if (data.other_state) payloadFormData.append("other_state", data.other_state);
-        if (data.other_category) payloadFormData.append("other_category", data.other_category);
+        if (data.designation)
+            payloadFormData.append("designation", data.designation);
+        if (data.organization)
+            payloadFormData.append("organization", data.organization);
+        if (data.other_state)
+            payloadFormData.append("other_state", data.other_state);
+        if (data.other_category)
+            payloadFormData.append("other_category", data.other_category);
         payloadFormData.append(
             "did_you_attend_the_previous_scaleup_conclave_2024",
             data.attendedPrevious
         );
 
         if (selectedTicket === "General Ticket") {
-            payloadFormData.append("tickets[]", JSON.stringify(payload.tickets[0]));
+            payloadFormData.append(
+                "tickets[]",
+                JSON.stringify(payload.tickets[0])
+            );
         } else if (selectedTicket === "VIP Ticket") {
-            payloadFormData.append("tickets[]", JSON.stringify(payload.tickets[1]));
+            payloadFormData.append(
+                "tickets[]",
+                JSON.stringify(payload.tickets[1])
+            );
         } else if (selectedTicket === "Stalls") {
-            payloadFormData.append("tickets[]", JSON.stringify(payload.tickets[2]));
+            payloadFormData.append(
+                "tickets[]",
+                JSON.stringify(payload.tickets[2])
+            );
+        } else if (selectedTicket === "Product Demo") {
+            payloadFormData.append(
+                "tickets[]",
+                JSON.stringify(payload.tickets[3])
+            );
         }
 
         payloadFormData.append("utm", JSON.stringify(payload.utm));
@@ -215,16 +266,22 @@ const ScaleupForm = ({ selectedTicket }) => {
                                     .post(
                                         "https://api.buildnship.in/makemypass/public-form/validate-payment/",
                                         {
-                                            order_id: response.razorpay_order_id,
-                                            payment_id: response.razorpay_payment_id,
+                                            order_id:
+                                                response.razorpay_order_id,
+                                            payment_id:
+                                                response.razorpay_payment_id,
                                         }
                                     )
                                     .then((response) => {
-                                        setTicketDetails(response.data.response); // Store the ticket details
+                                        setTicketDetails(
+                                            response.data.response
+                                        ); // Store the ticket details
                                         setIsSubmitted(true); // Show the ThankYou component
                                     })
                                     .catch((error) => {
-                                        toast.error("Payment failed. Please try again.");
+                                        toast.error(
+                                            "Payment failed. Please try again."
+                                        );
                                     });
                             },
                             theme: {
@@ -296,10 +353,15 @@ const ScaleupForm = ({ selectedTicket }) => {
             {!isSubmitted ? (
                 <div className={styles.head}>
                     <h1>
-                        {selectedTicket === "Stalls" ? "Book" : "Register"} {selectedTicket}!
+                        {selectedTicket === "Stalls" ||
+                        selectedTicket === "Product Demo"
+                            ? "Book"
+                            : "Register"}{" "}
+                        {selectedTicket}!
                     </h1>
                     <p>
-                        {selectedTicket === "Stalls"
+                        {selectedTicket === "Stalls" ||
+                        selectedTicket === "Product Demo"
                             ? "Fill the form details and get your stall to the much awaited event."
                             : " Fill the form details and get your entry to the much awaited event."}
                     </p>
@@ -316,7 +378,8 @@ const ScaleupForm = ({ selectedTicket }) => {
             {!isSubmitted && (
                 <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
                     <div className={styles.innerBox}>
-                        {selectedTicket == "Stalls" && (
+                        {(selectedTicket == "Stalls" ||
+                            selectedTicket === "Product Demo") && (
                             <div>
                                 <label>
                                     Company Name<span>*</span>
@@ -359,7 +422,8 @@ const ScaleupForm = ({ selectedTicket }) => {
                                 </p>
                             )}
                         </div>
-                        {selectedTicket === "Stalls" && (
+                        {(selectedTicket === "Stalls" ||
+                            selectedTicket === "Product Demo") && (
                             <div>
                                 <label>
                                     Designation<span>*</span>
@@ -500,7 +564,8 @@ const ScaleupForm = ({ selectedTicket }) => {
                             </div>
                         )}
 
-                        {selectedTicket !== "Stalls" && (
+                        {(selectedTicket !== "Stalls" ||
+                            selectedTicket === "Product Demo") && (
                             <>
                                 <div>
                                     <label>
@@ -511,9 +576,14 @@ const ScaleupForm = ({ selectedTicket }) => {
                                             required: "Category is required",
                                         })}
                                     >
-                                        <option value="">Select a category</option>
+                                        <option value="">
+                                            Select a category
+                                        </option>
                                         {categories.map((category) => (
-                                            <option key={category} value={category}>
+                                            <option
+                                                key={category}
+                                                value={category}
+                                            >
                                                 {category}
                                             </option>
                                         ))}
@@ -539,7 +609,8 @@ const ScaleupForm = ({ selectedTicket }) => {
                                         <input
                                             type="text"
                                             {...register("other_category", {
-                                                required: "This field is required",
+                                                required:
+                                                    "This field is required",
                                             })}
                                             placeholder="Enter your category"
                                         />
@@ -582,17 +653,24 @@ const ScaleupForm = ({ selectedTicket }) => {
 
                                 <div>
                                     <label>
-                                        Did you attend the previous Scaleup Conclave (Feb 2024)?
+                                        Did you attend the previous Scaleup
+                                        Conclave (Feb 2024)?
                                         <span>*</span>
                                     </label>
-                                    <div style={{ display: "flex", gap: "10px" }}>
+                                    <div
+                                        style={{ display: "flex", gap: "10px" }}
+                                    >
                                         <label className={styles.radio}>
                                             <input
                                                 type="radio"
                                                 value="Yes"
-                                                {...register("attendedPrevious", {
-                                                    required: "This field is required",
-                                                })}
+                                                {...register(
+                                                    "attendedPrevious",
+                                                    {
+                                                        required:
+                                                            "This field is required",
+                                                    }
+                                                )}
                                             />
                                             Yes
                                         </label>
@@ -600,9 +678,13 @@ const ScaleupForm = ({ selectedTicket }) => {
                                             <input
                                                 type="radio"
                                                 value="No"
-                                                {...register("attendedPrevious", {
-                                                    required: "This field is required",
-                                                })}
+                                                {...register(
+                                                    "attendedPrevious",
+                                                    {
+                                                        required:
+                                                            "This field is required",
+                                                    }
+                                                )}
                                             />
                                             No
                                         </label>
@@ -624,7 +706,11 @@ const ScaleupForm = ({ selectedTicket }) => {
 
                     <div className={styles.submit}>
                         <button type="submit">
-                            {isLoading ? <BeatLoader size={8} color="white" /> : "Submit"}
+                            {isLoading ? (
+                                <BeatLoader size={8} color="white" />
+                            ) : (
+                                "Submit"
+                            )}
                         </button>
                     </div>
                 </form>
