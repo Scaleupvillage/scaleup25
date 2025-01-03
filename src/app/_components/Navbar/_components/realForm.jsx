@@ -565,7 +565,7 @@ const ScaleupForm = ({ selectedTicket }) => {
                         )}
 
                         {(selectedTicket !== "Stalls" ||
-                            selectedTicket === "Product Demo") && (
+                            selectedTicket !== "Product Demo") && (
                             <>
                                 <div>
                                     <label>
