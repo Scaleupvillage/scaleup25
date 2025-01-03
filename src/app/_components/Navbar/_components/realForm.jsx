@@ -564,144 +564,154 @@ const ScaleupForm = ({ selectedTicket }) => {
                             </div>
                         )}
 
-                        {(selectedTicket !== "Stalls" ||
-                            selectedTicket !== "Product Demo") && (
-                            <>
-                                <div>
-                                    <label>
-                                        Category<span>*</span>
-                                    </label>
-                                    <select
-                                        {...register("category", {
-                                            required: "Category is required",
-                                        })}
-                                    >
-                                        <option value="">
-                                            Select a category
-                                        </option>
-                                        {categories.map((category) => (
-                                            <option
-                                                key={category}
-                                                value={category}
-                                            >
-                                                {category}
-                                            </option>
-                                        ))}
-                                    </select>
-                                    {errors.category && (
-                                        <p
-                                            style={{
-                                                color: "red",
-                                                fontSize: "0.9rem",
-                                            }}
-                                        >
-                                            {errors.category.message}
-                                        </p>
-                                    )}
-                                </div>
-
-                                {watch("category") === "Others" && (
+                        {selectedTicket !== "Stalls" &&
+                            selectedTicket !== "Product Demo" && (
+                                <>
                                     <div>
                                         <label>
-                                            Please specify Category
-                                            <span>*</span>
+                                            Category<span>*</span>
                                         </label>
-                                        <input
-                                            type="text"
-                                            {...register("other_category", {
+                                        <select
+                                            {...register("category", {
                                                 required:
-                                                    "This field is required",
+                                                    "Category is required",
                                             })}
-                                            placeholder="Enter your category"
-                                        />
-                                        {errors.other_category && (
+                                        >
+                                            <option value="">
+                                                Select a category
+                                            </option>
+                                            {categories.map((category) => (
+                                                <option
+                                                    key={category}
+                                                    value={category}
+                                                >
+                                                    {category}
+                                                </option>
+                                            ))}
+                                        </select>
+                                        {errors.category && (
                                             <p
                                                 style={{
                                                     color: "red",
                                                     fontSize: "0.9rem",
                                                 }}
                                             >
-                                                {errors.other_category.message}
+                                                {errors.category.message}
                                             </p>
                                         )}
                                     </div>
-                                )}
 
-                                <div>
-                                    <label>
-                                        Company / Institution Name
-                                        {/* <span>*</span> */}
-                                    </label>
-                                    <input
-                                        type="text"
-                                        {...register("institution", {
-                                            // required: "Institution name is required",
-                                        })}
-                                        placeholder="Enter your Company / Institution name"
-                                    />
-                                    {errors.institution && (
-                                        <p
-                                            style={{
-                                                color: "red",
-                                                fontSize: "0.9rem",
-                                            }}
-                                        >
-                                            {errors.institution.message}
-                                        </p>
+                                    {watch("category") === "Others" && (
+                                        <div>
+                                            <label>
+                                                Please specify Category
+                                                <span>*</span>
+                                            </label>
+                                            <input
+                                                type="text"
+                                                {...register("other_category", {
+                                                    required:
+                                                        "This field is required",
+                                                })}
+                                                placeholder="Enter your category"
+                                            />
+                                            {errors.other_category && (
+                                                <p
+                                                    style={{
+                                                        color: "red",
+                                                        fontSize: "0.9rem",
+                                                    }}
+                                                >
+                                                    {
+                                                        errors.other_category
+                                                            .message
+                                                    }
+                                                </p>
+                                            )}
+                                        </div>
                                     )}
-                                </div>
 
-                                <div>
-                                    <label>
-                                        Did you attend the previous Scaleup
-                                        Conclave (Feb 2024)?
-                                        <span>*</span>
-                                    </label>
-                                    <div
-                                        style={{ display: "flex", gap: "10px" }}
-                                    >
-                                        <label className={styles.radio}>
-                                            <input
-                                                type="radio"
-                                                value="Yes"
-                                                {...register(
-                                                    "attendedPrevious",
-                                                    {
-                                                        required:
-                                                            "This field is required",
-                                                    }
-                                                )}
-                                            />
-                                            Yes
+                                    <div>
+                                        <label>
+                                            Company / Institution Name
+                                            {/* <span>*</span> */}
                                         </label>
-                                        <label className={styles.radio}>
-                                            <input
-                                                type="radio"
-                                                value="No"
-                                                {...register(
-                                                    "attendedPrevious",
-                                                    {
-                                                        required:
-                                                            "This field is required",
-                                                    }
-                                                )}
-                                            />
-                                            No
-                                        </label>
+                                        <input
+                                            type="text"
+                                            {...register("institution", {
+                                                // required: "Institution name is required",
+                                            })}
+                                            placeholder="Enter your Company / Institution name"
+                                        />
+                                        {errors.institution && (
+                                            <p
+                                                style={{
+                                                    color: "red",
+                                                    fontSize: "0.9rem",
+                                                }}
+                                            >
+                                                {errors.institution.message}
+                                            </p>
+                                        )}
                                     </div>
-                                    {errors.attendedPrevious && (
-                                        <p
+
+                                    <div>
+                                        <label>
+                                            Did you attend the previous Scaleup
+                                            Conclave (Feb 2024)?
+                                            <span>*</span>
+                                        </label>
+                                        <div
                                             style={{
-                                                color: "red",
-                                                fontSize: "0.9rem",
+                                                display: "flex",
+                                                gap: "10px",
                                             }}
                                         >
-                                            {errors.attendedPrevious.message}
-                                        </p>
-                                    )}
-                                </div>
-                            </>
-                        )}
+                                            <label className={styles.radio}>
+                                                <input
+                                                    type="radio"
+                                                    value="Yes"
+                                                    {...register(
+                                                        "attendedPrevious",
+                                                        {
+                                                            required:
+                                                                "This field is required",
+                                                        }
+                                                    )}
+                                                />
+                                                Yes
+                                            </label>
+                                            <label className={styles.radio}>
+                                                <input
+                                                    type="radio"
+                                                    value="No"
+                                                    {...register(
+                                                        "attendedPrevious",
+                                                        {
+                                                            required:
+                                                                "This field is required",
+                                                        }
+                                                    )}
+                                                />
+                                                No
+                                            </label>
+                                        </div>
+                                        {errors.attendedPrevious && (
+                                            <p
+                                                style={{
+                                                    color: "red",
+                                                    fontSize: "0.9rem",
+                                                }}
+                                            >
+                                                {
+                                                    errors.attendedPrevious
+                                                        .message
+                                                }
+                                            </p>
+                                        )}
+                                    </div>
+                                </>
+                            )}
                     </div>
 
                     <div className={styles.submit}>
