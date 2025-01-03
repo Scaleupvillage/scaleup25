@@ -55,7 +55,7 @@
 .eventName h1.active {
     background-color: var(--violet);
     color: #fff;
-    border: 1px solid var(--violet)
+    border: 1px solid var(--violet);
 }
 
 .list {
@@ -76,6 +76,7 @@
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     border-radius: 1rem;
     overflow: hidden;
+    height: 26rem;
 }
 
 .cardHead {
@@ -89,7 +90,7 @@
 .cardHead h1 {
     letter-spacing: -1px;
     line-height: 1.2;
-    margin-bottom: .75rem;
+    margin-bottom: 0.75rem;
     font-size: var(--subHeading);
 }
 
@@ -106,7 +107,7 @@
     bottom: 2rem;
     left: 2rem;
     border-radius: 50%;
-    background-image: url('../../../../public/techTalk-3.svg');
+    background-image: url("../../../../public/techTalk-3.svg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -133,11 +134,11 @@
     right: 1.5rem;
     text-decoration: none;
     background-color: #fff;
-    padding: .65rem 1.5rem;
+    padding: 0.65rem 1.5rem;
     border-radius: 2rem;
     font-weight: 600;
     color: #000;
-    font-size: .75rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
     transition: all 0.3s ease-in-out;
 }
@@ -147,7 +148,7 @@
     color: #fff;
 }
 
-@media(width<=1280px) {
+@media (width<=1280px) {
     .cardBody .v1 {
         width: 5rem;
         top: -1.3rem;
@@ -159,7 +160,7 @@
     }
 }
 
-@media(width<=1024px) {
+@media (width<=1024px) {
     .list {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -169,7 +170,7 @@
     }
 }
 
-@media(width<=820px) {
+@media (width<=820px) {
     .events {
         padding: 4rem 2rem;
     }
@@ -181,7 +182,7 @@
     }
 }
 
-@media(width<=678px) {
+@media (width<=678px) {
     .events {
         padding: 4rem 1rem;
     }
@@ -201,7 +202,7 @@
     }
 
     .cardHead {
-        padding: 1rem .85rem 0;
+        padding: 1rem 0.85rem 0;
     }
 
     .cardHead h1 {
@@ -218,18 +219,18 @@
     }
 
     .eventName h1 {
-        padding: 1.5rem .9rem;
-        font-size: .75rem;
+        padding: 1.5rem 0.9rem;
+        font-size: 0.75rem;
     }
 }
 
-@media(width<=400px) {
+@media (width<=400px) {
     .head h1 {
         font-size: 3rem;
     }
 
     .eventName h1 {
-        font-size: .65rem;
-        padding: 1.25rem .8rem;
+        font-size: 0.65rem;
+        padding: 1.25rem 0.8rem;
     }
 }
