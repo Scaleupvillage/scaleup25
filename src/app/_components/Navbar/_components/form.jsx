@@ -1,18 +1,68 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
-import ticket from "@/../../public/ticket.png";
-import vipticket from "@/../../public/vipticket.png";
-import stall from "@/../../public/stall.png";
+import ticket from "@/../../public/ticket.webp";
+import vipticket from "@/../../public/vipticket.webp";
+import stall from "@/../../public/stall.webp";
 import l4 from "@/../../public/l4.svg";
 import group from "@/../../public/group-2.svg";
 import { AiOutlineClose, AiOutlineArrowLeft } from "react-icons/ai";
 import styles from "./form.module.css";
 import RealForm from "./realForm";
 
-export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
+const tickets = [
+    {
+        type: "General Ticket",
+        image: ticket,
+        description: [
+            "Access to mainstage",
+            "Access to exhibitions",
+            "Access to workshops",
+            "Networking opportunities",
+        ],
+        price: "Free",
+        gst: ''
+    },
+    {
+        type: "VIP Ticket",
+        image: vipticket,
+        description: [
+            "Reserved seat",
+            "Car parking slot",
+            "ScaleUp souvenir kit",
+            "Family pass for culturals",
+            "VIP Lunch",
+        ],
+        price: "₹10,000",
+        gst: '(inc GST)'
+    },
+    {
+        type: "Stalls",
+        image: stall,
+        description: [
+            "Air conditioned stalls",
+            "Available for 2 days",
+            "10,000 visitors",
+            "One VIP ticket",
+        ],
+        price: "₹1,00,000",
+        gst: '(inc GST)'
+    },
+    {
+        type: "Product Demo + Stall",
+        image: stall,
+        description: [
+            "5 minutes presentation on main stage",
+            "Air conditioned stall for 2 days",
+            "Media coverage of presentation",
+        ],
+        price: "₹3,50,000",
+        gst: '(inc GST)'
+    },
+];
 
+export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
     const formRef = useRef(null);
 
     useEffect(() => {
@@ -23,13 +73,8 @@ export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
         };
 
         document.addEventListener("mousedown", handleClickOutside);
-
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
+        return () => document.removeEventListener("mousedown", handleClickOutside);
     }, [onClose]);
-
-    // console.log(selectedTicket);
 
     const handleCardSelect = (ticketType) => {
         setSelectedTicket(ticketType);
@@ -52,6 +97,7 @@ export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
                         <AiOutlineClose size={24} />
                     )}
                 </button>
+
                 <Image src={l4} alt="design" width={400} height={400} className={styles.design} />
 
                 <div className={styles.formFooter}>
@@ -62,7 +108,6 @@ export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
                         height={400}
                         className={styles.groupImage}
                     />
-
                     <p className={styles.poweredBy}>
                         Form Powered By
                         <a href="https://makemypass.com" target="_blank" rel="noreferrer">
@@ -77,145 +122,42 @@ export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
                             <h1>Select Tickets</h1>
                         </div>
                         <div className={styles.list}>
-                            <div
-                                className={styles.card}
-                                onClick={() => handleCardSelect("General Ticket")}
-                            >
-                                <div className={styles.imageContainer}>
-                                    <Image
-                                        src={ticket}
-                                        alt="design"
-                                        width={1000}
-                                        height={1000}
-                                        className={styles.ticket}
-                                    />
-                                </div>
-                                <div className={styles.cardContent}>
-                                    <div className={styles.desc}>
-                                        <h1>General Ticket</h1>
-                                        <ul>
-                                            <li>Access to mainstage</li>
-                                            <li>Access to exhibitions</li>
-                                            <li>Access to workshops</li>
-                                            <li>Networking opportunities</li>
-                                        </ul>
+                            {tickets.map((ticket) => (
+                                <div
+                                    key={ticket.type}
+                                    className={styles.card}
+                                    onClick={() => handleCardSelect(ticket.type)}
+                                >
+                                    <div className={styles.imageContainer}>
+                                        <Image
+                                            src={ticket.image}
+                                            alt="ticket Image"
+                                            width={800}
+                                            height={800}
+                                        />
+                                    </div>
+                                    <div className={styles.cardContent}>
+                                        <div className={styles.desc}>
+                                            <h1>{ticket.type}</h1>
+                                            <ul>
+                                                {ticket.description.map((item, index) => (
+                                                    <li key={index}>{item}</li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                        <div className={styles.reg}>
+                                            <div>
+                                                <p>
+                                                    <span>Price:</span> {ticket.price}
+                                                </p>
+                                                {ticket.gst && <b>{ticket.gst}</b>}
+                                            </div>
+                                            <button>Select</button>
+                                        </div>
                                     </div>
                                 </div>
-                                <div className={styles.reg}>
-                                    <div>
-                                        <p>
-                                            <span>Price:</span> Free
-                                        </p>
-                                    </div>
-                                    {/* <input type="radio" className={styles.radioBtn} /> */}
-                                    <button>Select</button>
-                                </div>
-                            </div>
-
-                            <div
-                                className={styles.card}
-                                onClick={() => handleCardSelect("VIP Ticket")}
-                            >
-                                <div className={styles.imageContainer}>
-                                    <Image
-                                        src={vipticket}
-                                        alt="design"
-                                        width={600}
-                                        height={600}
-                                        className={styles.ticket}
-                                    />
-                                </div>
-                                <div className={styles.cardContent}>
-                                    <div className={styles.desc}>
-                                        <h1>VIP Ticket</h1>
-                                        <ul>
-                                            <li>Reserved seat</li>
-                                            <li>Car parking slot</li>
-                                            <li>ScaleUp souvenir kit</li>
-                                            <li>Family pass for culturals</li>
-                                            <li>VIP Lunch</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div className={styles.reg}>
-                                    <div>
-                                        <p>
-                                            <span>Price:</span> ₹10,000
-                                        </p>
-                                        <b>(inc GST)</b>
-                                    </div>
-                                    {/* <input type="radio" className={styles.radioBtn} /> */}
-                                    <button>Select</button>
-                                </div>
-                            </div>
-
-                            <div className={styles.card} onClick={() => handleCardSelect("Stalls")}>
-                                <div className={styles.imageContainer}>
-                                    <Image
-                                        src={stall}
-                                        alt="design"
-                                        width={600}
-                                        height={600}
-                                        className={styles.ticket}
-                                    />
-                                </div>
-                                <div className={styles.cardContent}>
-                                    <div className={styles.desc}>
-                                        <h1>Book Your Stall</h1>
-                                        <ul>
-                                            <li>Air conditioned stalls</li>
-                                            <li>Available for 2 days</li>
-                                            <li>10,000 visitors</li>
-                                            <li>One VIP ticket</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div className={styles.reg}>
-                                    <div>
-                                        <p>
-                                            <span>Price:</span> ₹1,00,000
-                                        </p>
-                                        <b>(inc GST)</b>
-                                    </div>
-                                    {/* <input type="radio" className={styles.radioBtn} /> */}
-                                    <button>Select</button>
-                                </div>
-                            </div>
-
-                            <div className={styles.card} onClick={() => handleCardSelect("Product Demo")}>
-                                <div className={styles.imageContainer}>
-                                    <Image
-                                        src={stall}
-                                        alt="design"
-                                        width={600}
-                                        height={600}
-                                        className={styles.ticket}
-                                    />
-                                </div>
-                                <div className={styles.cardContent}>
-                                    <div className={styles.desc}>
-                                        <h1>Product Demo + Stall</h1>
-                                        <ul>
-                                            <li>5 minutes presentation on main stage</li>
-                                            <li>Air conditioned stall for 2 days</li>
-                                            <li>Media coverage of presentation</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div className={styles.reg}>
-                                    <div>
-                                        <p>
-                                            <span>Price:</span> ₹3,50,000
-                                        </p>
-                                        <b>(inc GST)</b>
-                                    </div>
-                                    {/* <input type="radio" className={styles.radioBtn} /> */}
-                                    <button>Select</button>
-                                </div>
-                            </div>
-
+                            ))}
                         </div>
-
                         <p className={styles.helperText}>Select any one of the above tickets.</p>
                     </div>
                 ) : (

@@ -61,9 +61,8 @@ export default function Navbar() {
         <>
             <nav className={styles.nav}>
                 <div
-                    className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""} ${
-                        isMobileMenuOpen ? styles.open : ""
-                    }`}
+                    className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""} 
+                    ${isMobileMenuOpen ? styles.open : ""}`}
                 >
                     <div
                         className={`${styles.menuIcon} ${isMobileMenuOpen ? styles.open : ""}`}
@@ -95,9 +94,8 @@ export default function Navbar() {
                     </Link>
 
                     <div
-                        className={`${styles.links} ${isMobileMenuOpen ? styles.open : ""} ${
-                            isScrolled ? styles.scrolled : ""
-                        }`}
+                        className={`${styles.links} ${isMobileMenuOpen ? styles.open : ""} 
+                        ${isScrolled ? styles.scrolled : ""}`}
                     >
                         <Link href="/" aria-label="logo">
                             <Image

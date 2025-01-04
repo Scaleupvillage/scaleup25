@@ -131,6 +131,19 @@
     cursor: pointer;
 }
 
+@media(width<=1200px) and (height<=700px) {
+    .innerBox {
+        height: 60vh;
+        height: 60dvh;
+    }
+
+    .submit button {
+        bottom: -3rem;
+        padding: 0.8rem 2rem;
+        font-size: 0.8rem;
+    }
+}
+
 @media (width<=1280px) {
     .thankYou h2 {
         font-size: 2rem;
