@@ -173,7 +173,7 @@ export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
                                 <div className={styles.reg}>
                                     <div>
                                         <p>
-                                            <span>Starting from:</span> ₹1,00,000
+                                            <span>Price:</span> ₹1,00,000
                                         </p>
                                         <b>(inc GST)</b>
                                     </div>
@@ -205,7 +205,7 @@ export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
                                 <div className={styles.reg}>
                                     <div>
                                         <p>
-                                            <span>Starting from:</span> ₹3,50,000
+                                            <span>Price:</span> ₹3,50,000
                                         </p>
                                         <b>(inc GST)</b>
                                     </div>

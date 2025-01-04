@@ -130,7 +130,7 @@
     margin-top: .75rem;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     width: 100%;
 }
 
@@ -219,6 +219,10 @@
         left: 2rem;
         right: 2rem;
     }
+
+    .helperText {
+        display: none;
+    }
 }
 
 @media (width<=1024px) {
@@ -247,10 +251,6 @@
 
     .cardContent h1 {
         font-size: 1.2rem;
-    }
-
-    .helperText {
-        display: none;
     }
 }
 
