@@ -28,7 +28,7 @@ export default function Clock() {
             {isClient && (
                 <div className={styles.clock}>
                     <Countdown
-                        date={new Date("2025-02-15T00:00:00")}
+                        date={new Date("2025-02-15T09:30:00")}
                         renderer={renderer}
                     />
                 </div>

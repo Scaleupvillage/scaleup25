@@ -75,9 +75,9 @@ export default function Footer() {
                                     </Link>
                                 </div>
                                 <span>
-                                    <Link href="tel:+91 9048170077">
+                                    <Link href="tel:+919048170072">
                                         {" "}
-                                        <FaPhoneAlt /> +91 9048170077
+                                        <FaPhoneAlt /> +91 90481 70072
                                     </Link>
                                     <Link href="mailto:info@scaleupconclave.com">
                                         {" "}
