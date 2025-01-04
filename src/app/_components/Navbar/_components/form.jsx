@@ -64,7 +64,7 @@ export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
                     />
 
                     <p className={styles.poweredBy}>
-                        Form Powered
+                        Form Powered By
                         <a href="https://makemypass.com" target="_blank" rel="noreferrer">
                             MakeMyPass
                         </a>
