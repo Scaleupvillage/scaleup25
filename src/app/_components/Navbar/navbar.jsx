@@ -73,23 +73,14 @@ export default function Navbar() {
                         <div className={styles.bar} />
                     </div>
 
-                    <Link href="/" aria-label="logo" className={styles.white}>
+                    <Link href="/" aria-label="logo" className={styles.color}>
                         <Image
                             className={styles.logo}
                             src={white}
                             alt="logo"
-                            width={1500}
-                            height={1500}
-                        />
-                    </Link>
-
-                    <Link href="/" aria-label="logo" className={styles.color}>
-                        <Image
-                            className={styles.color_logo}
-                            src={white}
-                            alt="logo"
-                            width={1500}
-                            height={1500}
+                            width={800}
+                            height={800}
+                            loading="eager"
                         />
                     </Link>
 
@@ -102,8 +93,9 @@ export default function Navbar() {
                                 className={styles.logo_Mobile}
                                 src={white}
                                 alt="logo"
-                                width={1500}
-                                height={1500}
+                                width={800}
+                                height={800}
+                                loading="eager"
                             />
                         </Link>
 
@@ -153,14 +145,16 @@ export default function Navbar() {
                         </div>
                     </div>
                 </div>
-            </nav>
-            {isFormOpen ? (
-                <Form
-                    onClose={() => setIsFormOpen(false)}
-                    selectedTicket={selectedTicket}
-                    setSelectedTicket={setSelectedTicket}
-                />
-            ) : null}
+            </nav >
+            {
+                isFormOpen ? (
+                    <Form
+                        onClose={() => setIsFormOpen(false)
+                        }
+                        selectedTicket={selectedTicket}
+                        setSelectedTicket={setSelectedTicket}
+                    />
+                ) : null}
         </>
     );
 }

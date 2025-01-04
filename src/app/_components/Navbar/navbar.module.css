@@ -57,29 +57,20 @@
 }
 
 .navbar .logo,
-.navbar .logo_Mobile,
-.color_logo {
+.navbar .logo_Mobile {
     width: 5.5rem;
     height: fit-content;
     object-fit: contain;
 }
 
-.color,
-.color_logo,
-.navbar .logo_Mobile {
-    display: none;
-}
-
-.navbar.scrolled .logo {
+.navbar .logo {
     display: none;
 }
 
 .navbar.scrolled .logo_Mobile {
-    display: block;
-    width: 5rem;
+    width: 4.75rem;
 }
 
-.spaceFixer,
 .navbar .links .linkBlocks {
     display: flex;
     align-items: center;
@@ -193,32 +184,14 @@
         background-color: #fff;
     }
 
-    .white .logo,
-    .color_logo {
-        width: 5rem;
-    }
-
-    .navbar.open .white {
-        display: none;
-    }
-
-    .navbar.scrolled .color,
-    .navbar.scrolled .color_logo {
-        display: block;
-    }
-
-    .navbar.scrolled .color_logo {
-        width: 5rem;
-    }
-
     .navbar.scrolled .logo_Mobile,
     .logo_Mobile {
         display: none;
     }
 
-    .navbar.open .color,
-    .navbar.open .color_logo {
+    .navbar .logo {
         display: block;
+        width: 4.5rem;
     }
 
     .navbar .links {
@@ -287,10 +260,7 @@
 }
 
 @media (width<=678px) {
-
-    .white .logo,
-    .color_logo,
-    .navbar.scrolled .color_logo {
+    .navbar.scrolled .logo {
         width: 4.25rem;
     }
 
