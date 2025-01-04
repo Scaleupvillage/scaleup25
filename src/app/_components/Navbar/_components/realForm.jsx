@@ -362,8 +362,8 @@ const ScaleupForm = ({ selectedTicket }) => {
                     <p>
                         {selectedTicket === "Stalls" ||
                         selectedTicket === "Product Demo"
-                            ? "Fill the form details and get your stall to the much awaited event."
-                            : " Fill the form details and get your entry to the much awaited event."}
+                            ? "Fill in the form details and get your stall to the much awaited event."
+                            : "Fill in the form details and get your entry to the much awaited event."}
                     </p>
                 </div>
             ) : (
