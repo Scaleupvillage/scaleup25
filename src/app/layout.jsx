@@ -45,9 +45,9 @@ export default function RootLayout({ children }) {
                     src="https://www.googletagmanager.com/gtag/js?id=G-10ZRZMVLQZ"
                 ></script>
                 <script>
-                    window.dataLayer = window.dataLayer || []; function gtag()
-                    {dataLayer.push(arguments)}
-                    gtag('js', new Date()); gtag('config', 'G-10ZRZMVLQZ');
+                    {`window.dataLayer = window.dataLayer || []; function gtag()
+                    {dataLayer.push(arguments);}
+                    gtag('js', new Date()); gtag('config', 'G-10ZRZMVLQZ');`}
                 </script>
             </head>
             <body className={nunito.className}>
