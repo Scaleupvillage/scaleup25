@@ -110,7 +110,7 @@ export default function About() {
                     </span>
                 </div>
                 <div className={styles.highlight}>
-                    <h2>Pervious Edition (2024)</h2>
+                    <h2>Previous Edition (2024)</h2>
                     <div className={styles.scroll}>
                         {Highlight.map((item, index) => {
                             return (
