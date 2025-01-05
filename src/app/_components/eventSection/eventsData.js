@@ -133,8 +133,8 @@ export const upcoming = [
     vector: e2,
   },
   {
-    img: u6,
-    title: "Exhbitions",
+    img: u6,  
+    title: "Exhibitions",
     desc: "Explore 50+ stalls showcasing innovations, services, and products. Discover opportunities and connect with industry leaders shaping the future.",
     vector: e3,
   },

@@ -76,6 +76,15 @@ export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, [onClose]);
 
+    useEffect(() => {
+        document.documentElement.style.overflow = 'hidden';
+        document.body.scroll = "no";
+        return () => {
+            document.documentElement.style.overflow = 'auto';
+            document.body.scroll = "yes";
+        };
+    }, []);
+
     const handleCardSelect = (ticketType) => {
         setSelectedTicket(ticketType);
     };

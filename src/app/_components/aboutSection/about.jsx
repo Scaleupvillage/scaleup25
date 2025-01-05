@@ -1,12 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./about.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import group from "@/../../public/group-1.svg";
 import group2 from "@/../../public/group-2.svg";
-import l4 from "@/../../public/l4.svg";
 import videoThumbnail from "@/../../public/thumbnail.webp";
 import { FaPlay } from "react-icons/fa6";
 import { IoIosCloseCircleOutline } from "react-icons/io";
@@ -42,7 +41,7 @@ export default function About() {
 
     return (
         <div className={styles.about}>
-            <div className={styles.location}>
+            <div className={styles.place}>
                 <div className={styles.date}>
                     <div className={styles.days}>
                         <div>
@@ -110,7 +109,7 @@ export default function About() {
                     </span>
                 </div>
                 <div className={styles.highlight}>
-                    <h2>Pervious Edition (2024)</h2>
+                    <h2>Previous Edition (2024)</h2>
                     <div className={styles.scroll}>
                         {Highlight.map((item, index) => {
                             return (
@@ -203,7 +202,7 @@ export default function About() {
                             width={400}
                             height={400}
                         />
-                        <Link href={galleryViewLink}>View All Photos</Link>
+                        <Link href={galleryViewLink} target="_blank">View All Photos</Link>
                     </div>
                 </div>
             </div>
