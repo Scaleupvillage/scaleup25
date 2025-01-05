@@ -34,7 +34,7 @@ export default function Footer() {
                                 </p>
                                 <div className={styles.icon}>
                                     <Link
-                                        href="https://www.facebook.com/people/ScaleUp-Conclave/61554188141132/"
+                                        href="https://www.facebook.com/scaleupvillage"
                                         target="_blank"
                                         aria-label="facebook"
                                         className={styles.con}
@@ -42,7 +42,7 @@ export default function Footer() {
                                         <FaFacebookF />
                                     </Link>
                                     <Link
-                                        href="https://x.com/Scaleup2024"
+                                        href="https://x.com/scaleupvillage"
                                         target="_blank"
                                         aria-label="twitter"
                                         className={styles.con}
