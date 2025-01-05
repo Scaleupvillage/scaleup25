@@ -12,7 +12,6 @@ import styles from "./form.module.css";
 import RealForm from "./realForm";
 
 export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
-
     const formRef = useRef(null);
 
     useEffect(() => {
@@ -64,7 +63,7 @@ export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
                     />
 
                     <p className={styles.poweredBy}>
-                        Form Powered By
+                        Form Powered By{" "}
                         <a href="https://makemypass.com" target="_blank" rel="noreferrer">
                             MakeMyPass
                         </a>
@@ -182,7 +181,10 @@ export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
                                 </div>
                             </div>
 
-                            <div className={styles.card} onClick={() => handleCardSelect("Product Demo")}>
+                            <div
+                                className={styles.card}
+                                onClick={() => handleCardSelect("Product Demo")}
+                            >
                                 <div className={styles.imageContainer}>
                                     <Image
                                         src={stall}
@@ -213,7 +215,6 @@ export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
                                     <button>Select</button>
                                 </div>
                             </div>
-
                         </div>
 
                         <p className={styles.helperText}>Select any one of the above tickets.</p>
