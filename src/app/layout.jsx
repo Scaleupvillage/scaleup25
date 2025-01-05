@@ -39,6 +39,16 @@ export default function RootLayout({ children }) {
                         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
                     })(window, document, "clarity", "script", "kl12yka7mv");`}
                 </script>
+
+                <script
+                    async
+                    src="https://www.googletagmanager.com/gtag/js?id=G-10ZRZMVLQZ"
+                ></script>
+                <script>
+                    window.dataLayer = window.dataLayer || []; function gtag()
+                    {dataLayer.push(arguments)}
+                    gtag('js', new Date()); gtag('config', 'G-10ZRZMVLQZ');
+                </script>
             </head>
             <body className={nunito.className}>
                 <Toaster position="bottom-center" />
