@@ -61,9 +61,8 @@ export default function Navbar() {
         <>
             <nav className={styles.nav}>
                 <div
-                    className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""} ${
-                        isMobileMenuOpen ? styles.open : ""
-                    }`}
+                    className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""} 
+                    ${isMobileMenuOpen ? styles.open : ""}`}
                 >
                     <div
                         className={`${styles.menuIcon} ${isMobileMenuOpen ? styles.open : ""}`}
@@ -74,38 +73,29 @@ export default function Navbar() {
                         <div className={styles.bar} />
                     </div>
 
-                    <Link href="/" aria-label="logo" className={styles.white}>
+                    <Link href="/" aria-label="logo" className={styles.color}>
                         <Image
                             className={styles.logo}
                             src={white}
                             alt="logo"
-                            width={1500}
-                            height={1500}
-                        />
-                    </Link>
-
-                    <Link href="/" aria-label="logo" className={styles.color}>
-                        <Image
-                            className={styles.color_logo}
-                            src={white}
-                            alt="logo"
-                            width={1500}
-                            height={1500}
+                            width={800}
+                            height={800}
+                            loading="eager"
                         />
                     </Link>
 
                     <div
-                        className={`${styles.links} ${isMobileMenuOpen ? styles.open : ""} ${
-                            isScrolled ? styles.scrolled : ""
-                        }`}
+                        className={`${styles.links} ${isMobileMenuOpen ? styles.open : ""} 
+                        ${isScrolled ? styles.scrolled : ""}`}
                     >
                         <Link href="/" aria-label="logo">
                             <Image
                                 className={styles.logo_Mobile}
                                 src={white}
                                 alt="logo"
-                                width={1500}
-                                height={1500}
+                                width={800}
+                                height={800}
+                                loading="eager"
                             />
                         </Link>
 
@@ -155,14 +145,16 @@ export default function Navbar() {
                         </div>
                     </div>
                 </div>
-            </nav>
-            {isFormOpen ? (
-                <Form
-                    onClose={() => setIsFormOpen(false)}
-                    selectedTicket={selectedTicket}
-                    setSelectedTicket={setSelectedTicket}
-                />
-            ) : null}
+            </nav >
+            {
+                isFormOpen ? (
+                    <Form
+                        onClose={() => setIsFormOpen(false)
+                        }
+                        selectedTicket={selectedTicket}
+                        setSelectedTicket={setSelectedTicket}
+                    />
+                ) : null}
         </>
     );
 }

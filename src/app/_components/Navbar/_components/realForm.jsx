@@ -354,16 +354,16 @@ const ScaleupForm = ({ selectedTicket }) => {
                 <div className={styles.head}>
                     <h1>
                         {selectedTicket === "Stalls" ||
-                        selectedTicket === "Product Demo"
+                            selectedTicket === "Product Demo"
                             ? "Book"
                             : "Register"}{" "}
                         {selectedTicket}!
                     </h1>
                     <p>
                         {selectedTicket === "Stalls" ||
-                        selectedTicket === "Product Demo"
-                            ? "Fill the form details and get your stall to the much awaited event."
-                            : " Fill the form details and get your entry to the much awaited event."}
+                            selectedTicket === "Product Demo"
+                            ? "Fill in the form details and get your stall to the much awaited event."
+                            : "Fill in the form details and get your entry to the much awaited event."}
                     </p>
                 </div>
             ) : (
@@ -380,29 +380,29 @@ const ScaleupForm = ({ selectedTicket }) => {
                     <div className={styles.innerBox}>
                         {(selectedTicket == "Stalls" ||
                             selectedTicket === "Product Demo") && (
-                            <div>
-                                <label>
-                                    Company Name<span>*</span>
-                                </label>
-                                <input
-                                    type="text"
-                                    {...register("organization", {
-                                        required: "Company Name is required",
-                                    })}
-                                    placeholder="Enter Company Name"
-                                />
-                                {errors.organization && (
-                                    <p
-                                        style={{
-                                            color: "red",
-                                            fontSize: "0.9rem",
-                                        }}
-                                    >
-                                        {errors.organization.message}
-                                    </p>
-                                )}
-                            </div>
-                        )}
+                                <div>
+                                    <label>
+                                        Company Name<span>*</span>
+                                    </label>
+                                    <input
+                                        type="text"
+                                        {...register("organization", {
+                                            required: "Company Name is required",
+                                        })}
+                                        placeholder="Enter Company Name"
+                                    />
+                                    {errors.organization && (
+                                        <p
+                                            style={{
+                                                color: "red",
+                                                fontSize: "0.9rem",
+                                            }}
+                                        >
+                                            {errors.organization.message}
+                                        </p>
+                                    )}
+                                </div>
+                            )}
                         {/* Name Field */}
                         <div>
                             <label>
@@ -424,29 +424,29 @@ const ScaleupForm = ({ selectedTicket }) => {
                         </div>
                         {(selectedTicket === "Stalls" ||
                             selectedTicket === "Product Demo") && (
-                            <div>
-                                <label>
-                                    Designation<span>*</span>
-                                </label>
-                                <input
-                                    type="text"
-                                    {...register("designation", {
-                                        required: "Designation is required",
-                                    })}
-                                    placeholder="Enter designation"
-                                />
-                                {errors.designation && (
-                                    <p
-                                        style={{
-                                            color: "red",
-                                            fontSize: "0.9rem",
-                                        }}
-                                    >
-                                        {errors.designation.message}
-                                    </p>
-                                )}
-                            </div>
-                        )}
+                                <div>
+                                    <label>
+                                        Designation<span>*</span>
+                                    </label>
+                                    <input
+                                        type="text"
+                                        {...register("designation", {
+                                            required: "Designation is required",
+                                        })}
+                                        placeholder="Enter designation"
+                                    />
+                                    {errors.designation && (
+                                        <p
+                                            style={{
+                                                color: "red",
+                                                fontSize: "0.9rem",
+                                            }}
+                                        >
+                                            {errors.designation.message}
+                                        </p>
+                                    )}
+                                </div>
+                            )}
 
                         {/* Phone Field */}
                         <div>
