@@ -2,9 +2,9 @@ import styles from "./footer.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import design from "@/../../public/group-3.svg";
-import { FaFacebookF, FaTwitter } from "react-icons/fa";
-import { FaLinkedin, FaThreads } from "react-icons/fa6";
-import { AiFillInstagram, AiFillYoutube } from "react-icons/ai";
+import { FaFacebookF } from "react-icons/fa";
+import { FaLinkedin, FaThreads, FaXTwitter } from "react-icons/fa6";
+import { AiFillYoutube } from "react-icons/ai";
 import Gallery from "./gallery";
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
@@ -47,7 +47,7 @@ export default function Footer() {
                                         aria-label="twitter"
                                         className={styles.con}
                                     >
-                                        <FaTwitter />
+                                        <FaXTwitter />
                                     </Link>
                                     <Link
                                         href="https://www.linkedin.com/company/scaleupvillage/posts/?feedView=all"
