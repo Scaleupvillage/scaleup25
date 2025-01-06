@@ -137,6 +137,7 @@ export default function Navbar() {
                                     onClick={() => {
                                         setIsFormOpen(true);
                                         setSelectedTicket(null);
+                                        window.fbq("track", "StartTrial", { content_name: "Register" });
                                     }}
                                 >
                                     Register Now
@@ -145,16 +146,14 @@ export default function Navbar() {
                         </div>
                     </div>
                 </div>
-            </nav >
-            {
-                isFormOpen ? (
-                    <Form
-                        onClose={() => setIsFormOpen(false)
-                        }
-                        selectedTicket={selectedTicket}
-                        setSelectedTicket={setSelectedTicket}
-                    />
-                ) : null}
+            </nav>
+            {isFormOpen ? (
+                <Form
+                    onClose={() => setIsFormOpen(false)}
+                    selectedTicket={selectedTicket}
+                    setSelectedTicket={setSelectedTicket}
+                />
+            ) : null}
         </>
     );
 }

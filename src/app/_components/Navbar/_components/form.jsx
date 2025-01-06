@@ -77,6 +77,10 @@ export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
     }, [onClose]);
 
     useEffect(() => {
+        window.fbq("track", "ViewContent", {
+            content_name: "Form Page",
+        });
+
         document.documentElement.style.overflow = 'hidden';
         document.body.scroll = "no";
         return () => {

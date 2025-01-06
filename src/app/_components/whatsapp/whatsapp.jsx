@@ -29,6 +29,7 @@ export default function Whatsapp() {
     }, [isFormOpen]);
 
     const handleButtonClick = () => {
+        window.fbq("event", "StartTrial", { content_name: "Register" });
         setIsFormOpen(true);
         setSelectedTicket(null);
     };
