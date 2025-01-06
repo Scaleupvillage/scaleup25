@@ -62,19 +62,11 @@ export default function RootLayout({ children }) {
                             s.parentNode.insertBefore(t,s)}
                             (window, document,'script',
                             'https://connect.facebook.net/en_US/fbevents.js');
-                            fbq('init', '${process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID}');
+                            fbq('init', '1101350224207637');
                             fbq('track', 'ViewContent',  { content_name: "Home Page" });
                         `,
                     }}
                 />
-                <noscript>
-                    <img
-                        height="1"
-                        width="1"
-                        style={{ display: "none" }}
-                        src={`https://www.facebook.com/tr?id=${process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID}&ev=PageView&noscript=1`}
-                    />
-                </noscript>
             </head>
             <body className={nunito.className}>
                 <Toaster position="bottom-center" />

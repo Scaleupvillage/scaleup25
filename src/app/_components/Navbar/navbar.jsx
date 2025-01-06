@@ -137,7 +137,9 @@ export default function Navbar() {
                                     onClick={() => {
                                         setIsFormOpen(true);
                                         setSelectedTicket(null);
-                                        window.fbq("track", "StartTrial", { content_name: "Register" });
+                                        window.fbq("track", "StartTrial", {
+                                            content_name: "Register",
+                                        });
                                     }}
                                 >
                                     Register Now
