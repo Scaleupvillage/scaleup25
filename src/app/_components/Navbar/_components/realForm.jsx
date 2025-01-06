@@ -67,9 +67,9 @@ const ThankYou = ({
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                makemypass.com{" "}
+                                makemypass.com
                             </a>
-                            .Kindly, Log in with same registered email address
+                            .{" "}Kindly, Log in with same registered email address
                             to view it.
                         </p>
                     </div>
@@ -633,17 +633,18 @@ const ScaleupForm = ({ selectedTicket }) => {
 
                                     <div>
                                         <label>
-                                            Company / Institution Name
+                                            Company / Organization Name<span>*</span>
                                             {/* <span>*</span> */}
                                         </label>
                                         <input
                                             type="text"
-                                            {...register("institution", {
+                                            {...register("organization", {
                                                 // required: "Institution name is required",
                                             })}
-                                            placeholder="Enter your Company / Institution name"
+                                            placeholder="Enter your Company / Organization name"
+                                            required
                                         />
-                                        {errors.institution && (
+                                        {/* {errors.institution && (
                                             <p
                                                 style={{
                                                     color: "red",
@@ -652,8 +653,21 @@ const ScaleupForm = ({ selectedTicket }) => {
                                             >
                                                 {errors.institution.message}
                                             </p>
-                                        )}
+                                        )} */}
+
+                                    {errors.organization && (
+                                        <p
+                                            style={{
+                                                color: "red",
+                                                fontSize: "0.9rem",
+                                            }}
+                                        >
+                                            {errors.organization.message}
+                                        </p>
+                                    )}
                                     </div>
+
+                                    
 
                                     <div>
                                         <label>
