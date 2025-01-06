@@ -35,7 +35,7 @@ export default function Navbar() {
 
     useEffect(() => {
         const handleClickOutside = (event) => {
-            if (formRef.current && !formRef.current.contains(event.target)) {
+            if (formRef?.current && !formRef?.current.contains(event.target)) {
                 setIsFormOpen(false);
             }
         };

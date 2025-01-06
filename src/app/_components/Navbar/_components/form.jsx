@@ -67,7 +67,7 @@ export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
 
     useEffect(() => {
         const handleClickOutside = (event) => {
-            if (formRef.current && !formRef.current.contains(event.target)) {
+            if (formRef?.current && !formRef?.current?.contains(event.target)) {
                 onClose();
             }
         };
