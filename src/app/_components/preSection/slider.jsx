@@ -28,34 +28,34 @@ export default function Slider({ img, completed }) {
                     className={styles.completed}
                 />
             )}
-            <PhotoProvider>
-                <Swiper
-                    spaceBetween={30}
-                    effect="fade"
-                    fadeEffect={{ crossFade: true }}
-                    loop={true}
-                    autoplay={{
-                        delay: 3000,
-                        disableOnInteraction: false,
-                    }}
-                    modules={[Autoplay, EffectFade]}
-                >
-                    {images.map((image, index) => (
-                        <SwiperSlide key={index}>
-                            <PhotoView src={typeof image === "object" ? image.src : image}>
-                                <Image
-                                    src={image}
-                                    alt={`highlight-${index}`}
-                                    className={styles.eventPic}
-                                    width={400}
-                                    height={400}
-                                    loading="lazy"
-                                />
-                            </PhotoView>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-            </PhotoProvider>
+            {/* <PhotoProvider> */}
+            <Swiper
+                spaceBetween={30}
+                effect="fade"
+                fadeEffect={{ crossFade: true }}
+                loop={true}
+                autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: false,
+                }}
+                modules={[Autoplay, EffectFade]}
+            >
+                {images.map((image, index) => (
+                    <SwiperSlide key={index}>
+                        {/* <PhotoView src={typeof image === "object" ? image.src : image}> */}
+                        <Image
+                            src={image}
+                            alt={`highlight-${index}`}
+                            className={styles.eventPic}
+                            width={400}
+                            height={400}
+                            loading="lazy"
+                        />
+                        {/* </PhotoView> */}
+                    </SwiperSlide>
+                ))}
+            </Swiper>
+            {/* </PhotoProvider> */}
         </div>
     );
 }

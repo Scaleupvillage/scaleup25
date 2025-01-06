@@ -131,7 +131,7 @@
     cursor: pointer;
 }
 
-@media(width<=1200px) and (height<=700px) {
+@media(width<=1300px) and (height<=700px) {
     .innerBox {
         height: 60vh;
         height: 60dvh;

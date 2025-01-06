@@ -36,7 +36,7 @@
     cursor: pointer;
 }
 
-.location {
+.place {
     display: none;
     align-items: center;
     justify-content: space-between;
@@ -45,7 +45,7 @@
     line-height: 1.1;
 }
 
-.location>span {
+.place>span {
     display: flex;
     justify-content: center;
     background: linear-gradient(-180deg, #716CF3 0%, #504dad 100%);
@@ -56,9 +56,78 @@
     font-size: var(--textlg);
 }
 
-.location .icon {
+.place .icon {
     position: relative;
     top: .15rem;
+}
+
+.days {
+    display: flex;
+    align-items: baseline;
+    color: #fff;
+}
+
+.days div {
+    width: 3.75rem;
+    height: 3rem;
+    border-radius: .75rem;
+    background-color: var(--red);
+    font-size: 1.5rem;
+    position: relative;
+    rotate: 5deg;
+    display: grid;
+    place-items: center;
+}
+
+.days div:first-child {
+    left: .75rem;
+}
+
+.days div:last-child {
+    right: .8rem;
+    rotate: -7.5deg;
+    background: linear-gradient(-180deg, #716CF3 0%, #504dad 100%);
+}
+
+.days div p {
+    position: absolute;
+}
+
+.days div:first-child p {
+    right: 1.25rem;
+}
+
+.days div:last-child p {
+    right: 1.2rem;
+}
+
+.days div span {
+    position: absolute;
+    top: .8rem;
+    right: .5rem;
+    font-size: .75rem;
+}
+
+.days div:last-child span {
+    right: .35rem;
+}
+
+.days>p {
+    z-index: 1;
+    font-size: 1.5rem;
+    position: relative;
+}
+
+.date>p {
+    color: var(--red);
+    font-weight: 700;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.place>span {
+    border-radius: .5rem;
+    font-size: .8rem;
 }
 
 .content {
@@ -354,7 +423,7 @@
 .highlightImg img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .whoContent .box h3 {
@@ -384,6 +453,16 @@
 
 .aboutContent .about2 {
     font-size: var(--subHeading);
+}
+
+@media (width<=1300px) and (height<=700px) {
+    .whoContent {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .highlightImg {
+        height: 20rem;
+    }
 }
 
 @media(width<=1280px) {
@@ -490,7 +569,7 @@
         display: none;
     }
 
-    .location {
+    .place {
         display: flex;
     }
 
@@ -545,75 +624,6 @@
 @media(width<=678px) {
     .about {
         padding: 2rem 1rem 4rem;
-    }
-
-    .days {
-        display: flex;
-        align-items: baseline;
-        color: #fff;
-    }
-
-    .days div {
-        width: 3.75rem;
-        height: 3rem;
-        border-radius: .75rem;
-        background-color: var(--red);
-        font-size: 1.5rem;
-        position: relative;
-        rotate: 5deg;
-        display: grid;
-        place-items: center;
-    }
-
-    .days div:first-child {
-        left: .75rem;
-    }
-
-    .days div:last-child {
-        right: .8rem;
-        rotate: -7.5deg;
-        background: linear-gradient(-180deg, #716CF3 0%, #504dad 100%);
-    }
-
-    .days div p {
-        position: absolute;
-    }
-
-    .days div:first-child p {
-        right: 1.25rem;
-    }
-
-    .days div:last-child p {
-        right: 1.2rem;
-    }
-
-    .days div span {
-        position: absolute;
-        top: .8rem;
-        right: .5rem;
-        font-size: .75rem;
-    }
-
-    .days div:last-child span {
-        right: .35rem;
-    }
-
-    .days>p {
-        z-index: 1;
-        font-size: 1.5rem;
-        position: relative;
-    }
-
-    .date>p {
-        color: var(--red);
-        font-weight: 700;
-        text-align: center;
-        font-size: 1rem;
-    }
-
-    .location>span {
-        border-radius: .5rem;
-        font-size: .8rem;
     }
 
     .aboutContent {
@@ -741,7 +751,7 @@
         font-size: .8rem;
     }
 
-    .location>span {
+    .place>span {
         font-size: .75rem;
     }
 
@@ -774,7 +784,7 @@
         font-size: .7rem;
     }
 
-    .location>span {
+    .place>span {
         font-size: .7rem;
     }
 }
