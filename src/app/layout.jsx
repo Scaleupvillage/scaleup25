@@ -62,7 +62,7 @@ export default function RootLayout({ children }) {
                             s.parentNode.insertBefore(t,s)}
                             (window, document,'script',
                             'https://connect.facebook.net/en_US/fbevents.js');
-                            fbq('init', '1101350224207637');
+                            fbq('init', ${process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID});
                             fbq('track', 'ViewContent',  { content_name: "Home Page" });
                         `,
                     }}
