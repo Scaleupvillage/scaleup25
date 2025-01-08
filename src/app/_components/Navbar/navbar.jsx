@@ -22,6 +22,16 @@ export default function Navbar() {
             setIsScrolled(scrolled);
         };
 
+        //check if query param type is stalls if yes open form and set selected ticket to stalls
+        const urlParams = new URLSearchParams(window.location.search);
+        const type = urlParams.get("type");
+
+        console.log(type);
+        if (type === "stalls") {
+            setIsFormOpen(true);
+            setSelectedTicket("Stalls");
+        }
+
         window.addEventListener("scroll", handleScroll);
 
         return () => {
