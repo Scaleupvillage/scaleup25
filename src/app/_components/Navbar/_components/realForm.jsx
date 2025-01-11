@@ -11,7 +11,7 @@ import phoneCountryCodes from "./phoneCountryCodes.json";
 const ThankYou = ({ ticket, selectedTicket, ticketInfomration, ticketLoading }) => (
     <div className={styles.thankYou}>
         <h2>Thank You for Registering!</h2>
-        {selectedTicket === "Stalls" || selectedTicket === "Product Demo" ? (
+        {selectedTicket === "Stalls" || selectedTicket === "Product Demo + Stall" ? (
             <p>Your registration of interest is successful. Our team will contact you shortly.</p>
         ) : (
             <>
@@ -96,7 +96,7 @@ const ScaleupForm = ({ selectedTicket }) => {
     let eventId;
     if (selectedTicket === "General Ticket" || selectedTicket === "VIP Ticket") {
         eventId = "95585c57-9c47-4808-a57b-b2867b89c1f4";
-    } else if (selectedTicket === "Stalls" || selectedTicket === "Product Demo") {
+    } else if (selectedTicket === "Stalls" || selectedTicket === "Product Demo + Stall") {
         eventId = "d959821a-d64a-4962-a17e-ebf34f22d755";
     }
 
@@ -191,7 +191,7 @@ const ScaleupForm = ({ selectedTicket }) => {
             payloadFormData.append("tickets[]", JSON.stringify(payload.tickets[1]));
         } else if (selectedTicket === "Stalls") {
             payloadFormData.append("tickets[]", JSON.stringify(payload.tickets[2]));
-        } else if (selectedTicket === "Product Demo") {
+        } else if (selectedTicket === "Product Demo + Stall") {
             payloadFormData.append("tickets[]", JSON.stringify(payload.tickets[3]));
         }
 
@@ -310,13 +310,13 @@ const ScaleupForm = ({ selectedTicket }) => {
             {!isSubmitted ? (
                 <div className={styles.head}>
                     <h1>
-                        {selectedTicket === "Stalls" || selectedTicket === "Product Demo"
+                        {selectedTicket === "Stalls" || selectedTicket === "Product Demo + Stall"
                             ? "Book"
                             : "Register"}{" "}
                         {selectedTicket}!
                     </h1>
                     <p>
-                        {selectedTicket === "Stalls" || selectedTicket === "Product Demo"
+                        {selectedTicket === "Stalls" || selectedTicket === "Product Demo + Stall"
                             ? "Fill in the form details and get your stall to the much awaited event."
                             : "Fill in the form details and get your entry to the much awaited event."}
                     </p>
@@ -333,7 +333,7 @@ const ScaleupForm = ({ selectedTicket }) => {
             {!isSubmitted && (
                 <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
                     <div className={styles.innerBox}>
-                        {(selectedTicket == "Stalls" || selectedTicket === "Product Demo") && (
+                        {(selectedTicket == "Stalls" || selectedTicket === "Product Demo + Stall") && (
                             <div>
                                 <label>
                                     Company Name<span>*</span>
@@ -376,7 +376,8 @@ const ScaleupForm = ({ selectedTicket }) => {
                                 </p>
                             )}
                         </div>
-                        {(selectedTicket === "Stalls" || selectedTicket === "Product Demo") && (
+                        {(selectedTicket === "Stalls" ||
+                            selectedTicket === "Product Demo + Stall") && (
                             <div>
                                 <label>
                                     Designation<span>*</span>
@@ -517,7 +518,7 @@ const ScaleupForm = ({ selectedTicket }) => {
                             </div>
                         )}
 
-                        {selectedTicket !== "Stalls" && selectedTicket !== "Product Demo" && (
+                        {selectedTicket !== "Stalls" && selectedTicket !== "Product Demo + Stall" && (
                             <>
                                 <div>
                                     <label>
@@ -609,49 +610,51 @@ const ScaleupForm = ({ selectedTicket }) => {
                                     )}
                                 </div>
 
-                                <div>
-                                    <label>
-                                        Did you attend the previous Scaleup Conclave (Feb 2024)?
-                                        <span>*</span>
-                                    </label>
-                                    <div
-                                        style={{
-                                            display: "flex",
-                                            gap: "10px",
-                                        }}
-                                    >
-                                        <label className={styles.radio}>
-                                            <input
-                                                type="radio"
-                                                value="Yes"
-                                                {...register("attendedPrevious", {
-                                                    required: "This field is required",
-                                                })}
-                                            />
-                                            Yes
+                                {selectedTicket !== "Product Demo + Stall" && (
+                                    <div>
+                                        <label>
+                                            Did you attend the previous Scaleup Conclave (Feb 2024)?
+                                            <span>*</span>
                                         </label>
-                                        <label className={styles.radio}>
-                                            <input
-                                                type="radio"
-                                                value="No"
-                                                {...register("attendedPrevious", {
-                                                    required: "This field is required",
-                                                })}
-                                            />
-                                            No
-                                        </label>
-                                    </div>
-                                    {errors.attendedPrevious && (
-                                        <p
+                                        <div
                                             style={{
-                                                color: "red",
-                                                fontSize: "0.9rem",
+                                                display: "flex",
+                                                gap: "10px",
                                             }}
                                         >
-                                            {errors.attendedPrevious.message}
-                                        </p>
-                                    )}
-                                </div>
+                                            <label className={styles.radio}>
+                                                <input
+                                                    type="radio"
+                                                    value="Yes"
+                                                    {...register("attendedPrevious", {
+                                                        required: "This field is required",
+                                                    })}
+                                                />
+                                                Yes
+                                            </label>
+                                            <label className={styles.radio}>
+                                                <input
+                                                    type="radio"
+                                                    value="No"
+                                                    {...register("attendedPrevious", {
+                                                        required: "This field is required",
+                                                    })}
+                                                />
+                                                No
+                                            </label>
+                                        </div>
+                                        {errors.attendedPrevious && (
+                                            <p
+                                                style={{
+                                                    color: "red",
+                                                    fontSize: "0.9rem",
+                                                }}
+                                            >
+                                                {errors.attendedPrevious.message}
+                                            </p>
+                                        )}
+                                    </div>
+                                )}
                             </>
                         )}
                     </div>

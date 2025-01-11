@@ -26,7 +26,6 @@ export default function Navbar() {
         const urlParams = new URLSearchParams(window.location.search);
         const type = urlParams.get("type");
 
-        console.log(type);
         if (type === "stalls") {
             setIsFormOpen(true);
             setSelectedTicket("Stalls");
