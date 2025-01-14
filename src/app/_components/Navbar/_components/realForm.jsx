@@ -90,7 +90,7 @@ const ScaleupForm = ({ selectedTicket }) => {
         formState: { errors },
         setError,
     } = useForm();
-    const [isSubmitted, setIsSubmitted] = useState(true);
+    const [isSubmitted, setIsSubmitted] = useState(false);
     const [ticketDetails, setTicketDetails] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [ticketInformation, setTicketInformation] = useState({
