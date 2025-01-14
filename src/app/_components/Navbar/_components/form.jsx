@@ -22,7 +22,7 @@ const tickets = [
             "Networking opportunities",
         ],
         price: "Free",
-        gst: ''
+        gst: "",
     },
     {
         type: "VIP Ticket",
@@ -35,7 +35,7 @@ const tickets = [
             "VIP Lunch",
         ],
         price: "₹10,000",
-        gst: '(inc GST)'
+        gst: "(inc GST)",
     },
     {
         type: "Stalls",
@@ -46,8 +46,9 @@ const tickets = [
             "10,000 visitors",
             "One VIP ticket",
         ],
+        realPrice: "₹85,000",
         price: "₹1,00,000",
-        gst: '(inc GST)'
+        gst: "(inc GST)",
     },
     {
         type: "Product Demo + Stall",
@@ -57,8 +58,9 @@ const tickets = [
             "Air conditioned stall for 2 days",
             "Media coverage of presentation",
         ],
+        realPrice: "₹2,50,000",
         price: "₹3,50,000",
-        gst: '(inc GST)'
+        gst: "(inc GST)",
     },
 ];
 
@@ -81,10 +83,10 @@ export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
             content_name: "Form Page",
         });
 
-        document.documentElement.style.overflow = 'hidden';
+        document.documentElement.style.overflow = "hidden";
         document.body.scroll = "no";
         return () => {
-            document.documentElement.style.overflow = 'auto';
+            document.documentElement.style.overflow = "auto";
             document.body.scroll = "yes";
         };
     }, []);
@@ -161,7 +163,13 @@ export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
                                         <div className={styles.reg}>
                                             <div>
                                                 <p>
-                                                    <span>Price:</span> {ticket.price}
+                                                    <span>Price:</span>{" "}
+                                                    <span className={styles.strikedPrice}>
+                                                        {ticket.price}
+                                                    </span>
+                                                    <span className={styles.realPrice}>
+                                                        {ticket.realPrice}
+                                                    </span>
                                                 </p>
                                                 {ticket.gst && <b>{ticket.gst}</b>}
                                             </div>

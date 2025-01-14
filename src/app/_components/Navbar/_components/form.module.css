@@ -128,14 +128,14 @@
 
 .card .reg {
     position: relative;
-    margin-top: .75rem;
+    margin-top: 0.75rem;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     width: 100%;
 }
 
-.card .reg>div {
+.card .reg > div {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -150,7 +150,7 @@
 }
 
 .card .reg b {
-    font-size: .65rem;
+    font-size: 0.65rem;
     color: #666;
 }
 
@@ -192,16 +192,29 @@
 }
 
 .card button {
-    padding: .35rem .75rem;
+    padding: 0.35rem 0.75rem;
     color: #fff;
-    font-size: .7rem;
+    font-size: 0.7rem;
     background-color: var(--violet);
-    border-radius: .35rem;
+    border-radius: 0.35rem;
     border: none;
 }
 
 .card:hover button {
     background-color: var(--red);
+}
+
+.strikedPrice {
+    text-decoration: line-through;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.realPrice {
+    color: var(--red);
+    font-weight: bold;
+    font-size: 1.1rem !important;
+    margin-left: 0.5rem;
 }
 
 @media (width<=1300px) and (height<=700px) {
