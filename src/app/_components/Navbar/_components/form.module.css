@@ -135,7 +135,7 @@
     width: 100%;
 }
 
-.card .reg > div {
+.card .reg>div {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -217,7 +217,7 @@
     margin-left: 0.5rem;
 }
 
-@media (width<=1300px) and (height<=700px) {
+@media (width<=1300px) and (height<=800px) {
     .list {
         margin-top: 2rem;
         display: grid;
@@ -240,6 +240,12 @@
 
     .helperText {
         display: none;
+    }
+}
+
+@media(width<=1280px) {
+    .list {
+        height: 72vh;
     }
 }
 

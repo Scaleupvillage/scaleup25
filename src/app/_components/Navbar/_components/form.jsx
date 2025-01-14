@@ -164,12 +164,20 @@ export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
                                             <div>
                                                 <p>
                                                     <span>Price:</span>{" "}
-                                                    <span className={styles.strikedPrice}>
-                                                        {ticket.price}
-                                                    </span>
-                                                    <span className={styles.realPrice}>
-                                                        {ticket.realPrice}
-                                                    </span>
+                                                    {
+                                                        ticket.realPrice ?
+                                                            <>
+                                                                <span className={styles.strikedPrice}>
+                                                                    {ticket.price}
+                                                                </span>
+                                                                <span className={styles.realPrice}>
+                                                                    {ticket.realPrice}
+                                                                </span>
+                                                            </> :
+                                                            <span>
+                                                                {ticket.price}
+                                                            </span>
+                                                    }
                                                 </p>
                                                 {ticket.gst && <b>{ticket.gst}</b>}
                                             </div>

@@ -7,6 +7,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { BeatLoader } from "react-spinners";
 import phoneCountryCodes from "./phoneCountryCodes.json";
+import { FaWhatsapp } from "react-icons/fa";
 
 const ThankYou = ({ ticket, selectedTicket, ticketInfomration, ticketLoading }) => (
     <div className={styles.thankYou}>
@@ -71,6 +72,11 @@ const ThankYou = ({ ticket, selectedTicket, ticketInfomration, ticketLoading }) 
                         </>
                     )}
                 </div>
+
+                <a className={styles.joinWhatsapp} href="https://chat.whatsapp.com/KKmRt0l8zMf8u4VdiO7h1m">
+                    <FaWhatsapp size={30} className={styles.icon} />
+                    Join our WhatsApp group and stay updated
+                </a>
             </>
         )}
     </div>
@@ -84,7 +90,7 @@ const ScaleupForm = ({ selectedTicket }) => {
         formState: { errors },
         setError,
     } = useForm();
-    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isSubmitted, setIsSubmitted] = useState(true);
     const [ticketDetails, setTicketDetails] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [ticketInformation, setTicketInformation] = useState({
@@ -335,29 +341,29 @@ const ScaleupForm = ({ selectedTicket }) => {
                     <div className={styles.innerBox}>
                         {(selectedTicket == "Stalls" ||
                             selectedTicket === "Product Demo + Stall") && (
-                            <div>
-                                <label>
-                                    Company Name<span>*</span>
-                                </label>
-                                <input
-                                    type="text"
-                                    {...register("organization", {
-                                        required: "Company Name is required",
-                                    })}
-                                    placeholder="Enter Company Name"
-                                />
-                                {errors.organization && (
-                                    <p
-                                        style={{
-                                            color: "red",
-                                            fontSize: "0.9rem",
-                                        }}
-                                    >
-                                        {errors.organization.message}
-                                    </p>
-                                )}
-                            </div>
-                        )}
+                                <div>
+                                    <label>
+                                        Company Name<span>*</span>
+                                    </label>
+                                    <input
+                                        type="text"
+                                        {...register("organization", {
+                                            required: "Company Name is required",
+                                        })}
+                                        placeholder="Enter Company Name"
+                                    />
+                                    {errors.organization && (
+                                        <p
+                                            style={{
+                                                color: "red",
+                                                fontSize: "0.9rem",
+                                            }}
+                                        >
+                                            {errors.organization.message}
+                                        </p>
+                                    )}
+                                </div>
+                            )}
                         {/* Name Field */}
                         <div>
                             <label>
@@ -379,29 +385,29 @@ const ScaleupForm = ({ selectedTicket }) => {
                         </div>
                         {(selectedTicket === "Stalls" ||
                             selectedTicket === "Product Demo + Stall") && (
-                            <div>
-                                <label>
-                                    Designation<span>*</span>
-                                </label>
-                                <input
-                                    type="text"
-                                    {...register("designation", {
-                                        required: "Designation is required",
-                                    })}
-                                    placeholder="Enter designation"
-                                />
-                                {errors.designation && (
-                                    <p
-                                        style={{
-                                            color: "red",
-                                            fontSize: "0.9rem",
-                                        }}
-                                    >
-                                        {errors.designation.message}
-                                    </p>
-                                )}
-                            </div>
-                        )}
+                                <div>
+                                    <label>
+                                        Designation<span>*</span>
+                                    </label>
+                                    <input
+                                        type="text"
+                                        {...register("designation", {
+                                            required: "Designation is required",
+                                        })}
+                                        placeholder="Enter designation"
+                                    />
+                                    {errors.designation && (
+                                        <p
+                                            style={{
+                                                color: "red",
+                                                fontSize: "0.9rem",
+                                            }}
+                                        >
+                                            {errors.designation.message}
+                                        </p>
+                                    )}
+                                </div>
+                            )}
 
                         {/* Phone Field */}
                         <div>

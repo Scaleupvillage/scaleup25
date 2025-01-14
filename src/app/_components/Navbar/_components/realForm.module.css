@@ -131,6 +131,29 @@
     cursor: pointer;
 }
 
+.joinWhatsapp {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    color: #3bdc0e;
+    text-decoration: underline;
+    cursor: pointer;
+    text-underline-offset: 1.5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.joinWhatsapp:hover {
+    color: var(--violet);
+}
+
+.joinWhatsapp .icon {
+    transition: scale 0.3s ease-in-out;
+}
+
+.joinWhatsapp:hover .icon {
+    scale: 1.25;
+}
+
 @media(width<=1300px) and (height<=700px) {
     .innerBox {
         height: 60vh;
