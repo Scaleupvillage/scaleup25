@@ -222,7 +222,7 @@ const ScaleupForm = ({ selectedTicket }) => {
                             currency: response.data.response.currency,
                             name: "Scaleup Conclave 2025",
                             description: `MMP - scaleup-2025`,
-                            image: "/pwa/maskable.webp",
+                            image: "/rpay.webp",
                             order_id: paymentId,
                             handler: function (response) {
                                 axios
@@ -242,7 +242,7 @@ const ScaleupForm = ({ selectedTicket }) => {
                                     });
                             },
                             theme: {
-                                color: "#00FF82",
+                                color: "#7570FD",
                             },
                         };
 
