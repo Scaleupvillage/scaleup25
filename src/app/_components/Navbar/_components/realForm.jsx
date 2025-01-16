@@ -48,6 +48,12 @@ const ThankYou = ({ ticket, selectedTicket, ticketInfomration, ticketLoading }) 
                             Download Ticket
                         </button>
 
+                        <a className={`${styles.joinWhatsapp}`} href="https://chat.whatsapp.com/KKmRt0l8zMf8u4VdiO7h1m">
+                            <span className={styles.border}></span>
+                            <FaWhatsapp size={30} className={styles.icon} />
+                            <p>Join our WhatsApp group and stay updated</p>
+                        </a>
+
                         <p className={styles.noteText}>
                             Your ticket is always available at{" "}
                             <a
@@ -72,11 +78,6 @@ const ThankYou = ({ ticket, selectedTicket, ticketInfomration, ticketLoading }) 
                         </>
                     )}
                 </div>
-
-                <a className={styles.joinWhatsapp} href="https://chat.whatsapp.com/KKmRt0l8zMf8u4VdiO7h1m">
-                    <FaWhatsapp size={30} className={styles.icon} />
-                    Join our WhatsApp group and stay updated
-                </a>
             </>
         )}
     </div>
