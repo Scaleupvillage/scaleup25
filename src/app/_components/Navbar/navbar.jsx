@@ -112,9 +112,9 @@ export default function Navbar() {
                             <Link href="#hero" className={styles.link} onClick={handleLinkClick}>
                                 Home
                             </Link>
-                            {/* <Link href="#speakers" className={styles.link} onClick={handleLinkClick}>
+                            <Link href="#speakers" className={styles.link} onClick={handleLinkClick}>
                                 Speakers
-                            </Link> */}
+                            </Link>
                             <Link href="#events" className={styles.link} onClick={handleLinkClick}>
                                 Events
                             </Link>
