@@ -27,7 +27,6 @@ export default function Speaker() {
                         imageUrl,
                     };
                 });
-
                 setSpeakers(updatedSpeakers);
             })
             .catch((error) => console.error("Error fetching data:", error));
@@ -80,13 +79,11 @@ export default function Speaker() {
                         <div className={styles.card} key={index}>
                             <Image
                                 src={speaker.imageUrl}
-                                alt={`${speaker.Speaker}`}
+                                alt='speakers'
                                 width={1000}
                                 height={1000}
                                 className={styles.speakerPic}
                             />
-                            <h3>{speaker.Speaker}</h3>
-                            <p>{speaker.Designation}</p>
                         </div>
                     ))
                 }
