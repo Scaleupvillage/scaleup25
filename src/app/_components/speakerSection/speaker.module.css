@@ -39,7 +39,7 @@
 
 .card {
     position: relative;
-    height: 22rem;
+    height: 100%;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     border-radius: 1rem;
     overflow: hidden;
@@ -53,19 +53,19 @@
 
 @media(width<=1280px) {
     .card {
-        height: 18rem;
+        /* height: 18rem; */
     }
 }
 
 @media(width<=1300px) and (height<=700px) {
     .card {
-        height: 17rem;
+        /* height: 17rem; */
     }
 }
 
 @media(width<=1024px) {
     .card {
-        height: 14rem;
+        /* height: 14rem; */
     }
 }
 
@@ -75,7 +75,7 @@
     }
 
     .card {
-        height: 16rem;
+        /* height: 16rem; */
     }
 }
 
@@ -100,7 +100,7 @@
     }
 
     .card {
-        height: 19rem;
+        /* height: 19rem; */
     }
 
     .l2 {
@@ -110,6 +110,6 @@
 
 @media(width<400px) {
     .card {
-        height: 17rem;
+        /* height: 17rem; */
     }
 }
