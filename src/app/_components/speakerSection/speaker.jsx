@@ -20,13 +20,15 @@ export default function Speaker() {
         fetch(URL)
             .then((response) => response.json())
             .then((data) => {
-                const updatedSpeakers = data.map((speaker) => {
-                    const driveId = speaker.Pic.split('/')[5];
-                    const imageUrl = `https://drive.google.com/uc?id=${driveId}`;
-                    return {
-                        imageUrl,
-                    };
-                });
+                const updatedSpeakers = data
+                    .filter((speaker) => speaker.Pic)
+                    .map((speaker) => {
+                        const driveId = speaker.Pic.split('/')[5];
+                        const imageUrl = `https://drive.google.com/uc?id=${driveId}`;
+                        return {
+                            imageUrl,
+                        };
+                    });
                 setSpeakers(updatedSpeakers);
             })
             .catch((error) => console.error("Error fetching data:", error));
