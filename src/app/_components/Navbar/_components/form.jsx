@@ -46,8 +46,10 @@ const tickets = [
             "10,000 visitors",
             "One VIP ticket",
         ],
-        realPrice: "₹85,000",
-        price: "₹1,00,000",
+        // realPrice: "₹85,000",
+        // price: "₹1,00,000",
+        price1: "₹61,000 - Regular Stall",
+        price2: "₹48,000 - VIP Stall",
         gst: "(inc GST)",
     },
     {
@@ -177,6 +179,19 @@ export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
                                                             <span>
                                                                 {ticket.price}
                                                             </span>
+                                                    }
+                                                    {
+                                                        ticket.price1 &&
+                                                        <>
+                                                            <br />
+                                                            <span>
+                                                                {ticket.price1}
+                                                            </span>
+                                                            <br />
+                                                            <span>
+                                                                {ticket.price2}
+                                                            </span>
+                                                        </>
                                                     }
                                                 </p>
                                                 {ticket.gst && <b>{ticket.gst}</b>}
