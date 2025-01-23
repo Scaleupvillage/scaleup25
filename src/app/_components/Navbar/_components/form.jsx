@@ -48,8 +48,8 @@ const tickets = [
         ],
         // realPrice: "₹85,000",
         // price: "₹1,00,000",
-        price1: "₹61,000 - Regular Stall",
-        price2: "₹48,000 - VIP Stall",
+        price1: "₹61,000 - Premium Stall",
+        price2: "₹48,000 - Normal Stall",
         gst: "(inc GST)",
     },
     {
