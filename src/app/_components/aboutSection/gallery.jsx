@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { gsap } from 'gsap';
 import Image from 'next/image';
 import { img } from './imgData';
+import styles from './gallery.module.css';
 
 const ImageGallery = () => {
     const [gridImages, setGridImages] = useState([]);
@@ -46,44 +47,21 @@ const ImageGallery = () => {
     }, [gridImages]);
 
     return (
-        <div style={styles.grid}>
+        <div className={styles.grid}>
             {gridImages.map((item, index) => (
-                <div key={index} id={`grid-item-${index}`} style={styles.gridItem}>
+                <div key={index} id={`grid-item-${index}`} className={styles.gridItem}>
                     <Image
                         src={item.img}
                         alt={`Image ${index + 1}`}
-                        fill
-                        sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 10w'
-                        loading='eager'
+                        width={400}
+                        height={400}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 10vw"
                         className={styles.gridImg}
                     />
                 </div>
             ))}
         </div>
     );
-};
-
-const styles = {
-    grid: {
-        display: 'grid',
-        gridTemplateColumns: 'repeat(3, 1fr)',
-        gap: '10px',
-        width: '100%',
-        margin: '0 auto',
-    },
-    gridItem: {
-        position: 'relative',
-        width: '100%',
-        height: '0',
-        paddingBottom: '100%',
-        overflow: 'hidden',
-        borderRadius: '8px',
-    },
-    gridImg: {
-        width: '100%',
-        height: '100%',
-        objectFit: 'cover',
-    }
 };
 
 export default ImageGallery;
