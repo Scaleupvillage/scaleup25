@@ -53,6 +53,7 @@ const ImageGallery = () => {
                         src={item.img}
                         alt={`Image ${index + 1}`}
                         fill
+                        sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                         loading='eager'
                         style={{ objectFit: 'cover' }}
                     />
@@ -73,7 +74,7 @@ const styles = {
     gridItem: {
         position: 'relative',
         width: '100%',
-        paddingBottom: '100%', 
+        paddingBottom: '100%',
         overflow: 'hidden',
         borderRadius: '8px',
     },
