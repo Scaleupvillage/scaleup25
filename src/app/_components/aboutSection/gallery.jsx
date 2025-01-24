@@ -55,7 +55,7 @@ const ImageGallery = () => {
                         alt={`Image ${index + 1}`}
                         width={400}
                         height={400}
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 10vw"
+                        sizes="(max-width: 768px) 50vw, (max-width: 1200px) 50vw, 10vw"
                         className={styles.gridImg}
                         priority={index < 3} // Load first 3 images immediately
                         placeholder="blur" 
