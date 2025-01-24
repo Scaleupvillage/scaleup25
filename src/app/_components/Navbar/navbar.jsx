@@ -87,8 +87,8 @@ export default function Navbar() {
                             className={styles.logo}
                             src={white}
                             alt="logo"
-                            width={800}
-                            height={800}
+                            width={200}
+                            height={200}
                             loading="eager"
                         />
                     </Link>
@@ -102,8 +102,8 @@ export default function Navbar() {
                                 className={styles.logo_Mobile}
                                 src={white}
                                 alt="logo"
-                                width={800}
-                                height={800}
+                                width={200}
+                                height={200}
                                 loading="eager"
                             />
                         </Link>

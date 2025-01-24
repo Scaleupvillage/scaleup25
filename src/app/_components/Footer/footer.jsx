@@ -23,8 +23,8 @@ export default function Footer() {
                             <Image
                                 src={design}
                                 alt="design"
-                                width={400}
-                                height={400}
+                                width={250}
+                                height={250}
                                 className={styles.design}
                             />
                             <div>
