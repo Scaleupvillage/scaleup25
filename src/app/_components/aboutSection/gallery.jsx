@@ -53,7 +53,7 @@ const ImageGallery = () => {
                         src={item.img}
                         alt={`Image ${index + 1}`}
                         fill
-                        sizes='(max-width: 768px) 100vw, (max-width: 1200px) 40vw, 10w'
+                        sizes='(max-width: 768px) 100vw, (max-width: 1200px) 40vw, 200px'
                         loading='eager'
                         style={{ objectFit: 'cover' }}
                     />
@@ -66,15 +66,14 @@ const ImageGallery = () => {
 const styles = {
     grid: {
         display: 'grid',
-        gridTemplateColumns: 'repeat(3, 1fr)',
+        gridTemplateColumns: 'repeat(3, 1fr)', // 3 columns grid
         gap: '10px',
-        width: '100%',
-        margin: '0 auto',
+        justifyContent: 'center', // Center grid items
     },
     gridItem: {
         position: 'relative',
-        width: '100%',
-        paddingBottom: '100%',
+        width: '200px', // Fixed width
+        height: '200px', // Fixed height to maintain square images
         overflow: 'hidden',
         borderRadius: '8px',
     },
