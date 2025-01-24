@@ -84,6 +84,7 @@ export default function Speaker() {
                                 alt='speakers'
                                 width={1000}
                                 height={1000}
+                                sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 20w'
                                 className={styles.speakerPic}
                             />
                         </div>

@@ -66,7 +66,7 @@
 }
 
 .eventPic {
-    cursor: pointer;
+    /* cursor: pointer; */
     border-radius: 1rem;
     width: 100%;
     height: 15rem;
