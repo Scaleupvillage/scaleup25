@@ -52,11 +52,10 @@ const ImageGallery = () => {
                     <Image
                         src={item.img}
                         alt={`Image ${index + 1}`}
-                        width={400}
-                        height={400}
-                        sizes='(max-width: 768px) 50vw, (max-width: 1200px) 50vw, 10w'
+                        fill
+                        sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 10w'
                         loading='eager'
-                        style={{ objectFit: 'cover' }}
+                        className={styles.gridImg}
                     />
                 </div>
             ))}
@@ -75,10 +74,16 @@ const styles = {
     gridItem: {
         position: 'relative',
         width: '100%',
-        paddingBottom: '100%', 
+        height: '0',
+        paddingBottom: '100%',
         overflow: 'hidden',
         borderRadius: '8px',
     },
+    gridImg: {
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover',
+    }
 };
 
 export default ImageGallery;
