@@ -1,16 +1,12 @@
-'use client'
+'use client';
 
-import { useState, useEffect, useRef } from 'react'
-import styles from './speaker.module.css'
-import Image from 'next/image'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import design from '@/../../public/group-1.svg'
-import l2 from '@/../../public/l2.svg'
+import { useState, useEffect, useRef } from 'react';
+import styles from './speaker.module.css';
+import Image from 'next/image';
+import design from '@/../../public/group-1.svg';
+import l2 from '@/../../public/l2.svg';
 
-gsap.registerPlugin(ScrollTrigger);
-
-const URL = "https://opensheet.elk.sh/1WH_gkK8SWklkOubxKQ1S1JKEgBurqHLEGgcDuNi3C8I/Sheet1"
+const URL = "https://opensheet.elk.sh/1WH_gkK8SWklkOubxKQ1S1JKEgBurqHLEGgcDuNi3C8I/Sheet1";
 
 export default function Speaker() {
     const [speakers, setSpeakers] = useState([]);
@@ -25,37 +21,20 @@ export default function Speaker() {
                     .map((speaker) => {
                         const driveId = speaker.Pic.split('/')[5];
                         const imageUrl = `https://drive.google.com/uc?id=${driveId}`;
-                        return {
-                            imageUrl,
-                        };
+                        return { imageUrl, loaded: false };
                     });
                 setSpeakers(updatedSpeakers);
             })
             .catch((error) => console.error("Error fetching data:", error));
     }, []);
 
-    useEffect(() => {
-        if (speakers.length > 0) {
-            const speakerCards = listRef.current.querySelectorAll(`.${styles.card}`);
-
-            gsap.fromTo(
-                speakerCards,
-                { opacity: 0, y: 50 },
-                {
-                    opacity: 1,
-                    y: 0,
-                    stagger: 0.2,
-                    duration: 1,
-                    ease: "power2.out",
-                    scrollTrigger: {
-                        trigger: listRef.current,
-                        start: "top 80%",
-                        toggleActions: "play none none none",
-                    },
-                }
-            );
-        }
-    }, [speakers]);
+    const handleImageLoad = (index) => {
+        setSpeakers((prevSpeakers) =>
+            prevSpeakers.map((speaker, i) =>
+                i === index ? { ...speaker, loaded: true } : speaker
+            )
+        );
+    };
 
     return (
         <div className={styles.speaker} id="speakers">
@@ -76,21 +55,26 @@ export default function Speaker() {
                     height={400}
                     className={styles.l2}
                 />
-                {
-                    speakers.map((speaker, index) => (
-                        <div className={styles.card} key={index}>
+                {speakers.map((speaker, index) => (
+                    <div className={styles.card} key={index}>
+                        <div
+                            className={`${styles.imageWrapper} ${
+                                speaker.loaded ? styles.loaded : ''
+                            }`}
+                        >
                             <Image
                                 src={speaker.imageUrl}
-                                alt='speakers'
+                                alt="speaker"
                                 width={1000}
                                 height={1000}
-                                sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 20w'
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 20w"
                                 className={styles.speakerPic}
+                                onLoad={() => handleImageLoad(index)}
                             />
                         </div>
-                    ))
-                }
+                    </div>
+                ))}
             </div>
         </div>
-    )
+    );
 }

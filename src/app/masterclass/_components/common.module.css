@@ -1,0 +1,210 @@
+.head h1 {
+    font-size: 3.5rem;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+}
+
+.head h2 {
+    font-size: 2.5rem;
+    line-height: 1.3;
+}
+
+.head p {
+    font-size: 1.25rem;
+    line-height: 1.5;
+    padding: 1rem 0;
+}
+
+.head img {
+    height: 4rem;
+    width: 12rem;
+    float: right;
+}
+
+.class {
+    margin-top: 2rem;
+    padding: 2rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.05);
+    border-radius: 1rem;
+    display: flex;
+    gap: 2rem;
+}
+
+.class>div {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.left {
+    gap: .75rem;
+}
+
+.left h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+}
+
+.left p,
+.left ul {
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.left img {
+    width: 8rem;
+    height: 4rem;
+}
+
+.left ul {
+    padding-left: 1rem;
+}
+
+.eventDetails {
+    display: flex;
+    gap: .75rem;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    top: 1rem;
+    padding: 1rem;
+    border-radius: .75rem;
+    background-color: white;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.05);
+}
+
+.eventDetails>div {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.eventDetails span {
+    display: block;
+    background-color: #656565;
+    width: .1rem;
+    height: 2rem;
+}
+
+.eventDetails p {
+    font-size: .8rem;
+    color: #656565;
+}
+
+.eventDetails a {
+    color: #fff;
+    border: var(--violet) 1px solid;
+    background-color: var(--violet);
+    padding: .75rem 1.5rem;
+    border-radius: 5rem;
+    transition: all .3s ease-in-out;
+}
+
+.eventDetails a:hover {
+    background-color: white;
+    color: var(--violet);
+}
+
+.right img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+
+@media(width<=1024px) {
+    .head h1 {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .head img {
+        height: 3rem;
+        width: 10rem;
+        float: unset;
+        margin-bottom: .5rem;
+    }
+
+    .class {
+        flex-direction: column;
+    }
+
+    .class>div {
+        width: 100%;
+    }
+}
+
+@media(width<=678px) {
+    .head h1 {
+        font-size: 2.5rem;
+    }
+
+    .head h2 {
+        font-size: 1.75rem;
+    }
+
+    .head p {
+        font-size: 1rem;
+    }
+
+    .head img {
+        height: 2.5rem;
+        width: 8rem;
+    }
+
+    .class {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .left h1 {
+        font-size: 2.5rem;
+    }
+
+    .left p,
+    .left ul {
+        font-size: 1rem;
+    }
+
+    .eventDetails {
+        padding: .5rem;
+    }
+
+    .eventDetails>div {
+        gap: .75rem;
+    }
+
+    .eventDetails p {
+        font-size: .65rem;
+    }
+
+    .eventDetails b {
+        font-size: .8rem;
+    }
+
+    .eventDetails a {
+        padding: .5rem 1rem;
+        font-size: .8rem;
+    }
+}
+
+@media(width<=400px) {
+    .class {
+        gap: .25rem;
+    }
+
+    .eventDetails p {
+        font-size: .55rem
+    }
+
+    .eventDetails b {
+        font-size: .7rem;
+    }
+
+    .eventDetails a {
+        padding: .5rem .7rem;
+        font-size: .65rem;
+    }
+}

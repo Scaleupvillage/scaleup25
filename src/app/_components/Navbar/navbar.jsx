@@ -5,7 +5,7 @@ import styles from "./navbar.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import white from "@/../public/logo.webp";
-import { usePathname } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import Form from "./_components/form";
 
 export default function Navbar() {
@@ -13,8 +13,16 @@ export default function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isFormOpen, setIsFormOpen] = useState(false);
     const [selectedTicket, setSelectedTicket] = useState(null);
-    const pathname = usePathname();
+    const [activeLink, setActiveLink] = useState(""); // Manage active link based on the current path and hash
+
+    const pathname = usePathname(); // Current path from Next.js
+    const router = useRouter();
     const formRef = useRef(null);
+
+    const handleNavigation = (id) => {
+        router.push(`/#${id}`);
+        setActiveLink(`#${id}`);
+    };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -22,7 +30,6 @@ export default function Navbar() {
             setIsScrolled(scrolled);
         };
 
-        //check if query param type is stalls if yes open form and set selected ticket to stalls
         const urlParams = new URLSearchParams(window.location.search);
         const type = urlParams.get("type");
 
@@ -40,6 +47,13 @@ export default function Navbar() {
 
     useEffect(() => {
         setIsMobileMenuOpen(false);
+
+        // Automatically set the active link based on pathname or hash
+        if (pathname === "/") {
+            setActiveLink(window.location.hash || "#hero"); // Default to #hero if no hash
+        } else {
+            setActiveLink(pathname); // For other pages like /masterclass
+        }
     }, [pathname]);
 
     useEffect(() => {
@@ -60,10 +74,6 @@ export default function Navbar() {
 
     const handleMobileMenuToggle = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
-    };
-
-    const handleLinkClick = () => {
-        setIsMobileMenuOpen(false);
     };
 
     return (
@@ -109,24 +119,57 @@ export default function Navbar() {
                         </Link>
 
                         <div className={styles.linkBlocks}>
-                            <Link href="#hero" className={styles.link} onClick={handleLinkClick}>
+                            <Link
+                                href="#hero"
+                                className={`${styles.link} ${activeLink === "#hero" ? styles.active : ""}`}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    handleNavigation("hero");
+                                }}
+                            >
                                 Home
                             </Link>
-                            <Link href="#speakers" className={styles.link} onClick={handleLinkClick}>
+                            <Link
+                                href="#speakers"
+                                className={`${styles.link} ${activeLink === "#speakers" ? styles.active : ""}`}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    handleNavigation("speakers");
+                                }}
+                            >
                                 Speakers
                             </Link>
-                            <Link href="#events" className={styles.link} onClick={handleLinkClick}>
+                            <Link
+                                href="#events"
+                                className={`${styles.link} ${activeLink === "#events" ? styles.active : ""}`}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    handleNavigation("events");
+                                }}
+                            >
                                 Events
                             </Link>
-                            <Link href="#contact" className={styles.link} onClick={handleLinkClick}>
+                            <Link
+                                href="#contact"
+                                className={`${styles.link} ${activeLink === "#contact" ? styles.active : ""}`}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    handleNavigation("contact");
+                                }}
+                            >
                                 Contact Us
+                            </Link>
+                            <Link
+                                href="/masterclass"
+                                className={`${styles.link} ${pathname === "/masterclass" ? styles.active : ""}`}
+                            >
+                                Masterclass
                             </Link>
                             <span>
                                 <Link
                                     href="https://2024.scaleupconclave.com/"
                                     target="_blank"
                                     className={styles.contact}
-                                    onClick={handleLinkClick}
                                 >
                                     Previous Edition
                                 </Link>
