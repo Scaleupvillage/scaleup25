@@ -3,14 +3,14 @@
     position: relative;
 }
 
-.l2 {
+/* .l2 {
     position: absolute;
     top: -10rem;
     left: -20rem;
     width: 100%;
     height: 100%;
     z-index: -1;
-}
+} */
 
 .head {
     display: flex;
@@ -30,14 +30,12 @@
 }
 
 .list {
-    margin-top: 4rem;
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    align-items: center;
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
 }
 
-.tierSection {
+/* .tierSection {
     position: relative;
 }
 
@@ -56,39 +54,42 @@
     text-transform: uppercase;
     font-size: 1rem;
     letter-spacing: .5px;
-}
+} */
 
-.cardContainer {
+.card {
     display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     padding: 4rem 2rem;
-    border-radius: 1rem;
     background-color: #fff;
 }
 
-.cardContainer img {
-    width: 12rem;
+.card img {
+    width: 10rem;
     height: fit-content;
     object-fit: contain;
+    transition: all 0.3s ease-in-out;
+}
+
+.card img:hover {
+    transform: scale(1.1);
 }
 
 @media(width<=1280px) {
-    .cardContainer {
+    .card {
         padding: 3rem 1rem;
-    }
-
-    .cardContainer img {
-        width: 10rem;
     }
 }
 
 @media(width<=1024px) {
-    .cardContainer img {
+    .card img {
         width: 8rem;
+    }
+}
+
+@media(width<=900px) {
+    .list {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
@@ -97,9 +98,9 @@
         padding: 4rem 1rem;
     }
 
-    .l2 {
+    /* .l2 {
         display: none;
-    }
+    } */
 
     .head {
         flex-direction: column-reverse;
@@ -115,20 +116,21 @@
         height: fit-content;
     }
 
-    .tierTitle {
-        font-size: .95rem;
-        width: 60%;
-        top: 1rem;
+    .list {
+        grid-template-columns: repeat(3, 1fr);
     }
 
-    .cardContainer {
-        gap: 1.5rem;
-        margin-top: 1rem;
+    .card {
+        padding: 2rem 1rem;
+    }
+
+    .card img {
+        width: 6rem;
     }
 }
 
 @media(width<=400px) {
-    .tierTitle {
-        width: 70%;
+    .card img {
+        width: 5rem;
     }
 }
