@@ -48,7 +48,10 @@ const ThankYou = ({ ticket, selectedTicket, ticketInfomration, ticketLoading }) 
                             Download Ticket
                         </button>
 
-                        <a className={`${styles.joinWhatsapp}`} href="https://chat.whatsapp.com/KKmRt0l8zMf8u4VdiO7h1m">
+                        <a
+                            className={`${styles.joinWhatsapp}`}
+                            href="https://chat.whatsapp.com/KKmRt0l8zMf8u4VdiO7h1m"
+                        >
                             <span className={styles.border}></span>
                             <FaWhatsapp size={30} className={styles.icon} />
                             <p>Join our WhatsApp group and stay updated</p>
@@ -187,19 +190,20 @@ const ScaleupForm = ({ selectedTicket }) => {
         if (data.organization) payloadFormData.append("organization", data.organization);
         if (data.other_state) payloadFormData.append("other_state", data.other_state);
         if (data.other_category) payloadFormData.append("other_category", data.other_category);
+        if(data.stall_type) payloadFormData.append("stall_type", data.stall_type);
         payloadFormData.append(
             "did_you_attend_the_previous_scaleup_conclave_2024",
             data.attendedPrevious
         );
 
         if (selectedTicket === "General Ticket") {
-            payloadFormData.append("tickets[]", JSON.stringify(payload.tickets[0]));
+            payloadFormData.append("__tickets[]", JSON.stringify(payload.tickets[0]));
         } else if (selectedTicket === "VIP Ticket") {
-            payloadFormData.append("tickets[]", JSON.stringify(payload.tickets[1]));
+            payloadFormData.append("__tickets[]", JSON.stringify(payload.tickets[1]));
         } else if (selectedTicket === "Stalls") {
-            payloadFormData.append("tickets[]", JSON.stringify(payload.tickets[2]));
+            payloadFormData.append("__tickets[]", JSON.stringify(payload.tickets[2]));
         } else if (selectedTicket === "Product Demo + Stall") {
-            payloadFormData.append("tickets[]", JSON.stringify(payload.tickets[3]));
+            payloadFormData.append("__tickets[]", JSON.stringify(payload.tickets[3]));
         }
 
         payloadFormData.append("utm", JSON.stringify(payload.utm));
@@ -342,29 +346,29 @@ const ScaleupForm = ({ selectedTicket }) => {
                     <div className={styles.innerBox}>
                         {(selectedTicket == "Stalls" ||
                             selectedTicket === "Product Demo + Stall") && (
-                                <div>
-                                    <label>
-                                        Company Name<span>*</span>
-                                    </label>
-                                    <input
-                                        type="text"
-                                        {...register("organization", {
-                                            required: "Company Name is required",
-                                        })}
-                                        placeholder="Enter Company Name"
-                                    />
-                                    {errors.organization && (
-                                        <p
-                                            style={{
-                                                color: "red",
-                                                fontSize: "0.9rem",
-                                            }}
-                                        >
-                                            {errors.organization.message}
-                                        </p>
-                                    )}
-                                </div>
-                            )}
+                            <div>
+                                <label>
+                                    Company Name<span>*</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    {...register("organization", {
+                                        required: "Company Name is required",
+                                    })}
+                                    placeholder="Enter Company Name"
+                                />
+                                {errors.organization && (
+                                    <p
+                                        style={{
+                                            color: "red",
+                                            fontSize: "0.9rem",
+                                        }}
+                                    >
+                                        {errors.organization.message}
+                                    </p>
+                                )}
+                            </div>
+                        )}
                         {/* Name Field */}
                         <div>
                             <label>
@@ -386,29 +390,29 @@ const ScaleupForm = ({ selectedTicket }) => {
                         </div>
                         {(selectedTicket === "Stalls" ||
                             selectedTicket === "Product Demo + Stall") && (
-                                <div>
-                                    <label>
-                                        Designation<span>*</span>
-                                    </label>
-                                    <input
-                                        type="text"
-                                        {...register("designation", {
-                                            required: "Designation is required",
-                                        })}
-                                        placeholder="Enter designation"
-                                    />
-                                    {errors.designation && (
-                                        <p
-                                            style={{
-                                                color: "red",
-                                                fontSize: "0.9rem",
-                                            }}
-                                        >
-                                            {errors.designation.message}
-                                        </p>
-                                    )}
-                                </div>
-                            )}
+                            <div>
+                                <label>
+                                    Designation<span>*</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    {...register("designation", {
+                                        required: "Designation is required",
+                                    })}
+                                    placeholder="Enter designation"
+                                />
+                                {errors.designation && (
+                                    <p
+                                        style={{
+                                            color: "red",
+                                            fontSize: "0.9rem",
+                                        }}
+                                    >
+                                        {errors.designation.message}
+                                    </p>
+                                )}
+                            </div>
+                        )}
 
                         {/* Phone Field */}
                         <div>
@@ -667,6 +671,28 @@ const ScaleupForm = ({ selectedTicket }) => {
                                     )}
                                 </>
                             )}
+
+                        {selectedTicket === "Stalls" && (
+                            <div>
+                                <label>
+                                    Stall Type<span>*</span>
+                                </label>
+                                <select
+                                    {...register("stall_type", {
+                                        required: "Stall type is required",
+                                    })}
+                                >
+                                    <option value="">Select a Stall Type</option>
+                                    <option value="Premium Stall">₹61,000 - Premium Stall</option>
+                                    <option value="Normal Stall">₹48,000 - Normal Stall</option>
+                                </select>
+                                {errors.stall_type && (
+                                    <p style={{ color: "red", fontSize: "0.9rem" }}>
+                                        {errors.stall_type.message}
+                                    </p>
+                                )}
+                            </div>
+                        )}
                     </div>
 
                     <div className={styles.submit}>

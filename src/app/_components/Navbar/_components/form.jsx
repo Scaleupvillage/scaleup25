@@ -35,7 +35,7 @@ const tickets = [
             "VIP Lunch",
         ],
         price: "₹10,000",
-        gst: "(inc GST)",
+        gst: "",
     },
     {
         type: "Stalls",
@@ -50,7 +50,7 @@ const tickets = [
         // price: "₹1,00,000",
         price1: "₹61,000 - Premium Stall",
         price2: "₹48,000 - Normal Stall",
-        gst: "(inc GST)",
+        gst: "",
     },
     {
         type: "Product Demo + Stall",
@@ -62,7 +62,7 @@ const tickets = [
         ],
         realPrice: "₹2,50,000",
         price: "₹3,50,000",
-        gst: "(inc GST)",
+        gst: "",
     },
 ];
 
