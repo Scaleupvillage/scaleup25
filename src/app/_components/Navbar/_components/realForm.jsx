@@ -197,13 +197,13 @@ const ScaleupForm = ({ selectedTicket }) => {
         );
 
         if (selectedTicket === "General Ticket") {
-            payloadFormData.append("tickets[]", JSON.stringify(payload.tickets[0]));
+            payloadFormData.append("__tickets[]", JSON.stringify(payload.tickets[0]));
         } else if (selectedTicket === "VIP Ticket") {
-            payloadFormData.append("tickets[]", JSON.stringify(payload.tickets[1]));
+            payloadFormData.append("__tickets[]", JSON.stringify(payload.tickets[1]));
         } else if (selectedTicket === "Stalls") {
-            payloadFormData.append("tickets[]", JSON.stringify(payload.tickets[2]));
+            payloadFormData.append("__tickets[]", JSON.stringify(payload.tickets[2]));
         } else if (selectedTicket === "Product Demo + Stall") {
-            payloadFormData.append("tickets[]", JSON.stringify(payload.tickets[3]));
+            payloadFormData.append("__tickets[]", JSON.stringify(payload.tickets[3]));
         }
 
         payloadFormData.append("utm", JSON.stringify(payload.utm));
@@ -686,9 +686,9 @@ const ScaleupForm = ({ selectedTicket }) => {
                                     <option value="Premium Stall">₹61,000 - Premium Stall</option>
                                     <option value="Normal Stall">₹48,000 - Normal Stall</option>
                                 </select>
-                                {errors.stallType && (
+                                {errors.stall_type && (
                                     <p style={{ color: "red", fontSize: "0.9rem" }}>
-                                        {errors.stallType.message}
+                                        {errors.stall_type.message}
                                     </p>
                                 )}
                             </div>
