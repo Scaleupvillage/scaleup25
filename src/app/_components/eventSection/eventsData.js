@@ -1,7 +1,7 @@
 import e1 from "@/../../public/e1.svg";
 import e2 from "@/../../public/e2.svg";
 import e3 from "@/../../public/e3.svg";
-import dummy from "@/../../public/dummy-2.png";
+import dummy from "@/../../public/dummy.png";
 
 import u1 from "@/../../public/upcoming/u1.webp";
 import u2 from "@/../../public/upcoming/u2.webp";

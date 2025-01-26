@@ -1,7 +1,7 @@
 import e1 from "@/../../public/e1.svg";
 import e2 from "@/../../public/e2.svg";
 import e3 from "@/../../public/e3.svg";
-import dummy from "@/../../public/dummy-2.png";
+import dummy from "@/../../public/dummy.png";
 
 export const events = {
   day1: {
