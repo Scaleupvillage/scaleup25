@@ -65,8 +65,8 @@ export default function Speaker() {
                             <Image
                                 src={speaker.imageUrl}
                                 alt="speaker"
-                                width={1000}
-                                height={1000}
+                                width={400}
+                                height={400}
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 20w"
                                 className={styles.speakerPic}
                                 onLoad={() => handleImageLoad(index)}

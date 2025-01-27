@@ -93,7 +93,10 @@ export default function Navbar() {
                         <div className={styles.bar} />
                     </div>
 
-                    <Link href="/" aria-label="logo" className={styles.color}>
+                    <Link href="/" aria-label="logo" className={styles.color} onClick={(e) => {
+                        e.preventDefault();
+                        handleNavigation("hero");
+                    }}>
                         <Image
                             className={styles.logo}
                             src={white}
@@ -108,7 +111,10 @@ export default function Navbar() {
                         className={`${styles.links} ${isMobileMenuOpen ? styles.open : ""} 
                         ${isScrolled ? styles.scrolled : ""}`}
                     >
-                        <Link href="/" aria-label="logo">
+                        <Link href="/" aria-label="logo" onClick={(e) => {
+                            e.preventDefault();
+                            handleNavigation("hero");
+                        }}>
                             <Image
                                 className={styles.logo_Mobile}
                                 src={white}
