@@ -22,6 +22,7 @@ export default function Navbar() {
     const handleNavigation = (id) => {
         router.push(`/#${id}`);
         setActiveLink(`#${id}`);
+        setIsMobileMenuOpen(false);
     };
 
     useEffect(() => {
@@ -159,12 +160,12 @@ export default function Navbar() {
                             >
                                 Contact Us
                             </Link>
-                            <Link
+                            {/* <Link
                                 href="/masterclass"
                                 className={`${styles.link} ${pathname === "/masterclass" ? styles.active : ""}`}
                             >
                                 Masterclass
-                            </Link>
+                            </Link> */}
                             <span>
                                 <Link
                                     href="https://2024.scaleupconclave.com/"
