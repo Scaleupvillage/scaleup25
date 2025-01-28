@@ -10,11 +10,13 @@ import ValidateModal from "./validateModal";
 import { submitForm } from "./api";
 import { BeatLoader } from "react-spinners";
 import RegistrationConfirmationPopup from "./registrationConfirmationPopup";
+import ConfirmRegistrationPopup from "./confirmRegistrationPopup";
 
 export default function Class({ content }) {
     const [showVerifyModal, setShowVerifyModal] = useState(false);
     const [showRegistrationConfimration, setShowRegistrationConfimration] = useState(false);
     const [isRegistering, setIsRegistering] = useState(false);
+    const [confirmRegistration, setConfirmRegistration] = useState(false);
 
     useEffect(() => {
         if (showRegistrationConfimration) setShowVerifyModal(false);
@@ -36,9 +38,28 @@ export default function Class({ content }) {
                 />
             )}
 
+            {confirmRegistration && (
+                <ConfirmRegistrationPopup
+                    onClose={() => setConfirmRegistration(false)}
+                    onConfirm={() => {
+                        const accessToken = sessionStorage.getItem("accessToken");
+                        if (accessToken)
+                            submitForm({
+                                link: content.mmp_submission_link,
+                                data: content.mmp_tickets,
+                                accessToken,
+                                setIsRegistering,
+                                setShowRegistrationConfimration,
+                                setConfirmRegistration,
+                            });
+                    }}
+                    isRegistering={isRegistering}
+                />
+            )}
+
             <div className={styles.class}>
                 <div className={styles.left}>
-                    <Image src={group2} alt="symbol" width={300} height={300} />
+                    <Image src={content.image} alt="symbol" width={300} height={300} />
                     <h1>{content.event_title}</h1>
                     <p>{content.event_description}</p>
                     <h2>{content.topic_title}</h2>
@@ -69,13 +90,7 @@ export default function Class({ content }) {
                                 const accessToken = sessionStorage.getItem("accessToken");
                                 if (!accessToken) setShowVerifyModal(true);
                                 else {
-                                    submitForm(
-                                        content.mmp_submission_link,
-                                        content.mmp_tickets,
-                                        accessToken,
-                                        setIsRegistering,
-                                        setShowRegistrationConfimration
-                                    );
+                                    setConfirmRegistration(true);
                                 }
                             }}
                         >

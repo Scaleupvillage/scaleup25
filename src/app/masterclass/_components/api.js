@@ -31,25 +31,24 @@ export const login = async (
         .then((response) => {
             console.log("Login successful:", response.data);
             getProfileInfo(response.data.response.access_token);
-            submitForm(
-                submissionLink,
-                submissionPayload,
-                response.data.response.access_token,
+            submitForm({
+                link: submissionLink,
+                data: submissionPayload,
+                accessToken: response.data.response.access_token,
                 setIsRegistering,
                 setShowRegistrationConfimration,
-                setOTPError
-            );
+                setOTPError,
+                setVerifyingOtp,
+            });
             setAccessToken(response.data.response.access_token);
         })
         .catch((error) => {
             setOTPError(error.response.data.message.otp);
-        })
-        .finally(() => {
             setVerifyingOtp(false);
         });
 };
 
-export const generateOTP = async ({ emailPhone, setIsOtpSent, setSendingOtp }) => {
+export const generateOTP = async ({ emailPhone, setIsOtpSent, setSendingOtp, setEmailError }) => {
     setSendingOtp(true);
     axios
         .post(
@@ -74,24 +73,29 @@ export const generateOTP = async ({ emailPhone, setIsOtpSent, setSendingOtp }) =
         })
         .catch((error) => {
             setIsOtpSent(false);
+            setEmailError(error.response.data.message.email);
         })
         .finally(() => {
             setSendingOtp(false);
         });
 };
 
-export const submitForm = async (
+export const submitForm = async ({
     link,
     data,
     accessToken,
     setIsRegistering,
-    setShowRegistrationConfimration
-) => {
+    setShowRegistrationConfimration,
+    setConfirmRegistration,
+    setOTPError,
+    setVerifyingOtp,
+}) => {
     const backendFormData = new FormData();
     backendFormData.append("__tickets[]", data);
 
     if (setIsRegistering) setIsRegistering(true);
-
+    if (setVerifyingOtp) setVerifyingOtp(false);
+    if (setOTPError) setOTPError([]);
     axios
         .post(link, backendFormData, {
             headers: {
@@ -106,6 +110,7 @@ export const submitForm = async (
         .then((response) => {
             toast.success("Form submitted successfully. Please check your email for confirmation.");
             setShowRegistrationConfimration && setShowRegistrationConfimration(true);
+            setConfirmRegistration && setConfirmRegistration(false);
         })
         .catch((error) => {
             toast.error("Error submitting form. Please try again.");
@@ -114,6 +119,7 @@ export const submitForm = async (
         })
         .finally(() => {
             if (setIsRegistering) setIsRegistering(false);
+            if (setVerifyingOtp) setVerifyingOtp(false);
         });
 };
 

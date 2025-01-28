@@ -58,8 +58,8 @@
 }
 
 .form button:hover {
-    background-color: #fff;
-    color: #6c63ff;
+    background-color: #6c63ff;
+    color: #fff;
     border: 1px solid #6c63ff;
 }
 
@@ -157,7 +157,8 @@
     text-decoration: underline;
 }
 
-.otpError {
+.otpError,
+.emailError {
     color: rgb(246, 47, 47);
     font-size: 0.875rem;
     margin-top: 0.5rem;

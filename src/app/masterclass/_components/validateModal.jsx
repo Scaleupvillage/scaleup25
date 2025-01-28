@@ -22,6 +22,7 @@ export default function ValidateModal({
     const [verifyingOtp, setVerifyingOtp] = useState(false);
 
     const [OTPError, setOTPError] = useState([]);
+    const [emailError, setEmailError] = useState([]);
     const [resendOTP, setResendOTP] = useState(0);
 
     useEffect(() => {
@@ -41,6 +42,7 @@ export default function ValidateModal({
                 emailPhone: useEmail ? emailOrPhone : `${selectedCountryCode}${emailOrPhone}`,
                 setIsOtpSent: setIsOtpSent,
                 setSendingOtp: setSendingOtp,
+                setEmailError,
             });
         }
     };
@@ -79,34 +81,47 @@ export default function ValidateModal({
                     {!isOtpSent ? (
                         <>
                             {useEmail ? (
-                                <input
-                                    type="text"
-                                    placeholder="Enter your email"
-                                    value={emailOrPhone}
-                                    onChange={(e) => setEmailOrPhone(e.target.value)}
-                                />
-                            ) : (
-                                <div className={styles.phoneInputContainer}>
-                                    <select
-                                        value={selectedCountryCode}
-                                        onChange={(e) => setSelectedCountryCode(e.target.value)}
-                                    >
-                                        {countryCodes.map((country) => (
-                                            <option key={country.code} value={country.dial_code}>
-                                                {country.dial_code}
-                                            </option>
-                                        ))}
-                                    </select>
+                                <>
                                     <input
                                         type="text"
-                                        placeholder="Enter your phone number"
+                                        placeholder="Enter your email"
                                         value={emailOrPhone}
                                         onChange={(e) => setEmailOrPhone(e.target.value)}
                                     />
-                                </div>
+                                    {emailError.length > 0 && (
+                                        <p className={styles.emailError}>{emailError[0]}</p>
+                                    )}
+                                </>
+                            ) : (
+                                <>
+                                    <div className={styles.phoneInputContainer}>
+                                        <select
+                                            value={selectedCountryCode}
+                                            onChange={(e) => setSelectedCountryCode(e.target.value)}
+                                        >
+                                            {countryCodes.map((country) => (
+                                                <option
+                                                    key={country.code}
+                                                    value={country.dial_code}
+                                                >
+                                                    {country.dial_code}
+                                                </option>
+                                            ))}
+                                        </select>
+                                        <input
+                                            type="text"
+                                            placeholder="Enter your phone number"
+                                            value={emailOrPhone}
+                                            onChange={(e) => setEmailOrPhone(e.target.value)}
+                                        />
+                                    </div>
+                                    {emailError.length > 0 && (
+                                        <p className={styles.emailError}>{emailError[0]}</p>
+                                    )}
+                                </>
                             )}
                             <button onClick={handleSendOtp}>
-                                {sendingOtp ? <BeatLoader color="#7570fd" size={8} /> : "Send OTP"}
+                                {sendingOtp ? <BeatLoader color="#fff" size={8} /> : "Send OTP"}
                             </button>
                             <button onClick={toggleInputType} className={styles.secondaryButton}>
                                 {useEmail ? "Use Phone Number" : "Use Email"}
@@ -128,7 +143,7 @@ export default function ValidateModal({
                             )}
                             <button onClick={handleVerifyOtp}>
                                 {verifyingOtp ? (
-                                    <BeatLoader color="#7570fd" size={8} />
+                                    <BeatLoader color="#fff" size={8} />
                                 ) : (
                                     "Verify OTP"
                                 )}

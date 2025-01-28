@@ -6,7 +6,9 @@ export default function Head() {
     const userName = sessionStorage.getItem("userName");
     return (
         <div className={styles.head}>
-            <p className={styles.hiNamePill}>👋 Hi, {userName ? userName : "there"}</p>
+            {userName && (
+                <p className={styles.hiNamePill}>👋 Hi, {userName ? userName : "there"}</p>
+            )}
             <h1>
                 Scaleup Conclave Parallel Track
                 <Image src={group2} alt="symbol" width={300} height={300} />
