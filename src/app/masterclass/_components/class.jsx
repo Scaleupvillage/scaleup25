@@ -7,16 +7,30 @@ import dummy from "@/../../public/dummy.png";
 
 import { useState } from "react";
 import ValidateModal from "./validateModal";
+import { submitForm } from "./api";
+import { BeatLoader } from "react-spinners";
+import RegistrationConfirmationPopup from "./registrationConfirmationPopup";
 
 export default function Class({ content }) {
     const [showVerifyModal, setShowVerifyModal] = useState(false);
-
-    console.log(content);
+    const [showRegistrationConfimration, setShowRegistrationConfimration] = useState(false);
+    const [isRegistering, setIsRegistering] = useState(false);
 
     return (
         <>
             {showVerifyModal && (
-                <ValidateModal setShowVerifyModal={setShowVerifyModal} content={content} />
+                <ValidateModal
+                    setShowVerifyModal={setShowVerifyModal}
+                    content={content}
+                    setIsRegistering={setIsRegistering}
+                    setShowRegistrationConfimration={setShowRegistrationConfimration}
+                />
+            )}
+
+            {showRegistrationConfimration && (
+                <RegistrationConfirmationPopup
+                    onClose={() => setShowRegistrationConfimration(false)}
+                />
             )}
 
             <div className={styles.class}>
@@ -40,7 +54,7 @@ export default function Class({ content }) {
                                 <b>{content.event_level}</b>
                                 <p>{content.event_duration}</p>
                             </div>
-                            <span></span>
+                            <span className={styles.eventDetailsSpan}></span>
                             <div>
                                 <b>{content.event_dates}</b>
                                 <p>{content.event_time}</p>
@@ -49,10 +63,30 @@ export default function Class({ content }) {
                         <p
                             className={styles.registerButton}
                             onClick={() => {
-                                setShowVerifyModal(true);
+                                const accessToken = sessionStorage.getItem("accessToken");
+                                if (!accessToken) setShowVerifyModal(true);
+                                else {
+                                    submitForm(
+                                        content.mmp_submission_link,
+                                        content.mmp_tickets,
+                                        accessToken,
+                                        setIsRegistering,
+                                        setShowRegistrationConfimration
+                                    );
+                                }
                             }}
                         >
-                            Register Now
+                            {isRegistering ? (
+                                <BeatLoader
+                                    color={"#7570fd"}
+                                    size={10}
+                                    style={{
+                                        marginBottom: "-8px",
+                                    }}
+                                />
+                            ) : (
+                                "Register"
+                            )}
                         </p>
                     </div>
                     <Image src={dummy} alt="symbol" width={400} height={400} />

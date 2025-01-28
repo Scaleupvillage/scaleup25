@@ -5,7 +5,12 @@ import styles from "./validateModal.module.css";
 import countryCodes from "./countryCodes.json";
 import { generateOTP, login } from "./api";
 
-export default function ValidateModal({ setShowVerifyModal, content }) {
+export default function ValidateModal({
+    setShowVerifyModal,
+    content,
+    setIsRegistering,
+    setShowRegistrationConfimration,
+}) {
     const [emailOrPhone, setEmailOrPhone] = useState("");
     const [otp, setOtp] = useState("");
     const [isOtpSent, setIsOtpSent] = useState(false);
@@ -35,7 +40,9 @@ export default function ValidateModal({ setShowVerifyModal, content }) {
                 otp.trim(),
                 setAccessToken,
                 content.mmp_submission_link,
-                content.mmp_tickets
+                content.mmp_tickets,
+                setIsRegistering,
+                setShowRegistrationConfimration
             );
         }
     };
@@ -70,7 +77,7 @@ export default function ValidateModal({ setShowVerifyModal, content }) {
                                     >
                                         {countryCodes.map((country) => (
                                             <option key={country.code} value={country.dial_code}>
-                                                ({country.dial_code})
+                                                {country.dial_code}
                                             </option>
                                         ))}
                                     </select>

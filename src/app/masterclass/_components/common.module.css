@@ -80,7 +80,7 @@
     justify-content: space-between;
 }
 
-.eventDetails span {
+.eventDetailsSpan {
     display: block;
     background-color: #656565;
     width: 0.1rem;
@@ -210,5 +210,3 @@
         font-size: 0.65rem;
     }
 }
-
-
