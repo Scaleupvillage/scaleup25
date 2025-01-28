@@ -88,3 +88,35 @@
     color: #666;
     margin-bottom: 1rem;
 }
+
+.phoneInputContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.phoneInputContainer select {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    cursor: pointer;
+    max-width: 5rem;
+}
+
+.phoneInputContainer input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+}
+
+.phoneInputContainer input:focus,
+.phoneInputContainer select:focus {
+    border-color: #6c63ff;
+    outline: none;
+    box-shadow: 0 0 0.25rem rgba(108, 99, 255, 0.5);
+}
