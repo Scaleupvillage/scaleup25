@@ -18,7 +18,7 @@ export default async function Home() {
             <Events />
             <Pre />
             {/* <Schedule /> */}
-            {/* <Partner /> */}
+            <Partner />
             <Faq />
         </>
     );
