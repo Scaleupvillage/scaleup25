@@ -49,7 +49,6 @@ export default function Slider({ img, completed }) {
                             className={styles.eventPic}
                             width={400}
                             height={400}
-                            sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 20w'
                             loading="lazy"
                         />
                         {/* </PhotoView> */}
