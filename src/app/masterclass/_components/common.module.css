@@ -210,3 +210,14 @@
         font-size: 0.65rem;
     }
 }
+
+.hiNamePill {
+    background-color: #6c63ff;
+    color: #fff;
+    padding: 0.75rem 1.75rem !important;
+    border-radius: 1rem;
+    font-size: 1rem;
+    display: inline-block;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}

@@ -9,8 +9,11 @@ export const login = async (
     submissionLink,
     submissionPayload,
     setIsRegistering,
-    setShowRegistrationConfimration
+    setShowRegistrationConfimration,
+    setVerifyingOtp,
+    setOTPError
 ) => {
+    setVerifyingOtp(true);
     axios
         .post(
             "https://api.buildnship.in/buildverse/login/",
@@ -33,17 +36,21 @@ export const login = async (
                 submissionPayload,
                 response.data.response.access_token,
                 setIsRegistering,
-                setShowRegistrationConfimration
+                setShowRegistrationConfimration,
+                setOTPError
             );
             setAccessToken(response.data.response.access_token);
         })
         .catch((error) => {
-            console.error("Error logging in:", error);
+            setOTPError(error.response.data.message.otp);
+        })
+        .finally(() => {
+            setVerifyingOtp(false);
         });
 };
 
-export const generateOTP = async ({ emailPhone, setIsOtpSent }) => {
-    console.log("Generating OTP for:", emailPhone);
+export const generateOTP = async ({ emailPhone, setIsOtpSent, setSendingOtp }) => {
+    setSendingOtp(true);
     axios
         .post(
             "https://api.buildnship.in/buildverse/generate-otp/",
@@ -62,16 +69,14 @@ export const generateOTP = async ({ emailPhone, setIsOtpSent }) => {
             }
         )
         .then((response) => {
-            console.log("OTP generated successfully:", response.data);
             toast.success(response.data.message.general[0]);
             setIsOtpSent(true);
         })
         .catch((error) => {
-            console.error("Error generating OTP:", error);
             setIsOtpSent(false);
         })
         .finally(() => {
-            console.log("OTP generation process completed.");
+            setSendingOtp(false);
         });
 };
 
@@ -101,10 +106,10 @@ export const submitForm = async (
         .then((response) => {
             toast.success("Form submitted successfully. Please check your email for confirmation.");
             setShowRegistrationConfimration && setShowRegistrationConfimration(true);
-            console.log("Hi");
         })
         .catch((error) => {
             toast.error("Error submitting form. Please try again.");
+
             console.log("Bye");
         })
         .finally(() => {
@@ -125,8 +130,8 @@ export const getProfileInfo = async (accessToken) => {
             },
         })
         .then((response) => {
-            // sessionStorage.setItem("profileInfo", JSON.stringify(response.data));
-            // sessionStorage.setItem("accessToken", accessToken);
+            sessionStorage.setItem("userName", response.data.response.name);
+            sessionStorage.setItem("accessToken", accessToken);
             return response.data;
         })
         .catch((error) => {

@@ -54,6 +54,7 @@
     border-radius: 0.5rem;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+    width: 100%;
 }
 
 .primaryButton:hover {

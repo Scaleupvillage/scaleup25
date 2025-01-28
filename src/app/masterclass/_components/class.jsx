@@ -5,7 +5,7 @@ import Image from "next/image";
 import group2 from "@/../../public/group-2.svg";
 import dummy from "@/../../public/dummy.png";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ValidateModal from "./validateModal";
 import { submitForm } from "./api";
 import { BeatLoader } from "react-spinners";
@@ -16,11 +16,14 @@ export default function Class({ content }) {
     const [showRegistrationConfimration, setShowRegistrationConfimration] = useState(false);
     const [isRegistering, setIsRegistering] = useState(false);
 
+    useEffect(() => {
+        if (showRegistrationConfimration) setShowVerifyModal(false);
+    }, [showRegistrationConfimration]);
+
     return (
         <>
             {showVerifyModal && (
                 <ValidateModal
-                    setShowVerifyModal={setShowVerifyModal}
                     content={content}
                     setIsRegistering={setIsRegistering}
                     setShowRegistrationConfimration={setShowRegistrationConfimration}

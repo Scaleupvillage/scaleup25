@@ -4,9 +4,9 @@ import React, { useEffect, useState } from "react";
 import styles from "./validateModal.module.css";
 import countryCodes from "./countryCodes.json";
 import { generateOTP, login } from "./api";
+import { BeatLoader } from "react-spinners";
 
 export default function ValidateModal({
-    setShowVerifyModal,
     content,
     setIsRegistering,
     setShowRegistrationConfimration,
@@ -18,17 +18,29 @@ export default function ValidateModal({
     const [selectedCountryCode, setSelectedCountryCode] = useState(countryCodes[0].dial_code);
     const [accessToken, setAccessToken] = useState("");
 
+    const [sendingOtp, setSendingOtp] = useState(false);
+    const [verifyingOtp, setVerifyingOtp] = useState(false);
+
+    const [OTPError, setOTPError] = useState([]);
+    const [resendOTP, setResendOTP] = useState(0);
+
     useEffect(() => {
-        if (accessToken) {
-            setShowVerifyModal(false);
+        if (isOtpSent) {
+            //set a timer of 15 seconds to resend OTP it should be first 15 seconds
+            setResendOTP(15);
+            const interval = setInterval(() => {
+                setResendOTP((prev) => prev - 1);
+            }, 1000);
+            return () => clearInterval(interval);
         }
-    }, [accessToken]);
+    }, [isOtpSent]);
 
     const handleSendOtp = () => {
         if (emailOrPhone) {
             generateOTP({
                 emailPhone: useEmail ? emailOrPhone : `${selectedCountryCode}${emailOrPhone}`,
                 setIsOtpSent: setIsOtpSent,
+                setSendingOtp: setSendingOtp,
             });
         }
     };
@@ -42,8 +54,12 @@ export default function ValidateModal({
                 content.mmp_submission_link,
                 content.mmp_tickets,
                 setIsRegistering,
-                setShowRegistrationConfimration
+                setShowRegistrationConfimration,
+                setVerifyingOtp,
+                setOTPError
             );
+        } else {
+            setOTPError(["OTP is required"]);
         }
     };
 
@@ -89,17 +105,12 @@ export default function ValidateModal({
                                     />
                                 </div>
                             )}
-                            <button onClick={handleSendOtp}>Send OTP</button>
+                            <button onClick={handleSendOtp}>
+                                {sendingOtp ? <BeatLoader color="#7570fd" size={8} /> : "Send OTP"}
+                            </button>
                             <button onClick={toggleInputType} className={styles.secondaryButton}>
                                 {useEmail ? "Use Phone Number" : "Use Email"}
                             </button>
-
-                            <p className={styles.poweredBy}>
-                                Form Powered By{" "}
-                                <a href="https://makemypass.com" target="_blank" rel="noreferrer">
-                                    MakeMyPass
-                                </a>
-                            </p>
                         </>
                     ) : (
                         <>
@@ -107,11 +118,42 @@ export default function ValidateModal({
                                 type="text"
                                 placeholder="Enter the OTP"
                                 value={otp}
-                                onChange={(e) => setOtp(e.target.value)}
+                                onChange={(e) => {
+                                    if (OTPError.length > 0) setOTPError([]);
+                                    setOtp(e.target.value);
+                                }}
                             />
-                            <button onClick={handleVerifyOtp}>Verify OTP</button>
+                            {OTPError.length > 0 && (
+                                <p className={styles.otpError}>{OTPError[0]}</p>
+                            )}
+                            <button onClick={handleVerifyOtp}>
+                                {verifyingOtp ? (
+                                    <BeatLoader color="#7570fd" size={8} />
+                                ) : (
+                                    "Verify OTP"
+                                )}
+                            </button>
+
+                            <button
+                                className={
+                                    resendOTP > 0 ? styles.disabledButton : styles.secondaryButton
+                                }
+                                disabled={resendOTP > 0}
+                                onClick={() => {
+                                    handleSendOtp();
+                                    setResendOTP(0);
+                                }}
+                            >
+                                Resend OTP `{resendOTP > 0 ? `in ${resendOTP}s` : ""}
+                            </button>
                         </>
                     )}
+                    <p className={styles.poweredBy}>
+                        Form Powered By{" "}
+                        <a href="https://makemypass.com" target="_blank" rel="noreferrer">
+                            MakeMyPass
+                        </a>
+                    </p>
                 </div>
             </div>
         </div>

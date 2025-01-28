@@ -76,6 +76,13 @@
     border: 1px solid #6c63ff !important;
 }
 
+.disabledButton {
+    background-color: #ddd !important;
+    color: #fff !important;
+    border: 1px solid #ddd !important;
+    cursor: not-allowed;
+}
+
 @media (max-width: 678px) {
     .modal {
         padding: 1rem;
@@ -148,4 +155,10 @@
 
 .poweredBy a:hover {
     text-decoration: underline;
+}
+
+.otpError {
+    color: rgb(246, 47, 47);
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
 }
