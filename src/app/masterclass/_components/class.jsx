@@ -59,7 +59,7 @@ export default function Class({ content }) {
 
             <div className={styles.class}>
                 <div className={styles.left}>
-                    <Image src={content.image} alt="symbol" width={300} height={300} />
+                    <Image src={group2} alt="symbol" width={300} height={300} />
                     <h1>{content.event_title}</h1>
                     <p>{content.event_description}</p>
                     <h2>{content.topic_title}</h2>
