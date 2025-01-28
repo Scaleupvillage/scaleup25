@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "./common.module.css";
+import styles from "./main.module.css";
 import Image from "next/image";
 import group2 from "@/../../public/group-2.svg";
 import dummy from "@/../../public/dummy.png";

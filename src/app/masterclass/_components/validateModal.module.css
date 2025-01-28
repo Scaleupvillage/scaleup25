@@ -60,7 +60,6 @@
 .form button:hover {
     background-color: #6c63ff;
     color: #fff;
-    border: 1px solid #6c63ff;
 }
 
 .secondaryButton {
