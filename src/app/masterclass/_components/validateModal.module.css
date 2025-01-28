@@ -1,0 +1,90 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    max-width: 400px;
+    width: 90%;
+    text-align: start;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form h1 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+}
+
+.form input {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+}
+
+.form input:focus {
+    border-color: #6c63ff;
+    outline: none;
+    box-shadow: 0 0 0.25rem rgba(108, 99, 255, 0.5);
+}
+
+.form button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #6c63ff;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.form button:hover {
+    background-color: #fff;
+    color: #6c63ff;
+    border: 1px solid #6c63ff;
+}
+
+@media (max-width: 678px) {
+    .modal {
+        padding: 1rem;
+    }
+
+    .form h1 {
+        font-size: 1.5rem;
+    }
+
+    .form input,
+    .form button {
+        font-size: 0.9rem;
+    }
+}
+
+.validationHeader {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.validationSubText {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
