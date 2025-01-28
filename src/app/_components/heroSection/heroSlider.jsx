@@ -32,8 +32,9 @@ export default function LaptopSlider({ img }) {
                         className={styles.heroImage}
                         width={600}
                         height={600}
-                        sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 18w'
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw"
                         loading='eager'
+                        layout='responsive'
                         priority={index < 3}
                     />
                 </SwiperSlide>
