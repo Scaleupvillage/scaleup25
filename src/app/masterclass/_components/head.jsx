@@ -1,9 +1,21 @@
+'use client'
+
+import { useEffect, useState } from "react";
 import styles from "./main.module.css";
 import Image from "next/image";
 import group2 from "@/../../public/group-2.svg";
 
 export default function Head() {
-    const userName = sessionStorage.getItem("userName");
+    const [userName, setUserName] = useState("");
+
+    useEffect(() => {
+        // Only run this code on the client side
+        const name = sessionStorage.getItem("userName");
+        if (name) {
+            setUserName(name);
+        }
+    }, []);
+
     return (
         <div className={styles.head}>
             {userName && (
