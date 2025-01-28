@@ -31,9 +31,9 @@ export default function page() {
     return (
         <div className={styles.masterClass}>
             <Head />
-            {masterClassContent.map((content, index) => (
+            {/* {masterClassContent.map((content, index) => (
                 <Class key={index} content={content} />
-            ))}
+            ))} */}
         </div>
     );
 }
