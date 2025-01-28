@@ -63,6 +63,19 @@
     border: 1px solid #6c63ff;
 }
 
+.secondaryButton {
+    background-color: #fff !important;
+    color: #6c63ff !important;
+    border: 1px solid #6c63ff !important;
+    margin-top: 1rem !important;
+}
+
+.secondaryButton:hover {
+    background-color: #6c63ff !important;
+    color: #fff !important;
+    border: 1px solid #6c63ff !important;
+}
+
 @media (max-width: 678px) {
     .modal {
         padding: 1rem;
@@ -119,4 +132,20 @@
     border-color: #6c63ff;
     outline: none;
     box-shadow: 0 0 0.25rem rgba(108, 99, 255, 0.5);
+}
+
+.poweredBy {
+    font-size: 0.875rem;
+    color: #666;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.poweredBy a {
+    color: #6c63ff;
+    text-decoration: none;
+}
+
+.poweredBy a:hover {
+    text-decoration: underline;
 }

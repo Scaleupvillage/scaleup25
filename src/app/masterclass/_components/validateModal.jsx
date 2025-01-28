@@ -1,17 +1,23 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./validateModal.module.css";
 import countryCodes from "./countryCodes.json";
 import { generateOTP, login } from "./api";
 
-export default function ValidateModal() {
+export default function ValidateModal({ setShowVerifyModal, content }) {
     const [emailOrPhone, setEmailOrPhone] = useState("");
     const [otp, setOtp] = useState("");
     const [isOtpSent, setIsOtpSent] = useState(false);
     const [useEmail, setUseEmail] = useState(true);
     const [selectedCountryCode, setSelectedCountryCode] = useState(countryCodes[0].dial_code);
     const [accessToken, setAccessToken] = useState("");
+
+    useEffect(() => {
+        if (accessToken) {
+            setShowVerifyModal(false);
+        }
+    }, [accessToken]);
 
     const handleSendOtp = () => {
         if (emailOrPhone) {
@@ -27,7 +33,9 @@ export default function ValidateModal() {
             login(
                 useEmail ? emailOrPhone : `${selectedCountryCode}${emailOrPhone}`,
                 otp.trim(),
-                setAccessToken
+                setAccessToken,
+                content.mmp_submission_link,
+                content.mmp_tickets
             );
         }
     };
@@ -75,9 +83,16 @@ export default function ValidateModal() {
                                 </div>
                             )}
                             <button onClick={handleSendOtp}>Send OTP</button>
-                            <button onClick={toggleInputType}>
+                            <button onClick={toggleInputType} className={styles.secondaryButton}>
                                 {useEmail ? "Use Phone Number" : "Use Email"}
                             </button>
+
+                            <p className={styles.poweredBy}>
+                                Form Powered By{" "}
+                                <a href="https://makemypass.com" target="_blank" rel="noreferrer">
+                                    MakeMyPass
+                                </a>
+                            </p>
                         </>
                     ) : (
                         <>
