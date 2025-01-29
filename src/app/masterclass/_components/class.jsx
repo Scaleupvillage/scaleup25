@@ -107,7 +107,7 @@ export default function Class({ content }) {
                             )}
                         </p>
                     </div>
-                    <Image src={dummy} alt="symbol" width={400} height={400} />
+                    <Image src={dummy} alt="symbol" width={600} height={400} />
                 </div>
             </div>
         </>

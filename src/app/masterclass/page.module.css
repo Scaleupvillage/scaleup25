@@ -3,6 +3,12 @@
     position: relative;
 }
 
+.loader {
+    padding: 4rem;
+    display: grid;
+    place-items: center;
+}
+
 @media (width<=720px) {
     .masterClass {
         padding: 8rem 1rem 2rem;

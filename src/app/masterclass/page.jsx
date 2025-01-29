@@ -4,9 +4,11 @@ import { useEffect, useState } from "react";
 import Class from "./_components/class";
 import Head from "./_components/head";
 import styles from "./page.module.css";
+import { BeatLoader } from "react-spinners";
 
 export default function page() {
     const [masterClassContent, setMasterClassContent] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         fetch("https://opensheet.elk.sh/16fdd7ESplr4b_1ubkKiNChmJdnlBmrIflUcK2iM244w/sheet2")
@@ -28,12 +30,28 @@ export default function page() {
             .catch((error) => console.error("Error fetching data:", error));
     }, []);
 
+    useEffect(() => {
+        if (masterClassContent.length > 0) {
+            setIsLoading(false);
+        }
+    }, [masterClassContent]);
+
     return (
         <div className={styles.masterClass}>
             <Head />
-            {masterClassContent.map((content, index) => (
-                <Class key={index} content={content} />
-            ))}
+            {isLoading ? (
+                <div className={styles.loader}>
+                    <BeatLoader
+                        color={"#7570fd"}
+                        size={10}
+                        style={{
+                            marginBottom: "-8px",
+                        }}
+                    />
+                </div>
+            ) : (
+                masterClassContent.map((content, index) => <Class key={index} content={content} />)
+            )}
         </div>
     );
 }
