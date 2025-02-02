@@ -100,8 +100,8 @@ export default function About() {
                             height={400}
                         />
                         <a
-                            href="https://online.fliphtml5.com/egsqr/esog/"
-                            target="_blank"
+                            // href="https://online.fliphtml5.com/egsqr/esog/"
+                            href='Brochure.pdf'
                             rel="noreferrer noopener"
                         >
                             View Brochure
