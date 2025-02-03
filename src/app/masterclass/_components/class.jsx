@@ -107,7 +107,14 @@ export default function Class({ content }) {
                             )}
                         </p>
                     </div>
-                    <Image src={dummy} alt="symbol" width={600} height={400} />
+
+                    <div className={styles.imageContainer}>
+                        {content.image[0].length > 0 ? (
+                            <Image src={content.image[0]} alt="symbol" width={600} height={400} />
+                        ) : (
+                            <Image src={dummy} alt="symbol" width={600} height={400} />
+                        )}
+                    </div>
                 </div>
             </div>
         </>

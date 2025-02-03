@@ -20,7 +20,7 @@ export default function page() {
 
                     image = image.map((img) => {
                         let id = img.split("/")[5];
-                        return `https://drive.usercontent.google.com/download?id=${id}`;
+                        return id ? `https://drive.usercontent.google.com/download?id=${id}` : "";
                     });
 
                     return { ...event, image };
