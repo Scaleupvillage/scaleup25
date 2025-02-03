@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { useEffect, useState } from "react";
 import styles from "./main.module.css";
@@ -28,10 +28,9 @@ export default function Head() {
             <div>
                 <h2>MasterClass</h2>
                 <p>
-                    ScaleUp Conclave 2025 hosted by ScaleUp Village, that brings together
-                    entrepreneurs, investors, aspiring business leaders, and students on a shared
-                    platform. It designed to spark meaningful conversations, nurture fresh ideas,
-                    and create real opportunities for growth.
+                    ScaleUp Conclave Masterclass features expert-led sessions on various topics,
+                    offering deep insights and practical skills to enhance participants'
+                    understanding and expertise in their respective fields.
                 </p>
             </div>
         </div>
