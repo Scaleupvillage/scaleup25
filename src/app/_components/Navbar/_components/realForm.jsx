@@ -431,7 +431,7 @@ const ScaleupForm = ({ selectedTicket }) => {
                                             key={countryCode.code}
                                             value={countryCode.dial_code}
                                         >
-                                            {countryCode}
+                                            {countryCode.dial_code}
                                         </option>
                                     ))}
                                 </select>
