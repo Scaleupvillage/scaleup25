@@ -115,6 +115,7 @@ export const submitForm = async ({
         .catch((error) => {
             toast.error("Error submitting form. Please try again.");
 
+            setOTPError(error.response.data.message.general);
             console.log("Bye");
         })
         .finally(() => {

@@ -116,7 +116,7 @@ export default function ValidateModal({
                                                     key={country.code}
                                                     value={country.dial_code}
                                                 >
-                                                    {country.dial_code}
+                                                    {country.name}: {country.dial_code}
                                                 </option>
                                             ))}
                                         </select>
@@ -167,7 +167,7 @@ export default function ValidateModal({
                                     setResendOTP(0);
                                 }}
                             >
-                                Resend OTP `{resendOTP > 0 ? `in ${resendOTP}s` : ""}
+                                Resend OTP {resendOTP > 0 ? `in ${resendOTP}s` : ""}
                             </button>
                         </>
                     )}

@@ -190,7 +190,7 @@ const ScaleupForm = ({ selectedTicket }) => {
         if (data.organization) payloadFormData.append("organization", data.organization);
         if (data.other_state) payloadFormData.append("other_state", data.other_state);
         if (data.other_category) payloadFormData.append("other_category", data.other_category);
-        if(data.stall_type) payloadFormData.append("stall_type", data.stall_type);
+        if (data.stall_type) payloadFormData.append("stall_type", data.stall_type);
         payloadFormData.append(
             "did_you_attend_the_previous_scaleup_conclave_2024",
             data.attendedPrevious
@@ -431,7 +431,7 @@ const ScaleupForm = ({ selectedTicket }) => {
                                             key={countryCode.code}
                                             value={countryCode.dial_code}
                                         >
-                                            {countryCode.dial_code}
+                                            {countryCode}
                                         </option>
                                     ))}
                                 </select>
