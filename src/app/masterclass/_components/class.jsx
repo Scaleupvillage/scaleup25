@@ -29,6 +29,7 @@ export default function Class({ content }) {
                     content={content}
                     setIsRegistering={setIsRegistering}
                     setShowRegistrationConfimration={setShowRegistrationConfimration}
+                    onClose={() => setShowVerifyModal(false)}
                 />
             )}
 

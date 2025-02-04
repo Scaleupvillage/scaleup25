@@ -162,3 +162,23 @@
     font-size: 0.875rem;
     margin-top: 0.5rem;
 }
+
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.closeButton {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.3s ease-in-out;
+}
+
+.closeButton:hover {
+    color: #000;
+}

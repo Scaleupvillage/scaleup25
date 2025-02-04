@@ -5,11 +5,13 @@ import styles from "./validateModal.module.css";
 import countryCodes from "./countryCodes.json";
 import { generateOTP, login } from "./api";
 import { BeatLoader } from "react-spinners";
+import { CgClose } from "react-icons/cg";
 
 export default function ValidateModal({
     content,
     setIsRegistering,
     setShowRegistrationConfimration,
+    onClose,
 }) {
     const [emailOrPhone, setEmailOrPhone] = useState("");
     const [otp, setOtp] = useState("");
@@ -74,7 +76,17 @@ export default function ValidateModal({
         <div className={styles.modalOverlay}>
             <div className={styles.modal}>
                 <div className={styles.form}>
-                    <p className={styles.validationHeader}>Validate Information</p>
+                    <div className={styles.modalHeader}>
+                        <p className={styles.validationHeader}>Validate Information</p>
+
+                        <CgClose
+                            style={{ cursor: "pointer" }}
+                            size={25}
+                            onClick={() => {
+                                onClose();
+                            }}
+                        />
+                    </div>
                     <p className={styles.validationSubText}>
                         Kindly make sure you have registered for the main event.
                     </p>
@@ -142,11 +154,7 @@ export default function ValidateModal({
                                 <p className={styles.otpError}>{OTPError[0]}</p>
                             )}
                             <button onClick={handleVerifyOtp}>
-                                {verifyingOtp ? (
-                                    <BeatLoader color="#fff" size={8} />
-                                ) : (
-                                    "Verify OTP"
-                                )}
+                                {verifyingOtp ? <BeatLoader color="#fff" size={8} /> : "Verify OTP"}
                             </button>
 
                             <button
