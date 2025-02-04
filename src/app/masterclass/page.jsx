@@ -50,7 +50,9 @@ export default function page() {
                     />
                 </div>
             ) : (
-                masterClassContent.map((content, index) => <Class key={index} content={content} />)
+                masterClassContent
+                    .filter((content) => content.display === "TRUE")
+                    .map((content, index) => <Class key={index} content={content} />)
             )}
         </div>
     );
