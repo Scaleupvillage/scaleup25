@@ -12,14 +12,19 @@ import { BeatLoader } from "react-spinners";
 import RegistrationConfirmationPopup from "./registrationConfirmationPopup";
 import ConfirmRegistrationPopup from "./confirmRegistrationPopup";
 
-export default function Class({ content }) {
+export default function Class({ content, setTriggerName }) {
     const [showVerifyModal, setShowVerifyModal] = useState(false);
     const [showRegistrationConfimration, setShowRegistrationConfimration] = useState(false);
     const [isRegistering, setIsRegistering] = useState(false);
     const [confirmRegistration, setConfirmRegistration] = useState(false);
 
+    const [submitError, setSubmitError] = useState("");
+
     useEffect(() => {
-        if (showRegistrationConfimration) setShowVerifyModal(false);
+        if (showRegistrationConfimration) {
+            setShowVerifyModal(false);
+            setTriggerName(false);
+        }
     }, [showRegistrationConfimration]);
 
     return (
@@ -43,7 +48,7 @@ export default function Class({ content }) {
                 <ConfirmRegistrationPopup
                     onClose={() => setConfirmRegistration(false)}
                     onConfirm={() => {
-                        const accessToken = sessionStorage.getItem("accessToken");
+                        const accessToken = localStorage.getItem("accessToken");
                         if (accessToken)
                             submitForm({
                                 link: content.mmp_submission_link,
@@ -52,9 +57,12 @@ export default function Class({ content }) {
                                 setIsRegistering,
                                 setShowRegistrationConfimration,
                                 setConfirmRegistration,
+                                setSubmitError,
+                                setTriggerName,
                             });
                     }}
                     isRegistering={isRegistering}
+                    submitError={submitError}
                 />
             )}
 
@@ -88,7 +96,7 @@ export default function Class({ content }) {
                         <p
                             className={styles.registerButton}
                             onClick={() => {
-                                const accessToken = sessionStorage.getItem("accessToken");
+                                const accessToken = localStorage.getItem("accessToken");
                                 if (!accessToken) setShowVerifyModal(true);
                                 else {
                                     setConfirmRegistration(true);

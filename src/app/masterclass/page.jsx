@@ -9,6 +9,7 @@ import { BeatLoader } from "react-spinners";
 export default function page() {
     const [masterClassContent, setMasterClassContent] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [triggerName, setTriggerName] = useState("");
 
     useEffect(() => {
         fetch("https://opensheet.elk.sh/16fdd7ESplr4b_1ubkKiNChmJdnlBmrIflUcK2iM244w/sheet2")
@@ -38,7 +39,7 @@ export default function page() {
 
     return (
         <div className={styles.masterClass}>
-            <Head />
+            <Head triggerName={triggerName} setTriggerName={setTriggerName} />
             {isLoading ? (
                 <div className={styles.loader}>
                     <BeatLoader
@@ -52,7 +53,9 @@ export default function page() {
             ) : (
                 masterClassContent
                     .filter((content) => content.display === "TRUE")
-                    .map((content, index) => <Class key={index} content={content} />)
+                    .map((content, index) => (
+                        <Class key={index} content={content} setTriggerName={setTriggerName} />
+                    ))
             )}
         </div>
     );

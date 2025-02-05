@@ -226,3 +226,23 @@
     align-items: center;
     margin: auto;
 }
+
+.alertText {
+    font-size: 1.2rem !important;
+    color: #333;
+}
+
+.userName {
+    font-weight: bold;
+    color: #6c63ff;
+}
+
+.logout {
+    color: #6c63ff;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.logout:hover {
+    color: #8c87fc;
+}
