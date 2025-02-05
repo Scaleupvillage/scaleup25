@@ -102,7 +102,10 @@ export default function ValidateModal({
                                         onChange={(e) => setEmailOrPhone(e.target.value)}
                                     />
                                     {emailError.length > 0 && (
-                                        <p className={styles.emailError}>{emailError[0]}</p>
+                                        <p className={styles.emailError}>
+                                            It seems like you have not registered for ScaleUp
+                                            Conclave 2025. Kindly register to continue.
+                                        </p>
                                     )}
                                 </>
                             ) : (
@@ -129,11 +132,7 @@ export default function ValidateModal({
                                         />
                                     </div>
                                     {emailError.length > 0 && (
-                                        <p className={styles.emailError}>
-                                            It seems like you are not registered for ScaleUp
-                                            Conclave 2025. Kindly register to get access to the
-                                            event.
-                                        </p>
+                                        <p className={styles.emailError}>{emailError[0]}</p>
                                     )}
                                 </>
                             )}
