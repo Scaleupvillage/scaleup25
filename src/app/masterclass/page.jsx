@@ -90,9 +90,9 @@ export default function page() {
                             key={index}
                             content={content}
                             setTriggerName={setTriggerName}
-                            isRegistered={participatedEvents
-                                .map((event) => event.id)
-                                .includes(content.event_id)}
+                            isRegistered={
+                                participatedEvents.find((event) => event.id)?.event_register_id
+                            }
                             approvalStatus={
                                 participatedEvents
                                     .filter((event) => event.id === content.event_id)
