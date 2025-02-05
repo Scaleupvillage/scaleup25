@@ -90,6 +90,7 @@ export const submitForm = async ({
     setOTPError,
     setVerifyingOtp,
     setSubmitError,
+    setTriggerParticipatedAPI,
 }) => {
     const backendFormData = new FormData();
     backendFormData.append("__tickets[]", data);
@@ -112,6 +113,7 @@ export const submitForm = async ({
             toast.success("Form submitted successfully. Please check your email for confirmation.");
             setShowRegistrationConfimration && setShowRegistrationConfimration(true);
             setConfirmRegistration && setConfirmRegistration(false);
+            setTriggerParticipatedAPI && setTriggerParticipatedAPI(true);
         })
         .catch((error) => {
             toast.error("Error submitting form. Please try again.");

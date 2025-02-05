@@ -13,6 +13,8 @@ export default function page() {
     const [isLoading, setIsLoading] = useState(true);
     const [triggerName, setTriggerName] = useState("");
 
+    const [triggerParticipatedAPI, setTriggerParticipatedAPI] = useState(false);
+
     useEffect(() => {
         fetch("https://opensheet.elk.sh/16fdd7ESplr4b_1ubkKiNChmJdnlBmrIflUcK2iM244w/sheet2")
             .then((response) => response.json())
@@ -57,11 +59,14 @@ export default function page() {
                 })
                 .catch((error) => {
                     console.error("Error fetching participated events:", error);
+                })
+                .finally(() => {
+                    setTriggerParticipatedAPI(false);
                 });
         };
 
         fetchParticipatedEvents();
-    }, []);
+    }, [triggerParticipatedAPI]);
 
     useEffect(() => {
         if (masterClassContent.length > 0) {
@@ -71,7 +76,11 @@ export default function page() {
 
     return (
         <div className={styles.masterClass}>
-            <Head triggerName={triggerName} setTriggerName={setTriggerName} />
+            <Head
+                triggerName={triggerName}
+                setTriggerName={setTriggerName}
+                setTriggerParticipatedAPI={setTriggerParticipatedAPI}
+            />
             {isLoading ? (
                 <div className={styles.loader}>
                     <BeatLoader
@@ -98,6 +107,7 @@ export default function page() {
                                     .filter((event) => event.id === content.event_id)
                                     .map((event) => event.approval_status || "")[0]
                             }
+                            setTriggerParticipatedAPI={setTriggerParticipatedAPI}
                         />
                     ))
             )}

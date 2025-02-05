@@ -12,7 +12,13 @@ import { BeatLoader } from "react-spinners";
 import RegistrationConfirmationPopup from "./registrationConfirmationPopup";
 import ConfirmRegistrationPopup from "./confirmRegistrationPopup";
 
-export default function Class({ content, setTriggerName, isRegistered, approvalStatus }) {
+export default function Class({
+    content,
+    setTriggerName,
+    isRegistered,
+    approvalStatus,
+    setTriggerParticipatedAPI,
+}) {
     const [showVerifyModal, setShowVerifyModal] = useState(false);
     const [showRegistrationConfimration, setShowRegistrationConfimration] = useState(false);
     const [isRegistering, setIsRegistering] = useState(false);
@@ -59,6 +65,7 @@ export default function Class({ content, setTriggerName, isRegistered, approvalS
                                 setConfirmRegistration,
                                 setSubmitError,
                                 setTriggerName,
+                                setTriggerParticipatedAPI,
                             });
                     }}
                     isRegistering={isRegistering}

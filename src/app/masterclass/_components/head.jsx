@@ -7,7 +7,7 @@ import group2 from "@/../../public/group-2.svg";
 import toast from "react-hot-toast";
 import { BeatLoader } from "react-spinners";
 
-export default function Head({ triggerName, setTriggerName }) {
+export default function Head({ triggerName, setTriggerName, setTriggerParticipatedAPI }) {
     const [userName, setUserName] = useState("");
     const [loader, setLoader] = useState(false);
 
@@ -29,6 +29,7 @@ export default function Head({ triggerName, setTriggerName }) {
             toast.success("Kindly continue with the registration process.", {
                 duration: 5000,
             });
+            setTriggerParticipatedAPI(true);
         }, 1000);
     };
 
