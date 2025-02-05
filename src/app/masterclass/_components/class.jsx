@@ -12,7 +12,7 @@ import { BeatLoader } from "react-spinners";
 import RegistrationConfirmationPopup from "./registrationConfirmationPopup";
 import ConfirmRegistrationPopup from "./confirmRegistrationPopup";
 
-export default function Class({ content, setTriggerName }) {
+export default function Class({ content, setTriggerName, isRegistered, approvalStatus }) {
     const [showVerifyModal, setShowVerifyModal] = useState(false);
     const [showRegistrationConfimration, setShowRegistrationConfimration] = useState(false);
     const [isRegistering, setIsRegistering] = useState(false);
@@ -93,28 +93,41 @@ export default function Class({ content, setTriggerName }) {
                                 <p>{content.event_time}</p>
                             </div>
                         </div>
-                        <p
-                            className={styles.registerButton}
-                            onClick={() => {
-                                const accessToken = localStorage.getItem("accessToken");
-                                if (!accessToken) setShowVerifyModal(true);
-                                else {
-                                    setConfirmRegistration(true);
-                                }
-                            }}
-                        >
-                            {isRegistering ? (
-                                <BeatLoader
-                                    color={"#7570fd"}
-                                    size={10}
-                                    style={{
-                                        marginBottom: "-8px",
-                                    }}
-                                />
-                            ) : (
-                                "Register"
+                        <div>
+                            <p
+                                className={`${styles.registerButton} ${
+                                    isRegistered ? styles.registeredButton : ""
+                                }`}
+                                onClick={() => {
+                                    if (isRegistered) return;
+
+                                    const accessToken = localStorage.getItem("accessToken");
+                                    if (!accessToken) setShowVerifyModal(true);
+                                    else {
+                                        setConfirmRegistration(true);
+                                    }
+                                }}
+                            >
+                                {isRegistering ? (
+                                    <BeatLoader
+                                        color={"#7570fd"}
+                                        size={10}
+                                        style={{
+                                            marginBottom: "-8px",
+                                        }}
+                                    />
+                                ) : isRegistered ? (
+                                    "Registered"
+                                ) : (
+                                    "Register"
+                                )}
+                            </p>
+                            {approvalStatus && (
+                                <p className={styles.approvalStatus}>
+                                    {approvalStatus ? "Approved" : "Pending Approval"}
+                                </p>
                             )}
-                        </p>
+                        </div>
                     </div>
 
                     <div className={styles.imageContainer}>

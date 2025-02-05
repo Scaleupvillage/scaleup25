@@ -246,3 +246,21 @@
 .logout:hover {
     color: #8c87fc;
 }
+
+.registeredButton {
+    background-color: #414141;
+    color: #fff !important;
+    border: none;
+    cursor: default;
+}
+
+.registeredButton:hover {
+    background-color: #414141 !important;
+    color: #fff !important;
+}
+
+.approvalStatus {
+    font-size: 1.25rem;
+    color: #6c63ff !important;
+    font-weight: bold;
+}
