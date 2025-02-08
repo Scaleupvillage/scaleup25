@@ -95,20 +95,24 @@ export default function page() {
                 masterClassContent
                     .filter((content) => content.display === "TRUE")
                     .map((content, index) => (
-                        <Class
-                            key={index}
-                            content={content}
-                            setTriggerName={setTriggerName}
-                            isRegistered={
-                                participatedEvents.find((event) => event.id)?.event_register_id
-                            }
-                            approvalStatus={
-                                participatedEvents
-                                    .filter((event) => event.id === content.event_id)
-                                    .map((event) => event.approval_status || "")[0]
-                            }
-                            setTriggerParticipatedAPI={setTriggerParticipatedAPI}
-                        />
+                        <>
+                            <Class
+                                key={index}
+                                content={content}
+                                setTriggerName={setTriggerName}
+                                isRegistered={
+                                    participatedEvents.find(
+                                        (event) => event.id === content.event_id
+                                    )?.event_register_id
+                                }
+                                approvalStatus={
+                                    participatedEvents
+                                        .filter((event) => event.id === content.event_id)
+                                        .map((event) => event.approval_status || "")[0]
+                                }
+                                setTriggerParticipatedAPI={setTriggerParticipatedAPI}
+                            />
+                        </>
                     ))
             )}
         </div>
