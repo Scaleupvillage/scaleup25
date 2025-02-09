@@ -140,8 +140,9 @@ export default function Navbar() {
                         <div className={styles.linkBlocks}>
                             <Link
                                 href="#hero"
-                                className={`${styles.link} ${activeLink === "#hero" ? styles.active : ""
-                                    }`}
+                                className={`${styles.link} ${
+                                    activeLink === "#hero" ? styles.active : ""
+                                }`}
                                 onClick={(e) => {
                                     e.preventDefault();
                                     handleNavigation("hero");
@@ -151,8 +152,9 @@ export default function Navbar() {
                             </Link>
                             <Link
                                 href="#speakers"
-                                className={`${styles.link} ${activeLink === "#speakers" ? styles.active : ""
-                                    }`}
+                                className={`${styles.link} ${
+                                    activeLink === "#speakers" ? styles.active : ""
+                                }`}
                                 onClick={(e) => {
                                     e.preventDefault();
                                     handleNavigation("speakers");
@@ -162,8 +164,9 @@ export default function Navbar() {
                             </Link>
                             <Link
                                 href="#events"
-                                className={`${styles.link} ${activeLink === "#events" ? styles.active : ""
-                                    }`}
+                                className={`${styles.link} ${
+                                    activeLink === "#events" ? styles.active : ""
+                                }`}
                                 onClick={(e) => {
                                     e.preventDefault();
                                     handleNavigation("events");
@@ -172,21 +175,24 @@ export default function Navbar() {
                                 Events
                             </Link>
                             <Link
+                                href="/masterclass"
+                                className={`${styles.link} ${
+                                    pathname === "/masterclass" ? styles.active : ""
+                                }`}
+                            >
+                                Masterclass
+                            </Link>
+                            <Link
                                 href="#contact"
-                                className={`${styles.link} ${activeLink === "#contact" ? styles.active : ""
-                                    }`}
+                                className={`${styles.link} ${
+                                    activeLink === "#contact" ? styles.active : ""
+                                }`}
                                 onClick={(e) => {
                                     e.preventDefault();
                                     handleNavigation("contact");
                                 }}
                             >
                                 Contact Us
-                            </Link>
-                            <Link
-                                href="/masterclass"
-                                className={`${styles.link} ${pathname === "/masterclass" ? styles.active : ""}`}
-                            >
-                                Masterclass
                             </Link>
                             <span>
                                 <Link
