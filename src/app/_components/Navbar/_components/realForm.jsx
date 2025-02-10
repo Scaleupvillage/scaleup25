@@ -50,7 +50,7 @@ const ThankYou = ({ ticket, selectedTicket, ticketInfomration, ticketLoading }) 
 
                         <a
                             className={`${styles.joinWhatsapp}`}
-                            href="https://chat.whatsapp.com/BquBgUoRT9fB682F3c6Zu6"
+                            href="https://chat.whatsapp.com/G5DfIgLs6Gq2L6Zas3NnVU"
                         >
                             <span className={styles.border}></span>
                             <FaWhatsapp size={30} className={styles.icon} />
