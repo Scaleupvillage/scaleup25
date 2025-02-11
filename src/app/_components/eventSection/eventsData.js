@@ -122,8 +122,8 @@ export const upcoming = [
   },
   {
     img: u5,
-    title: "Hackathons",
-    desc: "Innovate through Medical, Business, and Tech Hackathons, solving real challenges with impactful, creative solutions under tight deadlines.",
+    title: "Startup Jam",
+    desc: "Startup Jam at ScaleUp Conclave 2025 is your chance to showcase your startup to thousands of spectators. Present your product or service, share your journey, and inspire others at Kerala's most exciting business event. Don't miss out!",
     vector: e1,
   },
   {
