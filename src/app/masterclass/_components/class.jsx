@@ -41,7 +41,7 @@ export default function Class({
                     setIsRegistering={setIsRegistering}
                     setShowRegistrationConfimration={setShowRegistrationConfimration}
                     onClose={() => setShowVerifyModal(false)}
-                    setTriggerParticipatedAPI = {setTriggerParticipatedAPI}
+                    setTriggerParticipatedAPI={setTriggerParticipatedAPI}
                 />
             )}
 
@@ -131,9 +131,7 @@ export default function Class({
                                 )}
                             </p>
                             {approvalStatus && (
-                                <p className={styles.approvalStatus}>
-                                    {approvalStatus ? "Approved" : "Pending Approval"}
-                                </p>
+                                <p className={styles.approvalStatus}>{approvalStatus}</p>
                             )}
                         </div>
                     </div>
