@@ -101,10 +101,10 @@ export default function About() {
                         />
                         <a
                             // href="https://online.fliphtml5.com/egsqr/esog/"
-                            href='Brochure.pdf'
+                            href='Schedule.pdf'
                             rel="noreferrer noopener"
                         >
-                            View Brochure
+                            View Schedule
                         </a>
                     </span>
                 </div>
