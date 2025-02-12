@@ -30,7 +30,7 @@ const tickets = [
         description: [
             "Reserved seat",
             "Car parking slot",
-            "ScaleUp souvenir kit",
+            // "ScaleUp souvenir kit",
             "Family pass for culturals",
             "VIP Lunch",
         ],
