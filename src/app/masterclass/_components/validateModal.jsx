@@ -12,6 +12,7 @@ export default function ValidateModal({
     setIsRegistering,
     setShowRegistrationConfimration,
     onClose,
+    setTriggerParticipatedAPI,
 }) {
     const [emailOrPhone, setEmailOrPhone] = useState("");
     const [otp, setOtp] = useState("");
@@ -38,6 +39,10 @@ export default function ValidateModal({
         }
     }, [isOtpSent]);
 
+    useEffect(() => {
+        setOtp("");
+    }, [OTPError]);
+
     const handleSendOtp = () => {
         if (emailOrPhone) {
             generateOTP({
@@ -50,7 +55,7 @@ export default function ValidateModal({
     };
 
     const handleVerifyOtp = () => {
-        if (otp) {
+        if (otp && otp.length > 0) {
             login(
                 useEmail ? emailOrPhone : `${selectedCountryCode}${emailOrPhone}`,
                 otp.trim(),
@@ -60,7 +65,8 @@ export default function ValidateModal({
                 setIsRegistering,
                 setShowRegistrationConfimration,
                 setVerifyingOtp,
-                setOTPError
+                setOTPError,
+                setTriggerParticipatedAPI
             );
         } else {
             setOTPError(["OTP is required"]);

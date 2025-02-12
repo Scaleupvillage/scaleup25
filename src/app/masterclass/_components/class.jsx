@@ -41,6 +41,7 @@ export default function Class({
                     setIsRegistering={setIsRegistering}
                     setShowRegistrationConfimration={setShowRegistrationConfimration}
                     onClose={() => setShowVerifyModal(false)}
+                    setTriggerParticipatedAPI = {setTriggerParticipatedAPI}
                 />
             )}
 

@@ -11,7 +11,8 @@ export const login = async (
     setIsRegistering,
     setShowRegistrationConfimration,
     setVerifyingOtp,
-    setOTPError
+    setOTPError,
+    setTriggerParticipatedAPI
 ) => {
     setVerifyingOtp(true);
     axios
@@ -39,6 +40,7 @@ export const login = async (
                 setShowRegistrationConfimration,
                 setOTPError,
                 setVerifyingOtp,
+                setTriggerParticipatedAPI: setTriggerParticipatedAPI,
             });
             setAccessToken(response.data.response.access_token);
         })
@@ -120,7 +122,6 @@ export const submitForm = async ({
 
             setOTPError && setOTPError(error.response.data.message.general);
             setSubmitError && setSubmitError(error.response.data.message.general);
-            console.log("Bye");
         })
         .finally(() => {
             if (setIsRegistering) setIsRegistering(false);
@@ -141,8 +142,10 @@ export const getProfileInfo = async (accessToken) => {
             },
         })
         .then((response) => {
-            localStorage.setItem("userName", response.data.response.name);
-            localStorage.setItem("accessToken", accessToken);
+            if (response.data.response.name) {
+                localStorage.setItem("userName", response.data.response.name);
+                localStorage.setItem("accessToken", accessToken);
+            }
             return response.data;
         })
         .catch((error) => {
