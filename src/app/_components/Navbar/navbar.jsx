@@ -37,6 +37,9 @@ export default function Navbar() {
         if (type === "stalls") {
             setIsFormOpen(true);
             setSelectedTicket("Stalls");
+        } else if (type === "register") {
+            setIsFormOpen(true);
+            setSelectedTicket(null);
         }
 
         window.addEventListener("scroll", handleScroll);
@@ -93,10 +96,15 @@ export default function Navbar() {
                         <div className={styles.bar} />
                     </div>
 
-                    <Link href="/" aria-label="logo" className={styles.color} onClick={(e) => {
-                        e.preventDefault();
-                        handleNavigation("hero");
-                    }}>
+                    <Link
+                        href="/"
+                        aria-label="logo"
+                        className={styles.color}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            handleNavigation("hero");
+                        }}
+                    >
                         <Image
                             className={styles.logo}
                             src={white}
@@ -111,10 +119,14 @@ export default function Navbar() {
                         className={`${styles.links} ${isMobileMenuOpen ? styles.open : ""} 
                         ${isScrolled ? styles.scrolled : ""}`}
                     >
-                        <Link href="/" aria-label="logo" onClick={(e) => {
-                            e.preventDefault();
-                            handleNavigation("hero");
-                        }}>
+                        <Link
+                            href="/"
+                            aria-label="logo"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                handleNavigation("hero");
+                            }}
+                        >
                             <Image
                                 className={styles.logo_Mobile}
                                 src={white}
@@ -128,7 +140,9 @@ export default function Navbar() {
                         <div className={styles.linkBlocks}>
                             <Link
                                 href="#hero"
-                                className={`${styles.link} ${activeLink === "#hero" ? styles.active : ""}`}
+                                className={`${styles.link} ${
+                                    activeLink === "#hero" ? styles.active : ""
+                                }`}
                                 onClick={(e) => {
                                     e.preventDefault();
                                     handleNavigation("hero");
@@ -138,7 +152,9 @@ export default function Navbar() {
                             </Link>
                             <Link
                                 href="#speakers"
-                                className={`${styles.link} ${activeLink === "#speakers" ? styles.active : ""}`}
+                                className={`${styles.link} ${
+                                    activeLink === "#speakers" ? styles.active : ""
+                                }`}
                                 onClick={(e) => {
                                     e.preventDefault();
                                     handleNavigation("speakers");
@@ -148,7 +164,9 @@ export default function Navbar() {
                             </Link>
                             <Link
                                 href="#events"
-                                className={`${styles.link} ${activeLink === "#events" ? styles.active : ""}`}
+                                className={`${styles.link} ${
+                                    activeLink === "#events" ? styles.active : ""
+                                }`}
                                 onClick={(e) => {
                                     e.preventDefault();
                                     handleNavigation("events");
@@ -157,8 +175,18 @@ export default function Navbar() {
                                 Events
                             </Link>
                             <Link
+                                href="/masterclass"
+                                className={`${styles.link} ${
+                                    pathname === "/masterclass" ? styles.active : ""
+                                }`}
+                            >
+                                Masterclass
+                            </Link>
+                            <Link
                                 href="#contact"
-                                className={`${styles.link} ${activeLink === "#contact" ? styles.active : ""}`}
+                                className={`${styles.link} ${
+                                    activeLink === "#contact" ? styles.active : ""
+                                }`}
                                 onClick={(e) => {
                                     e.preventDefault();
                                     handleNavigation("contact");
@@ -166,12 +194,6 @@ export default function Navbar() {
                             >
                                 Contact Us
                             </Link>
-                            {/* <Link
-                                href="/masterclass"
-                                className={`${styles.link} ${pathname === "/masterclass" ? styles.active : ""}`}
-                            >
-                                Masterclass
-                            </Link> */}
                             <span>
                                 <Link
                                     href="https://2024.scaleupconclave.com/"

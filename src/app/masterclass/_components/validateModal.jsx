@@ -68,6 +68,7 @@ export default function ValidateModal({
     };
 
     const toggleInputType = () => {
+        setEmailError([]);
         setUseEmail(!useEmail);
         setEmailOrPhone("");
     };
@@ -101,7 +102,10 @@ export default function ValidateModal({
                                         onChange={(e) => setEmailOrPhone(e.target.value)}
                                     />
                                     {emailError.length > 0 && (
-                                        <p className={styles.emailError}>{emailError[0]}</p>
+                                        <p className={styles.emailError}>
+                                            It seems like you have not registered for ScaleUp
+                                            Conclave 2025. Kindly register to continue.
+                                        </p>
                                     )}
                                 </>
                             ) : (
@@ -132,9 +136,32 @@ export default function ValidateModal({
                                     )}
                                 </>
                             )}
-                            <button onClick={handleSendOtp}>
-                                {sendingOtp ? <BeatLoader color="#fff" size={8} /> : "Send OTP"}
-                            </button>
+                            {!emailError || emailError?.length == 0 ? (
+                                <button onClick={handleSendOtp}>
+                                    {sendingOtp ? <BeatLoader color="#fff" size={8} /> : "Send OTP"}
+                                </button>
+                            ) : (
+                                <a
+                                    href="http://scaleupconclave.com/?type=register"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    style={{
+                                        width: "100%",
+                                    }}
+                                >
+                                    <button
+                                        style={{
+                                            width: "100%",
+                                        }}
+                                    >
+                                        {sendingOtp ? (
+                                            <BeatLoader color="#fff" size={8} />
+                                        ) : (
+                                            "Register Now"
+                                        )}
+                                    </button>
+                                </a>
+                            )}
                             <button onClick={toggleInputType} className={styles.secondaryButton}>
                                 {useEmail ? "Use Phone Number" : "Use Email"}
                             </button>

@@ -89,6 +89,8 @@ export const submitForm = async ({
     setConfirmRegistration,
     setOTPError,
     setVerifyingOtp,
+    setSubmitError,
+    setTriggerParticipatedAPI,
 }) => {
     const backendFormData = new FormData();
     backendFormData.append("__tickets[]", data);
@@ -111,11 +113,13 @@ export const submitForm = async ({
             toast.success("Form submitted successfully. Please check your email for confirmation.");
             setShowRegistrationConfimration && setShowRegistrationConfimration(true);
             setConfirmRegistration && setConfirmRegistration(false);
+            setTriggerParticipatedAPI && setTriggerParticipatedAPI(true);
         })
         .catch((error) => {
             toast.error("Error submitting form. Please try again.");
 
-            setOTPError(error.response.data.message.general);
+            setOTPError && setOTPError(error.response.data.message.general);
+            setSubmitError && setSubmitError(error.response.data.message.general);
             console.log("Bye");
         })
         .finally(() => {
@@ -137,8 +141,8 @@ export const getProfileInfo = async (accessToken) => {
             },
         })
         .then((response) => {
-            sessionStorage.setItem("userName", response.data.response.name);
-            sessionStorage.setItem("accessToken", accessToken);
+            localStorage.setItem("userName", response.data.response.name);
+            localStorage.setItem("accessToken", accessToken);
             return response.data;
         })
         .catch((error) => {

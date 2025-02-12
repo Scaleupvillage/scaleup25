@@ -12,14 +12,25 @@ import { BeatLoader } from "react-spinners";
 import RegistrationConfirmationPopup from "./registrationConfirmationPopup";
 import ConfirmRegistrationPopup from "./confirmRegistrationPopup";
 
-export default function Class({ content }) {
+export default function Class({
+    content,
+    setTriggerName,
+    isRegistered,
+    approvalStatus,
+    setTriggerParticipatedAPI,
+}) {
     const [showVerifyModal, setShowVerifyModal] = useState(false);
     const [showRegistrationConfimration, setShowRegistrationConfimration] = useState(false);
     const [isRegistering, setIsRegistering] = useState(false);
     const [confirmRegistration, setConfirmRegistration] = useState(false);
 
+    const [submitError, setSubmitError] = useState("");
+
     useEffect(() => {
-        if (showRegistrationConfimration) setShowVerifyModal(false);
+        if (showRegistrationConfimration) {
+            setShowVerifyModal(false);
+            setTriggerName(false);
+        }
     }, [showRegistrationConfimration]);
 
     return (
@@ -43,7 +54,7 @@ export default function Class({ content }) {
                 <ConfirmRegistrationPopup
                     onClose={() => setConfirmRegistration(false)}
                     onConfirm={() => {
-                        const accessToken = sessionStorage.getItem("accessToken");
+                        const accessToken = localStorage.getItem("accessToken");
                         if (accessToken)
                             submitForm({
                                 link: content.mmp_submission_link,
@@ -52,9 +63,13 @@ export default function Class({ content }) {
                                 setIsRegistering,
                                 setShowRegistrationConfimration,
                                 setConfirmRegistration,
+                                setSubmitError,
+                                setTriggerName,
+                                setTriggerParticipatedAPI,
                             });
                     }}
                     isRegistering={isRegistering}
+                    submitError={submitError}
                 />
             )}
 
@@ -85,33 +100,46 @@ export default function Class({ content }) {
                                 <p>{content.event_time}</p>
                             </div>
                         </div>
-                        <p
-                            className={styles.registerButton}
-                            onClick={() => {
-                                const accessToken = sessionStorage.getItem("accessToken");
-                                if (!accessToken) setShowVerifyModal(true);
-                                else {
-                                    setConfirmRegistration(true);
-                                }
-                            }}
-                        >
-                            {isRegistering ? (
-                                <BeatLoader
-                                    color={"#7570fd"}
-                                    size={10}
-                                    style={{
-                                        marginBottom: "-8px",
-                                    }}
-                                />
-                            ) : (
-                                "Register"
+                        <div>
+                            <p
+                                className={`${styles.registerButton} ${
+                                    isRegistered ? styles.registeredButton : ""
+                                }`}
+                                onClick={() => {
+                                    if (isRegistered) return;
+
+                                    const accessToken = localStorage.getItem("accessToken");
+                                    if (!accessToken) setShowVerifyModal(true);
+                                    else {
+                                        setConfirmRegistration(true);
+                                    }
+                                }}
+                            >
+                                {isRegistering ? (
+                                    <BeatLoader
+                                        color={"#7570fd"}
+                                        size={10}
+                                        style={{
+                                            marginBottom: "-8px",
+                                        }}
+                                    />
+                                ) : isRegistered ? (
+                                    "Registered"
+                                ) : (
+                                    "Register"
+                                )}
+                            </p>
+                            {approvalStatus && (
+                                <p className={styles.approvalStatus}>
+                                    {approvalStatus ? "Approved" : "Pending Approval"}
+                                </p>
                             )}
-                        </p>
+                        </div>
                     </div>
 
                     <div className={styles.imageContainer}>
                         {content.image[0].length > 0 ? (
-                            <Image src={content.image[0]} alt="symbol" width={600} height={600} />
+                            <Image src={content.image[0]} alt="symbol" width={400} height={400} />
                         ) : (
                             <Image src={dummy} alt="symbol" width={400} height={400} />
                         )}
