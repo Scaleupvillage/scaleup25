@@ -131,7 +131,9 @@ export default function Class({
                                 )}
                             </p>
                             {approvalStatus && (
-                                <p className={styles.approvalStatus}>{approvalStatus}</p>
+                                <p className={styles.approvalStatus}>
+                                    Approval Status: {approvalStatus}
+                                </p>
                             )}
                         </div>
                     </div>
