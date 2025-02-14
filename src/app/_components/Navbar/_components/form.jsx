@@ -37,33 +37,33 @@ const tickets = [
         price: "₹10,000",
         gst: "",
     },
-    {
-        type: "Stalls",
-        image: stall,
-        description: [
-            "Air conditioned stalls",
-            "Available for 2 days",
-            "10,000 visitors",
-            "One VIP ticket",
-        ],
-        // realPrice: "₹85,000",
-        // price: "₹1,00,000",
-        price1: "₹61,000 - Premium Stall",
-        price2: "₹48,000 - Normal Stall",
-        gst: "",
-    },
-    {
-        type: "Product Demo + Stall",
-        image: stall,
-        description: [
-            "5 minutes presentation on main stage",
-            "Air conditioned stall for 2 days",
-            "Media coverage of presentation",
-        ],
-        realPrice: "₹2,50,000",
-        price: "₹3,50,000",
-        gst: "",
-    },
+    // {
+    //     type: "Stalls",
+    //     image: stall,
+    //     description: [
+    //         "Air conditioned stalls",
+    //         "Available for 2 days",
+    //         "10,000 visitors",
+    //         "One VIP ticket",
+    //     ],
+    //     // realPrice: "₹85,000",
+    //     // price: "₹1,00,000",
+    //     price1: "₹61,000 - Premium Stall",
+    //     price2: "₹48,000 - Normal Stall",
+    //     gst: "",
+    // },
+    // {
+    //     type: "Product Demo + Stall",
+    //     image: stall,
+    //     description: [
+    //         "5 minutes presentation on main stage",
+    //         "Air conditioned stall for 2 days",
+    //         "Media coverage of presentation",
+    //     ],
+    //     realPrice: "₹2,50,000",
+    //     price: "₹3,50,000",
+    //     gst: "",
+    // },
 ];
 
 export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
@@ -166,33 +166,26 @@ export default function Form({ onClose, selectedTicket, setSelectedTicket }) {
                                             <div>
                                                 <p>
                                                     <span>Price:</span>{" "}
-                                                    {
-                                                        ticket.realPrice ?
-                                                            <>
-                                                                <span className={styles.strikedPrice}>
-                                                                    {ticket.price}
-                                                                </span>
-                                                                <span className={styles.realPrice}>
-                                                                    {ticket.realPrice}
-                                                                </span>
-                                                            </> :
-                                                            <span>
+                                                    {ticket.realPrice ? (
+                                                        <>
+                                                            <span className={styles.strikedPrice}>
                                                                 {ticket.price}
                                                             </span>
-                                                    }
-                                                    {
-                                                        ticket.price1 &&
-                                                        <>
-                                                            <br />
-                                                            <span>
-                                                                {ticket.price1}
-                                                            </span>
-                                                            <br />
-                                                            <span>
-                                                                {ticket.price2}
+                                                            <span className={styles.realPrice}>
+                                                                {ticket.realPrice}
                                                             </span>
                                                         </>
-                                                    }
+                                                    ) : (
+                                                        <span>{ticket.price}</span>
+                                                    )}
+                                                    {ticket.price1 && (
+                                                        <>
+                                                            <br />
+                                                            <span>{ticket.price1}</span>
+                                                            <br />
+                                                            <span>{ticket.price2}</span>
+                                                        </>
+                                                    )}
                                                 </p>
                                                 {ticket.gst && <b>{ticket.gst}</b>}
                                             </div>
