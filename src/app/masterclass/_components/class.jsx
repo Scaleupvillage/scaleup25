@@ -102,37 +102,41 @@ export default function Class({
                             </div>
                         </div>
                         <div>
-                            <p
-                                className={`${styles.registerButton} ${
-                                    isRegistered ? styles.registeredButton : ""
-                                }`}
-                                onClick={() => {
-                                    if (isRegistered) return;
+                            {content.is_completed === "TRUE" ? (
+                                <p className={styles.completed}>Registration Completed</p>
+                            ) : (
+                                <p
+                                    className={`${styles.registerButton} ${
+                                        isRegistered ? styles.registeredButton : ""
+                                    }`}
+                                    onClick={() => {
+                                        if (isRegistered) return;
 
-                                    const accessToken = localStorage.getItem("accessToken");
-                                    if (!accessToken) setShowVerifyModal(true);
-                                    else {
-                                        setConfirmRegistration(true);
-                                    }
-                                }}
-                            >
-                                {isRegistering ? (
-                                    <BeatLoader
-                                        color={"#7570fd"}
-                                        size={10}
-                                        style={{
-                                            marginBottom: "-8px",
-                                        }}
-                                    />
-                                ) : isRegistered ? (
-                                    "Registered"
-                                ) : (
-                                    "Register"
-                                )}
-                            </p>
+                                        const accessToken = localStorage.getItem("accessToken");
+                                        if (!accessToken) setShowVerifyModal(true);
+                                        else {
+                                            setConfirmRegistration(true);
+                                        }
+                                    }}
+                                >
+                                    {isRegistering ? (
+                                        <BeatLoader
+                                            color={"#7570fd"}
+                                            size={10}
+                                            style={{
+                                                marginBottom: "-8px",
+                                            }}
+                                        />
+                                    ) : isRegistered ? (
+                                        "Registered"
+                                    ) : (
+                                        "Register"
+                                    )}
+                                </p>
+                            )}
                             {approvalStatus && (
                                 <p className={styles.approvalStatus}>
-                                    Approval Status: {approvalStatus}
+                                    Registration Status: {approvalStatus}
                                 </p>
                             )}
                         </div>
