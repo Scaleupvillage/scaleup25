@@ -309,7 +309,7 @@ const ScaleupForm = ({ selectedTicket }) => {
         "Startups",
         "Working Professionals",
         "Students",
-        "Bussiness Owners",
+        "Business Owners",
         "NRI / Gulf Retunees",
         "Government Officials",
         "Educators / Teachers",
