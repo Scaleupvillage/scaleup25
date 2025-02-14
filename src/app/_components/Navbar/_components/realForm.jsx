@@ -420,7 +420,12 @@ const ScaleupForm = ({ selectedTicket }) => {
                                 Phone Number<span>*</span>
                             </label>
                             <div style={{ display: "flex", gap: "5px" }}>
-                                <select defaultValue={"+91"}>
+                                <select
+                                    defaultValue={"+91"}
+                                    {...register("countryCode", {
+                                        required: "Country code is required",
+                                    })}
+                                >
                                     {phoneCountryCodes.map((countryCode) => (
                                         <option
                                             key={countryCode.code}
@@ -451,9 +456,13 @@ const ScaleupForm = ({ selectedTicket }) => {
 
                         {/* Email Field */}
                         <div>
+                            <label>
+                                Email<span>*</span>
+                            </label>
                             <input
                                 type="email"
                                 {...register("email", {
+                                    required: "Email is required",
                                     pattern: {
                                         value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
                                         message: "Invalid email address",
