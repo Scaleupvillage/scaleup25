@@ -24,6 +24,20 @@
     transition: all .3s ease-in-out;
 }
 
+.regClosed{
+    height: 3.5rem;
+    font-size: 1rem;
+    display: grid;
+    place-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    color: #fff;
+    background-color: #383838;
+    padding: .7rem 1.5rem;
+    border-radius: 5rem;
+    transition: all .3s ease-in-out;
+}
+
 .reg:hover {
     color: var(--violet);
     background-color: #fff;

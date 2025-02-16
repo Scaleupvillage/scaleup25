@@ -40,6 +40,9 @@ export default function Whatsapp() {
                 {/* <button onClick={handleButtonClick} className={styles.reg} aria-label="register">
                     Register Now
                 </button> */}
+                <button className={styles.regClosed} aria-label="register">
+                    Registration Closed
+                </button>
                 <Link href={whatsappLink} className={styles.whatsapp} aria-label="whatsapp">
                     <FaWhatsapp className={styles.icon} />
                 </Link>
