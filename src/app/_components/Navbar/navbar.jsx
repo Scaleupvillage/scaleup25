@@ -204,7 +204,7 @@ export default function Navbar() {
                                 >
                                     Previous Edition
                                 </Link>
-                                <a
+                                {/* <a
                                     href="#"
                                     className={styles.reg}
                                     onClick={() => {
@@ -213,8 +213,8 @@ export default function Navbar() {
                                     }}
                                 >
                                     Book Stalls
-                                </a>
-                                <a
+                                </a> */}
+                                {/* <a
                                     href="#"
                                     className={styles.reg}
                                     onClick={() => {
@@ -226,7 +226,7 @@ export default function Navbar() {
                                     }}
                                 >
                                     Register Now
-                                </a>
+                                </a> */}
                             </span>
                         </div>
                     </div>

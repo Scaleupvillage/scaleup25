@@ -60,7 +60,7 @@ export default function Pre() {
                                         <p className={styles.completedBadge}>Completed</p>
                                     )}
                                     <span>{event.date}</span>
-                                    {event.link && event.link.length > 0 && (
+                                    {/* {event.link && event.link.length > 0 && (
                                         <a
                                             href={event.link}
                                             target="_blank"
@@ -68,7 +68,7 @@ export default function Pre() {
                                         >
                                             Register Now
                                         </a>
-                                    )}
+                                    )} */}
                                 </div>
                             </div>
                         </div>

@@ -37,9 +37,9 @@ export default function Whatsapp() {
     return (
         <>
             <div className={styles.pop}>
-                <button onClick={handleButtonClick} className={styles.reg} aria-label="register">
+                {/* <button onClick={handleButtonClick} className={styles.reg} aria-label="register">
                     Register Now
-                </button>
+                </button> */}
                 <Link href={whatsappLink} className={styles.whatsapp} aria-label="whatsapp">
                     <FaWhatsapp className={styles.icon} />
                 </Link>
