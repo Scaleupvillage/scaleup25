@@ -84,20 +84,6 @@ export default function Navbar() {
     return (
         <>
             <nav className={styles.nav}>
-                <Marquee className={styles.banner}>
-                    <p>
-                        All registrations and check-ins for the event will close today, February
-                        16th, at 2:00 PM.
-                    </p>
-                    <p>
-                        All registrations and check-ins for the event will close today, February
-                        16th, at 2:00 PM.
-                    </p>
-                    <p>
-                        All registrations and check-ins for the event will close today, February
-                        16th, at 2:00 PM.
-                    </p>
-                </Marquee>
                 <div
                     className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""} 
                     ${isMobileMenuOpen ? styles.open : ""}`}
@@ -240,9 +226,9 @@ export default function Navbar() {
                                 >
                                     Register Now
                                 </a> */}
-                                <a href="#" className={styles.regClosed}>
+                                {/* <a href="#" className={styles.regClosed}>
                                     Registeration Closed
-                                </a>
+                                </a> */}
                             </span>
                         </div>
                     </div>
