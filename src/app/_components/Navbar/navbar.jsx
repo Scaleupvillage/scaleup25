@@ -84,6 +84,65 @@ export default function Navbar() {
     return (
         <>
             <nav className={styles.nav}>
+                <Marquee className={styles.banner}>
+                    <p>
+                        ScaleUp 2025 was a huge success! Explore our amazing photos{" "}
+                        <a
+                            href="https://www.instagram.com/scaleup_village/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Instagram
+                        </a>{" "}
+                        and videos on{" "}
+                        <a
+                            href="https://www.youtube.com/@ScaleUpConclave"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            YouTube
+                        </a>
+                        .
+                    </p>
+                    <p>
+                        ScaleUp 2025 was a huge success! Explore our amazing photos{" "}
+                        <a
+                            href="https://www.instagram.com/scaleup_village/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Instagram
+                        </a>{" "}
+                        and videos on{" "}
+                        <a
+                            href="https://www.youtube.com/@ScaleUpConclave"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            YouTube
+                        </a>
+                        .
+                    </p>
+                    <p>
+                        ScaleUp 2025 was a huge success! Explore our amazing photos{" "}
+                        <a
+                            href="https://www.instagram.com/scaleup_village/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Instagram
+                        </a>{" "}
+                        and videos on{" "}
+                        <a
+                            href="https://www.youtube.com/@ScaleUpConclave"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            YouTube
+                        </a>
+                        .
+                    </p>
+                </Marquee>
                 <div
                     className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""} 
                     ${isMobileMenuOpen ? styles.open : ""}`}

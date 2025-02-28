@@ -17,6 +17,13 @@
     padding: 0 0.75rem;
 }
 
+.banner a {
+    color: #fff;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 600;
+}
+
 .navbar {
     position: relative;
     width: 100%;
