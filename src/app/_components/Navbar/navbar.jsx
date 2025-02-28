@@ -96,7 +96,7 @@ export default function Navbar() {
                         </a>{" "}
                         and videos on{" "}
                         <a
-                            href="https://www.youtube.com/@ScaleUpConclave"
+                            href="https://www.youtube.com/@scaleup_village"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -115,7 +115,7 @@ export default function Navbar() {
                         </a>{" "}
                         and videos on{" "}
                         <a
-                            href="https://www.youtube.com/@ScaleUpConclave"
+                            href="https://www.youtube.com/@scaleup_village"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -134,7 +134,7 @@ export default function Navbar() {
                         </a>{" "}
                         and videos on{" "}
                         <a
-                            href="https://www.youtube.com/@ScaleUpConclave"
+                            href="https://www.youtube.com/@scaleup_village"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
